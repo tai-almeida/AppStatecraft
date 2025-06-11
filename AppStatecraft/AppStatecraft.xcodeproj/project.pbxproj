@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		A417CC9D2DF9CB7800564508 /* FreeWritingViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A417CC9C2DF9CB7800564508 /* FreeWritingViewModel.swift */; };
+		A417CC9F2DF9CB8700564508 /* Metodologia.swift in Sources */ = {isa = PBXBuildFile; fileRef = A417CC9E2DF9CB8700564508 /* Metodologia.swift */; };
 		EDF2654F2DF9A9F800898EBA /* AppStatecraftApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDF2654E2DF9A9F800898EBA /* AppStatecraftApp.swift */; };
 		EDF265512DF9A9F800898EBA /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDF265502DF9A9F800898EBA /* ContentView.swift */; };
 		EDF265532DF9A9FC00898EBA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EDF265522DF9A9FC00898EBA /* Assets.xcassets */; };
@@ -34,6 +36,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		A417CC9C2DF9CB7800564508 /* FreeWritingViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FreeWritingViewModel.swift; sourceTree = "<group>"; };
+		A417CC9E2DF9CB8700564508 /* Metodologia.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Metodologia.swift; sourceTree = "<group>"; };
 		EDF2654B2DF9A9F800898EBA /* AppStatecraft.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AppStatecraft.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		EDF2654E2DF9A9F800898EBA /* AppStatecraftApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppStatecraftApp.swift; sourceTree = "<group>"; };
 		EDF265502DF9A9F800898EBA /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -71,6 +75,30 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		A417CC9A2DF9CAE400564508 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				A417CC9E2DF9CB8700564508 /* Metodologia.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		A417CC9B2DF9CAFA00564508 /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+				A417CC9C2DF9CB7800564508 /* FreeWritingViewModel.swift */,
+			);
+			path = ViewModels;
+			sourceTree = "<group>";
+		};
+		A417CCA02DF9CB9100564508 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				EDF265502DF9A9F800898EBA /* ContentView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
 		EDF265422DF9A9F800898EBA = {
 			isa = PBXGroup;
 			children = (
@@ -95,7 +123,9 @@
 			isa = PBXGroup;
 			children = (
 				EDF2654E2DF9A9F800898EBA /* AppStatecraftApp.swift */,
-				EDF265502DF9A9F800898EBA /* ContentView.swift */,
+				A417CCA02DF9CB9100564508 /* Views */,
+				A417CC9B2DF9CAFA00564508 /* ViewModels */,
+				A417CC9A2DF9CAE400564508 /* Models */,
 				EDF265522DF9A9FC00898EBA /* Assets.xcassets */,
 				EDF265542DF9A9FC00898EBA /* Preview Content */,
 			);
@@ -257,7 +287,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A417CC9F2DF9CB8700564508 /* Metodologia.swift in Sources */,
 				EDF265512DF9A9F800898EBA /* ContentView.swift in Sources */,
+				A417CC9D2DF9CB7800564508 /* FreeWritingViewModel.swift in Sources */,
 				EDF2654F2DF9A9F800898EBA /* AppStatecraftApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

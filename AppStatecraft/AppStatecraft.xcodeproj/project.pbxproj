@@ -99,6 +99,54 @@
 			path = Views;
 			sourceTree = "<group>";
 		};
+		A4C37CDB2DFAFC3100DB3EE9 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				EDF265542DF9A9FC00898EBA /* Preview Content */,
+				EDF265522DF9A9FC00898EBA /* Assets.xcassets */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		A4C37CDC2DFAFC5700DB3EE9 /* Application */ = {
+			isa = PBXGroup;
+			children = (
+				EDF2654E2DF9A9F800898EBA /* AppStatecraftApp.swift */,
+			);
+			path = Application;
+			sourceTree = "<group>";
+		};
+		A4C37CE02DFB1A1300DB3EE9 /* Core */ = {
+			isa = PBXGroup;
+			children = (
+				A4C37CE32DFB1A7800DB3EE9 /* Utilities */,
+				A4C37CE22DFB1A5500DB3EE9 /* Networking */,
+				A4C37CE12DFB1A2600DB3EE9 /* Persistence */,
+			);
+			path = Core;
+			sourceTree = "<group>";
+		};
+		A4C37CE12DFB1A2600DB3EE9 /* Persistence */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Persistence;
+			sourceTree = "<group>";
+		};
+		A4C37CE22DFB1A5500DB3EE9 /* Networking */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Networking;
+			sourceTree = "<group>";
+		};
+		A4C37CE32DFB1A7800DB3EE9 /* Utilities */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Utilities;
+			sourceTree = "<group>";
+		};
 		EDF265422DF9A9F800898EBA = {
 			isa = PBXGroup;
 			children = (
@@ -122,12 +170,12 @@
 		EDF2654D2DF9A9F800898EBA /* AppStatecraft */ = {
 			isa = PBXGroup;
 			children = (
-				EDF2654E2DF9A9F800898EBA /* AppStatecraftApp.swift */,
+				A4C37CDC2DFAFC5700DB3EE9 /* Application */,
 				A417CCA02DF9CB9100564508 /* Views */,
 				A417CC9B2DF9CAFA00564508 /* ViewModels */,
 				A417CC9A2DF9CAE400564508 /* Models */,
-				EDF265522DF9A9FC00898EBA /* Assets.xcassets */,
-				EDF265542DF9A9FC00898EBA /* Preview Content */,
+				A4C37CE02DFB1A1300DB3EE9 /* Core */,
+				A4C37CDB2DFAFC3100DB3EE9 /* Resources */,
 			);
 			path = AppStatecraft;
 			sourceTree = "<group>";

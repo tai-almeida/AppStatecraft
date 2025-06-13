@@ -8,6 +8,6 @@
 import Foundation
 
 struct Desafio{
-    let prompt: String
+    let enunciado: String
     let conteudo: String
 }

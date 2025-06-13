@@ -8,7 +8,7 @@
 import Foundation
 import SwiftUI
 
-class DesafioMultimidia: Metologia{
+class DesafioMultimidia: Metodologia{
     let descricaoMultimidia: String
     let respostaUsuario: [String]
     let desafio: Desafio

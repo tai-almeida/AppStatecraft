@@ -8,7 +8,7 @@
 import Foundation
 import SwiftUI
 
-class Metologia{
+class Metodologia{
     
     let id: UUID
     let nome: String
@@ -27,3 +27,5 @@ class Metologia{
     }
     
 }
+
+var data =

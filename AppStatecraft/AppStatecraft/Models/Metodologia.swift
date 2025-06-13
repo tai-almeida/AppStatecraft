@@ -28,4 +28,3 @@ class Metodologia{
     
 }
 
-var data =

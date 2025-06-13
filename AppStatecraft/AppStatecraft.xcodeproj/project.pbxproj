@@ -13,6 +13,9 @@
 		ED82ED372DFC65E1006BE6D5 /* homem.jpg in Resources */ = {isa = PBXBuildFile; fileRef = ED82ED362DFC65E1006BE6D5 /* homem.jpg */; };
 		ED82ED3B2DFC6694006BE6D5 /* moca_arte.jpg in Resources */ = {isa = PBXBuildFile; fileRef = ED82ED3A2DFC6694006BE6D5 /* moca_arte.jpg */; };
 		ED82ED3D2DFC6745006BE6D5 /* viajante.jpg in Resources */ = {isa = PBXBuildFile; fileRef = ED82ED3C2DFC6745006BE6D5 /* viajante.jpg */; };
+		ED82ED3F2DFC6E05006BE6D5 /* DesafiosMultimidaViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED82ED3E2DFC6E05006BE6D5 /* DesafiosMultimidaViewModel.swift */; };
+		ED82ED432DFC6FC0006BE6D5 /* DesafiosUtilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED82ED422DFC6FC0006BE6D5 /* DesafiosUtilities.swift */; };
+		ED82ED452DFC6FD2006BE6D5 /* QuestaoDesafios.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED82ED442DFC6FD2006BE6D5 /* QuestaoDesafios.swift */; };
 		EDF2654F2DF9A9F800898EBA /* AppStatecraftApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDF2654E2DF9A9F800898EBA /* AppStatecraftApp.swift */; };
 		EDF265512DF9A9F800898EBA /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDF265502DF9A9F800898EBA /* ContentView.swift */; };
 		EDF265532DF9A9FC00898EBA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EDF265522DF9A9FC00898EBA /* Assets.xcassets */; };
@@ -46,6 +49,9 @@
 		ED82ED362DFC65E1006BE6D5 /* homem.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = homem.jpg; sourceTree = "<group>"; };
 		ED82ED3A2DFC6694006BE6D5 /* moca_arte.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = moca_arte.jpg; sourceTree = "<group>"; };
 		ED82ED3C2DFC6745006BE6D5 /* viajante.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = viajante.jpg; sourceTree = "<group>"; };
+		ED82ED3E2DFC6E05006BE6D5 /* DesafiosMultimidaViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DesafiosMultimidaViewModel.swift; sourceTree = "<group>"; };
+		ED82ED422DFC6FC0006BE6D5 /* DesafiosUtilities.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DesafiosUtilities.swift; sourceTree = "<group>"; };
+		ED82ED442DFC6FD2006BE6D5 /* QuestaoDesafios.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestaoDesafios.swift; sourceTree = "<group>"; };
 		EDF2654B2DF9A9F800898EBA /* AppStatecraft.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AppStatecraft.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		EDF2654E2DF9A9F800898EBA /* AppStatecraftApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppStatecraftApp.swift; sourceTree = "<group>"; };
 		EDF265502DF9A9F800898EBA /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -87,6 +93,7 @@
 			isa = PBXGroup;
 			children = (
 				A417CC9E2DF9CB8700564508 /* Metodologia.swift */,
+				ED82ED442DFC6FD2006BE6D5 /* QuestaoDesafios.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -95,6 +102,7 @@
 			isa = PBXGroup;
 			children = (
 				A417CC9C2DF9CB7800564508 /* FreeWritingViewModel.swift */,
+				ED82ED3E2DFC6E05006BE6D5 /* DesafiosMultimidaViewModel.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -137,6 +145,7 @@
 		ED82ED302DFC4C38006BE6D5 /* Utilities */ = {
 			isa = PBXGroup;
 			children = (
+				ED82ED422DFC6FC0006BE6D5 /* DesafiosUtilities.swift */,
 			);
 			path = Utilities;
 			sourceTree = "<group>";
@@ -360,8 +369,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				A417CC9F2DF9CB8700564508 /* Metodologia.swift in Sources */,
+				ED82ED3F2DFC6E05006BE6D5 /* DesafiosMultimidaViewModel.swift in Sources */,
 				EDF265512DF9A9F800898EBA /* ContentView.swift in Sources */,
 				A417CC9D2DF9CB7800564508 /* FreeWritingViewModel.swift in Sources */,
+				ED82ED452DFC6FD2006BE6D5 /* QuestaoDesafios.swift in Sources */,
+				ED82ED432DFC6FC0006BE6D5 /* DesafiosUtilities.swift in Sources */,
 				EDF2654F2DF9A9F800898EBA /* AppStatecraftApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

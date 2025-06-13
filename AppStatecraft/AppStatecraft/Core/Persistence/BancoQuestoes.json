@@ -1,0 +1,38 @@
+[
+    {
+        "id": 0,
+        "enunciado": "Escreva uma história sobre como esse homem na imagem chegou nessa situação:"
+        "conteudo": "homem.jpg"
+        "feita": false
+    },
+    {
+        "id": 1,
+        "enunciado": "Quem é essa moça? Escreva sobre ela, tudo o que você imaginar:"
+        "conteudo": "moca_arte.jpg"
+        "feita": false
+    },
+    {
+        "id": 2,
+        "enunciado": "Escreva uma história sobre a pessoa a quem esses itens pertencem:"
+        "conteudo": "viajante.jpg"
+        "feita": false
+    },
+    {
+        "id": 3,
+        "enunciado": "Faça um desenho a partir do poema a seguir:"
+        "conteudo": "\nComo um vento na floresta,\nMinha emoção não tem fim.\nNada sou, nada me resta.\nNão sei quem sou para mim.\n\nE como entre os arvoredos\nHá grandes sons de folhagem,\nTambém agito segredos\nNo fundo da minha imagem.\n\nE o grande ruído do vento\nQue as folhas cobrem de som\nDespe-me do pensamento:\nSou ninguém, temo ser bom.\n\nFernando Pessoa, em 'Poesias Inéditas'"
+        "feita": false
+    },
+    {
+        "id": 4,
+        "enunciado": "Escreva uma história sobre como esse homem na imagem chegou nessa situação:"
+        "conteudo": "\nSilêncio…\nÉ no silêncio que a alma canta\nMais forte que a garganta.\n\nCruz e Sousa, em 'O Silêncio'"
+        "feita": false
+    },
+    {
+        "id": 5,
+        "enunciado": "Faça um desenho a partir do trecho a seguir:"
+        "conteudo": "Não tive filhos, não transmiti a nenhuma criatura o legado da nossa miséria.\n\nMachado de Assim, em 'Memórias Póstumas de Brás Cubas"
+        "feita": false
+    }
+]

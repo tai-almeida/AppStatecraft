@@ -8,7 +8,20 @@
 import Foundation
 
 struct QuestaoDesafios: Codable, Identifiable {
+    
+    enum CodingKeys: CodingKey {
+        case id
+        case enunciado
+        case conteudo
+        case tipo
+        case feita
+    }
+    
     let id: Int
     let enunciado: String
+    let conteudo: String
+    let tipo: String
     let feita: Bool
+    
+    
 }

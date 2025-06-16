@@ -1,4 +1,47 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="19574" systemVersion="20G1427" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
-    <elements/>
+    <entity name="Projeto" representedClassName="Projeto" syncable="YES" codeGenerationType="class">
+        <attribute name="finalizado" optional="YES" attributeType="Boolean" usesScalarValueType="YES"/>
+        <attribute name="id" optional="YES" attributeType="UUID" usesScalarValueType="NO"/>
+        <attribute name="imagemCapa" optional="YES" attributeType="Binary"/>
+        <attribute name="nome" optional="YES" attributeType="String"/>
+        <relationship name="registros" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Registro" inverseName="projeto" inverseEntity="Registro"/>
+        <relationship name="sessoes" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Sessao" inverseName="projeto" inverseEntity="Sessao"/>
+    </entity>
+    <entity name="Registro" representedClassName="Registro" syncable="YES" codeGenerationType="class">
+        <attribute name="data" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
+        <attribute name="id" optional="YES" attributeType="UUID" usesScalarValueType="NO"/>
+        <attribute name="titulo" optional="YES" attributeType="String"/>
+        <relationship name="projeto" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Projeto" inverseName="registros" inverseEntity="Projeto"/>
+    </entity>
+    <entity name="Sessao" representedClassName="Sessao" isAbstract="YES" syncable="YES">
+        <attribute name="data" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
+        <attribute name="id" optional="YES" attributeType="UUID" usesScalarValueType="NO"/>
+        <relationship name="projeto" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Projeto" inverseName="sessoes" inverseEntity="Projeto"/>
+    </entity>
+    <entity name="SessaoDesafioMult" representedClassName="SessaoDesafioMult" parentEntity="Sessao" syncable="YES">
+        <attribute name="enunciado" optional="YES" attributeType="String"/>
+        <attribute name="mediaFoto" optional="YES" attributeType="Binary"/>
+        <attribute name="mediaTexto" optional="YES" attributeType="String"/>
+        <attribute name="respostaFoto" optional="YES"/>
+        <attribute name="respostaTexto" optional="YES"/>
+    </entity>
+    <entity name="SessaoFreeWriting" representedClassName="SessaoFreeWriting" parentEntity="Sessao" syncable="YES">
+        <attribute name="enunciado" optional="YES" attributeType="String"/>
+    </entity>
+    <entity name="SessaoMaieutica" representedClassName="SessaoMaieutica" parentEntity="Sessao" syncable="YES">
+        <attribute name="log" optional="YES" attributeType="Binary"/>
+    </entity>
+    <entity name="SessaoPingPong" representedClassName="SessaoPingPong" parentEntity="Sessao" syncable="YES">
+        <attribute name="log" optional="YES" attributeType="Binary"/>
+    </entity>
+    <elements>
+        <element name="SessaoDesafioMult" positionX="570.60693359375" positionY="-401.9487915039062" width="128" height="118"/>
+        <element name="SessaoFreeWriting" positionX="-60.2015380859375" positionY="-172.9950866699219" width="128" height="28"/>
+        <element name="SessaoMaieutica" positionX="540.9592895507812" positionY="209.9408569335938" width="128" height="58"/>
+        <element name="SessaoPingPong" positionX="-86.97119140625" positionY="230.7269897460938" width="128" height="28"/>
+        <element name="Projeto" positionX="15.00091552734375" positionY="386.1477661132812" width="128" height="133"/>
+        <element name="Registro" positionX="-706.0150146484375" positionY="-294.0579528808594" width="128" height="28"/>
+        <element name="Sessao" positionX="245.2551879882812" positionY="-84.21426391601562" width="128" height="28"/>
+    </elements>
 </model>

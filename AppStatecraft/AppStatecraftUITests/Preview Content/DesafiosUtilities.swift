@@ -16,7 +16,29 @@ class DesafiosUtilities: ObservableObject {
 
     
     init() {
+        copiaJson()
         carregaDesafios()
+    }
+    
+    func copiaJson() {
+        // manipulacao de arquivos
+        let gerenciaArquivo = FileManager.default
+        
+        // obtem caminho ate o arquivo json com as questoes
+        let url = gerenciaArquivo.urls(for: .documentDirectory, in: .userDomainMask)[0]
+        let caminho = url.appendingPathComponent("BancoQuestoes.json")
+        
+        
+        // copia arquivo json e verifica se ha erros
+        if !gerenciaArquivo.fileExists(atPath: caminho.path){
+            if let origem = Bundle.main.url(forResource: "BancoQuestoes", withExtension: "json") {
+                do {
+                    try gerenciaArquivo.copyItem(at: origem, to: caminho)
+                } catch {
+                    print("erro ao copiar arquivo")
+                }
+            }
+        }
     }
     
     func carregaDesafios() {
@@ -47,7 +69,18 @@ class DesafiosUtilities: ObservableObject {
         
     }
     
-    func decodeQuestao(_ file: String) {
-        // TODO: decodificar json para carregar em array
+    func atualizaJson() {
+        // atualiza o json apos manipular vetores com desafios completos e nao feitos pelo usuario
+        todosDesafios = desafiosFeitos + desafiosNaoFeitos
+        
+        do {
+            let data = try JSONEncoder().encode(todosDesafios)
+            let documentsDirectory = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first!
+            let fileURL = documentsDirectory.appendingPathComponent("BancoQuestoes.json")
+            try data.write(to: fileURL)
+        } catch {
+            print("Erro ao salvar JSON: \(error)")
+        }
     }
+    
 }

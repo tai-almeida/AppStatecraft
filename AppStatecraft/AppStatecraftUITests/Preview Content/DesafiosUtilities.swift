@@ -64,9 +64,6 @@ class DesafiosUtilities: ObservableObject {
         }catch {
             print("erro")
         }
-        
-        
-        
     }
     
     func atualizaJson() {

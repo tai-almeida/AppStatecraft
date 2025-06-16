@@ -6,5 +6,10 @@
 //
 
 import Foundation
+import SwiftUI
 
+class DesafiosMultimidiaViewModel: ObservableObject {
+    
+    //private var 
+}
 

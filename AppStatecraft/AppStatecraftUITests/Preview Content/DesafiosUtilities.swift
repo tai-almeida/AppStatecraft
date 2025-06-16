@@ -74,9 +74,12 @@ class DesafiosUtilities: ObservableObject {
         todosDesafios = desafiosFeitos + desafiosNaoFeitos
         
         do {
+            // codifica dados do vetor para o json e acessa o arquivo pelo caminho
             let data = try JSONEncoder().encode(todosDesafios)
             let documentsDirectory = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first!
             let fileURL = documentsDirectory.appendingPathComponent("BancoQuestoes.json")
+            
+            // escreve no arquivo
             try data.write(to: fileURL)
         } catch {
             print("Erro ao salvar JSON: \(error)")

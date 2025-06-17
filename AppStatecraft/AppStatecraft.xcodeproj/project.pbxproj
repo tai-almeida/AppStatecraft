@@ -30,6 +30,18 @@
 		EDF2654F2DF9A9F800898EBA /* AppStatecraftApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDF2654E2DF9A9F800898EBA /* AppStatecraftApp.swift */; };
 		EDF265512DF9A9F800898EBA /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDF265502DF9A9F800898EBA /* ContentView.swift */; };
 		EDF265532DF9A9FC00898EBA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EDF265522DF9A9FC00898EBA /* Assets.xcassets */; };
+		ED82ED342DFC4C70006BE6D5 /* BancoQuestoes.json in Resources */ = {isa = PBXBuildFile; fileRef = ED82ED332DFC4C70006BE6D5 /* BancoQuestoes.json */; };
+		ED82ED3F2DFC6E05006BE6D5 /* DesafiosMultimidaViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED82ED3E2DFC6E05006BE6D5 /* DesafiosMultimidaViewModel.swift */; };
+		ED82ED432DFC6FC0006BE6D5 /* DesafiosUtilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED82ED422DFC6FC0006BE6D5 /* DesafiosUtilities.swift */; };
+		ED82ED452DFC6FD2006BE6D5 /* QuestaoDesafios.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED82ED442DFC6FD2006BE6D5 /* QuestaoDesafios.swift */; };
+		ED8481942E003F2D007E5709 /* viajante.jpg in Resources */ = {isa = PBXBuildFile; fileRef = ED8481932E003F2D007E5709 /* viajante.jpg */; };
+		ED8481962E003F3A007E5709 /* moca_arte.jpg in Resources */ = {isa = PBXBuildFile; fileRef = ED8481952E003F3A007E5709 /* moca_arte.jpg */; };
+		ED8481982E003F6B007E5709 /* homem.jpg in Resources */ = {isa = PBXBuildFile; fileRef = ED8481972E003F6B007E5709 /* homem.jpg */; };
+		ED84819B2E004534007E5709 /* DesafioUtilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED84819A2E004534007E5709 /* DesafioUtilities.swift */; };
+		ED84819D2E0047CC007E5709 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = ED84819C2E0047CC007E5709 /* Assets.xcassets */; };
+		EDF2654F2DF9A9F800898EBA /* AppStatecraftApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDF2654E2DF9A9F800898EBA /* AppStatecraftApp.swift */; };
+		EDF265512DF9A9F800898EBA /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDF265502DF9A9F800898EBA /* ContentView.swift */; };
+		EDF265562DF9A9FC00898EBA /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EDF265552DF9A9FC00898EBA /* Preview Assets.xcassets */; };
 		EDF265602DF9A9FC00898EBA /* AppStatecraftTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDF2655F2DF9A9FC00898EBA /* AppStatecraftTests.swift */; };
 		EDF2656A2DF9A9FC00898EBA /* AppStatecraftUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDF265692DF9A9FC00898EBA /* AppStatecraftUITests.swift */; };
 		EDF2656C2DF9A9FC00898EBA /* AppStatecraftUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDF2656B2DF9A9FC00898EBA /* AppStatecraftUITestsLaunchTests.swift */; };
@@ -73,10 +85,18 @@
 		A4C37CE42DFB1B8C00DB3EE9 /* hexa.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = hexa.swift; sourceTree = "<group>"; };
 		A4C37CE62DFB1BAC00DB3EE9 /* teste */ = {isa = PBXFileReference; lastKnownFileType = text; path = teste; sourceTree = "<group>"; };
 		A4F74EAE2DFC581500BB1F30 /* DataController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataController.swift; sourceTree = "<group>"; };
+		ED82ED332DFC4C70006BE6D5 /* BancoQuestoes.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = BancoQuestoes.json; sourceTree = "<group>"; };
+		ED82ED3E2DFC6E05006BE6D5 /* DesafiosMultimidaViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DesafiosMultimidaViewModel.swift; sourceTree = "<group>"; };
+		ED82ED422DFC6FC0006BE6D5 /* DesafiosUtilities.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DesafiosUtilities.swift; sourceTree = "<group>"; };
+		ED82ED442DFC6FD2006BE6D5 /* QuestaoDesafios.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestaoDesafios.swift; sourceTree = "<group>"; };
+		ED8481932E003F2D007E5709 /* viajante.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = viajante.jpg; sourceTree = "<group>"; };
+		ED8481952E003F3A007E5709 /* moca_arte.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = moca_arte.jpg; sourceTree = "<group>"; };
+		ED8481972E003F6B007E5709 /* homem.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = homem.jpg; path = Images/homem.jpg; sourceTree = "<group>"; };
+		ED84819A2E004534007E5709 /* DesafioUtilities.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DesafioUtilities.swift; sourceTree = "<group>"; };
+		ED84819C2E0047CC007E5709 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		EDF2654B2DF9A9F800898EBA /* AppStatecraft.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AppStatecraft.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		EDF2654E2DF9A9F800898EBA /* AppStatecraftApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppStatecraftApp.swift; sourceTree = "<group>"; };
 		EDF265502DF9A9F800898EBA /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
-		EDF265522DF9A9FC00898EBA /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		EDF265552DF9A9FC00898EBA /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		EDF2655B2DF9A9FC00898EBA /* AppStatecraftTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AppStatecraftTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		EDF2655F2DF9A9FC00898EBA /* AppStatecraftTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppStatecraftTests.swift; sourceTree = "<group>"; };
@@ -113,7 +133,7 @@
 		A417CC9A2DF9CAE400564508 /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				A417CC9E2DF9CB8700564508 /* Metodologia.swift */,
+				ED82ED442DFC6FD2006BE6D5 /* QuestaoDesafios.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -122,6 +142,7 @@
 			isa = PBXGroup;
 			children = (
 				A417CC9C2DF9CB7800564508 /* FreeWritingViewModel.swift */,
+				ED82ED3E2DFC6E05006BE6D5 /* DesafiosMultimidaViewModel.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -165,8 +186,8 @@
 		A4C37CDB2DFAFC3100DB3EE9 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				ED84819C2E0047CC007E5709 /* Assets.xcassets */,
 				EDF265542DF9A9FC00898EBA /* Preview Content */,
-				EDF265522DF9A9FC00898EBA /* Assets.xcassets */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -179,41 +200,62 @@
 			path = Application;
 			sourceTree = "<group>";
 		};
-		A4C37CE02DFB1A1300DB3EE9 /* Core */ = {
+		ED82ED2F2DFC4C2F006BE6D5 /* Core */ = {
 			isa = PBXGroup;
 			children = (
-				A4C37CE32DFB1A7800DB3EE9 /* Utilities */,
-				A4C37CE22DFB1A5500DB3EE9 /* Networking */,
-				A4C37CE12DFB1A2600DB3EE9 /* Persistence */,
+				ED82ED322DFC4C4C006BE6D5 /* Persistence */,
+				ED82ED312DFC4C43006BE6D5 /* Network */,
+				ED82ED302DFC4C38006BE6D5 /* Utilities */,
 			);
 			path = Core;
 			sourceTree = "<group>";
 		};
-		A4C37CE12DFB1A2600DB3EE9 /* Persistence */ = {
+		ED82ED302DFC4C38006BE6D5 /* Utilities */ = {
 			isa = PBXGroup;
 			children = (
 				A47175AD2E01929000AC6B12 /* Classes */,
 				A47175AC2E01925D00AC6B12 /* Properties */,
 				A42359D52E006B19005DC031 /* AppStatecraft.xcdatamodeld */,
 				A4F74EAE2DFC581500BB1F30 /* DataController.swift */,
+				ED84819A2E004534007E5709 /* DesafioUtilities.swift */,
+			);
+			path = Utilities;
+			sourceTree = "<group>";
+		};
+		ED82ED312DFC4C43006BE6D5 /* Network */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Network;
+			sourceTree = "<group>";
+		};
+		ED82ED322DFC4C4C006BE6D5 /* Persistence */ = {
+			isa = PBXGroup;
+			children = (
+				ED82ED352DFC59F0006BE6D5 /* Images */,
+				ED82ED332DFC4C70006BE6D5 /* BancoQuestoes.json */,
 			);
 			path = Persistence;
 			sourceTree = "<group>";
 		};
-		A4C37CE22DFB1A5500DB3EE9 /* Networking */ = {
+		ED82ED352DFC59F0006BE6D5 /* Images */ = {
 			isa = PBXGroup;
 			children = (
 				A4C37CE62DFB1BAC00DB3EE9 /* teste */,
+				ED8481952E003F3A007E5709 /* moca_arte.jpg */,
+				ED8481972E003F6B007E5709 /* homem.jpg */,
+				ED8481932E003F2D007E5709 /* viajante.jpg */,
 			);
-			path = Networking;
+			name = Images;
 			sourceTree = "<group>";
 		};
-		A4C37CE32DFB1A7800DB3EE9 /* Utilities */ = {
+		ED8481992E0044DF007E5709 /* Preview Content */ = {
 			isa = PBXGroup;
 			children = (
 				A4C37CE42DFB1B8C00DB3EE9 /* hexa.swift */,
+				ED82ED422DFC6FC0006BE6D5 /* DesafiosUtilities.swift */,
 			);
-			path = Utilities;
+			path = "Preview Content";
 			sourceTree = "<group>";
 		};
 		EDF265422DF9A9F800898EBA = {
@@ -239,11 +281,11 @@
 		EDF2654D2DF9A9F800898EBA /* AppStatecraft */ = {
 			isa = PBXGroup;
 			children = (
+				ED82ED2F2DFC4C2F006BE6D5 /* Core */,
 				A4C37CDC2DFAFC5700DB3EE9 /* Application */,
 				A417CCA02DF9CB9100564508 /* Views */,
 				A417CC9B2DF9CAFA00564508 /* ViewModels */,
 				A417CC9A2DF9CAE400564508 /* Models */,
-				A4C37CE02DFB1A1300DB3EE9 /* Core */,
 				A4C37CDB2DFAFC3100DB3EE9 /* Resources */,
 			);
 			path = AppStatecraft;
@@ -268,6 +310,7 @@
 		EDF265682DF9A9FC00898EBA /* AppStatecraftUITests */ = {
 			isa = PBXGroup;
 			children = (
+				ED8481992E0044DF007E5709 /* Preview Content */,
 				EDF265692DF9A9FC00898EBA /* AppStatecraftUITests.swift */,
 				EDF2656B2DF9A9FC00898EBA /* AppStatecraftUITestsLaunchTests.swift */,
 			);
@@ -380,6 +423,12 @@
 			files = (
 				A4C37CE72DFB1BAC00DB3EE9 /* teste in Resources */,
 				EDF265532DF9A9FC00898EBA /* Assets.xcassets in Resources */,
+				EDF265562DF9A9FC00898EBA /* Preview Assets.xcassets in Resources */,
+				ED8481942E003F2D007E5709 /* viajante.jpg in Resources */,
+				ED8481962E003F3A007E5709 /* moca_arte.jpg in Resources */,
+				ED84819D2E0047CC007E5709 /* Assets.xcassets in Resources */,
+				ED8481982E003F6B007E5709 /* homem.jpg in Resources */,
+				ED82ED342DFC4C70006BE6D5 /* BancoQuestoes.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -410,6 +459,7 @@
 				A47175A12E018F9D00AC6B12 /* SessaoDesafioMult+CoreDataProperties.swift in Sources */,
 				A4C37CE52DFB1B8C00DB3EE9 /* hexa.swift in Sources */,
 				A47175A02E018F9D00AC6B12 /* SessaoDesafioMult+CoreDataClass.swift in Sources */,
+				ED82ED3F2DFC6E05006BE6D5 /* DesafiosMultimidaViewModel.swift in Sources */,
 				EDF265512DF9A9F800898EBA /* ContentView.swift in Sources */,
 				A47175A52E018F9D00AC6B12 /* Registro+CoreDataProperties.swift in Sources */,
 				A47175A42E018F9D00AC6B12 /* Registro+CoreDataClass.swift in Sources */,
@@ -418,6 +468,9 @@
 				A47175A72E018F9D00AC6B12 /* Projeto+CoreDataProperties.swift in Sources */,
 				A417CC9D2DF9CB7800564508 /* FreeWritingViewModel.swift in Sources */,
 				A471759E2E018F9D00AC6B12 /* SessaoPingPong+CoreDataClass.swift in Sources */,
+				ED84819B2E004534007E5709 /* DesafioUtilities.swift in Sources */,
+				ED82ED452DFC6FD2006BE6D5 /* QuestaoDesafios.swift in Sources */,
+				ED82ED432DFC6FC0006BE6D5 /* DesafiosUtilities.swift in Sources */,
 				EDF2654F2DF9A9F800898EBA /* AppStatecraftApp.swift in Sources */,
 				A42359D72E006B19005DC031 /* AppStatecraft.xcdatamodeld in Sources */,
 				A47175A62E018F9D00AC6B12 /* Projeto+CoreDataClass.swift in Sources */,
@@ -585,6 +638,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "";
+				DEVELOPMENT_ASSET_PATHS = "\"AppStatecraft/Resources/Preview Content\"";
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;

@@ -8,14 +8,33 @@
 import SwiftUI
 
 struct ContentView: View {
+    @StateObject private var desafiosManager = DesafiosUtilities()
+    
     var body: some View {
-        Text("Hello, world!")
-            .padding()
-    }
-}
-
-struct ContentView_Previews: PreviewProvider {
-    static var previews: some View {
-        ContentView()
+        VStack {
+            Text("Completed Questions (\(desafiosManager.desafiosFeitos.count))")
+            List(desafiosManager.desafiosFeitos) { desafio in
+                Text(desafio.enunciado)
+                if desafio.tipo == "imagem" {
+                    Image(desafio.conteudo)
+                } else {
+                    Text(desafio.conteudo)
+                }
+                
+            }
+            
+            Text("Pending Questions (\(desafiosManager.desafiosNaoFeitos.count))")
+            List(desafiosManager.desafiosNaoFeitos) { desafio in
+                Text(desafio.enunciado)
+                if desafio.tipo == "imagem" {
+                    Image(desafio.conteudo)
+                        .resizable()
+                        .scaledToFit()
+                        
+                } else {
+                    Text(desafio.conteudo)
+                }
+            }
+        }
     }
 }

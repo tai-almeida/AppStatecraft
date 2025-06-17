@@ -17,11 +17,11 @@ struct QuestaoDesafios: Codable, Identifiable {
         case feita
     }
     
-    let id: Int
+    var id: Int
     let enunciado: String
     let conteudo: String
     let tipo: String
-    let feita: Bool
+    var feita: Bool
     
     
 }

@@ -9,27 +9,10 @@
 /* Begin PBXBuildFile section */
 		A417CC9D2DF9CB7800564508 /* FreeWritingViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A417CC9C2DF9CB7800564508 /* FreeWritingViewModel.swift */; };
 		A417CC9F2DF9CB8700564508 /* Metodologia.swift in Sources */ = {isa = PBXBuildFile; fileRef = A417CC9E2DF9CB8700564508 /* Metodologia.swift */; };
-		A42359D72E006B19005DC031 /* AppStatecraft.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = A42359D52E006B19005DC031 /* AppStatecraft.xcdatamodeld */; };
-		A471759E2E018F9D00AC6B12 /* SessaoPingPong+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = A47175902E018F9D00AC6B12 /* SessaoPingPong+CoreDataClass.swift */; };
-		A471759F2E018F9D00AC6B12 /* SessaoPingPong+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = A47175912E018F9D00AC6B12 /* SessaoPingPong+CoreDataProperties.swift */; };
-		A47175A02E018F9D00AC6B12 /* SessaoDesafioMult+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = A47175922E018F9D00AC6B12 /* SessaoDesafioMult+CoreDataClass.swift */; };
-		A47175A12E018F9D00AC6B12 /* SessaoDesafioMult+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = A47175932E018F9D00AC6B12 /* SessaoDesafioMult+CoreDataProperties.swift */; };
-		A47175A22E018F9D00AC6B12 /* Sessao+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = A47175942E018F9D00AC6B12 /* Sessao+CoreDataClass.swift */; };
-		A47175A32E018F9D00AC6B12 /* Sessao+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = A47175952E018F9D00AC6B12 /* Sessao+CoreDataProperties.swift */; };
-		A47175A42E018F9D00AC6B12 /* Registro+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = A47175962E018F9D00AC6B12 /* Registro+CoreDataClass.swift */; };
-		A47175A52E018F9D00AC6B12 /* Registro+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = A47175972E018F9D00AC6B12 /* Registro+CoreDataProperties.swift */; };
-		A47175A62E018F9D00AC6B12 /* Projeto+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = A47175982E018F9D00AC6B12 /* Projeto+CoreDataClass.swift */; };
-		A47175A72E018F9D00AC6B12 /* Projeto+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = A47175992E018F9D00AC6B12 /* Projeto+CoreDataProperties.swift */; };
-		A47175A82E018F9D00AC6B12 /* SessaoFreeWriting+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = A471759A2E018F9D00AC6B12 /* SessaoFreeWriting+CoreDataClass.swift */; };
-		A47175A92E018F9D00AC6B12 /* SessaoFreeWriting+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = A471759B2E018F9D00AC6B12 /* SessaoFreeWriting+CoreDataProperties.swift */; };
-		A47175AA2E018F9D00AC6B12 /* SessaoMaieutica+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = A471759C2E018F9D00AC6B12 /* SessaoMaieutica+CoreDataClass.swift */; };
-		A47175AB2E018F9D00AC6B12 /* SessaoMaieutica+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = A471759D2E018F9D00AC6B12 /* SessaoMaieutica+CoreDataProperties.swift */; };
-		A4C37CE52DFB1B8C00DB3EE9 /* hexa.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4C37CE42DFB1B8C00DB3EE9 /* hexa.swift */; };
-		A4C37CE72DFB1BAC00DB3EE9 /* teste in Resources */ = {isa = PBXBuildFile; fileRef = A4C37CE62DFB1BAC00DB3EE9 /* teste */; };
-		A4F74EAF2DFC581500BB1F30 /* DataController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4F74EAE2DFC581500BB1F30 /* DataController.swift */; };
 		EDF2654F2DF9A9F800898EBA /* AppStatecraftApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDF2654E2DF9A9F800898EBA /* AppStatecraftApp.swift */; };
 		EDF265512DF9A9F800898EBA /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDF265502DF9A9F800898EBA /* ContentView.swift */; };
 		EDF265532DF9A9FC00898EBA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EDF265522DF9A9FC00898EBA /* Assets.xcassets */; };
+		EDF265562DF9A9FC00898EBA /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EDF265552DF9A9FC00898EBA /* Preview Assets.xcassets */; };
 		EDF265602DF9A9FC00898EBA /* AppStatecraftTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDF2655F2DF9A9FC00898EBA /* AppStatecraftTests.swift */; };
 		EDF2656A2DF9A9FC00898EBA /* AppStatecraftUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDF265692DF9A9FC00898EBA /* AppStatecraftUITests.swift */; };
 		EDF2656C2DF9A9FC00898EBA /* AppStatecraftUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDF2656B2DF9A9FC00898EBA /* AppStatecraftUITestsLaunchTests.swift */; };
@@ -55,24 +38,6 @@
 /* Begin PBXFileReference section */
 		A417CC9C2DF9CB7800564508 /* FreeWritingViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FreeWritingViewModel.swift; sourceTree = "<group>"; };
 		A417CC9E2DF9CB8700564508 /* Metodologia.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Metodologia.swift; sourceTree = "<group>"; };
-		A42359D62E006B19005DC031 /* AppStatecraft.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = AppStatecraft.xcdatamodel; sourceTree = "<group>"; };
-		A47175902E018F9D00AC6B12 /* SessaoPingPong+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SessaoPingPong+CoreDataClass.swift"; sourceTree = "<group>"; };
-		A47175912E018F9D00AC6B12 /* SessaoPingPong+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SessaoPingPong+CoreDataProperties.swift"; sourceTree = "<group>"; };
-		A47175922E018F9D00AC6B12 /* SessaoDesafioMult+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SessaoDesafioMult+CoreDataClass.swift"; sourceTree = "<group>"; };
-		A47175932E018F9D00AC6B12 /* SessaoDesafioMult+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SessaoDesafioMult+CoreDataProperties.swift"; sourceTree = "<group>"; };
-		A47175942E018F9D00AC6B12 /* Sessao+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Sessao+CoreDataClass.swift"; sourceTree = "<group>"; };
-		A47175952E018F9D00AC6B12 /* Sessao+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Sessao+CoreDataProperties.swift"; sourceTree = "<group>"; };
-		A47175962E018F9D00AC6B12 /* Registro+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Registro+CoreDataClass.swift"; sourceTree = "<group>"; };
-		A47175972E018F9D00AC6B12 /* Registro+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Registro+CoreDataProperties.swift"; sourceTree = "<group>"; };
-		A47175982E018F9D00AC6B12 /* Projeto+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Projeto+CoreDataClass.swift"; sourceTree = "<group>"; };
-		A47175992E018F9D00AC6B12 /* Projeto+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Projeto+CoreDataProperties.swift"; sourceTree = "<group>"; };
-		A471759A2E018F9D00AC6B12 /* SessaoFreeWriting+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SessaoFreeWriting+CoreDataClass.swift"; sourceTree = "<group>"; };
-		A471759B2E018F9D00AC6B12 /* SessaoFreeWriting+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SessaoFreeWriting+CoreDataProperties.swift"; sourceTree = "<group>"; };
-		A471759C2E018F9D00AC6B12 /* SessaoMaieutica+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SessaoMaieutica+CoreDataClass.swift"; sourceTree = "<group>"; };
-		A471759D2E018F9D00AC6B12 /* SessaoMaieutica+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SessaoMaieutica+CoreDataProperties.swift"; sourceTree = "<group>"; };
-		A4C37CE42DFB1B8C00DB3EE9 /* hexa.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = hexa.swift; sourceTree = "<group>"; };
-		A4C37CE62DFB1BAC00DB3EE9 /* teste */ = {isa = PBXFileReference; lastKnownFileType = text; path = teste; sourceTree = "<group>"; };
-		A4F74EAE2DFC581500BB1F30 /* DataController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataController.swift; sourceTree = "<group>"; };
 		EDF2654B2DF9A9F800898EBA /* AppStatecraft.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AppStatecraft.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		EDF2654E2DF9A9F800898EBA /* AppStatecraftApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppStatecraftApp.swift; sourceTree = "<group>"; };
 		EDF265502DF9A9F800898EBA /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -134,34 +99,6 @@
 			path = Views;
 			sourceTree = "<group>";
 		};
-		A47175AC2E01925D00AC6B12 /* Properties */ = {
-			isa = PBXGroup;
-			children = (
-				A47175912E018F9D00AC6B12 /* SessaoPingPong+CoreDataProperties.swift */,
-				A47175932E018F9D00AC6B12 /* SessaoDesafioMult+CoreDataProperties.swift */,
-				A47175972E018F9D00AC6B12 /* Registro+CoreDataProperties.swift */,
-				A47175992E018F9D00AC6B12 /* Projeto+CoreDataProperties.swift */,
-				A471759B2E018F9D00AC6B12 /* SessaoFreeWriting+CoreDataProperties.swift */,
-				A471759D2E018F9D00AC6B12 /* SessaoMaieutica+CoreDataProperties.swift */,
-				A47175952E018F9D00AC6B12 /* Sessao+CoreDataProperties.swift */,
-			);
-			path = Properties;
-			sourceTree = "<group>";
-		};
-		A47175AD2E01929000AC6B12 /* Classes */ = {
-			isa = PBXGroup;
-			children = (
-				A47175902E018F9D00AC6B12 /* SessaoPingPong+CoreDataClass.swift */,
-				A47175982E018F9D00AC6B12 /* Projeto+CoreDataClass.swift */,
-				A47175922E018F9D00AC6B12 /* SessaoDesafioMult+CoreDataClass.swift */,
-				A471759A2E018F9D00AC6B12 /* SessaoFreeWriting+CoreDataClass.swift */,
-				A47175942E018F9D00AC6B12 /* Sessao+CoreDataClass.swift */,
-				A471759C2E018F9D00AC6B12 /* SessaoMaieutica+CoreDataClass.swift */,
-				A47175962E018F9D00AC6B12 /* Registro+CoreDataClass.swift */,
-			);
-			path = Classes;
-			sourceTree = "<group>";
-		};
 		A4C37CDB2DFAFC3100DB3EE9 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
@@ -192,10 +129,6 @@
 		A4C37CE12DFB1A2600DB3EE9 /* Persistence */ = {
 			isa = PBXGroup;
 			children = (
-				A47175AD2E01929000AC6B12 /* Classes */,
-				A47175AC2E01925D00AC6B12 /* Properties */,
-				A42359D52E006B19005DC031 /* AppStatecraft.xcdatamodeld */,
-				A4F74EAE2DFC581500BB1F30 /* DataController.swift */,
 			);
 			path = Persistence;
 			sourceTree = "<group>";
@@ -203,7 +136,6 @@
 		A4C37CE22DFB1A5500DB3EE9 /* Networking */ = {
 			isa = PBXGroup;
 			children = (
-				A4C37CE62DFB1BAC00DB3EE9 /* teste */,
 			);
 			path = Networking;
 			sourceTree = "<group>";
@@ -211,7 +143,6 @@
 		A4C37CE32DFB1A7800DB3EE9 /* Utilities */ = {
 			isa = PBXGroup;
 			children = (
-				A4C37CE42DFB1B8C00DB3EE9 /* hexa.swift */,
 			);
 			path = Utilities;
 			sourceTree = "<group>";
@@ -378,7 +309,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A4C37CE72DFB1BAC00DB3EE9 /* teste in Resources */,
+				EDF265562DF9A9FC00898EBA /* Preview Assets.xcassets in Resources */,
 				EDF265532DF9A9FC00898EBA /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -404,27 +335,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A47175A82E018F9D00AC6B12 /* SessaoFreeWriting+CoreDataClass.swift in Sources */,
-				A471759F2E018F9D00AC6B12 /* SessaoPingPong+CoreDataProperties.swift in Sources */,
 				A417CC9F2DF9CB8700564508 /* Metodologia.swift in Sources */,
-				A47175A12E018F9D00AC6B12 /* SessaoDesafioMult+CoreDataProperties.swift in Sources */,
-				A4C37CE52DFB1B8C00DB3EE9 /* hexa.swift in Sources */,
-				A47175A02E018F9D00AC6B12 /* SessaoDesafioMult+CoreDataClass.swift in Sources */,
 				EDF265512DF9A9F800898EBA /* ContentView.swift in Sources */,
-				A47175A52E018F9D00AC6B12 /* Registro+CoreDataProperties.swift in Sources */,
-				A47175A42E018F9D00AC6B12 /* Registro+CoreDataClass.swift in Sources */,
-				A4F74EAF2DFC581500BB1F30 /* DataController.swift in Sources */,
-				A47175AA2E018F9D00AC6B12 /* SessaoMaieutica+CoreDataClass.swift in Sources */,
-				A47175A72E018F9D00AC6B12 /* Projeto+CoreDataProperties.swift in Sources */,
 				A417CC9D2DF9CB7800564508 /* FreeWritingViewModel.swift in Sources */,
-				A471759E2E018F9D00AC6B12 /* SessaoPingPong+CoreDataClass.swift in Sources */,
 				EDF2654F2DF9A9F800898EBA /* AppStatecraftApp.swift in Sources */,
-				A42359D72E006B19005DC031 /* AppStatecraft.xcdatamodeld in Sources */,
-				A47175A62E018F9D00AC6B12 /* Projeto+CoreDataClass.swift in Sources */,
-				A47175A32E018F9D00AC6B12 /* Sessao+CoreDataProperties.swift in Sources */,
-				A47175A22E018F9D00AC6B12 /* Sessao+CoreDataClass.swift in Sources */,
-				A47175A92E018F9D00AC6B12 /* SessaoFreeWriting+CoreDataProperties.swift in Sources */,
-				A47175AB2E018F9D00AC6B12 /* SessaoMaieutica+CoreDataProperties.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -584,7 +498,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_ASSET_PATHS = "";
+				DEVELOPMENT_ASSET_PATHS = "\"AppStatecraft/Preview Content\"";
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
@@ -612,7 +526,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_ASSET_PATHS = "";
+				DEVELOPMENT_ASSET_PATHS = "\"AppStatecraft/Preview Content\"";
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
@@ -745,19 +659,6 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
-
-/* Begin XCVersionGroup section */
-		A42359D52E006B19005DC031 /* AppStatecraft.xcdatamodeld */ = {
-			isa = XCVersionGroup;
-			children = (
-				A42359D62E006B19005DC031 /* AppStatecraft.xcdatamodel */,
-			);
-			currentVersion = A42359D62E006B19005DC031 /* AppStatecraft.xcdatamodel */;
-			path = AppStatecraft.xcdatamodeld;
-			sourceTree = "<group>";
-			versionGroupType = wrapper.xcdatamodel;
-		};
-/* End XCVersionGroup section */
 	};
 	rootObject = EDF265432DF9A9F800898EBA /* Project object */;
 }

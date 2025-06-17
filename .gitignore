@@ -10,6 +10,11 @@
 xcuserdata/
 */xcuserdata/*
 
+## Other
+*.xccheckout
+*.xcscheme
+*.xcuserstate
+
 #DS_Store
 **/*.DS_Store
 

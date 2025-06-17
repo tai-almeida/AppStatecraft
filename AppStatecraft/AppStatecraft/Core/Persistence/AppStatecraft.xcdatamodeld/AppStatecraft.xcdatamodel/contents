@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="19574" systemVersion="20G1427" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
-    <entity name="Projeto" representedClassName="Projeto" syncable="YES" codeGenerationType="class">
+    <entity name="Projeto" representedClassName="Projeto" syncable="YES">
         <attribute name="finalizado" optional="YES" attributeType="Boolean" usesScalarValueType="YES"/>
         <attribute name="id" optional="YES" attributeType="UUID" usesScalarValueType="NO"/>
         <attribute name="imagemCapa" optional="YES" attributeType="Binary"/>
@@ -8,7 +8,7 @@
         <relationship name="registros" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Registro" inverseName="projeto" inverseEntity="Registro"/>
         <relationship name="sessoes" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Sessao" inverseName="projeto" inverseEntity="Sessao"/>
     </entity>
-    <entity name="Registro" representedClassName="Registro" syncable="YES" codeGenerationType="class">
+    <entity name="Registro" representedClassName="Registro" syncable="YES">
         <attribute name="data" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
         <attribute name="id" optional="YES" attributeType="UUID" usesScalarValueType="NO"/>
         <attribute name="titulo" optional="YES" attributeType="String"/>
@@ -23,8 +23,8 @@
         <attribute name="enunciado" optional="YES" attributeType="String"/>
         <attribute name="mediaFoto" optional="YES" attributeType="Binary"/>
         <attribute name="mediaTexto" optional="YES" attributeType="String"/>
-        <attribute name="respostaFoto" optional="YES"/>
-        <attribute name="respostaTexto" optional="YES"/>
+        <attribute name="respostaFoto" optional="YES" attributeType="Binary"/>
+        <attribute name="respostaTexto" optional="YES" attributeType="Binary"/>
     </entity>
     <entity name="SessaoFreeWriting" representedClassName="SessaoFreeWriting" parentEntity="Sessao" syncable="YES">
         <attribute name="enunciado" optional="YES" attributeType="String"/>
@@ -36,12 +36,12 @@
         <attribute name="log" optional="YES" attributeType="Binary"/>
     </entity>
     <elements>
+        <element name="Projeto" positionX="106.9747314453125" positionY="-809.2063903808594" width="128" height="133"/>
+        <element name="Registro" positionX="-706.0150146484375" positionY="-294.0579528808594" width="128" height="103"/>
+        <element name="Sessao" positionX="175.9352416992187" positionY="-596.0043182373047" width="128" height="88"/>
         <element name="SessaoDesafioMult" positionX="570.60693359375" positionY="-401.9487915039062" width="128" height="118"/>
-        <element name="SessaoFreeWriting" positionX="-60.2015380859375" positionY="-172.9950866699219" width="128" height="28"/>
+        <element name="SessaoFreeWriting" positionX="-77.079833984375" positionY="-203.4430541992188" width="128" height="58"/>
         <element name="SessaoMaieutica" positionX="540.9592895507812" positionY="209.9408569335938" width="128" height="58"/>
-        <element name="SessaoPingPong" positionX="-86.97119140625" positionY="230.7269897460938" width="128" height="28"/>
-        <element name="Projeto" positionX="15.00091552734375" positionY="386.1477661132812" width="128" height="133"/>
-        <element name="Registro" positionX="-706.0150146484375" positionY="-294.0579528808594" width="128" height="28"/>
-        <element name="Sessao" positionX="245.2551879882812" positionY="-84.21426391601562" width="128" height="28"/>
+        <element name="SessaoPingPong" positionX="-86.97119140625" positionY="230.7269897460938" width="128" height="58"/>
     </elements>
 </model>

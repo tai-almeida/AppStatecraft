@@ -9,13 +9,14 @@ import SwiftUI
 
 struct ContainerEnunciadoView: View {
     var body: some View {
-        Text("Hello, World!")
+        VStack{
+            Text("Hello, World!")
+        }
     }
 }
 
 struct ContainerEnunciadoView_Previews: PreviewProvider {
     static var previews: some View {
         ContainerEnunciadoView()
-        Divider()
     }
 }

@@ -27,8 +27,6 @@
 		A4773CA52E01B0E4002D27D7 /* AppStatecraft.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = A4773CA32E01B0E4002D27D7 /* AppStatecraft.xcdatamodeld */; };
 		A4773CA72E01B0F2002D27D7 /* DataController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4773CA62E01B0F2002D27D7 /* DataController.swift */; };
 		A4773CA92E01B204002D27D7 /* oi.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4773CA82E01B204002D27D7 /* oi.swift */; };
-		A4C37CE52DFB1B8C00DB3EE9 /* hexa.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4C37CE42DFB1B8C00DB3EE9 /* hexa.swift */; };
-		A4C37CE72DFB1BAC00DB3EE9 /* teste in Resources */ = {isa = PBXBuildFile; fileRef = A4C37CE62DFB1BAC00DB3EE9 /* teste */; };
 		ED82ED342DFC4C70006BE6D5 /* BancoQuestoes.json in Resources */ = {isa = PBXBuildFile; fileRef = ED82ED332DFC4C70006BE6D5 /* BancoQuestoes.json */; };
 		ED82ED3F2DFC6E05006BE6D5 /* DesafiosMultimidaViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED82ED3E2DFC6E05006BE6D5 /* DesafiosMultimidaViewModel.swift */; };
 		ED82ED432DFC6FC0006BE6D5 /* DesafiosUtilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED82ED422DFC6FC0006BE6D5 /* DesafiosUtilities.swift */; };
@@ -85,8 +83,6 @@
 		A4773CA42E01B0E4002D27D7 /* AppStatecraft.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = AppStatecraft.xcdatamodel; sourceTree = "<group>"; };
 		A4773CA62E01B0F2002D27D7 /* DataController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataController.swift; sourceTree = "<group>"; };
 		A4773CA82E01B204002D27D7 /* oi.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = oi.swift; path = AppStatecraft/Core/Persistence/oi.swift; sourceTree = SOURCE_ROOT; };
-		A4C37CE42DFB1B8C00DB3EE9 /* hexa.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = hexa.swift; sourceTree = "<group>"; };
-		A4C37CE62DFB1BAC00DB3EE9 /* teste */ = {isa = PBXFileReference; lastKnownFileType = text; path = teste; sourceTree = "<group>"; };
 		ED82ED332DFC4C70006BE6D5 /* BancoQuestoes.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = BancoQuestoes.json; sourceTree = "<group>"; };
 		ED82ED3E2DFC6E05006BE6D5 /* DesafiosMultimidaViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DesafiosMultimidaViewModel.swift; sourceTree = "<group>"; };
 		ED82ED422DFC6FC0006BE6D5 /* DesafiosUtilities.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DesafiosUtilities.swift; sourceTree = "<group>"; };
@@ -216,7 +212,7 @@
 			isa = PBXGroup;
 			children = (
 				ED82ED322DFC4C4C006BE6D5 /* Persistence */,
-				ED82ED312DFC4C43006BE6D5 /* Network */,
+				ED82ED312DFC4C43006BE6D5 /* Networking */,
 				ED82ED302DFC4C38006BE6D5 /* Utilities */,
 			);
 			path = Core;
@@ -230,12 +226,12 @@
 			path = Utilities;
 			sourceTree = "<group>";
 		};
-		ED82ED312DFC4C43006BE6D5 /* Network */ = {
+		ED82ED312DFC4C43006BE6D5 /* Networking */ = {
 			isa = PBXGroup;
 			children = (
 				A4773CA82E01B204002D27D7 /* oi.swift */,
 			);
-			path = Network;
+			path = Networking;
 			sourceTree = "<group>";
 		};
 		ED82ED322DFC4C4C006BE6D5 /* Persistence */ = {
@@ -254,7 +250,6 @@
 		ED82ED352DFC59F0006BE6D5 /* Images */ = {
 			isa = PBXGroup;
 			children = (
-				A4C37CE62DFB1BAC00DB3EE9 /* teste */,
 				ED8481952E003F3A007E5709 /* moca_arte.jpg */,
 				ED8481972E003F6B007E5709 /* homem.jpg */,
 				ED8481932E003F2D007E5709 /* viajante.jpg */,
@@ -265,7 +260,6 @@
 		ED8481992E0044DF007E5709 /* Preview Content */ = {
 			isa = PBXGroup;
 			children = (
-				A4C37CE42DFB1B8C00DB3EE9 /* hexa.swift */,
 				ED82ED422DFC6FC0006BE6D5 /* DesafiosUtilities.swift */,
 			);
 			path = "Preview Content";
@@ -434,7 +428,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A4C37CE72DFB1BAC00DB3EE9 /* teste in Resources */,
 				EDF265532DF9A9FC00898EBA /* (null) in Resources */,
 				EDF265562DF9A9FC00898EBA /* Preview Assets.xcassets in Resources */,
 				ED8481942E003F2D007E5709 /* viajante.jpg in Resources */,
@@ -469,7 +462,6 @@
 				A47175A82E018F9D00AC6B12 /* SessaoFreeWriting+CoreDataClass.swift in Sources */,
 				A471759F2E018F9D00AC6B12 /* SessaoPingPong+CoreDataProperties.swift in Sources */,
 				A47175A12E018F9D00AC6B12 /* SessaoDesafioMult+CoreDataProperties.swift in Sources */,
-				A4C37CE52DFB1B8C00DB3EE9 /* hexa.swift in Sources */,
 				A4773CA72E01B0F2002D27D7 /* DataController.swift in Sources */,
 				A47175A02E018F9D00AC6B12 /* SessaoDesafioMult+CoreDataClass.swift in Sources */,
 				ED82ED3F2DFC6E05006BE6D5 /* DesafiosMultimidaViewModel.swift in Sources */,

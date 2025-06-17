@@ -13,6 +13,7 @@ struct DesafiosMultimidiaView: View {
         ScrollView{
             VStack(){
                 ContainerEnunciadoView()
+                Divider()
             }
         }
         

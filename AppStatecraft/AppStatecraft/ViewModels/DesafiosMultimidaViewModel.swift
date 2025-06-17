@@ -25,7 +25,11 @@ class DesafiosMultimidiaViewModel: ObservableObject {
         desafiosFeitos = desafiosUtilities.desafiosFeitos
         desafiosNaoFeitos = desafiosUtilities.desafiosNaoFeitos
         
+        verificaDesafiosVazios()
         
+    }
+    
+    func verificaDesafiosVazios() {
         if desafiosNaoFeitos.isEmpty {
             for desafio in desafiosFeitos {
                 var copiaDesafio = desafio
@@ -33,6 +37,8 @@ class DesafiosMultimidiaViewModel: ObservableObject {
                 desafiosNaoFeitos.append(copiaDesafio)
             }
             desafiosFeitos.removeAll()
+        } else {
+            return
         }
     }
     
@@ -54,8 +60,12 @@ class DesafiosMultimidiaViewModel: ObservableObject {
         }
     }
     
-//    func sorteiaDesafio() -> QuestaoDesafios {
-//
-//    }
+    func sorteiaDesafio() -> QuestaoDesafios {
+        /* Sorteia um desafio dentre os nao feitos para o usuario fazer */
+        
+        verificaDesafiosVazios()
+        
+        return desafiosNaoFeitos.randomElement()!
+    }
 }
 

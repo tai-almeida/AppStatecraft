@@ -44,28 +44,21 @@ class DesafiosMultimidiaViewModel: ObservableObject {
     
     func desafioConcluido(desafioRealizado: QuestaoDesafios) {
         var copiaDesafio: QuestaoDesafios = desafioRealizado
-        var counter = 0
-        for desafio in desafiosNaoFeitos {
-            
-            if desafio.id == desafioRealizado.id {
-                copiaDesafio.feita = true
-                desafiosNaoFeitos.remove(at: desafio.id)
-                
-                for _ in desafiosFeitos {
-                    counter = counter + 1
-                }
-                copiaDesafio.id = counter
-                desafiosFeitos.append(copiaDesafio)
-            }
+        
+        // encontra o elemento de id igual ao do desafio feito no vetor de nao realizados
+        if let index = desafiosNaoFeitos.firstIndex(where: { $0.id == desafioRealizado.id }) {
+            copiaDesafio.feita = true
+            desafiosNaoFeitos.remove(at: index)
+            desafiosFeitos.append(copiaDesafio)
         }
     }
     
-    func sorteiaDesafio() -> QuestaoDesafios {
+    func sorteiaDesafio() -> QuestaoDesafios? {
         /* Sorteia um desafio dentre os nao feitos para o usuario fazer */
         
         verificaDesafiosVazios()
         
-        return desafiosNaoFeitos.randomElement()!
+        return desafiosNaoFeitos.randomElement()
     }
 }
 

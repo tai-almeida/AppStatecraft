@@ -17,7 +17,7 @@ struct QuestaoDesafios: Codable, Identifiable {
         case feita
     }
     
-    var id: Int
+    let id: Int
     let enunciado: String
     let conteudo: String
     let tipo: String

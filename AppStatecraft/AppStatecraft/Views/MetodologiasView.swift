@@ -10,6 +10,6 @@ import SwiftUI
 struct MetodologiasView: View {
     
     var body: some View {
-        Text("Metodologias")
+        MaieuticaView()
     }
 }

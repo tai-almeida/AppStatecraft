@@ -19,7 +19,7 @@ struct MaieuticaView: View {
                     .font(.title3)
                     .padding()
                 Divider()
-                TextField("", text: $textoUser)
+                TextField("Escreva aqui", text: $textoUser)
                     .padding(10)
                 Button (action: {Task{ await viewModel.fazerRequisicao(context: textoUser)}; textoUser = textoUser}){ // Mesma coisa aqui em relação a label do textoUser
                     Text("Seguinte")

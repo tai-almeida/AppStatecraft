@@ -26,7 +26,8 @@
 		A47175B92E01A23A00AC6B12 /* ContainerEnunciadoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A47175B82E01A23A00AC6B12 /* ContainerEnunciadoView.swift */; };
 		A4773CA52E01B0E4002D27D7 /* AppStatecraft.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = A4773CA32E01B0E4002D27D7 /* AppStatecraft.xcdatamodeld */; };
 		A4773CA72E01B0F2002D27D7 /* DataController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4773CA62E01B0F2002D27D7 /* DataController.swift */; };
-		A4773CA92E01B204002D27D7 /* oi.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4773CA82E01B204002D27D7 /* oi.swift */; };
+		ED695A672E01B37C009C0BE0 /* TabBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED695A662E01B37C009C0BE0 /* TabBar.swift */; };
+		ED695A6A2E01B3DA009C0BE0 /* MetodologiasView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED695A692E01B3DA009C0BE0 /* MetodologiasView.swift */; };
 		ED82ED342DFC4C70006BE6D5 /* BancoQuestoes.json in Resources */ = {isa = PBXBuildFile; fileRef = ED82ED332DFC4C70006BE6D5 /* BancoQuestoes.json */; };
 		ED82ED3F2DFC6E05006BE6D5 /* DesafiosMultimidaViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED82ED3E2DFC6E05006BE6D5 /* DesafiosMultimidaViewModel.swift */; };
 		ED82ED432DFC6FC0006BE6D5 /* DesafiosUtilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED82ED422DFC6FC0006BE6D5 /* DesafiosUtilities.swift */; };
@@ -37,7 +38,6 @@
 		ED84819B2E004534007E5709 /* DesafioUtilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED84819A2E004534007E5709 /* DesafioUtilities.swift */; };
 		ED84819D2E0047CC007E5709 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = ED84819C2E0047CC007E5709 /* Assets.xcassets */; };
 		EDF2654F2DF9A9F800898EBA /* AppStatecraftApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDF2654E2DF9A9F800898EBA /* AppStatecraftApp.swift */; };
-		EDF265512DF9A9F800898EBA /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDF265502DF9A9F800898EBA /* ContentView.swift */; };
 		EDF265532DF9A9FC00898EBA /* (null) in Resources */ = {isa = PBXBuildFile; };
 		EDF265562DF9A9FC00898EBA /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EDF265552DF9A9FC00898EBA /* Preview Assets.xcassets */; };
 		EDF265602DF9A9FC00898EBA /* AppStatecraftTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDF2655F2DF9A9FC00898EBA /* AppStatecraftTests.swift */; };
@@ -84,6 +84,8 @@
 		A4773CA42E01B0E4002D27D7 /* AppStatecraft.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = AppStatecraft.xcdatamodel; sourceTree = "<group>"; };
 		A4773CA62E01B0F2002D27D7 /* DataController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataController.swift; sourceTree = "<group>"; };
 		A4773CA82E01B204002D27D7 /* oi.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = oi.swift; path = AppStatecraft/Core/Persistence/oi.swift; sourceTree = SOURCE_ROOT; };
+		ED695A662E01B37C009C0BE0 /* TabBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBar.swift; sourceTree = "<group>"; };
+		ED695A692E01B3DA009C0BE0 /* MetodologiasView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MetodologiasView.swift; sourceTree = "<group>"; };
 		ED82ED332DFC4C70006BE6D5 /* BancoQuestoes.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = BancoQuestoes.json; sourceTree = "<group>"; };
 		ED82ED3E2DFC6E05006BE6D5 /* DesafiosMultimidaViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DesafiosMultimidaViewModel.swift; sourceTree = "<group>"; };
 		ED82ED422DFC6FC0006BE6D5 /* DesafiosUtilities.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DesafiosUtilities.swift; sourceTree = "<group>"; };
@@ -95,7 +97,6 @@
 		ED84819C2E0047CC007E5709 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		EDF2654B2DF9A9F800898EBA /* AppStatecraft.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AppStatecraft.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		EDF2654E2DF9A9F800898EBA /* AppStatecraftApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppStatecraftApp.swift; sourceTree = "<group>"; };
-		EDF265502DF9A9F800898EBA /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		EDF265552DF9A9FC00898EBA /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		EDF2655B2DF9A9FC00898EBA /* AppStatecraftTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AppStatecraftTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		EDF2655F2DF9A9FC00898EBA /* AppStatecraftTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppStatecraftTests.swift; sourceTree = "<group>"; };
@@ -149,7 +150,8 @@
 		A417CCA02DF9CB9100564508 /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				EDF265502DF9A9F800898EBA /* ContentView.swift */,
+				ED695A692E01B3DA009C0BE0 /* MetodologiasView.swift */,
+				ED695A662E01B37C009C0BE0 /* TabBar.swift */,
 				A47175B22E01A16C00AC6B12 /* DesafiosMultimidia */,
 			);
 			path = Views;
@@ -467,13 +469,13 @@
 				A4773CA72E01B0F2002D27D7 /* DataController.swift in Sources */,
 				A47175A02E018F9D00AC6B12 /* SessaoDesafioMult+CoreDataClass.swift in Sources */,
 				ED82ED3F2DFC6E05006BE6D5 /* DesafiosMultimidaViewModel.swift in Sources */,
-				EDF265512DF9A9F800898EBA /* ContentView.swift in Sources */,
 				A47175A52E018F9D00AC6B12 /* Registro+CoreDataProperties.swift in Sources */,
 				A47175A42E018F9D00AC6B12 /* Registro+CoreDataClass.swift in Sources */,
 				A47175AA2E018F9D00AC6B12 /* SessaoMaieutica+CoreDataClass.swift in Sources */,
 				A47175A72E018F9D00AC6B12 /* Projeto+CoreDataProperties.swift in Sources */,
 				A417CC9D2DF9CB7800564508 /* FreeWritingViewModel.swift in Sources */,
 				A471759E2E018F9D00AC6B12 /* SessaoPingPong+CoreDataClass.swift in Sources */,
+				ED695A6A2E01B3DA009C0BE0 /* MetodologiasView.swift in Sources */,
 				A4773CA52E01B0E4002D27D7 /* AppStatecraft.xcdatamodeld in Sources */,
 				ED84819B2E004534007E5709 /* DesafioUtilities.swift in Sources */,
 				ED82ED452DFC6FD2006BE6D5 /* QuestaoDesafios.swift in Sources */,
@@ -481,12 +483,12 @@
 				EDF2654F2DF9A9F800898EBA /* AppStatecraftApp.swift in Sources */,
 				A47175A62E018F9D00AC6B12 /* Projeto+CoreDataClass.swift in Sources */,
 				A47175A32E018F9D00AC6B12 /* Sessao+CoreDataProperties.swift in Sources */,
-				A4773CA92E01B204002D27D7 /* oi.swift in Sources */,
 				A47175A22E018F9D00AC6B12 /* Sessao+CoreDataClass.swift in Sources */,
 				A47175A92E018F9D00AC6B12 /* SessaoFreeWriting+CoreDataProperties.swift in Sources */,
 				A40C5B202E02DFDE00C30D6E /* DesafiosMultimidiaView.swift in Sources */,
 				A47175AB2E018F9D00AC6B12 /* SessaoMaieutica+CoreDataProperties.swift in Sources */,
 				A47175B92E01A23A00AC6B12 /* ContainerEnunciadoView.swift in Sources */,
+				ED695A672E01B37C009C0BE0 /* TabBar.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -15,8 +15,8 @@ struct MetodologiasView: View {
             VStack(alignment: .leading) {
                 Text("Explore metodologias para despertar sua criatividade!")
                     .padding(.leading, 20)
-                Spacer()
-                   
+                
+                CarrosselView()
                     
             }
             .navigationTitle("Metodologias")

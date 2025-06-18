@@ -19,6 +19,7 @@ struct ContainerEnunciadoView: View {
                 .scaledToFit()
                 .clipShape(RoundedRectangle(cornerRadius: 10))
                 .padding(.horizontal)
+                .padding(.bottom)
         }
         .background( //coloca view atras da view atual
             //view que sera colocada atras é o retangulo
@@ -29,8 +30,3 @@ struct ContainerEnunciadoView: View {
     }
 }
 
-//struct ContainerEnunciadoView_Previews: PreviewProvider {
-//    static var previews: some View {
-//        ContainerEnunciadoView()
-//    }
-//}

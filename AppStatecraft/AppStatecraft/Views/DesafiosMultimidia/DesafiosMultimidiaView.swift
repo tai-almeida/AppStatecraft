@@ -10,20 +10,32 @@ import PhotosUI
 
 struct DesafiosMultimidiaView: View {
     var enunciado: String
+    @State private var showImagePicker: Bool = false
+    @State private var image: UIImage?
+    @State private var respostaTexto: String = ""
     
     var body: some View {
         ScrollView{
             VStack(){
                 ContainerEnunciadoView(enunciado: enunciado).padding()
+                
                 Divider()
                 
+                RespostaCard(image: $image, respostaTexto: $respostaTexto)
+                Spacer()
             }
+        }
+        HStack{
+            Spacer()
+            Button(action: {
+                self.showImagePicker = true
+            }, label: {
+                Label("", systemImage: "photo.on.rectangle")
+            })
+                .sheet(isPresented: $showImagePicker) {
+                    ImagePicker(selectedImage: $image)
+                }
         }
     }
 }
 
-//struct DesafiosMultimidiaView_Previews: PreviewProvider {
-//    static var previews: some View {
-//        DesafiosMultimidiaView(enunciado: "Escreva uma curta historia a partir desse quadro")
-//    }
-//}

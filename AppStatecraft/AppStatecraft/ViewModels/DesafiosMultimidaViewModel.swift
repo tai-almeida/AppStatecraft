@@ -12,6 +12,7 @@ class DesafiosMultimidiaViewModel: ObservableObject {
     
     @Published var desafiosFeitos = [QuestaoDesafios]()
     @Published var desafiosNaoFeitos = [QuestaoDesafios]()
+    @Published var desafio = SessaoDesafioMult()
     
     var desafiosUtilities = DesafiosUtilities()
     

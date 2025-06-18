@@ -8,15 +8,29 @@
 import SwiftUI
 
 struct ContainerEnunciadoView: View {
+    var enunciado: String
+    
     var body: some View {
         VStack{
-            Text("Hello, World!")
+            Text(enunciado)
+                .padding(.top)
+            Image("viajante")
+                .resizable()
+                .scaledToFit()
+                .clipShape(RoundedRectangle(cornerRadius: 10))
+                .padding(.horizontal)
         }
+        .background( //coloca view atras da view atual
+            //view que sera colocada atras é o retangulo
+            RoundedRectangle(cornerRadius: 15)
+                .fill(Color(.systemBackground))
+                .shadow(radius: 1)
+        )
     }
 }
 
-struct ContainerEnunciadoView_Previews: PreviewProvider {
-    static var previews: some View {
-        ContainerEnunciadoView()
-    }
-}
+//struct ContainerEnunciadoView_Previews: PreviewProvider {
+//    static var previews: some View {
+//        ContainerEnunciadoView()
+//    }
+//}

@@ -10,6 +10,21 @@ import SwiftUI
 struct MetodologiasView: View {
     
     var body: some View {
-        Text("Metodologias")
+       
+        NavigationView {
+            VStack(alignment: .leading) {
+                Text("Explore metodologias para despertar sua criatividade!")
+                    .padding(.leading, 20)
+                Spacer()
+                   
+                    
+            }
+            .navigationTitle("Metodologias")
+            
+           .frame(maxWidth: .infinity, alignment: .leading)
+    
+        }
+        
+        
     }
 }

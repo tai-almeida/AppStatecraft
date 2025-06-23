@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		241291C62E02EB4200BFA996 /* Secrets.plist in Resources */ = {isa = PBXBuildFile; fileRef = 241291C52E02EB4200BFA996 /* Secrets.plist */; };
 		241291C82E02EB4F00BFA996 /* MaieuticaView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 241291C72E02EB4F00BFA996 /* MaieuticaView.swift */; };
 		241291CA2E02EB6A00BFA996 /* MaieuticaViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 241291C92E02EB6A00BFA996 /* MaieuticaViewModel.swift */; };
 		A417CC9D2DF9CB7800564508 /* FreeWritingViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A417CC9C2DF9CB7800564508 /* FreeWritingViewModel.swift */; };
@@ -29,6 +28,7 @@
 		A47175B92E01A23A00AC6B12 /* ContainerEnunciadoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A47175B82E01A23A00AC6B12 /* ContainerEnunciadoView.swift */; };
 		A4773CA52E01B0E4002D27D7 /* AppStatecraft.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = A4773CA32E01B0E4002D27D7 /* AppStatecraft.xcdatamodeld */; };
 		A4773CA72E01B0F2002D27D7 /* DataController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4773CA62E01B0F2002D27D7 /* DataController.swift */; };
+		E8DDC8712E099C4A00365D65 /* Secrets.plist in Resources */ = {isa = PBXBuildFile; fileRef = E8DDC8702E099C4A00365D65 /* Secrets.plist */; };
 		ED695A672E01B37C009C0BE0 /* TabBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED695A662E01B37C009C0BE0 /* TabBar.swift */; };
 		ED695A6A2E01B3DA009C0BE0 /* MetodologiasView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED695A692E01B3DA009C0BE0 /* MetodologiasView.swift */; };
 		ED82ED342DFC4C70006BE6D5 /* BancoQuestoes.json in Resources */ = {isa = PBXBuildFile; fileRef = ED82ED332DFC4C70006BE6D5 /* BancoQuestoes.json */; };
@@ -66,7 +66,6 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		241291C52E02EB4200BFA996 /* Secrets.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Secrets.plist; path = ../../Documents/Secrets.plist; sourceTree = "<group>"; };
 		241291C72E02EB4F00BFA996 /* MaieuticaView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MaieuticaView.swift; sourceTree = "<group>"; };
 		241291C92E02EB6A00BFA996 /* MaieuticaViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MaieuticaViewModel.swift; sourceTree = "<group>"; };
 		A417CC9C2DF9CB7800564508 /* FreeWritingViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FreeWritingViewModel.swift; sourceTree = "<group>"; };
@@ -89,6 +88,7 @@
 		A4773CA42E01B0E4002D27D7 /* AppStatecraft.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = AppStatecraft.xcdatamodel; sourceTree = "<group>"; };
 		A4773CA62E01B0F2002D27D7 /* DataController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataController.swift; sourceTree = "<group>"; };
 		A4773CA82E01B204002D27D7 /* oi.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = oi.swift; path = AppStatecraft/Core/Persistence/oi.swift; sourceTree = SOURCE_ROOT; };
+		E8DDC8702E099C4A00365D65 /* Secrets.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Secrets.plist; sourceTree = "<group>"; };
 		ED695A662E01B37C009C0BE0 /* TabBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBar.swift; sourceTree = "<group>"; };
 		ED695A692E01B3DA009C0BE0 /* MetodologiasView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MetodologiasView.swift; sourceTree = "<group>"; };
 		ED82ED332DFC4C70006BE6D5 /* BancoQuestoes.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = BancoQuestoes.json; sourceTree = "<group>"; };
@@ -278,7 +278,7 @@
 		EDF265422DF9A9F800898EBA = {
 			isa = PBXGroup;
 			children = (
-				241291C52E02EB4200BFA996 /* Secrets.plist */,
+				E8DDC8702E099C4A00365D65 /* Secrets.plist */,
 				EDF2654D2DF9A9F800898EBA /* AppStatecraft */,
 				EDF2655E2DF9A9FC00898EBA /* AppStatecraftTests */,
 				EDF265682DF9A9FC00898EBA /* AppStatecraftUITests */,
@@ -439,10 +439,10 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				241291C62E02EB4200BFA996 /* Secrets.plist in Resources */,
 				EDF265532DF9A9FC00898EBA /* (null) in Resources */,
 				EDF265562DF9A9FC00898EBA /* Preview Assets.xcassets in Resources */,
 				ED8481942E003F2D007E5709 /* viajante.jpg in Resources */,
+				E8DDC8712E099C4A00365D65 /* Secrets.plist in Resources */,
 				ED8481962E003F3A007E5709 /* moca_arte.jpg in Resources */,
 				ED84819D2E0047CC007E5709 /* Assets.xcassets in Resources */,
 				ED8481982E003F6B007E5709 /* homem.jpg in Resources */,

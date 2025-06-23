@@ -12,10 +12,10 @@ struct CarrosselView: View {
     @State var paginaAtual = 0
     
     let cards = [
-        CardView(cor: .blue, imagem: "homem", titulo: "Free-Writing", descricao: "bla bla bla"),
-        CardView(cor: .green, imagem: "homem", titulo: "Free-Writing", descricao: "bla bla bla"),
-        CardView(cor: .pink, imagem: "homem", titulo: "Free-Writing", descricao: "bla bla bla"),
-        CardView(cor: .cyan, imagem: "homem", titulo: "Free-Writing", descricao: "bla bla bla")
+        CardView(cor: .blue, imagem: "Maieutica", titulo: "Maiêutica", descricao: " Tire um tempo para refletir: Sócrates cutuca tanto com perguntas que a resposta nasce sozinha!"),
+        CardView(cor: .green, imagem: "Desafios Multimidia", titulo: "Desafios Multimídia", descricao: "Gere pequenas produções explorando as mais diversas formas de arte"),
+        CardView(cor: .pink, imagem: "Free-Writing", titulo: "Free-Writing", descricao: "Crie textos criativos a partir de um desafio dado, sem regras ou limitações."),
+        CardView(cor: .cyan, imagem: "Ping-Pong", titulo: "Ping-Pong", descricao: "A partir de uma palavra, escreva todas as que vierem à mente em pouco tempo, sem parar")
     ]
     
     var body: some View {

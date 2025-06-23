@@ -46,8 +46,4 @@ class DesafioUtilities: ObservableObject {
         
         
     }
-    
-    func decodeQuestao(_ file: String) {
-        // TODO: decodificar json para carregar em array
-    }
 }

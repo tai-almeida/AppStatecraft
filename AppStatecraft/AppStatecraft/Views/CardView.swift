@@ -16,26 +16,27 @@ struct CardView: View {
     var body: some View {
         VStack() {
             Image(imagem)
-                //.resizable()
-                .scaledToFit()
-                .frame(height: 260)
-                .clipped()
-                //.padding(.top, 20)
+                .resizable()
+                .scaledToFill()
+                .frame(height: 300)
+                    
             VStack {
                 Text(titulo)
+                    .font(.title2)
                     .foregroundColor(.white)
+                    //.padding(.vertical, 2)
+                    .padding(.top, 20)
                 
                 Text(descricao)
                     .foregroundColor(.white)
+                    .padding(.horizontal, 24)
+                    .padding(.bottom, 24)
             }
-            
-            
+            .padding()
         }
-        .padding()
         .frame(width: 300, height: 520, alignment: .center)
         .background(cor)
         .clipShape(Capsule())
-        //.clipShape(RoundedRectangle(cornerRadius: 60, style: .continuous))
         
     }
 }

@@ -65,7 +65,6 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		A40C5B1B2E02DF6E00C30D6E /* AppStatecraft */ = {isa = PBXFileReference; lastKnownFileType = folder; path = AppStatecraft; sourceTree = "<group>"; };
 		A40C5B1F2E02DFDE00C30D6E /* DesafiosMultimidiaView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DesafiosMultimidiaView.swift; sourceTree = "<group>"; };
 		A417CC9C2DF9CB7800564508 /* FreeWritingViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FreeWritingViewModel.swift; sourceTree = "<group>"; };
 		A46C081E2E02F9F100129CE7 /* ImagePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePicker.swift; sourceTree = "<group>"; };
@@ -278,7 +277,6 @@
 			isa = PBXGroup;
 			children = (
 				EDF2654D2DF9A9F800898EBA /* AppStatecraft */,
-				A40C5B1B2E02DF6E00C30D6E /* AppStatecraft */,
 				EDF2655E2DF9A9FC00898EBA /* AppStatecraftTests */,
 				EDF265682DF9A9FC00898EBA /* AppStatecraftUITests */,
 				EDF2654C2DF9A9F800898EBA /* Products */,
@@ -659,6 +657,7 @@
 				DEVELOPMENT_ASSET_PATHS = "\"AppStatecraft/Resources/Preview Content\"";
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSPhotoLibraryUsageDescription = "Para que você possa anexar uma imagem à sua resposta do desafio.\n\nPara que você possa anexar uma imagem à sua resposta do desafio.\n\nPara que você possa anexar uma imagem à sua resposta do desafio.\n\nPara que você possa anexar uma imagem à sua resposta do desafio.\n\nPara que você possa anexar uma imagem à sua resposta do desafio.\nPara que você possa anexar uma imagem à sua resposta do desafio.\n\nPara que você possa anexar uma imagem à sua resposta do desafio.\n\nPara que você possa anexar uma imagem à sua resposta do desafio.\n\nPara que você possa anexar uma imagem à sua resposta do desafio.\n\nPara que você possa anexar uma imagem à sua resposta do desafio.\n";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -687,6 +686,7 @@
 				DEVELOPMENT_ASSET_PATHS = "";
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSPhotoLibraryUsageDescription = "Para que você possa anexar uma imagem à sua resposta do desafio.\n\nPara que você possa anexar uma imagem à sua resposta do desafio.\n\nPara que você possa anexar uma imagem à sua resposta do desafio.\n\nPara que você possa anexar uma imagem à sua resposta do desafio.\n\nPara que você possa anexar uma imagem à sua resposta do desafio.\nPara que você possa anexar uma imagem à sua resposta do desafio.\n\nPara que você possa anexar uma imagem à sua resposta do desafio.\n\nPara que você possa anexar uma imagem à sua resposta do desafio.\n\nPara que você possa anexar uma imagem à sua resposta do desafio.\n\nPara que você possa anexar uma imagem à sua resposta do desafio.\n";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;

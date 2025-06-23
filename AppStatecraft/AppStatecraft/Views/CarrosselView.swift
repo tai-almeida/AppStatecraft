@@ -32,6 +32,8 @@ struct CarrosselView: View {
             }
             .tabViewStyle(.page)
             PageControlView(numeroPaginas: 4, paginaAtual: $paginaAtual)
+                .frame(alignment: .center)
+                .padding(.bottom, 52)
             
         }
     }

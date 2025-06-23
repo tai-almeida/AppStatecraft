@@ -29,6 +29,7 @@
 		ED0B0E952E02EFAF00785DDD /* CardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED0B0E942E02EFAF00785DDD /* CardView.swift */; };
 		ED0B0E972E02F6D100785DDD /* CarrosselView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED0B0E962E02F6D100785DDD /* CarrosselView.swift */; };
 		ED0B0E9B2E02F9C200785DDD /* PageControlView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED0B0E9A2E02F9C200785DDD /* PageControlView.swift */; };
+		ED2C7E052E097ACA004F5E9F /* InicialDesafiosView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED2C7E042E097AC9004F5E9F /* InicialDesafiosView.swift */; };
 		ED695A672E01B37C009C0BE0 /* TabBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED695A662E01B37C009C0BE0 /* TabBar.swift */; };
 		ED695A6A2E01B3DA009C0BE0 /* MetodologiasView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED695A692E01B3DA009C0BE0 /* MetodologiasView.swift */; };
 		ED82ED342DFC4C70006BE6D5 /* BancoQuestoes.json in Resources */ = {isa = PBXBuildFile; fileRef = ED82ED332DFC4C70006BE6D5 /* BancoQuestoes.json */; };
@@ -89,6 +90,7 @@
 		ED0B0E942E02EFAF00785DDD /* CardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardView.swift; sourceTree = "<group>"; };
 		ED0B0E962E02F6D100785DDD /* CarrosselView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarrosselView.swift; sourceTree = "<group>"; };
 		ED0B0E9A2E02F9C200785DDD /* PageControlView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PageControlView.swift; sourceTree = "<group>"; };
+		ED2C7E042E097AC9004F5E9F /* InicialDesafiosView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InicialDesafiosView.swift; sourceTree = "<group>"; };
 		ED695A662E01B37C009C0BE0 /* TabBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBar.swift; sourceTree = "<group>"; };
 		ED695A692E01B3DA009C0BE0 /* MetodologiasView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MetodologiasView.swift; sourceTree = "<group>"; };
 		ED82ED332DFC4C70006BE6D5 /* BancoQuestoes.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = BancoQuestoes.json; sourceTree = "<group>"; };
@@ -198,6 +200,7 @@
 			children = (
 				A47175B02E01A15C00AC6B12 /* DesafiosMultimidiaView.swift */,
 				A47175B82E01A23A00AC6B12 /* ContainerEnunciadoView.swift */,
+				ED2C7E042E097AC9004F5E9F /* InicialDesafiosView.swift */,
 			);
 			path = DesafiosMultimidia;
 			sourceTree = "<group>";
@@ -472,6 +475,7 @@
 			files = (
 				A47175A82E018F9D00AC6B12 /* SessaoFreeWriting+CoreDataClass.swift in Sources */,
 				A471759F2E018F9D00AC6B12 /* SessaoPingPong+CoreDataProperties.swift in Sources */,
+				ED2C7E052E097ACA004F5E9F /* InicialDesafiosView.swift in Sources */,
 				A47175A12E018F9D00AC6B12 /* SessaoDesafioMult+CoreDataProperties.swift in Sources */,
 				A4773CA72E01B0F2002D27D7 /* DataController.swift in Sources */,
 				A47175A02E018F9D00AC6B12 /* SessaoDesafioMult+CoreDataClass.swift in Sources */,

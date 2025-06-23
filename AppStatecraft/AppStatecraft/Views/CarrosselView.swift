@@ -12,10 +12,10 @@ struct CarrosselView: View {
     @State var paginaAtual = 0
     
     let cards = [
-        CardView(cor: .blue, imagem: "Maieutica", titulo: "Maiêutica", descricao: " Tire um tempo para refletir: Sócrates cutuca tanto com perguntas que a resposta nasce sozinha!"),
-        CardView(cor: .green, imagem: "Desafios Multimidia", titulo: "Desafios Multimídia", descricao: "Gere pequenas produções explorando as mais diversas formas de arte"),
-        CardView(cor: .pink, imagem: "Free-Writing", titulo: "Free-Writing", descricao: "Crie textos criativos a partir de um desafio dado, sem regras ou limitações."),
-        CardView(cor: .cyan, imagem: "Ping-Pong", titulo: "Ping-Pong", descricao: "A partir de uma palavra, escreva todas as que vierem à mente em pouco tempo, sem parar")
+        CardView(cor: .blue, imagem: "Maieutica", titulo: "Maiêutica", descricao: " Tire um tempo para refletir: Sócrates cutuca tanto com perguntas que a resposta nasce sozinha!", destino: AnyView(InicialDMView())),
+        CardView(cor: .green, imagem: "Desafios Multimidia", titulo: "Desafios Multimídia", descricao: "Gere pequenas produções explorando as mais diversas formas de arte", destino: AnyView(InicialDMView())),
+        CardView(cor: .pink, imagem: "Free-Writing", titulo: "Free-Writing", descricao: "Crie textos criativos a partir de um desafio dado, sem regras ou limitações.", destino: AnyView(InicialDMView())),
+        CardView(cor: .cyan, imagem: "Ping-Pong", titulo: "Ping-Pong", descricao: "A partir de uma palavra, escreva todas as que vierem à mente em pouco tempo, sem parar", destino: AnyView(InicialDMView()))
     ]
     
     var body: some View {
@@ -23,8 +23,10 @@ struct CarrosselView: View {
             TabView(selection: $paginaAtual) {
                 // itera pelos indices dos cards (0 a 3)
                 ForEach(0..<4) { index in
-                    cards[index]
-                        .tag(index)
+                    NavigationLink(destination: cards[index].destino) {
+                        cards[index]
+                    }
+                    .tag(index)
                 }
                 
             }

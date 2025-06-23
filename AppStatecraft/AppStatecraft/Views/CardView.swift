@@ -12,6 +12,7 @@ struct CardView: View {
     let imagem: String
     let titulo: String
     let descricao: String
+    let destino: AnyView
     
     var body: some View {
         VStack() {
@@ -37,6 +38,7 @@ struct CardView: View {
         .frame(width: 300, height: 520, alignment: .center)
         .background(cor)
         .clipShape(Capsule())
+        .contentShape(Capsule())
         
     }
 }

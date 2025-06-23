@@ -15,14 +15,12 @@ struct RespostaCard: View {
         ZStack{
             if let image = image
             {
-                // SE TIVER UMA IMAGEM: mostre a imagem
                 Image(uiImage: image)
                     .resizable()
                     .scaledToFit()
                     .clipShape(RoundedRectangle(cornerRadius: 10))
-                    .padding() // Um pequeno respiro para a imagem não colar na borda
+                    .padding()
                 
-                // Botão para REMOVER a imagem e voltar a digitar
                 VStack {
                     HStack {
                         Spacer()
@@ -48,7 +46,6 @@ struct RespostaCard: View {
                 // Placeholder para o TextEditor
                 if respostaTexto.isEmpty {
                     Text("Digite sua resposta aqui...")
-                        
                         .foregroundColor(.gray.opacity(0.7))
                         .padding(12)
                         .allowsHitTesting(false) // Permite que o toque "passe" para o TextEditor

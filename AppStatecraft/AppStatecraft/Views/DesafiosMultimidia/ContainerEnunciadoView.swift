@@ -7,26 +7,35 @@
 
 import SwiftUI
 
-struct ContainerEnunciadoView: View {
-    var enunciado: String
+struct ContainerEnunciadoView: View {    
+    var desafio: QuestaoDesafios
     
     var body: some View {
         VStack{
-            Text(enunciado)
+            Text(desafio.enunciado)
                 .padding(.top)
-            Image("viajante")
-                .resizable()
-                .scaledToFit()
-                .clipShape(RoundedRectangle(cornerRadius: 10))
                 .padding(.horizontal)
-                .padding(.bottom)
+
+            if(desafio.tipo == "imagem"){
+                Image(desafio.conteudo)
+                    .resizable()
+                    .scaledToFit()
+                    .clipShape(RoundedRectangle(cornerRadius: 10))
+                    .padding(.horizontal)
+                    .padding(.bottom)
+            }else{
+                Text(desafio.conteudo)
+                    .italic()
+                    .padding()
+            }
         }
         .background( //coloca view atras da view atual
             //view que sera colocada atras é o retangulo
             RoundedRectangle(cornerRadius: 15)
                 .fill(Color(.systemBackground))
-                .shadow(radius: 1)
+                .shadow(radius: 2)
         )
+        
     }
 }
 

@@ -9,7 +9,6 @@ import SwiftUI
 import PhotosUI
 
 struct DesafiosMultimidiaView: View {
-    var enunciado: String
     @State private var showImagePicker: Bool = false
     @State private var image: UIImage?
     @State private var respostaTexto: String = ""
@@ -28,11 +27,11 @@ struct DesafiosMultimidiaView: View {
                 Divider()
                 
                 RespostaCard(image: $image, respostaTexto: $respostaTexto)
-                Spacer()
             }
         }.onAppear{
             self.desafio = desafiosVM.sorteiaDesafio()
         }
+       
         HStack{
             Spacer()
             Button(action: {

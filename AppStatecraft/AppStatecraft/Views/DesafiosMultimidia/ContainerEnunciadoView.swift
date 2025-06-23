@@ -7,16 +7,35 @@
 
 import SwiftUI
 
-struct ContainerEnunciadoView: View {
+struct ContainerEnunciadoView: View {    
+    var desafio: QuestaoDesafios
+    
     var body: some View {
         VStack{
-            Text("Hello, World!")
+            Text(desafio.enunciado)
+                .padding(.top)
+                .padding(.horizontal)
+
+            if(desafio.tipo == "imagem"){
+                Image(desafio.conteudo)
+                    .resizable()
+                    .scaledToFit()
+                    .clipShape(RoundedRectangle(cornerRadius: 10))
+                    .padding(.horizontal)
+                    .padding(.bottom)
+            }else{
+                Text(desafio.conteudo)
+                    .italic()
+                    .padding()
+            }
         }
+        .background( //coloca view atras da view atual
+            //view que sera colocada atras é o retangulo
+            RoundedRectangle(cornerRadius: 15)
+                .fill(Color(.systemBackground))
+                .shadow(radius: 2)
+        )
+        
     }
 }
 
-struct ContainerEnunciadoView_Previews: PreviewProvider {
-    static var previews: some View {
-        ContainerEnunciadoView()
-    }
-}

@@ -7,7 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		A40C5B202E02DFDE00C30D6E /* DesafiosMultimidiaView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A40C5B1F2E02DFDE00C30D6E /* DesafiosMultimidiaView.swift */; };
 		A417CC9D2DF9CB7800564508 /* FreeWritingViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A417CC9C2DF9CB7800564508 /* FreeWritingViewModel.swift */; };
+		A46C081F2E02F9F100129CE7 /* ImagePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = A46C081E2E02F9F100129CE7 /* ImagePicker.swift */; };
+		A46C08212E03040A00129CE7 /* RespostaCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = A46C08202E03040A00129CE7 /* RespostaCard.swift */; };
 		A471759E2E018F9D00AC6B12 /* SessaoPingPong+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = A47175902E018F9D00AC6B12 /* SessaoPingPong+CoreDataClass.swift */; };
 		A471759F2E018F9D00AC6B12 /* SessaoPingPong+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = A47175912E018F9D00AC6B12 /* SessaoPingPong+CoreDataProperties.swift */; };
 		A47175A02E018F9D00AC6B12 /* SessaoDesafioMult+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = A47175922E018F9D00AC6B12 /* SessaoDesafioMult+CoreDataClass.swift */; };
@@ -22,7 +25,6 @@
 		A47175A92E018F9D00AC6B12 /* SessaoFreeWriting+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = A471759B2E018F9D00AC6B12 /* SessaoFreeWriting+CoreDataProperties.swift */; };
 		A47175AA2E018F9D00AC6B12 /* SessaoMaieutica+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = A471759C2E018F9D00AC6B12 /* SessaoMaieutica+CoreDataClass.swift */; };
 		A47175AB2E018F9D00AC6B12 /* SessaoMaieutica+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = A471759D2E018F9D00AC6B12 /* SessaoMaieutica+CoreDataProperties.swift */; };
-		A47175B12E01A15C00AC6B12 /* DesafiosMultimidiaView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A47175B02E01A15C00AC6B12 /* DesafiosMultimidiaView.swift */; };
 		A47175B92E01A23A00AC6B12 /* ContainerEnunciadoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A47175B82E01A23A00AC6B12 /* ContainerEnunciadoView.swift */; };
 		A4773CA52E01B0E4002D27D7 /* AppStatecraft.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = A4773CA32E01B0E4002D27D7 /* AppStatecraft.xcdatamodeld */; };
 		A4773CA72E01B0F2002D27D7 /* DataController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4773CA62E01B0F2002D27D7 /* DataController.swift */; };
@@ -67,7 +69,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		A40C5B1F2E02DFDE00C30D6E /* DesafiosMultimidiaView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DesafiosMultimidiaView.swift; sourceTree = "<group>"; };
 		A417CC9C2DF9CB7800564508 /* FreeWritingViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FreeWritingViewModel.swift; sourceTree = "<group>"; };
+		A46C081E2E02F9F100129CE7 /* ImagePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePicker.swift; sourceTree = "<group>"; };
+		A46C08202E03040A00129CE7 /* RespostaCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RespostaCard.swift; sourceTree = "<group>"; };
 		A47175902E018F9D00AC6B12 /* SessaoPingPong+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SessaoPingPong+CoreDataClass.swift"; sourceTree = "<group>"; };
 		A47175912E018F9D00AC6B12 /* SessaoPingPong+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SessaoPingPong+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		A47175922E018F9D00AC6B12 /* SessaoDesafioMult+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SessaoDesafioMult+CoreDataClass.swift"; sourceTree = "<group>"; };
@@ -82,7 +87,6 @@
 		A471759B2E018F9D00AC6B12 /* SessaoFreeWriting+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SessaoFreeWriting+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		A471759C2E018F9D00AC6B12 /* SessaoMaieutica+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SessaoMaieutica+CoreDataClass.swift"; sourceTree = "<group>"; };
 		A471759D2E018F9D00AC6B12 /* SessaoMaieutica+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SessaoMaieutica+CoreDataProperties.swift"; sourceTree = "<group>"; };
-		A47175B02E01A15C00AC6B12 /* DesafiosMultimidiaView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DesafiosMultimidiaView.swift; sourceTree = "<group>"; };
 		A47175B82E01A23A00AC6B12 /* ContainerEnunciadoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContainerEnunciadoView.swift; sourceTree = "<group>"; };
 		A4773CA42E01B0E4002D27D7 /* AppStatecraft.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = AppStatecraft.xcdatamodel; sourceTree = "<group>"; };
 		A4773CA62E01B0F2002D27D7 /* DataController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataController.swift; sourceTree = "<group>"; };
@@ -162,6 +166,7 @@
 				ED695A692E01B3DA009C0BE0 /* MetodologiasView.swift */,
 				ED0B0E962E02F6D100785DDD /* CarrosselView.swift */,
 				ED695A662E01B37C009C0BE0 /* TabBar.swift */,
+				A46C081E2E02F9F100129CE7 /* ImagePicker.swift */,
 				A47175B22E01A16C00AC6B12 /* DesafiosMultimidia */,
 			);
 			path = Views;
@@ -198,9 +203,10 @@
 		A47175B22E01A16C00AC6B12 /* DesafiosMultimidia */ = {
 			isa = PBXGroup;
 			children = (
-				A47175B02E01A15C00AC6B12 /* DesafiosMultimidiaView.swift */,
+				A40C5B1F2E02DFDE00C30D6E /* DesafiosMultimidiaView.swift */,
 				A47175B82E01A23A00AC6B12 /* ContainerEnunciadoView.swift */,
 				ED2C7E042E097AC9004F5E9F /* InicialDesafiosView.swift */,
+				A46C08202E03040A00129CE7 /* RespostaCard.swift */,
 			);
 			path = DesafiosMultimidia;
 			sourceTree = "<group>";
@@ -477,12 +483,13 @@
 				A471759F2E018F9D00AC6B12 /* SessaoPingPong+CoreDataProperties.swift in Sources */,
 				ED2C7E052E097ACA004F5E9F /* InicialDesafiosView.swift in Sources */,
 				A47175A12E018F9D00AC6B12 /* SessaoDesafioMult+CoreDataProperties.swift in Sources */,
+				A46C081F2E02F9F100129CE7 /* ImagePicker.swift in Sources */,
+				A46C08212E03040A00129CE7 /* RespostaCard.swift in Sources */,
 				A4773CA72E01B0F2002D27D7 /* DataController.swift in Sources */,
 				A47175A02E018F9D00AC6B12 /* SessaoDesafioMult+CoreDataClass.swift in Sources */,
 				ED82ED3F2DFC6E05006BE6D5 /* DesafiosMultimidaViewModel.swift in Sources */,
 				A47175A52E018F9D00AC6B12 /* Registro+CoreDataProperties.swift in Sources */,
 				A47175A42E018F9D00AC6B12 /* Registro+CoreDataClass.swift in Sources */,
-				A47175B12E01A15C00AC6B12 /* DesafiosMultimidiaView.swift in Sources */,
 				A47175AA2E018F9D00AC6B12 /* SessaoMaieutica+CoreDataClass.swift in Sources */,
 				A47175A72E018F9D00AC6B12 /* Projeto+CoreDataProperties.swift in Sources */,
 				A417CC9D2DF9CB7800564508 /* FreeWritingViewModel.swift in Sources */,
@@ -499,6 +506,7 @@
 				A47175A32E018F9D00AC6B12 /* Sessao+CoreDataProperties.swift in Sources */,
 				A47175A22E018F9D00AC6B12 /* Sessao+CoreDataClass.swift in Sources */,
 				A47175A92E018F9D00AC6B12 /* SessaoFreeWriting+CoreDataProperties.swift in Sources */,
+				A40C5B202E02DFDE00C30D6E /* DesafiosMultimidiaView.swift in Sources */,
 				A47175AB2E018F9D00AC6B12 /* SessaoMaieutica+CoreDataProperties.swift in Sources */,
 				A47175B92E01A23A00AC6B12 /* ContainerEnunciadoView.swift in Sources */,
 				ED695A672E01B37C009C0BE0 /* TabBar.swift in Sources */,
@@ -665,6 +673,7 @@
 				DEVELOPMENT_ASSET_PATHS = "\"AppStatecraft/Resources/Preview Content\"";
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSPhotoLibraryUsageDescription = "Para que você possa anexar uma imagem à sua resposta do desafio.\n\nPara que você possa anexar uma imagem à sua resposta do desafio.\n\nPara que você possa anexar uma imagem à sua resposta do desafio.\n\nPara que você possa anexar uma imagem à sua resposta do desafio.\n\nPara que você possa anexar uma imagem à sua resposta do desafio.\nPara que você possa anexar uma imagem à sua resposta do desafio.\n\nPara que você possa anexar uma imagem à sua resposta do desafio.\n\nPara que você possa anexar uma imagem à sua resposta do desafio.\n\nPara que você possa anexar uma imagem à sua resposta do desafio.\n\nPara que você possa anexar uma imagem à sua resposta do desafio.\n";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -693,6 +702,7 @@
 				DEVELOPMENT_ASSET_PATHS = "";
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSPhotoLibraryUsageDescription = "Para que você possa anexar uma imagem à sua resposta do desafio.\n\nPara que você possa anexar uma imagem à sua resposta do desafio.\n\nPara que você possa anexar uma imagem à sua resposta do desafio.\n\nPara que você possa anexar uma imagem à sua resposta do desafio.\n\nPara que você possa anexar uma imagem à sua resposta do desafio.\nPara que você possa anexar uma imagem à sua resposta do desafio.\n\nPara que você possa anexar uma imagem à sua resposta do desafio.\n\nPara que você possa anexar uma imagem à sua resposta do desafio.\n\nPara que você possa anexar uma imagem à sua resposta do desafio.\n\nPara que você possa anexar uma imagem à sua resposta do desafio.\n";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;

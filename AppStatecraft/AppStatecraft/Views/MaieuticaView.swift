@@ -7,21 +7,25 @@ struct MaieuticaView: View {
     @State private var indiceAtual = 0
     @State private var respostaUsuario: [String] = [""]
     private let maxPerguntas = 10
+    private let limitePerguntasTexto = "Você atingiu o limite de 10 perguntas"
     
     var body: some View {
         NavigationView {
-            VStack {
+            VStack (spacing: 20) {
+                
                 Text(historicoIA[indiceAtual])
                     .font(.title3)
                     .padding()
                 
                 Divider()
                 
+                // Caixa de texto disponivel para digitar
                 if(indiceAtual == historicoIA.count - 1){
                     TextField("Escreva aqui", text: $textoUser)
                         .textFieldStyle(RoundedBorderTextFieldStyle())
                         .padding(10)
                 }
+                // Pergunta anterior a texfield vai estar imutável
                 else{
                     Text(respostaUsuario[indiceAtual])
                         .frame(maxWidth: .infinity, alignment: .leading)
@@ -34,14 +38,28 @@ struct MaieuticaView: View {
                 
                 Button(action: {
                     Task {
-                        if historicoIA.count < maxPerguntas {
-                            let resposta = await viewModel.fazerRequisicao(context: textoUser)
-                            historicoIA.append(resposta)
-                            indiceAtual = historicoIA.count - 1
-                            textoUser = ""
+                        if indiceAtual == historicoIA.count - 1 {
+                            if indiceAtual < maxPerguntas {
+                                if respostaUsuario.count <= indiceAtual {
+                                    respostaUsuario.append(textoUser)
+                                } else {
+                                    respostaUsuario[indiceAtual] = textoUser
+                                }
+                                
+                                let respostaIA = await viewModel.fazerRequisicao(context: textoUser)
+                                
+                                historicoIA.append(respostaIA)
+                                respostaUsuario.append(textoUser)
+                                indiceAtual = historicoIA.count - 1
+                                textoUser = ""
+                            } else {
+                                print("Limite de 10 perguntas atingidas!")
+                                
+                            }
                         } else {
-                            // opcional: alerta ou feedback se tentar passar de 5
-                            print("Limite de 5 perguntas atingido")
+                            if indiceAtual < historicoIA.count - 1{
+                                indiceAtual += 1
+                            }
                         }
                     }
                 })
@@ -55,39 +73,24 @@ struct MaieuticaView: View {
                 .cornerRadius(10)
                 .padding(.horizontal)
                 .disabled(textoUser.isEmpty)
-                HStack {
-                    Button(action: {
-                        if indiceAtual > 0 {
-                            indiceAtual -= 1
-                        }
-                    }) {
-                        Text("Anterior")
-                    }
-                    .disabled(indiceAtual == 0)
-                    
-                    Spacer()
-                    
-                    Button(action: {
-                        if indiceAtual < historicoIA.count - 1 {
-                            indiceAtual += 1
-                        }
-                    }) {
-                        Text("Próximo")
-                    }
-                    .disabled(indiceAtual >= historicoIA.count - 1)
-                }
                 .padding(.horizontal)
-                .padding(.top, 10)
+                .padding(.bottom, 80)
+                
                 
                 Spacer()
+                
+                
             }
             .navigationTitle("Maiêutica")
             .navigationBarTitleDisplayMode(.inline)
             .toolbar {
                 ToolbarItem(placement: .navigationBarLeading) {
                     Button(action: {
+                        if (indiceAtual < 0){
+                            indiceAtual -= 1
+                        }
                     }) {
-                        Text("Cancelar")
+                        Text("Voltar")
                             .tint(.indigo)
                     }
                 }

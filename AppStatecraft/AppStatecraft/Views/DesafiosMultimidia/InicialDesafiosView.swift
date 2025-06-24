@@ -34,15 +34,13 @@ struct InicialDMView: View {
             Divider()
                 
             Text("Crie uma nova obra de arte a partir de outra e explore sua criatividade!")
-            .padding(.horizontal)
             Spacer()
             }
             Button("Começar") {
                 showingSheet.toggle()
-                print("aaaaa")
             }
             .sheet(isPresented: $showingSheet) {
-                comecarDMView()
+                DesafiosMultimidiaView()
             }
             .frame(maxWidth: .infinity)
             .padding()
@@ -50,7 +48,7 @@ struct InicialDMView: View {
             .foregroundColor(.white)
             .clipShape(Capsule())
             .padding(.horizontal)
-            Spacer()
+            .padding(.vertical)
         }
         .navigationTitle("Desafios Multimídia")
     }
@@ -59,18 +57,5 @@ struct InicialDMView: View {
 struct InicialDesafiosView_Previews: PreviewProvider {
     static var previews: some View {
         InicialDMView()
-    }
-}
-
-struct comecarDMView: View {
-    @Environment(\.dismiss) var dismiss
-
-    var body: some View {
-        Button("Press to dismiss") {
-            dismiss()
-        }
-        .font(.title)
-        .padding()
-        .background(.black)
     }
 }

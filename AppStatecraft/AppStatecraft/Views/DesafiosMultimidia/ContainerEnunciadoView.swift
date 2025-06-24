@@ -14,7 +14,7 @@ struct ContainerEnunciadoView: View {
         VStack{
             Text(desafio.enunciado)
                 .padding(.top)
-                .padding(.horizontal)
+                .padding(.horizontal, 10)
 
             if(desafio.tipo == "imagem"){
                 Image(desafio.conteudo)
@@ -26,7 +26,7 @@ struct ContainerEnunciadoView: View {
             }else{
                 Text(desafio.conteudo)
                     .italic()
-                    .padding()
+                    .padding(.bottom, 10)
             }
         }
         .background( //coloca view atras da view atual
@@ -38,4 +38,3 @@ struct ContainerEnunciadoView: View {
         
     }
 }
-

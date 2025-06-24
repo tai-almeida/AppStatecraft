@@ -9,6 +9,7 @@ import SwiftUI
 import PhotosUI
 
 struct DesafiosMultimidiaView: View {
+    @Environment(\.dismiss) var dismiss
     @State private var showImagePicker: Bool = false
     @State private var image: UIImage?
     @State private var respostaTexto: String = ""
@@ -17,32 +18,52 @@ struct DesafiosMultimidiaView: View {
     
     
     var body: some View {
-        ScrollView{
-            VStack(){
-                if let desafio = desafio{
-                    ContainerEnunciadoView(desafio: desafio).padding()
-                }else{
-                    Text("Erro ao carregar desafio")
+        NavigationView {
+            VStack {
+                ScrollView{
+                    if let desafio = desafio{
+                        ContainerEnunciadoView(desafio: desafio).padding()
+                    }else{
+                        Text("Erro ao carregar desafio")
+                    }
+                    Divider()
+                    RespostaCard(image: $image, respostaTexto: $respostaTexto).foregroundColor(.primary)
                 }
-                Divider()
                 
-                RespostaCard(image: $image, respostaTexto: $respostaTexto)
+                HStack{
+                    Spacer()
+                    Button(action: {
+                        self.showImagePicker = true
+                    }, label: {
+                        Label("", systemImage: "photo.on.rectangle")
+                    })
+                        .padding()
+                        .sheet(isPresented: $showImagePicker) {
+                            ImagePicker(selectedImage: $image)
+                        }
+                        .foregroundColor(.accentColor)
+                    
+                        .navigationTitle("Desafio")
+                        .navigationBarTitleDisplayMode(.inline)
+                        .toolbar {
+                            ToolbarItem(placement: .cancellationAction) {
+                                Button("Cancelar") {
+                                    dismiss()
+                                }
+                                .foregroundColor(.accentColor)
+                            }
+                            ToolbarItem(placement: .confirmationAction) {
+                                Button("OK") {
+                                    dismiss()
+                                }
+                                .foregroundColor(.accentColor)
+                            }
+                        }
+                }
+            }.onAppear{
+                self.desafio = desafiosVM.sorteiaDesafio()
             }
-        }.onAppear{
-            self.desafio = desafiosVM.sorteiaDesafio()
         }
-       
-        HStack{
-            Spacer()
-            Button(action: {
-                self.showImagePicker = true
-            }, label: {
-                Label("", systemImage: "photo.on.rectangle").font(.title2)
-            })
-            .sheet(isPresented: $showImagePicker) {
-                ImagePicker(selectedImage: $image)
-            }
-        }
+        .foregroundColor(.primary)
     }
 }
-

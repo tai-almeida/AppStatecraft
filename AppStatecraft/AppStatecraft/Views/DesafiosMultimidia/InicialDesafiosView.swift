@@ -1,6 +1,5 @@
 //
 //  InicialDesafiosView.swift
-//  AppStatecraftColor("AccentColor").toolbar.datePickerStyle(/*@START_MENU_TOKEN@*//*@PLACEHOLDER=Date Picker Style@*/DefaultDatePickerStyle()/*@END_MENU_TOKEN@*/)
 //
 //  Created by Aluno 07 on 17/06/25.
 //
@@ -32,15 +31,16 @@ struct InicialDMView: View {
                 
                 }
             Divider()
-                
             Text("Crie uma nova obra de arte a partir de outra e explore sua criatividade!")
             Spacer()
             }
             Button("Começar") {
                 showingSheet.toggle()
             }
-            .sheet(isPresented: $showingSheet) {
+            .fullScreenCover(isPresented: $showingSheet) {
                 DesafiosMultimidiaView()
+                .accentColor(Color("AccentColor"))
+                .interactiveDismissDisabled() // impede o gesto de deslizar
             }
             .frame(maxWidth: .infinity)
             .padding()

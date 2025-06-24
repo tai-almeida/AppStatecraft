@@ -13,6 +13,7 @@ class DesafiosMultimidiaViewModel: ObservableObject {
     @Published var todosDesafios = [QuestaoDesafios]()
     @Published var desafiosFeitos = [QuestaoDesafios]()
     @Published var desafiosNaoFeitos = [QuestaoDesafios]()
+    
     //@Published var desafio = SessaoDesafioMult()
     
     //    private var dadosURL: URL {
@@ -129,4 +130,3 @@ class DesafiosMultimidiaViewModel: ObservableObject {
         return desafiosNaoFeitos.randomElement()
     }
 }
-

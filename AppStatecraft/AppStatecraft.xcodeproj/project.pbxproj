@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		A40C5B202E02DFDE00C30D6E /* DesafiosMultimidiaView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A40C5B1F2E02DFDE00C30D6E /* DesafiosMultimidiaView.swift */; };
 		A417CC9D2DF9CB7800564508 /* FreeWritingViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A417CC9C2DF9CB7800564508 /* FreeWritingViewModel.swift */; };
+		A44BD6FA2E0AD68400B840EB /* AddProjetoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A44BD6F92E0AD68400B840EB /* AddProjetoView.swift */; };
 		A46C081F2E02F9F100129CE7 /* ImagePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = A46C081E2E02F9F100129CE7 /* ImagePicker.swift */; };
 		A46C08212E03040A00129CE7 /* RespostaCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = A46C08202E03040A00129CE7 /* RespostaCard.swift */; };
 		A471759E2E018F9D00AC6B12 /* SessaoPingPong+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = A47175902E018F9D00AC6B12 /* SessaoPingPong+CoreDataClass.swift */; };
@@ -72,6 +73,7 @@
 /* Begin PBXFileReference section */
 		A40C5B1F2E02DFDE00C30D6E /* DesafiosMultimidiaView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DesafiosMultimidiaView.swift; sourceTree = "<group>"; };
 		A417CC9C2DF9CB7800564508 /* FreeWritingViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FreeWritingViewModel.swift; sourceTree = "<group>"; };
+		A44BD6F92E0AD68400B840EB /* AddProjetoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddProjetoView.swift; sourceTree = "<group>"; };
 		A46C081E2E02F9F100129CE7 /* ImagePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePicker.swift; sourceTree = "<group>"; };
 		A46C08202E03040A00129CE7 /* RespostaCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RespostaCard.swift; sourceTree = "<group>"; };
 		A47175902E018F9D00AC6B12 /* SessaoPingPong+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SessaoPingPong+CoreDataClass.swift"; sourceTree = "<group>"; };
@@ -169,6 +171,7 @@
 				ED0B0E962E02F6D100785DDD /* CarrosselView.swift */,
 				ED695A662E01B37C009C0BE0 /* TabBar.swift */,
 				A46C081E2E02F9F100129CE7 /* ImagePicker.swift */,
+				A44BD6F92E0AD68400B840EB /* AddProjetoView.swift */,
 				A47175B22E01A16C00AC6B12 /* DesafiosMultimidia */,
 			);
 			path = Views;
@@ -505,6 +508,7 @@
 				A47175AA2E018F9D00AC6B12 /* SessaoMaieutica+CoreDataClass.swift in Sources */,
 				A47175A72E018F9D00AC6B12 /* Projeto+CoreDataProperties.swift in Sources */,
 				A417CC9D2DF9CB7800564508 /* FreeWritingViewModel.swift in Sources */,
+				A44BD6FA2E0AD68400B840EB /* AddProjetoView.swift in Sources */,
 				ED0B0E9B2E02F9C200785DDD /* PageControlView.swift in Sources */,
 				A471759E2E018F9D00AC6B12 /* SessaoPingPong+CoreDataClass.swift in Sources */,
 				ED695A6A2E01B3DA009C0BE0 /* MetodologiasView.swift in Sources */,

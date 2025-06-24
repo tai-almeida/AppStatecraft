@@ -13,8 +13,9 @@ struct AppStatecraftApp: App {
     var body: some Scene {
         WindowGroup {
 //            //MetodologiasView()
-            TabBar().environment(\.managedObjectContext, dataController.container.viewContext)
-            //DesafiosMultimidiaView()
+            TabBar()
+//            DesafiosMultimidiaView(enunciado: "Escreva uma curta historia a partir desse quadro")
+                .environment(\.managedObjectContext, dataController.container.viewContext)
         }
        
     }

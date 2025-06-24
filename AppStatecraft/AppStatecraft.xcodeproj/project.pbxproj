@@ -34,6 +34,7 @@
 		ED2C7E052E097ACA004F5E9F /* InicialDesafiosView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED2C7E042E097AC9004F5E9F /* InicialDesafiosView.swift */; };
 		ED695A672E01B37C009C0BE0 /* TabBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED695A662E01B37C009C0BE0 /* TabBar.swift */; };
 		ED695A6A2E01B3DA009C0BE0 /* MetodologiasView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED695A692E01B3DA009C0BE0 /* MetodologiasView.swift */; };
+		ED80F5A32E0AC46D00B61E97 /* ColorExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED80F5A22E0AC46D00B61E97 /* ColorExtension.swift */; };
 		ED82ED342DFC4C70006BE6D5 /* BancoQuestoes.json in Resources */ = {isa = PBXBuildFile; fileRef = ED82ED332DFC4C70006BE6D5 /* BancoQuestoes.json */; };
 		ED82ED3F2DFC6E05006BE6D5 /* DesafiosMultimidaViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED82ED3E2DFC6E05006BE6D5 /* DesafiosMultimidaViewModel.swift */; };
 		ED82ED432DFC6FC0006BE6D5 /* DesafiosUtilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED82ED422DFC6FC0006BE6D5 /* DesafiosUtilities.swift */; };
@@ -97,6 +98,7 @@
 		ED2C7E042E097AC9004F5E9F /* InicialDesafiosView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InicialDesafiosView.swift; sourceTree = "<group>"; };
 		ED695A662E01B37C009C0BE0 /* TabBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBar.swift; sourceTree = "<group>"; };
 		ED695A692E01B3DA009C0BE0 /* MetodologiasView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MetodologiasView.swift; sourceTree = "<group>"; };
+		ED80F5A22E0AC46D00B61E97 /* ColorExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorExtension.swift; sourceTree = "<group>"; };
 		ED82ED332DFC4C70006BE6D5 /* BancoQuestoes.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = BancoQuestoes.json; sourceTree = "<group>"; };
 		ED82ED3E2DFC6E05006BE6D5 /* DesafiosMultimidaViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DesafiosMultimidaViewModel.swift; sourceTree = "<group>"; };
 		ED82ED422DFC6FC0006BE6D5 /* DesafiosUtilities.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DesafiosUtilities.swift; sourceTree = "<group>"; };
@@ -228,6 +230,14 @@
 			path = Application;
 			sourceTree = "<group>";
 		};
+		ED80F5A12E0AC43800B61E97 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				ED80F5A22E0AC46D00B61E97 /* ColorExtension.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
 		ED82ED2F2DFC4C2F006BE6D5 /* Core */ = {
 			isa = PBXGroup;
 			children = (
@@ -308,6 +318,7 @@
 		EDF2654D2DF9A9F800898EBA /* AppStatecraft */ = {
 			isa = PBXGroup;
 			children = (
+				ED80F5A12E0AC43800B61E97 /* Extensions */,
 				ED82ED2F2DFC4C2F006BE6D5 /* Core */,
 				A4C37CDC2DFAFC5700DB3EE9 /* Application */,
 				A417CCA02DF9CB9100564508 /* Views */,
@@ -488,6 +499,7 @@
 				A4773CA72E01B0F2002D27D7 /* DataController.swift in Sources */,
 				A47175A02E018F9D00AC6B12 /* SessaoDesafioMult+CoreDataClass.swift in Sources */,
 				ED82ED3F2DFC6E05006BE6D5 /* DesafiosMultimidaViewModel.swift in Sources */,
+				ED80F5A32E0AC46D00B61E97 /* ColorExtension.swift in Sources */,
 				A47175A52E018F9D00AC6B12 /* Registro+CoreDataProperties.swift in Sources */,
 				A47175A42E018F9D00AC6B12 /* Registro+CoreDataClass.swift in Sources */,
 				A47175AA2E018F9D00AC6B12 /* SessaoMaieutica+CoreDataClass.swift in Sources */,

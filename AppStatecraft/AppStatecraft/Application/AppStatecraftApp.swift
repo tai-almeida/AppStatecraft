@@ -12,8 +12,11 @@ struct AppStatecraftApp: App {
     @State private var dataController = DataController()
     var body: some Scene {
         WindowGroup {
-            //MetodologiasView()
+//            //MetodologiasView()
             TabBar()
+//            DesafiosMultimidiaView(enunciado: "Escreva uma curta historia a partir desse quadro")
+                .environment(\.managedObjectContext, dataController.container.viewContext)
         }
+       
     }
 }

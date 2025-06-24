@@ -6,10 +6,11 @@
 //
 
 import Foundation
+import UIKit
 
-class PingPongViewModel: ObservableObject {
+class PingPongViewModel: UIViewController, ObservableObject {
     
-    @Published var respostaIA: String
+    @Published var respostaIA: String = ""
     
     func fazerRequisicao(context: [String]) async -> String? {
         let url = URL(string: "https://api.replicate.com/v1/models/openai/gpt-4o-mini/predictions")!
@@ -101,7 +102,7 @@ class PingPongViewModel: ObservableObject {
         return nil
     }
     
-    init () {
-        self.respostaIA = ""
-    }
+//    init () {
+//        self.respostaIA = ""
+//    }
 }

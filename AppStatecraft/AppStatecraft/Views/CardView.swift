@@ -19,23 +19,23 @@ struct CardView: View {
             Image(imagem)
                 .resizable()
                 .scaledToFill()
-                .frame(height: 300)
+                .frame(height: 250)
                     
             VStack {
                 Text(titulo)
                     .font(.title2)
                     .foregroundColor(.white)
                     //.padding(.vertical, 2)
-                    .padding(.top, 20)
+                    .padding(.top, 16)
                 
                 Text(descricao)
                     .foregroundColor(.white)
-                    .padding(.horizontal, 24)
-                    .padding(.bottom, 24)
+                    .padding(.horizontal, 8)
+                    .padding(.bottom, 8)
             }
             .padding()
         }
-        .frame(width: 300, height: 520, alignment: .center)
+        .frame(width: 260, height: 440, alignment: .center)
         .background(cor)
         .clipShape(Capsule())
         .contentShape(Capsule())

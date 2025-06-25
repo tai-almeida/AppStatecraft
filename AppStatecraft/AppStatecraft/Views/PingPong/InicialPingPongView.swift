@@ -49,6 +49,11 @@ struct InicialPingPongView: View {
                     Spacer()
 //
                     Text(String(format: "%02d:%02d", minutes, seconds))
+                        .padding(2)
+                        .background(Color(.secondarySystemBackground))
+                        .clipShape(RoundedRectangle(cornerRadius: 6))
+//                        .cornerRadius(10)
+                        
 //
                 }.padding(.horizontal)
                 DurationPickerView(minutes: $minutes, seconds: $seconds)

@@ -47,6 +47,8 @@
 		ED81EB2E2E0C37B0003062BA /* PromptFW.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED81EB2D2E0C37B0003062BA /* PromptFW.swift */; };
 		ED81EB342E0C393A003062BA /* RespostaFW.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED81EB332E0C393A003062BA /* RespostaFW.swift */; };
 		ED81EB362E0C3AFC003062BA /* BancoFW.json in Resources */ = {isa = PBXBuildFile; fileRef = ED81EB352E0C3AFC003062BA /* BancoFW.json */; };
+		ED81EB382E0C4131003062BA /* TimerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED81EB372E0C4131003062BA /* TimerViewController.swift */; };
+		ED81EB3A2E0C455F003062BA /* TimerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED81EB392E0C455F003062BA /* TimerView.swift */; };
 		ED82ED342DFC4C70006BE6D5 /* BancoQuestoes.json in Resources */ = {isa = PBXBuildFile; fileRef = ED82ED332DFC4C70006BE6D5 /* BancoQuestoes.json */; };
 		ED82ED3F2DFC6E05006BE6D5 /* DesafiosMultimidaViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED82ED3E2DFC6E05006BE6D5 /* DesafiosMultimidaViewModel.swift */; };
 		ED82ED432DFC6FC0006BE6D5 /* DesafiosUtilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED82ED422DFC6FC0006BE6D5 /* DesafiosUtilities.swift */; };
@@ -123,6 +125,8 @@
 		ED81EB2D2E0C37B0003062BA /* PromptFW.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PromptFW.swift; sourceTree = "<group>"; };
 		ED81EB332E0C393A003062BA /* RespostaFW.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RespostaFW.swift; sourceTree = "<group>"; };
 		ED81EB352E0C3AFC003062BA /* BancoFW.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = BancoFW.json; sourceTree = "<group>"; };
+		ED81EB372E0C4131003062BA /* TimerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerViewController.swift; sourceTree = "<group>"; };
+		ED81EB392E0C455F003062BA /* TimerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerView.swift; sourceTree = "<group>"; };
 		ED82ED332DFC4C70006BE6D5 /* BancoQuestoes.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = BancoQuestoes.json; sourceTree = "<group>"; };
 		ED82ED3E2DFC6E05006BE6D5 /* DesafiosMultimidaViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DesafiosMultimidaViewModel.swift; sourceTree = "<group>"; };
 		ED82ED422DFC6FC0006BE6D5 /* DesafiosUtilities.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DesafiosUtilities.swift; sourceTree = "<group>"; };
@@ -183,6 +187,7 @@
 				ED82ED3E2DFC6E05006BE6D5 /* DesafiosMultimidaViewModel.swift */,
 				ED80F5AD2E0ADB4100B61E97 /* PingPongViewModel.swift */,
 				24E7D6782E0C1F2F0064BAD1 /* PingPongViewController.swift */,
+				ED81EB372E0C4131003062BA /* TimerViewController.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -273,6 +278,7 @@
 				ED80F5B02E0ADB5F00B61E97 /* PingPongView.swift */,
 				ED80F5B42E0AE5CE00B61E97 /* InicialPingPongView.swift */,
 				ED80F5B62E0AEABD00B61E97 /* DurationPickerView.swift */,
+				ED81EB392E0C455F003062BA /* TimerView.swift */,
 			);
 			path = PingPong;
 			sourceTree = "<group>";
@@ -544,6 +550,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				ED81EB3A2E0C455F003062BA /* TimerView.swift in Sources */,
 				A47175A82E018F9D00AC6B12 /* SessaoFreeWriting+CoreDataClass.swift in Sources */,
 				A471759F2E018F9D00AC6B12 /* SessaoPingPong+CoreDataProperties.swift in Sources */,
 				ED2C7E052E097ACA004F5E9F /* InicialDesafiosView.swift in Sources */,
@@ -564,6 +571,7 @@
 				A47175AA2E018F9D00AC6B12 /* SessaoMaieutica+CoreDataClass.swift in Sources */,
 				A47175A72E018F9D00AC6B12 /* Projeto+CoreDataProperties.swift in Sources */,
 				ED81EB342E0C393A003062BA /* RespostaFW.swift in Sources */,
+				ED81EB382E0C4131003062BA /* TimerViewController.swift in Sources */,
 				A417CC9D2DF9CB7800564508 /* FreeWritingViewModel.swift in Sources */,
 				ED0B0E9B2E02F9C200785DDD /* PageControlView.swift in Sources */,
 				A471759E2E018F9D00AC6B12 /* SessaoPingPong+CoreDataClass.swift in Sources */,

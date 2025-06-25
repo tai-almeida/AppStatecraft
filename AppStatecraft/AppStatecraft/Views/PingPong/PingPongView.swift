@@ -9,10 +9,11 @@ import SwiftUI
 import UIKit
 
 struct PingPongView: View {
-    @StateObject var viewModel = PingPongViewModel()
-    @State var textoIA = ""
-    @State var palavras: [String] = []
+    //@StateObject var viewModel = PingPongViewModel()
+    @Binding var textoIA: String
+    @Binding var palavras: [String]
     @State var input = ""
+    @Environment(\.dismiss) var dismiss
     var body: some View {
         NavigationView {
             ScrollView(.vertical) {
@@ -22,6 +23,7 @@ struct PingPongView: View {
                             ZStack {
                                 Image("CaixinhaPingPong")
                                 Text(palavra)
+                                    .foregroundColor(.black)
                             }
                             Image("LinhaPingPong")
                         }
@@ -36,8 +38,27 @@ struct PingPongView: View {
                             //.multilineTextAlignment(.center)
                     }
                 }
-                .frame(alignment: .top)
-                .task {
+            }
+            .padding()
+            .navigationTitle("Ping-Pong")
+            .navigationBarTitleDisplayMode(.inline)
+            .toolbar {
+                ToolbarItem(placement: .cancellationAction) {
+                    Button("Cancelar") {
+                        dismiss()
+                    }
+                    .foregroundColor(.accentColor)
+                }
+                ToolbarItem(placement: .confirmationAction) {
+                    Button("OK") {
+                        dismiss()
+                    }
+                    .foregroundColor(.accentColor)
+                }
+            }
+        }
+                //.frame(alignment: .top)
+                /*.task {
                     if textoIA == "" {
                         var aux = await viewModel.fazerRequisicao(context: []) ?? "Erro da IA"
                         while aux == "Erro da IA" {
@@ -46,13 +67,7 @@ struct PingPongView: View {
                         textoIA = aux
                         palavras.append(textoIA)
                     }
-                }
-            }
-            .padding(0)
-        }
-        .navigationTitle("Ping-Pong")
-        .navigationBarTitleDisplayMode(.large)
-        .ignoresSafeArea()
+                }*/
     }
 }
 

@@ -11,6 +11,7 @@ struct TextFieldUIKit: UIViewRepresentable {
         textField.returnKeyType = .done
         textField.delegate = context.coordinator
         textField.textAlignment = .center
+        textField.placeholder = "Escreva aqui"
         return textField
     }
 

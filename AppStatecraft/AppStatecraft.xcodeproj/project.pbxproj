@@ -29,6 +29,7 @@
 		A4773CA52E01B0E4002D27D7 /* AppStatecraft.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = A4773CA32E01B0E4002D27D7 /* AppStatecraft.xcdatamodeld */; };
 		A4773CA72E01B0F2002D27D7 /* DataController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4773CA62E01B0F2002D27D7 /* DataController.swift */; };
 		E8DDC8772E0C1A6400365D65 /* Secrets.plist in Resources */ = {isa = PBXBuildFile; fileRef = E8DDC8762E0C1A6400365D65 /* Secrets.plist */; };
+		E8E36F712E0C2B9100B7A222 /* MaieuticaTelaInicio.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8E36F702E0C2B9100B7A222 /* MaieuticaTelaInicio.swift */; };
 		ED695A672E01B37C009C0BE0 /* TabBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED695A662E01B37C009C0BE0 /* TabBar.swift */; };
 		ED695A6A2E01B3DA009C0BE0 /* MetodologiasView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED695A692E01B3DA009C0BE0 /* MetodologiasView.swift */; };
 		ED82ED342DFC4C70006BE6D5 /* BancoQuestoes.json in Resources */ = {isa = PBXBuildFile; fileRef = ED82ED332DFC4C70006BE6D5 /* BancoQuestoes.json */; };
@@ -89,6 +90,7 @@
 		A4773CA62E01B0F2002D27D7 /* DataController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataController.swift; sourceTree = "<group>"; };
 		A4773CA82E01B204002D27D7 /* oi.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = oi.swift; path = AppStatecraft/Core/Persistence/oi.swift; sourceTree = SOURCE_ROOT; };
 		E8DDC8762E0C1A6400365D65 /* Secrets.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Secrets.plist; sourceTree = "<group>"; };
+		E8E36F702E0C2B9100B7A222 /* MaieuticaTelaInicio.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MaieuticaTelaInicio.swift; sourceTree = "<group>"; };
 		ED695A662E01B37C009C0BE0 /* TabBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBar.swift; sourceTree = "<group>"; };
 		ED695A692E01B3DA009C0BE0 /* MetodologiasView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MetodologiasView.swift; sourceTree = "<group>"; };
 		ED82ED332DFC4C70006BE6D5 /* BancoQuestoes.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = BancoQuestoes.json; sourceTree = "<group>"; };
@@ -156,6 +158,7 @@
 		A417CCA02DF9CB9100564508 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				E8E36F702E0C2B9100B7A222 /* MaieuticaTelaInicio.swift */,
 				ED695A692E01B3DA009C0BE0 /* MetodologiasView.swift */,
 				ED695A662E01B37C009C0BE0 /* TabBar.swift */,
 				241291C72E02EB4F00BFA996 /* MaieuticaIdeiasView.swift */,
@@ -498,6 +501,7 @@
 				A47175A92E018F9D00AC6B12 /* SessaoFreeWriting+CoreDataProperties.swift in Sources */,
 				A47175AB2E018F9D00AC6B12 /* SessaoMaieutica+CoreDataProperties.swift in Sources */,
 				A47175B92E01A23A00AC6B12 /* ContainerEnunciadoView.swift in Sources */,
+				E8E36F712E0C2B9100B7A222 /* MaieuticaTelaInicio.swift in Sources */,
 				ED695A672E01B37C009C0BE0 /* TabBar.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

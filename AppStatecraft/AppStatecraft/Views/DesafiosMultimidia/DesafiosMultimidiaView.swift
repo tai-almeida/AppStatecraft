@@ -68,7 +68,7 @@ struct DesafiosMultimidiaView: View {
                                 ) {
                                     Button("Adicionar a Projeto") {
                                         self.isShowingAddProjetos = true
-                                        //testar para ver se da bom, dps associamos a projeto
+                                        //dps associamos a projeto
                                         desafiosVM.salvarSemProjeto(
                                             contexto: viewContext,
                                             respostaTexto: respostaTexto,
@@ -80,10 +80,9 @@ struct DesafiosMultimidiaView: View {
                                         //navegar para o modal de adicionar a projeto
                                         //salvar o objeto no coredata quando a pessoa clicar no projeto
                                         
-                                        // TODO: Limpar os campos e dar feedback ao usuário
-                                        // self.respostaTexto = ""
-                                        // self.image = nil
-                                        // dismiss() // se for um modal
+                                        self.respostaTexto = ""
+                                        self.image = nil
+                                        dismiss()
                                     }
                                     Button("Salvar em Esboços") {
                                         //TODO: logica de permanencia dos dados, so que salvar no esbocos tomee

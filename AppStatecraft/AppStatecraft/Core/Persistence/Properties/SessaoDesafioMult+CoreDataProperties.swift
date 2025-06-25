@@ -2,7 +2,7 @@
 //  SessaoDesafioMult+CoreDataProperties.swift
 //  AppStatecraft
 //
-//  Created by Sofia Villas Bôas on 17/06/25.
+//  Created by Sofia Villas Bôas on 25/06/25.
 //
 //
 
@@ -20,6 +20,6 @@ extension SessaoDesafioMult {
     @NSManaged public var mediaFoto: Data?
     @NSManaged public var mediaTexto: String?
     @NSManaged public var respostaFoto: Data?
-    @NSManaged public var respostaTexto: Data?
+    @NSManaged public var respostaTexto: String?
 
 }

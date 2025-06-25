@@ -24,7 +24,7 @@
         <attribute name="mediaFoto" optional="YES" attributeType="Binary"/>
         <attribute name="mediaTexto" optional="YES" attributeType="String"/>
         <attribute name="respostaFoto" optional="YES" attributeType="Binary"/>
-        <attribute name="respostaTexto" optional="YES" attributeType="Binary"/>
+        <attribute name="respostaTexto" optional="YES" attributeType="String"/>
     </entity>
     <entity name="SessaoFreeWriting" representedClassName="SessaoFreeWriting" parentEntity="Sessao" syncable="YES">
         <attribute name="enunciado" optional="YES" attributeType="String"/>
@@ -39,7 +39,7 @@
         <element name="Projeto" positionX="106.9747314453125" positionY="-809.2063903808594" width="128" height="133"/>
         <element name="Registro" positionX="-706.0150146484375" positionY="-294.0579528808594" width="128" height="103"/>
         <element name="Sessao" positionX="175.9352416992187" positionY="-596.0043182373047" width="128" height="88"/>
-        <element name="SessaoDesafioMult" positionX="570.60693359375" positionY="-401.9487915039062" width="128" height="118"/>
+        <element name="SessaoDesafioMult" positionX="570.60693359375" positionY="-401.9487915039062" width="128" height="14"/>
         <element name="SessaoFreeWriting" positionX="-77.079833984375" positionY="-203.4430541992188" width="128" height="58"/>
         <element name="SessaoMaieutica" positionX="540.9592895507812" positionY="209.9408569335938" width="128" height="58"/>
         <element name="SessaoPingPong" positionX="-86.97119140625" positionY="230.7269897460938" width="128" height="58"/>

@@ -12,23 +12,23 @@
 		A44BD6FA2E0AD68400B840EB /* AddProjetoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A44BD6F92E0AD68400B840EB /* AddProjetoView.swift */; };
 		A46C081F2E02F9F100129CE7 /* ImagePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = A46C081E2E02F9F100129CE7 /* ImagePicker.swift */; };
 		A46C08212E03040A00129CE7 /* RespostaCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = A46C08202E03040A00129CE7 /* RespostaCard.swift */; };
-		A471759E2E018F9D00AC6B12 /* SessaoPingPong+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = A47175902E018F9D00AC6B12 /* SessaoPingPong+CoreDataClass.swift */; };
-		A471759F2E018F9D00AC6B12 /* SessaoPingPong+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = A47175912E018F9D00AC6B12 /* SessaoPingPong+CoreDataProperties.swift */; };
-		A47175A02E018F9D00AC6B12 /* SessaoDesafioMult+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = A47175922E018F9D00AC6B12 /* SessaoDesafioMult+CoreDataClass.swift */; };
-		A47175A12E018F9D00AC6B12 /* SessaoDesafioMult+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = A47175932E018F9D00AC6B12 /* SessaoDesafioMult+CoreDataProperties.swift */; };
-		A47175A22E018F9D00AC6B12 /* Sessao+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = A47175942E018F9D00AC6B12 /* Sessao+CoreDataClass.swift */; };
-		A47175A32E018F9D00AC6B12 /* Sessao+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = A47175952E018F9D00AC6B12 /* Sessao+CoreDataProperties.swift */; };
-		A47175A42E018F9D00AC6B12 /* Registro+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = A47175962E018F9D00AC6B12 /* Registro+CoreDataClass.swift */; };
-		A47175A52E018F9D00AC6B12 /* Registro+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = A47175972E018F9D00AC6B12 /* Registro+CoreDataProperties.swift */; };
-		A47175A62E018F9D00AC6B12 /* Projeto+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = A47175982E018F9D00AC6B12 /* Projeto+CoreDataClass.swift */; };
-		A47175A72E018F9D00AC6B12 /* Projeto+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = A47175992E018F9D00AC6B12 /* Projeto+CoreDataProperties.swift */; };
-		A47175A82E018F9D00AC6B12 /* SessaoFreeWriting+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = A471759A2E018F9D00AC6B12 /* SessaoFreeWriting+CoreDataClass.swift */; };
-		A47175A92E018F9D00AC6B12 /* SessaoFreeWriting+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = A471759B2E018F9D00AC6B12 /* SessaoFreeWriting+CoreDataProperties.swift */; };
-		A47175AA2E018F9D00AC6B12 /* SessaoMaieutica+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = A471759C2E018F9D00AC6B12 /* SessaoMaieutica+CoreDataClass.swift */; };
-		A47175AB2E018F9D00AC6B12 /* SessaoMaieutica+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = A471759D2E018F9D00AC6B12 /* SessaoMaieutica+CoreDataProperties.swift */; };
 		A47175B92E01A23A00AC6B12 /* ContainerEnunciadoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A47175B82E01A23A00AC6B12 /* ContainerEnunciadoView.swift */; };
 		A4773CA52E01B0E4002D27D7 /* AppStatecraft.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = A4773CA32E01B0E4002D27D7 /* AppStatecraft.xcdatamodeld */; };
 		A4773CA72E01B0F2002D27D7 /* DataController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4773CA62E01B0F2002D27D7 /* DataController.swift */; };
+		A48ABDF32E0C22FA00483673 /* SessaoMaieutica+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = A48ABDE52E0C22FA00483673 /* SessaoMaieutica+CoreDataClass.swift */; };
+		A48ABDF42E0C22FA00483673 /* SessaoMaieutica+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = A48ABDE62E0C22FA00483673 /* SessaoMaieutica+CoreDataProperties.swift */; };
+		A48ABDF52E0C22FA00483673 /* SessaoDesafioMult+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = A48ABDE72E0C22FA00483673 /* SessaoDesafioMult+CoreDataClass.swift */; };
+		A48ABDF62E0C22FA00483673 /* SessaoDesafioMult+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = A48ABDE82E0C22FA00483673 /* SessaoDesafioMult+CoreDataProperties.swift */; };
+		A48ABDF72E0C22FA00483673 /* Sessao+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = A48ABDE92E0C22FA00483673 /* Sessao+CoreDataClass.swift */; };
+		A48ABDF82E0C22FA00483673 /* Sessao+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = A48ABDEA2E0C22FA00483673 /* Sessao+CoreDataProperties.swift */; };
+		A48ABDF92E0C22FA00483673 /* SessaoPingPong+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = A48ABDEB2E0C22FA00483673 /* SessaoPingPong+CoreDataClass.swift */; };
+		A48ABDFA2E0C22FA00483673 /* SessaoPingPong+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = A48ABDEC2E0C22FA00483673 /* SessaoPingPong+CoreDataProperties.swift */; };
+		A48ABDFB2E0C22FA00483673 /* Registro+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = A48ABDED2E0C22FA00483673 /* Registro+CoreDataClass.swift */; };
+		A48ABDFC2E0C22FA00483673 /* Registro+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = A48ABDEE2E0C22FA00483673 /* Registro+CoreDataProperties.swift */; };
+		A48ABDFD2E0C22FA00483673 /* SessaoFreeWriting+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = A48ABDEF2E0C22FA00483673 /* SessaoFreeWriting+CoreDataClass.swift */; };
+		A48ABDFE2E0C22FA00483673 /* SessaoFreeWriting+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = A48ABDF02E0C22FA00483673 /* SessaoFreeWriting+CoreDataProperties.swift */; };
+		A48ABDFF2E0C22FA00483673 /* Projeto+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = A48ABDF12E0C22FA00483673 /* Projeto+CoreDataClass.swift */; };
+		A48ABE002E0C22FA00483673 /* Projeto+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = A48ABDF22E0C22FA00483673 /* Projeto+CoreDataProperties.swift */; };
 		E8DDC8752E0AEBEF00365D65 /* MeusProjetosView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8DDC8742E0AEBEF00365D65 /* MeusProjetosView.swift */; };
 		ED0B0E952E02EFAF00785DDD /* CardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED0B0E942E02EFAF00785DDD /* CardView.swift */; };
 		ED0B0E972E02F6D100785DDD /* CarrosselView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED0B0E962E02F6D100785DDD /* CarrosselView.swift */; };
@@ -77,24 +77,24 @@
 		A44BD6F92E0AD68400B840EB /* AddProjetoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddProjetoView.swift; sourceTree = "<group>"; };
 		A46C081E2E02F9F100129CE7 /* ImagePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePicker.swift; sourceTree = "<group>"; };
 		A46C08202E03040A00129CE7 /* RespostaCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RespostaCard.swift; sourceTree = "<group>"; };
-		A47175902E018F9D00AC6B12 /* SessaoPingPong+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SessaoPingPong+CoreDataClass.swift"; sourceTree = "<group>"; };
-		A47175912E018F9D00AC6B12 /* SessaoPingPong+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SessaoPingPong+CoreDataProperties.swift"; sourceTree = "<group>"; };
-		A47175922E018F9D00AC6B12 /* SessaoDesafioMult+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SessaoDesafioMult+CoreDataClass.swift"; sourceTree = "<group>"; };
-		A47175932E018F9D00AC6B12 /* SessaoDesafioMult+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SessaoDesafioMult+CoreDataProperties.swift"; sourceTree = "<group>"; };
-		A47175942E018F9D00AC6B12 /* Sessao+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Sessao+CoreDataClass.swift"; sourceTree = "<group>"; };
-		A47175952E018F9D00AC6B12 /* Sessao+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Sessao+CoreDataProperties.swift"; sourceTree = "<group>"; };
-		A47175962E018F9D00AC6B12 /* Registro+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Registro+CoreDataClass.swift"; sourceTree = "<group>"; };
-		A47175972E018F9D00AC6B12 /* Registro+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Registro+CoreDataProperties.swift"; sourceTree = "<group>"; };
-		A47175982E018F9D00AC6B12 /* Projeto+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Projeto+CoreDataClass.swift"; sourceTree = "<group>"; };
-		A47175992E018F9D00AC6B12 /* Projeto+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Projeto+CoreDataProperties.swift"; sourceTree = "<group>"; };
-		A471759A2E018F9D00AC6B12 /* SessaoFreeWriting+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SessaoFreeWriting+CoreDataClass.swift"; sourceTree = "<group>"; };
-		A471759B2E018F9D00AC6B12 /* SessaoFreeWriting+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SessaoFreeWriting+CoreDataProperties.swift"; sourceTree = "<group>"; };
-		A471759C2E018F9D00AC6B12 /* SessaoMaieutica+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SessaoMaieutica+CoreDataClass.swift"; sourceTree = "<group>"; };
-		A471759D2E018F9D00AC6B12 /* SessaoMaieutica+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SessaoMaieutica+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		A47175B82E01A23A00AC6B12 /* ContainerEnunciadoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContainerEnunciadoView.swift; sourceTree = "<group>"; };
 		A4773CA42E01B0E4002D27D7 /* AppStatecraft.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = AppStatecraft.xcdatamodel; sourceTree = "<group>"; };
 		A4773CA62E01B0F2002D27D7 /* DataController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataController.swift; sourceTree = "<group>"; };
 		A4773CA82E01B204002D27D7 /* oi.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = oi.swift; path = AppStatecraft/Core/Persistence/oi.swift; sourceTree = SOURCE_ROOT; };
+		A48ABDE52E0C22FA00483673 /* SessaoMaieutica+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SessaoMaieutica+CoreDataClass.swift"; sourceTree = "<group>"; };
+		A48ABDE62E0C22FA00483673 /* SessaoMaieutica+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SessaoMaieutica+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		A48ABDE72E0C22FA00483673 /* SessaoDesafioMult+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SessaoDesafioMult+CoreDataClass.swift"; sourceTree = "<group>"; };
+		A48ABDE82E0C22FA00483673 /* SessaoDesafioMult+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SessaoDesafioMult+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		A48ABDE92E0C22FA00483673 /* Sessao+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Sessao+CoreDataClass.swift"; sourceTree = "<group>"; };
+		A48ABDEA2E0C22FA00483673 /* Sessao+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Sessao+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		A48ABDEB2E0C22FA00483673 /* SessaoPingPong+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SessaoPingPong+CoreDataClass.swift"; sourceTree = "<group>"; };
+		A48ABDEC2E0C22FA00483673 /* SessaoPingPong+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SessaoPingPong+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		A48ABDED2E0C22FA00483673 /* Registro+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Registro+CoreDataClass.swift"; sourceTree = "<group>"; };
+		A48ABDEE2E0C22FA00483673 /* Registro+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Registro+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		A48ABDEF2E0C22FA00483673 /* SessaoFreeWriting+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SessaoFreeWriting+CoreDataClass.swift"; sourceTree = "<group>"; };
+		A48ABDF02E0C22FA00483673 /* SessaoFreeWriting+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SessaoFreeWriting+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		A48ABDF12E0C22FA00483673 /* Projeto+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Projeto+CoreDataClass.swift"; sourceTree = "<group>"; };
+		A48ABDF22E0C22FA00483673 /* Projeto+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Projeto+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		E8DDC8742E0AEBEF00365D65 /* MeusProjetosView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeusProjetosView.swift; sourceTree = "<group>"; };
 		ED0B0E942E02EFAF00785DDD /* CardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardView.swift; sourceTree = "<group>"; };
 		ED0B0E962E02F6D100785DDD /* CarrosselView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarrosselView.swift; sourceTree = "<group>"; };
@@ -183,13 +183,13 @@
 		A47175AC2E01925D00AC6B12 /* Properties */ = {
 			isa = PBXGroup;
 			children = (
-				A47175912E018F9D00AC6B12 /* SessaoPingPong+CoreDataProperties.swift */,
-				A47175932E018F9D00AC6B12 /* SessaoDesafioMult+CoreDataProperties.swift */,
-				A47175972E018F9D00AC6B12 /* Registro+CoreDataProperties.swift */,
-				A47175992E018F9D00AC6B12 /* Projeto+CoreDataProperties.swift */,
-				A471759B2E018F9D00AC6B12 /* SessaoFreeWriting+CoreDataProperties.swift */,
-				A471759D2E018F9D00AC6B12 /* SessaoMaieutica+CoreDataProperties.swift */,
-				A47175952E018F9D00AC6B12 /* Sessao+CoreDataProperties.swift */,
+				A48ABDF02E0C22FA00483673 /* SessaoFreeWriting+CoreDataProperties.swift */,
+				A48ABDEA2E0C22FA00483673 /* Sessao+CoreDataProperties.swift */,
+				A48ABDEE2E0C22FA00483673 /* Registro+CoreDataProperties.swift */,
+				A48ABDE62E0C22FA00483673 /* SessaoMaieutica+CoreDataProperties.swift */,
+				A48ABDEC2E0C22FA00483673 /* SessaoPingPong+CoreDataProperties.swift */,
+				A48ABDE82E0C22FA00483673 /* SessaoDesafioMult+CoreDataProperties.swift */,
+				A48ABDF22E0C22FA00483673 /* Projeto+CoreDataProperties.swift */,
 			);
 			path = Properties;
 			sourceTree = "<group>";
@@ -197,13 +197,13 @@
 		A47175AD2E01929000AC6B12 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
-				A47175902E018F9D00AC6B12 /* SessaoPingPong+CoreDataClass.swift */,
-				A47175982E018F9D00AC6B12 /* Projeto+CoreDataClass.swift */,
-				A47175922E018F9D00AC6B12 /* SessaoDesafioMult+CoreDataClass.swift */,
-				A471759A2E018F9D00AC6B12 /* SessaoFreeWriting+CoreDataClass.swift */,
-				A47175942E018F9D00AC6B12 /* Sessao+CoreDataClass.swift */,
-				A471759C2E018F9D00AC6B12 /* SessaoMaieutica+CoreDataClass.swift */,
-				A47175962E018F9D00AC6B12 /* Registro+CoreDataClass.swift */,
+				A48ABDE72E0C22FA00483673 /* SessaoDesafioMult+CoreDataClass.swift */,
+				A48ABDEB2E0C22FA00483673 /* SessaoPingPong+CoreDataClass.swift */,
+				A48ABDE52E0C22FA00483673 /* SessaoMaieutica+CoreDataClass.swift */,
+				A48ABDE92E0C22FA00483673 /* Sessao+CoreDataClass.swift */,
+				A48ABDED2E0C22FA00483673 /* Registro+CoreDataClass.swift */,
+				A48ABDEF2E0C22FA00483673 /* SessaoFreeWriting+CoreDataClass.swift */,
+				A48ABDF12E0C22FA00483673 /* Projeto+CoreDataClass.swift */,
 			);
 			path = Classes;
 			sourceTree = "<group>";
@@ -496,41 +496,41 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A47175A82E018F9D00AC6B12 /* SessaoFreeWriting+CoreDataClass.swift in Sources */,
-				A471759F2E018F9D00AC6B12 /* SessaoPingPong+CoreDataProperties.swift in Sources */,
 				ED2C7E052E097ACA004F5E9F /* InicialDesafiosView.swift in Sources */,
-				A47175A12E018F9D00AC6B12 /* SessaoDesafioMult+CoreDataProperties.swift in Sources */,
 				A46C081F2E02F9F100129CE7 /* ImagePicker.swift in Sources */,
+				A48ABDFB2E0C22FA00483673 /* Registro+CoreDataClass.swift in Sources */,
 				A46C08212E03040A00129CE7 /* RespostaCard.swift in Sources */,
 				A4773CA72E01B0F2002D27D7 /* DataController.swift in Sources */,
-				A47175A02E018F9D00AC6B12 /* SessaoDesafioMult+CoreDataClass.swift in Sources */,
 				ED82ED3F2DFC6E05006BE6D5 /* DesafiosMultimidiaViewModel.swift in Sources */,
 				ED80F5A32E0AC46D00B61E97 /* ColorExtension.swift in Sources */,
-				A47175A52E018F9D00AC6B12 /* Registro+CoreDataProperties.swift in Sources */,
-				A47175A42E018F9D00AC6B12 /* Registro+CoreDataClass.swift in Sources */,
-				A47175AA2E018F9D00AC6B12 /* SessaoMaieutica+CoreDataClass.swift in Sources */,
-				A47175A72E018F9D00AC6B12 /* Projeto+CoreDataProperties.swift in Sources */,
 				A417CC9D2DF9CB7800564508 /* FreeWritingViewModel.swift in Sources */,
+				A48ABDF62E0C22FA00483673 /* SessaoDesafioMult+CoreDataProperties.swift in Sources */,
+				A48ABDFA2E0C22FA00483673 /* SessaoPingPong+CoreDataProperties.swift in Sources */,
+				A48ABDF52E0C22FA00483673 /* SessaoDesafioMult+CoreDataClass.swift in Sources */,
+				A48ABDF92E0C22FA00483673 /* SessaoPingPong+CoreDataClass.swift in Sources */,
+				A48ABDF82E0C22FA00483673 /* Sessao+CoreDataProperties.swift in Sources */,
 				A44BD6FA2E0AD68400B840EB /* AddProjetoView.swift in Sources */,
 				ED0B0E9B2E02F9C200785DDD /* PageControlView.swift in Sources */,
-				A471759E2E018F9D00AC6B12 /* SessaoPingPong+CoreDataClass.swift in Sources */,
+				A48ABDFF2E0C22FA00483673 /* Projeto+CoreDataClass.swift in Sources */,
 				ED695A6A2E01B3DA009C0BE0 /* MetodologiasView.swift in Sources */,
+				A48ABDFC2E0C22FA00483673 /* Registro+CoreDataProperties.swift in Sources */,
+				A48ABDF32E0C22FA00483673 /* SessaoMaieutica+CoreDataClass.swift in Sources */,
 				A4773CA52E01B0E4002D27D7 /* AppStatecraft.xcdatamodeld in Sources */,
 				ED84819B2E004534007E5709 /* DesafioUtilities.swift in Sources */,
 				E8DDC8752E0AEBEF00365D65 /* MeusProjetosView.swift in Sources */,
+				A48ABDFE2E0C22FA00483673 /* SessaoFreeWriting+CoreDataProperties.swift in Sources */,
 				ED82ED452DFC6FD2006BE6D5 /* QuestaoDesafios.swift in Sources */,
 				ED82ED432DFC6FC0006BE6D5 /* DesafiosUtilities.swift in Sources */,
+				A48ABE002E0C22FA00483673 /* Projeto+CoreDataProperties.swift in Sources */,
 				EDF2654F2DF9A9F800898EBA /* AppStatecraftApp.swift in Sources */,
+				A48ABDFD2E0C22FA00483673 /* SessaoFreeWriting+CoreDataClass.swift in Sources */,
+				A48ABDF42E0C22FA00483673 /* SessaoMaieutica+CoreDataProperties.swift in Sources */,
 				ED0B0E952E02EFAF00785DDD /* CardView.swift in Sources */,
-				A47175A62E018F9D00AC6B12 /* Projeto+CoreDataClass.swift in Sources */,
-				A47175A32E018F9D00AC6B12 /* Sessao+CoreDataProperties.swift in Sources */,
-				A47175A22E018F9D00AC6B12 /* Sessao+CoreDataClass.swift in Sources */,
-				A47175A92E018F9D00AC6B12 /* SessaoFreeWriting+CoreDataProperties.swift in Sources */,
 				A40C5B202E02DFDE00C30D6E /* DesafiosMultimidiaView.swift in Sources */,
-				A47175AB2E018F9D00AC6B12 /* SessaoMaieutica+CoreDataProperties.swift in Sources */,
 				A47175B92E01A23A00AC6B12 /* ContainerEnunciadoView.swift in Sources */,
 				ED695A672E01B37C009C0BE0 /* TabBar.swift in Sources */,
 				ED0B0E972E02F6D100785DDD /* CarrosselView.swift in Sources */,
+				A48ABDF72E0C22FA00483673 /* Sessao+CoreDataClass.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

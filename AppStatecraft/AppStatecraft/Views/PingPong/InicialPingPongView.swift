@@ -35,26 +35,23 @@ struct InicialPingPongView: View {
                 .padding(.horizontal)
                 
                 }
-                Divider()
+                Divider().padding(.horizontal)
                     
                 Text("Te daremos uma palavra e, sem pensar demais, escreva palavras que ela te fizer lembrar!")
                 
-                Divider()
+                Divider().padding(.horizontal)
                 Spacer()
                     
                 HStack {
-                    VStack {
-                        Text("Timer")
-                            .foregroundColor(Color.accentColor)
-                        
-                        DurationPickerView(minutes: $minutes, seconds: $seconds)
-                    }
-                    
-                    
+                    Text("Timer")
+                        .foregroundColor(Color.accentColor)
+//
                     Spacer()
-                    
-                    
-                }
+//
+                    Text(String(format: "%02d:%02d", minutes, seconds))
+//
+                }.padding(.horizontal)
+                DurationPickerView(minutes: $minutes, seconds: $seconds)
             }
             Button("Começar") {
                 showingSheet.toggle()
@@ -74,8 +71,8 @@ struct InicialPingPongView: View {
     }
 }
 
-struct InicialPingPongView_Previews: PreviewProvider {
-    static var previews: some View {
-        InicialPingPongView()
-    }
-}
+//struct InicialPingPongView_Previews: PreviewProvider {
+//    static var previews: some View {
+//        InicialPingPongView()
+//    }
+//}

@@ -40,7 +40,6 @@
 		ED80F5B32E0ADC1000B61E97 /* Secrets.plist in Resources */ = {isa = PBXBuildFile; fileRef = ED80F5B22E0ADC1000B61E97 /* Secrets.plist */; };
 		ED80F5B52E0AE5CE00B61E97 /* InicialPingPongView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED80F5B42E0AE5CE00B61E97 /* InicialPingPongView.swift */; };
 		ED80F5B72E0AEABD00B61E97 /* DurationPickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED80F5B62E0AEABD00B61E97 /* DurationPickerView.swift */; };
-		ED80F5B92E0AEAD100B61E97 /* DurationPickerModelView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED80F5B82E0AEAD100B61E97 /* DurationPickerModelView.swift */; };
 		ED82ED342DFC4C70006BE6D5 /* BancoQuestoes.json in Resources */ = {isa = PBXBuildFile; fileRef = ED82ED332DFC4C70006BE6D5 /* BancoQuestoes.json */; };
 		ED82ED3F2DFC6E05006BE6D5 /* DesafiosMultimidaViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED82ED3E2DFC6E05006BE6D5 /* DesafiosMultimidaViewModel.swift */; };
 		ED82ED432DFC6FC0006BE6D5 /* DesafiosUtilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED82ED422DFC6FC0006BE6D5 /* DesafiosUtilities.swift */; };
@@ -110,7 +109,6 @@
 		ED80F5B22E0ADC1000B61E97 /* Secrets.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Secrets.plist; sourceTree = "<group>"; };
 		ED80F5B42E0AE5CE00B61E97 /* InicialPingPongView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InicialPingPongView.swift; sourceTree = "<group>"; };
 		ED80F5B62E0AEABD00B61E97 /* DurationPickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DurationPickerView.swift; sourceTree = "<group>"; };
-		ED80F5B82E0AEAD100B61E97 /* DurationPickerModelView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DurationPickerModelView.swift; sourceTree = "<group>"; };
 		ED82ED332DFC4C70006BE6D5 /* BancoQuestoes.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = BancoQuestoes.json; sourceTree = "<group>"; };
 		ED82ED3E2DFC6E05006BE6D5 /* DesafiosMultimidaViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DesafiosMultimidaViewModel.swift; sourceTree = "<group>"; };
 		ED82ED422DFC6FC0006BE6D5 /* DesafiosUtilities.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DesafiosUtilities.swift; sourceTree = "<group>"; };
@@ -169,7 +167,6 @@
 				A417CC9C2DF9CB7800564508 /* FreeWritingViewModel.swift */,
 				ED82ED3E2DFC6E05006BE6D5 /* DesafiosMultimidaViewModel.swift */,
 				ED80F5AD2E0ADB4100B61E97 /* PingPongViewModel.swift */,
-				ED80F5B82E0AEAD100B61E97 /* DurationPickerModelView.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -551,7 +548,6 @@
 				A40C5B202E02DFDE00C30D6E /* DesafiosMultimidiaView.swift in Sources */,
 				A47175AB2E018F9D00AC6B12 /* SessaoMaieutica+CoreDataProperties.swift in Sources */,
 				A47175B92E01A23A00AC6B12 /* ContainerEnunciadoView.swift in Sources */,
-				ED80F5B92E0AEAD100B61E97 /* DurationPickerModelView.swift in Sources */,
 				ED80F5B12E0ADB5F00B61E97 /* PingPongView.swift in Sources */,
 				ED695A672E01B37C009C0BE0 /* TabBar.swift in Sources */,
 				ED0B0E972E02F6D100785DDD /* CarrosselView.swift in Sources */,

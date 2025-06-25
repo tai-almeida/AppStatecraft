@@ -37,7 +37,7 @@
 		ED695A6A2E01B3DA009C0BE0 /* MetodologiasView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED695A692E01B3DA009C0BE0 /* MetodologiasView.swift */; };
 		ED80F5A32E0AC46D00B61E97 /* ColorExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED80F5A22E0AC46D00B61E97 /* ColorExtension.swift */; };
 		ED82ED342DFC4C70006BE6D5 /* BancoQuestoes.json in Resources */ = {isa = PBXBuildFile; fileRef = ED82ED332DFC4C70006BE6D5 /* BancoQuestoes.json */; };
-		ED82ED3F2DFC6E05006BE6D5 /* DesafiosMultimidaViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED82ED3E2DFC6E05006BE6D5 /* DesafiosMultimidaViewModel.swift */; };
+		ED82ED3F2DFC6E05006BE6D5 /* DesafiosMultimidiaViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED82ED3E2DFC6E05006BE6D5 /* DesafiosMultimidiaViewModel.swift */; };
 		ED82ED432DFC6FC0006BE6D5 /* DesafiosUtilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED82ED422DFC6FC0006BE6D5 /* DesafiosUtilities.swift */; };
 		ED82ED452DFC6FD2006BE6D5 /* QuestaoDesafios.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED82ED442DFC6FD2006BE6D5 /* QuestaoDesafios.swift */; };
 		ED8481942E003F2D007E5709 /* viajante.jpg in Resources */ = {isa = PBXBuildFile; fileRef = ED8481932E003F2D007E5709 /* viajante.jpg */; };
@@ -102,7 +102,7 @@
 		ED695A692E01B3DA009C0BE0 /* MetodologiasView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MetodologiasView.swift; sourceTree = "<group>"; };
 		ED80F5A22E0AC46D00B61E97 /* ColorExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorExtension.swift; sourceTree = "<group>"; };
 		ED82ED332DFC4C70006BE6D5 /* BancoQuestoes.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = BancoQuestoes.json; sourceTree = "<group>"; };
-		ED82ED3E2DFC6E05006BE6D5 /* DesafiosMultimidaViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DesafiosMultimidaViewModel.swift; sourceTree = "<group>"; };
+		ED82ED3E2DFC6E05006BE6D5 /* DesafiosMultimidiaViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DesafiosMultimidiaViewModel.swift; sourceTree = "<group>"; };
 		ED82ED422DFC6FC0006BE6D5 /* DesafiosUtilities.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DesafiosUtilities.swift; sourceTree = "<group>"; };
 		ED82ED442DFC6FD2006BE6D5 /* QuestaoDesafios.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestaoDesafios.swift; sourceTree = "<group>"; };
 		ED8481932E003F2D007E5709 /* viajante.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = viajante.jpg; sourceTree = "<group>"; };
@@ -157,7 +157,7 @@
 			isa = PBXGroup;
 			children = (
 				A417CC9C2DF9CB7800564508 /* FreeWritingViewModel.swift */,
-				ED82ED3E2DFC6E05006BE6D5 /* DesafiosMultimidaViewModel.swift */,
+				ED82ED3E2DFC6E05006BE6D5 /* DesafiosMultimidiaViewModel.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -501,7 +501,7 @@
 				A46C08212E03040A00129CE7 /* RespostaCard.swift in Sources */,
 				A4773CA72E01B0F2002D27D7 /* DataController.swift in Sources */,
 				A47175A02E018F9D00AC6B12 /* SessaoDesafioMult+CoreDataClass.swift in Sources */,
-				ED82ED3F2DFC6E05006BE6D5 /* DesafiosMultimidaViewModel.swift in Sources */,
+				ED82ED3F2DFC6E05006BE6D5 /* DesafiosMultimidiaViewModel.swift in Sources */,
 				ED80F5A32E0AC46D00B61E97 /* ColorExtension.swift in Sources */,
 				A47175A52E018F9D00AC6B12 /* Registro+CoreDataProperties.swift in Sources */,
 				A47175A42E018F9D00AC6B12 /* Registro+CoreDataClass.swift in Sources */,

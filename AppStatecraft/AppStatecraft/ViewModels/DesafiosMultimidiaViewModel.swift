@@ -7,6 +7,7 @@
 
 import Foundation
 import SwiftUI
+import CoreData
 
 class DesafiosMultimidiaViewModel: ObservableObject {
     
@@ -128,5 +129,23 @@ class DesafiosMultimidiaViewModel: ObservableObject {
         /* Sorteia um desafio dentre os nao feitos para o usuario fazer */
         verificaDesafiosVazios()
         return desafiosNaoFeitos.randomElement()
+    }
+
+    func salvarSemProjeto(contexto: NSManagedObjectContext, respostaTexto: String, respostaImagem: UIImage?, desafio: QuestaoDesafios?){
+        do {
+            let sessaoDesafio = SessaoDesafioMult(context: contexto)
+            sessaoDesafio.id = UUID()
+            sessaoDesafio.data = Date()
+            //falta salvar os outros campos
+            
+           //se a resposta do usuario for uma imagem
+            if let img = respostaImagem {
+                sessaoDesafio.respostaFoto = img.pngData() //transformar para binary data
+            }
+            try contexto.save()
+            print("deu bom salvou")
+        } catch {
+            print("erro ao salvar a resposta - \(error)")
+        }
     }
 }

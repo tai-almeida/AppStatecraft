@@ -13,6 +13,9 @@ struct InicialPingPongView: View {
     @State private var showingSheet = false
     @State private var minutes = 1
     @State private var seconds = 0
+    @State var textoIA = ""
+    @StateObject var viewModel = PingPongViewModel()
+    @State var palavras: [String] = []
     
     
     var body: some View {
@@ -61,8 +64,16 @@ struct InicialPingPongView: View {
             Button("Começar") {
                 showingSheet.toggle()
             }
-            .sheet(isPresented: $showingSheet) {
-                PingPongView()
+            .sheet(isPresented: $showingSheet, onDismiss: { Task{
+                palavras.removeAll()
+                var aux = await viewModel.fazerRequisicao(context: []) ?? "Erro da IA"
+                while aux == "Erro da IA" {
+                    aux = await viewModel.fazerRequisicao(context: []) ?? "Erro da IA"
+                }
+                textoIA = aux;
+                palavras.append(textoIA)
+            }}) {
+                PingPongView(textoIA: $textoIA, palavras: $palavras)
             }
             .frame(maxWidth: .infinity)
             .padding()
@@ -71,6 +82,18 @@ struct InicialPingPongView: View {
             .clipShape(Capsule())
             .padding(.horizontal)
             .padding(.vertical)
+        }
+        .onAppear {
+            Task {
+                if textoIA == "" {
+                    var aux = await viewModel.fazerRequisicao(context: []) ?? "Erro da IA"
+                    while aux == "Erro da IA" {
+                        aux = await viewModel.fazerRequisicao(context: []) ?? "Erro da IA"
+                    }
+                    textoIA = aux
+                    palavras.append(textoIA)
+                }
+            }
         }
         .navigationTitle("Ping-Pong")
     }

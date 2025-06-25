@@ -10,9 +10,9 @@ import SwiftUI
 
 class FreeWritingViewModel: ObservableObject {
     
-    @Published var todosPrompts = [QuestaoDesafios]()
-    @Published var promptsFeitos = [QuestaoDesafios]()
-    @Published var promptsNaoFeitos = [QuestaoDesafios]()
+    @Published var todosPrompts = [PromptFW]()
+    @Published var promptsFeitos = [PromptFW]()
+    @Published var promptsNaoFeitos = [PromptFW]()
     //@Published var desafio = SessaoDesafioMult()
     
     //    private var dadosURL: URL {
@@ -23,9 +23,9 @@ class FreeWritingViewModel: ObservableObject {
     //var desafiosUtilities = DesafiosUtilities()
     
     init() {
-//        copiaJson()
-//        carregaDesafios()
-//        verificaDesafiosVazios()
+        copiaJson()
+        carregaPrompts()
+        verificaPromptsVazios()
 //
     }
     
@@ -46,71 +46,71 @@ class FreeWritingViewModel: ObservableObject {
 //        }
 //    }
     
-//    func carregaDesafios() {
-//
-//        // pega url do arquivo json
-//        guard let url = Bundle.main.url(forResource: "BancoQuestoes", withExtension: "json") else {
-//            print("json file not found")
-//            return
-//        }
-//
-//        do {
-//            // descarrega os dados decodificados
-//            let data = try Data(contentsOf: url)
-//            let decodedDesafios = try JSONDecoder().decode([QuestaoDesafios].self, from: data)
-//
-//
-//            self.todosDesafios = decodedDesafios
-//            self.desafiosFeitos = self.todosDesafios.filter { $0.feita }
-//            self.desafiosNaoFeitos = self.todosDesafios.filter { !$0.feita }
-//
-//        }catch {
-//            print("erro")
-//        }
-//    }
+    func carregaPrompts() {
+
+        // pega url do arquivo json
+        guard let url = Bundle.main.url(forResource: "BancoFW", withExtension: "json") else {
+            print("json file not found")
+            return
+        }
+
+        do {
+            // descarrega os dados decodificados
+            let data = try Data(contentsOf: url)
+            let decodedPrompts = try JSONDecoder().decode([PromptFW].self, from: data)
+
+
+            self.todosPrompts = decodedPrompts
+            self.promptsFeitos = self.todosPrompts.filter { $0.feita }
+            self.promptsNaoFeitos = self.todosPrompts.filter { !$0.feita }
+
+        }catch {
+            print("erro")
+        }
+    }
     
-//    func copiaJson() {
-//        // manipulacao de arquivos
-//        let gerenciaArquivo = FileManager.default
-//
-//        // obtem caminho ate o arquivo json com as questoes
-//        let url = gerenciaArquivo.urls(for: .documentDirectory, in: .userDomainMask)[0]
-//        let caminho = url.appendingPathComponent("BancoQuestoes.json")
-//
-//
-//        // copia arquivo json e verifica se ha erros
-//        if !gerenciaArquivo.fileExists(atPath: caminho.path){
-//            if let origem = Bundle.main.url(forResource: "BancoQuestoes", withExtension: "json") {
-//                do {
-//                    try gerenciaArquivo.copyItem(at: origem, to: caminho)
-//                } catch {
-//                    print("erro ao copiar arquivo")
-//                }
-//            }
-//        }
-//    }
+    func copiaJson() {
+        // manipulacao de arquivos
+        let gerenciaArquivo = FileManager.default
+
+        // obtem caminho ate o arquivo json com as questoes
+        let url = gerenciaArquivo.urls(for: .documentDirectory, in: .userDomainMask)[0]
+        let caminho = url.appendingPathComponent("BancoFW.json")
+
+
+        // copia arquivo json e verifica se ha erros
+        if !gerenciaArquivo.fileExists(atPath: caminho.path){
+            if let origem = Bundle.main.url(forResource: "BancoFW", withExtension: "json") {
+                do {
+                    try gerenciaArquivo.copyItem(at: origem, to: caminho)
+                } catch {
+                    print("erro ao copiar arquivo")
+                }
+            }
+        }
+    }
     
-    //    func carregaDados() {
-    //        //desafiosUtilities.carregaDesafios()
-    //
-    //        self.desafiosFeitos = desafiosUtilities.desafiosFeitos
-    //        self.desafiosNaoFeitos = desafiosUtilities.desafiosNaoFeitos
-    //        verificaDesafiosVazios()
-    //
-    //    }
-    
-//    func verificaDesafiosVazios() {
-//        if desafiosNaoFeitos.isEmpty {
-//            for desafio in desafiosFeitos {
-//                var copiaDesafio = desafio
-//                copiaDesafio.feita = false
-//                desafiosNaoFeitos.append(copiaDesafio)
-//            }
-//            desafiosFeitos.removeAll()
-//        } else {
-//            return
+//        func carregaDados() {
+//            //desafiosUtilities.carregaDesafios()
+//
+//            self.promptsFeitos = desafiosUtilities.desafiosFeitos
+//            self.desafiosNaoFeitos = desafiosUtilities.desafiosNaoFeitos
+//            verificaDesafiosVazios()
+//
 //        }
-//    }
+    
+    func verificaPromptsVazios() {
+        if promptsNaoFeitos.isEmpty {
+            for prompt in promptsFeitos {
+                var copiaPrompt = prompt
+                copiaPrompt.feita = false
+                promptsNaoFeitos.append(copiaPrompt)
+            }
+            promptsFeitos.removeAll()
+        } else {
+            return
+        }
+    }
 //
 //    func desafioConcluido(desafioRealizado: QuestaoDesafios) {
 //        var copiaDesafio: QuestaoDesafios = desafioRealizado
@@ -123,10 +123,10 @@ class FreeWritingViewModel: ObservableObject {
 //        }
 //    }
 //
-//    func sorteiaDesafio() -> QuestaoDesafios? {
-//        /* Sorteia um desafio dentre os nao feitos para o usuario fazer */
-//        verificaDesafiosVazios()
-//        return desafiosNaoFeitos.randomElement()
-//    }
+    func sorteiaPrompt() -> PromptFW? {
+        /* Sorteia um desafio dentre os nao feitos para o usuario fazer */
+        verificaPromptsVazios()
+        return promptsNaoFeitos.randomElement()
+    }
 }
 

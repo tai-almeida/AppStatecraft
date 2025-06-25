@@ -13,8 +13,10 @@ struct ContainerPromptView: View {
     var body: some View {
         VStack{
             Text(prompt.enunciado)
-                .padding(.top)
+                .foregroundColor(.black)
+                .padding(.vertical)
                 .padding(.horizontal, 10)
+                
             
         }
         .background( //coloca view atras da view atual

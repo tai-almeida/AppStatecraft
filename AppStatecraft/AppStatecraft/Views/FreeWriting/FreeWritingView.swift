@@ -9,7 +9,6 @@ import SwiftUI
 
 struct FreeWritingView: View {
     @Environment(\.dismiss) var dismiss
-    @State private var showImagePicker: Bool = false
     @State private var respostaTexto: String = ""
     @StateObject private var viewModel = FreeWritingViewModel()
     @State private var prompt: PromptFW?
@@ -22,7 +21,7 @@ struct FreeWritingView: View {
                     if let prompt = prompt{
                         ContainerPromptView(prompt: prompt).padding()
                     }else{
-                        Text("Erro ao carregar desafio")
+                        Text("Erro ao carregar prompt")
                     }
                     Divider()
                     RespostaFW(respostaTexto: $respostaTexto).foregroundColor(.primary)
@@ -41,7 +40,7 @@ struct FreeWritingView: View {
 //                        }
 //                        .foregroundColor(.accentColor)
                     
-                        .navigationTitle("Desafio")
+                        .navigationTitle("Free-Writing")
                         .navigationBarTitleDisplayMode(.inline)
                         .toolbar {
                             ToolbarItem(placement: .cancellationAction) {
@@ -59,9 +58,9 @@ struct FreeWritingView: View {
                         }
                 }
             }
-//            .onAppear{
-//                self.prompt = viewModel.sorteiaDesafio()
-//            }
+            .onAppear{
+                self.prompt = viewModel.sorteiaPrompt()
+            }
         }
 //        .foregroundColor(.primary)
     }

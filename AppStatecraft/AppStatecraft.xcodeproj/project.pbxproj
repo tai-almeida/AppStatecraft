@@ -45,6 +45,7 @@
 		ED81EB2C2E0C3544003062BA /* ContainerPromptView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED81EB2B2E0C3544003062BA /* ContainerPromptView.swift */; };
 		ED81EB2E2E0C37B0003062BA /* PromptFW.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED81EB2D2E0C37B0003062BA /* PromptFW.swift */; };
 		ED81EB342E0C393A003062BA /* RespostaFW.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED81EB332E0C393A003062BA /* RespostaFW.swift */; };
+		ED81EB362E0C3AFC003062BA /* BancoFW.json in Resources */ = {isa = PBXBuildFile; fileRef = ED81EB352E0C3AFC003062BA /* BancoFW.json */; };
 		ED82ED342DFC4C70006BE6D5 /* BancoQuestoes.json in Resources */ = {isa = PBXBuildFile; fileRef = ED82ED332DFC4C70006BE6D5 /* BancoQuestoes.json */; };
 		ED82ED3F2DFC6E05006BE6D5 /* DesafiosMultimidaViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED82ED3E2DFC6E05006BE6D5 /* DesafiosMultimidaViewModel.swift */; };
 		ED82ED432DFC6FC0006BE6D5 /* DesafiosUtilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED82ED422DFC6FC0006BE6D5 /* DesafiosUtilities.swift */; };
@@ -119,6 +120,7 @@
 		ED81EB2B2E0C3544003062BA /* ContainerPromptView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContainerPromptView.swift; sourceTree = "<group>"; };
 		ED81EB2D2E0C37B0003062BA /* PromptFW.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PromptFW.swift; sourceTree = "<group>"; };
 		ED81EB332E0C393A003062BA /* RespostaFW.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RespostaFW.swift; sourceTree = "<group>"; };
+		ED81EB352E0C3AFC003062BA /* BancoFW.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = BancoFW.json; sourceTree = "<group>"; };
 		ED82ED332DFC4C70006BE6D5 /* BancoQuestoes.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = BancoQuestoes.json; sourceTree = "<group>"; };
 		ED82ED3E2DFC6E05006BE6D5 /* DesafiosMultimidaViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DesafiosMultimidaViewModel.swift; sourceTree = "<group>"; };
 		ED82ED422DFC6FC0006BE6D5 /* DesafiosUtilities.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DesafiosUtilities.swift; sourceTree = "<group>"; };
@@ -318,6 +320,7 @@
 				A47175AD2E01929000AC6B12 /* Classes */,
 				ED82ED352DFC59F0006BE6D5 /* Images */,
 				ED82ED332DFC4C70006BE6D5 /* BancoQuestoes.json */,
+				ED81EB352E0C3AFC003062BA /* BancoFW.json */,
 			);
 			path = Persistence;
 			sourceTree = "<group>";
@@ -510,6 +513,7 @@
 				EDF265562DF9A9FC00898EBA /* Preview Assets.xcassets in Resources */,
 				ED8481942E003F2D007E5709 /* viajante.jpg in Resources */,
 				ED8481962E003F3A007E5709 /* moca_arte.jpg in Resources */,
+				ED81EB362E0C3AFC003062BA /* BancoFW.json in Resources */,
 				ED84819D2E0047CC007E5709 /* Assets.xcassets in Resources */,
 				ED8481982E003F6B007E5709 /* homem.jpg in Resources */,
 				ED82ED342DFC4C70006BE6D5 /* BancoQuestoes.json in Resources */,

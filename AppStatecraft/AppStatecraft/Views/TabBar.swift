@@ -20,7 +20,7 @@ struct TabBar: View {
                     Label("Registros", systemImage: "book")
                 }
             
-            Text("Tela de Projetos")
+            ProjetosView()
                 .tabItem {
                     Label("Projetos", systemImage: "folder")
                 }

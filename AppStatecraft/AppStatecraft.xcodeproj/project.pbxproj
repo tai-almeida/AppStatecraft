@@ -29,6 +29,8 @@
 		A48ABDFE2E0C22FA00483673 /* SessaoFreeWriting+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = A48ABDF02E0C22FA00483673 /* SessaoFreeWriting+CoreDataProperties.swift */; };
 		A48ABDFF2E0C22FA00483673 /* Projeto+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = A48ABDF12E0C22FA00483673 /* Projeto+CoreDataClass.swift */; };
 		A48ABE002E0C22FA00483673 /* Projeto+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = A48ABDF22E0C22FA00483673 /* Projeto+CoreDataProperties.swift */; };
+		A48ABE042E0C291F00483673 /* HistoricoDesafiosView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A48ABE032E0C291F00483673 /* HistoricoDesafiosView.swift */; };
+		A48ABE062E0C293500483673 /* HistoricoDesafiosViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A48ABE052E0C293500483673 /* HistoricoDesafiosViewModel.swift */; };
 		E8DDC8752E0AEBEF00365D65 /* MeusProjetosView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8DDC8742E0AEBEF00365D65 /* MeusProjetosView.swift */; };
 		ED0B0E952E02EFAF00785DDD /* CardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED0B0E942E02EFAF00785DDD /* CardView.swift */; };
 		ED0B0E972E02F6D100785DDD /* CarrosselView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED0B0E962E02F6D100785DDD /* CarrosselView.swift */; };
@@ -95,6 +97,8 @@
 		A48ABDF02E0C22FA00483673 /* SessaoFreeWriting+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SessaoFreeWriting+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		A48ABDF12E0C22FA00483673 /* Projeto+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Projeto+CoreDataClass.swift"; sourceTree = "<group>"; };
 		A48ABDF22E0C22FA00483673 /* Projeto+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Projeto+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		A48ABE032E0C291F00483673 /* HistoricoDesafiosView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoricoDesafiosView.swift; sourceTree = "<group>"; };
+		A48ABE052E0C293500483673 /* HistoricoDesafiosViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoricoDesafiosViewModel.swift; sourceTree = "<group>"; };
 		E8DDC8742E0AEBEF00365D65 /* MeusProjetosView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeusProjetosView.swift; sourceTree = "<group>"; };
 		ED0B0E942E02EFAF00785DDD /* CardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardView.swift; sourceTree = "<group>"; };
 		ED0B0E962E02F6D100785DDD /* CarrosselView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarrosselView.swift; sourceTree = "<group>"; };
@@ -160,6 +164,7 @@
 			children = (
 				A417CC9C2DF9CB7800564508 /* FreeWritingViewModel.swift */,
 				ED82ED3E2DFC6E05006BE6D5 /* DesafiosMultimidiaViewModel.swift */,
+				A48ABE052E0C293500483673 /* HistoricoDesafiosViewModel.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -214,6 +219,7 @@
 				A40C5B1F2E02DFDE00C30D6E /* DesafiosMultimidiaView.swift */,
 				A47175B82E01A23A00AC6B12 /* ContainerEnunciadoView.swift */,
 				ED2C7E042E097AC9004F5E9F /* InicialDesafiosView.swift */,
+				A48ABE032E0C291F00483673 /* HistoricoDesafiosView.swift */,
 				A46C08202E03040A00129CE7 /* RespostaCard.swift */,
 			);
 			path = DesafiosMultimidia;
@@ -519,6 +525,7 @@
 				ED84819B2E004534007E5709 /* DesafioUtilities.swift in Sources */,
 				E8DDC8752E0AEBEF00365D65 /* MeusProjetosView.swift in Sources */,
 				A48ABDFE2E0C22FA00483673 /* SessaoFreeWriting+CoreDataProperties.swift in Sources */,
+				A48ABE042E0C291F00483673 /* HistoricoDesafiosView.swift in Sources */,
 				ED82ED452DFC6FD2006BE6D5 /* QuestaoDesafios.swift in Sources */,
 				ED82ED432DFC6FC0006BE6D5 /* DesafiosUtilities.swift in Sources */,
 				A48ABE002E0C22FA00483673 /* Projeto+CoreDataProperties.swift in Sources */,
@@ -529,6 +536,7 @@
 				A40C5B202E02DFDE00C30D6E /* DesafiosMultimidiaView.swift in Sources */,
 				A47175B92E01A23A00AC6B12 /* ContainerEnunciadoView.swift in Sources */,
 				ED695A672E01B37C009C0BE0 /* TabBar.swift in Sources */,
+				A48ABE062E0C293500483673 /* HistoricoDesafiosViewModel.swift in Sources */,
 				ED0B0E972E02F6D100785DDD /* CarrosselView.swift in Sources */,
 				A48ABDF72E0C22FA00483673 /* Sessao+CoreDataClass.swift in Sources */,
 			);

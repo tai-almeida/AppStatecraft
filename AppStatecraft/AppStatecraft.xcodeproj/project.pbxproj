@@ -40,6 +40,8 @@
 		ED80F5B32E0ADC1000B61E97 /* Secrets.plist in Resources */ = {isa = PBXBuildFile; fileRef = ED80F5B22E0ADC1000B61E97 /* Secrets.plist */; };
 		ED80F5B52E0AE5CE00B61E97 /* InicialPingPongView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED80F5B42E0AE5CE00B61E97 /* InicialPingPongView.swift */; };
 		ED80F5B72E0AEABD00B61E97 /* DurationPickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED80F5B62E0AEABD00B61E97 /* DurationPickerView.swift */; };
+		ED81EB282E0C25B1003062BA /* InicialFreeWritingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED81EB272E0C25B1003062BA /* InicialFreeWritingView.swift */; };
+		ED81EB2A2E0C25D7003062BA /* FreeWritingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED81EB292E0C25D7003062BA /* FreeWritingView.swift */; };
 		ED82ED342DFC4C70006BE6D5 /* BancoQuestoes.json in Resources */ = {isa = PBXBuildFile; fileRef = ED82ED332DFC4C70006BE6D5 /* BancoQuestoes.json */; };
 		ED82ED3F2DFC6E05006BE6D5 /* DesafiosMultimidaViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED82ED3E2DFC6E05006BE6D5 /* DesafiosMultimidaViewModel.swift */; };
 		ED82ED432DFC6FC0006BE6D5 /* DesafiosUtilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED82ED422DFC6FC0006BE6D5 /* DesafiosUtilities.swift */; };
@@ -109,6 +111,8 @@
 		ED80F5B22E0ADC1000B61E97 /* Secrets.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Secrets.plist; sourceTree = "<group>"; };
 		ED80F5B42E0AE5CE00B61E97 /* InicialPingPongView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InicialPingPongView.swift; sourceTree = "<group>"; };
 		ED80F5B62E0AEABD00B61E97 /* DurationPickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DurationPickerView.swift; sourceTree = "<group>"; };
+		ED81EB272E0C25B1003062BA /* InicialFreeWritingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InicialFreeWritingView.swift; sourceTree = "<group>"; };
+		ED81EB292E0C25D7003062BA /* FreeWritingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FreeWritingView.swift; sourceTree = "<group>"; };
 		ED82ED332DFC4C70006BE6D5 /* BancoQuestoes.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = BancoQuestoes.json; sourceTree = "<group>"; };
 		ED82ED3E2DFC6E05006BE6D5 /* DesafiosMultimidaViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DesafiosMultimidaViewModel.swift; sourceTree = "<group>"; };
 		ED82ED422DFC6FC0006BE6D5 /* DesafiosUtilities.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DesafiosUtilities.swift; sourceTree = "<group>"; };
@@ -174,6 +178,7 @@
 		A417CCA02DF9CB9100564508 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				ED81EB242E0C255A003062BA /* FreeWriting */,
 				ED80F5AF2E0ADB5100B61E97 /* PingPong */,
 				ED0B0E942E02EFAF00785DDD /* CardView.swift */,
 				ED0B0E9A2E02F9C200785DDD /* PageControlView.swift */,
@@ -258,6 +263,15 @@
 				ED80F5B62E0AEABD00B61E97 /* DurationPickerView.swift */,
 			);
 			path = PingPong;
+			sourceTree = "<group>";
+		};
+		ED81EB242E0C255A003062BA /* FreeWriting */ = {
+			isa = PBXGroup;
+			children = (
+				ED81EB272E0C25B1003062BA /* InicialFreeWritingView.swift */,
+				ED81EB292E0C25D7003062BA /* FreeWritingView.swift */,
+			);
+			path = FreeWriting;
 			sourceTree = "<group>";
 		};
 		ED82ED2F2DFC4C2F006BE6D5 /* Core */ = {
@@ -545,10 +559,12 @@
 				A47175A32E018F9D00AC6B12 /* Sessao+CoreDataProperties.swift in Sources */,
 				A47175A22E018F9D00AC6B12 /* Sessao+CoreDataClass.swift in Sources */,
 				A47175A92E018F9D00AC6B12 /* SessaoFreeWriting+CoreDataProperties.swift in Sources */,
+				ED81EB282E0C25B1003062BA /* InicialFreeWritingView.swift in Sources */,
 				A40C5B202E02DFDE00C30D6E /* DesafiosMultimidiaView.swift in Sources */,
 				A47175AB2E018F9D00AC6B12 /* SessaoMaieutica+CoreDataProperties.swift in Sources */,
 				A47175B92E01A23A00AC6B12 /* ContainerEnunciadoView.swift in Sources */,
 				ED80F5B12E0ADB5F00B61E97 /* PingPongView.swift in Sources */,
+				ED81EB2A2E0C25D7003062BA /* FreeWritingView.swift in Sources */,
 				ED695A672E01B37C009C0BE0 /* TabBar.swift in Sources */,
 				ED0B0E972E02F6D100785DDD /* CarrosselView.swift in Sources */,
 			);

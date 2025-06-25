@@ -14,18 +14,45 @@ struct PingPongView: View {
     @State var palavras: [String] = []
     @State var input = ""
     var body: some View {
-        VStack {
-            ForEach (palavras, id: \.self) { palavra in
-                Text(palavra)
+        NavigationView {
+            ScrollView(.vertical) {
+                VStack () {
+                    ForEach (palavras, id: \.self) { palavra in
+                        VStack {
+                            ZStack {
+                                Image("CaixinhaPingPong")
+                                Text(palavra)
+                            }
+                            Image("LinhaPingPong")
+                        }
+                    }
+                    ZStack {
+                        Image("CaixinhaPingPong")
+                        TextFieldUIKit(texto: $input, onEnter: {novoTexto in
+                            palavras.append(novoTexto)
+                        })
+                            .frame(height: 40)
+                        //TextField ("Escreva aqui", text: $input)
+                            //.multilineTextAlignment(.center)
+                    }
+                }
+                .frame(alignment: .top)
+                .task {
+                    if textoIA == "" {
+                        var aux = await viewModel.fazerRequisicao(context: []) ?? "Erro da IA"
+                        while aux == "Erro da IA" {
+                            aux = await viewModel.fazerRequisicao(context: []) ?? "Erro da IA"
+                        }
+                        textoIA = aux
+                        palavras.append(textoIA)
+                    }
+                }
             }
-            TextField ("Escreva aqui", text: $input)
-                .multilineTextAlignment(.center)
+            .padding(0)
         }
-        .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .top)
-        .task {
-            textoIA = await viewModel.fazerRequisicao(context: []) ?? "Erro"
-            palavras.append(textoIA)
-        }
+        .navigationTitle("Ping-Pong")
+        .navigationBarTitleDisplayMode(.large)
+        .ignoresSafeArea()
     }
 }
 

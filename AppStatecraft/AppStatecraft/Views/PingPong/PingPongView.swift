@@ -29,8 +29,8 @@ struct PingPongView: View {
     }
 }
 
-struct PingPongView_Previews: PreviewProvider {
-    static var previews: some View {
-        PingPongView()
-    }
-}
+//struct PingPongView_Previews: PreviewProvider {
+//    static var previews: some View {
+//        PingPongView()
+//    }
+//}

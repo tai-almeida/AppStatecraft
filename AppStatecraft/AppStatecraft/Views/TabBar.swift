@@ -12,13 +12,9 @@ struct TabBar: View {
         TabView {
             MetodologiasView()
                 .tabItem {
-                    Label("Metodologias", systemImage: "calendar")
+                    Label("Metodologias", systemImage: "book")
                 }
             
-            Text("Tela Registros")
-                .tabItem {
-                    Label("Registros", systemImage: "book")
-                }
             
             Text("Tela de Projetos")
                 .tabItem {
@@ -29,9 +25,9 @@ struct TabBar: View {
     }
 }
 
-struct TabBar_Previews: PreviewProvider {
-    static var previews: some View {
-        TabBar()
-    }
-}
-
+//struct TabBar_Previews: PreviewProvider {
+//    static var previews: some View {
+//        TabBar()
+//    }
+//}
+//

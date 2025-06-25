@@ -42,6 +42,9 @@
 		ED80F5B72E0AEABD00B61E97 /* DurationPickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED80F5B62E0AEABD00B61E97 /* DurationPickerView.swift */; };
 		ED81EB282E0C25B1003062BA /* InicialFreeWritingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED81EB272E0C25B1003062BA /* InicialFreeWritingView.swift */; };
 		ED81EB2A2E0C25D7003062BA /* FreeWritingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED81EB292E0C25D7003062BA /* FreeWritingView.swift */; };
+		ED81EB2C2E0C3544003062BA /* ContainerPromptView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED81EB2B2E0C3544003062BA /* ContainerPromptView.swift */; };
+		ED81EB2E2E0C37B0003062BA /* PromptFW.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED81EB2D2E0C37B0003062BA /* PromptFW.swift */; };
+		ED81EB342E0C393A003062BA /* RespostaFW.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED81EB332E0C393A003062BA /* RespostaFW.swift */; };
 		ED82ED342DFC4C70006BE6D5 /* BancoQuestoes.json in Resources */ = {isa = PBXBuildFile; fileRef = ED82ED332DFC4C70006BE6D5 /* BancoQuestoes.json */; };
 		ED82ED3F2DFC6E05006BE6D5 /* DesafiosMultimidaViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED82ED3E2DFC6E05006BE6D5 /* DesafiosMultimidaViewModel.swift */; };
 		ED82ED432DFC6FC0006BE6D5 /* DesafiosUtilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED82ED422DFC6FC0006BE6D5 /* DesafiosUtilities.swift */; };
@@ -113,6 +116,9 @@
 		ED80F5B62E0AEABD00B61E97 /* DurationPickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DurationPickerView.swift; sourceTree = "<group>"; };
 		ED81EB272E0C25B1003062BA /* InicialFreeWritingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InicialFreeWritingView.swift; sourceTree = "<group>"; };
 		ED81EB292E0C25D7003062BA /* FreeWritingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FreeWritingView.swift; sourceTree = "<group>"; };
+		ED81EB2B2E0C3544003062BA /* ContainerPromptView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContainerPromptView.swift; sourceTree = "<group>"; };
+		ED81EB2D2E0C37B0003062BA /* PromptFW.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PromptFW.swift; sourceTree = "<group>"; };
+		ED81EB332E0C393A003062BA /* RespostaFW.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RespostaFW.swift; sourceTree = "<group>"; };
 		ED82ED332DFC4C70006BE6D5 /* BancoQuestoes.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = BancoQuestoes.json; sourceTree = "<group>"; };
 		ED82ED3E2DFC6E05006BE6D5 /* DesafiosMultimidaViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DesafiosMultimidaViewModel.swift; sourceTree = "<group>"; };
 		ED82ED422DFC6FC0006BE6D5 /* DesafiosUtilities.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DesafiosUtilities.swift; sourceTree = "<group>"; };
@@ -161,6 +167,7 @@
 			isa = PBXGroup;
 			children = (
 				ED82ED442DFC6FD2006BE6D5 /* QuestaoDesafios.swift */,
+				ED81EB2D2E0C37B0003062BA /* PromptFW.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -270,6 +277,8 @@
 			children = (
 				ED81EB272E0C25B1003062BA /* InicialFreeWritingView.swift */,
 				ED81EB292E0C25D7003062BA /* FreeWritingView.swift */,
+				ED81EB2B2E0C3544003062BA /* ContainerPromptView.swift */,
+				ED81EB332E0C393A003062BA /* RespostaFW.swift */,
 			);
 			path = FreeWriting;
 			sourceTree = "<group>";
@@ -532,6 +541,8 @@
 				A471759F2E018F9D00AC6B12 /* SessaoPingPong+CoreDataProperties.swift in Sources */,
 				ED2C7E052E097ACA004F5E9F /* InicialDesafiosView.swift in Sources */,
 				A47175A12E018F9D00AC6B12 /* SessaoDesafioMult+CoreDataProperties.swift in Sources */,
+				ED81EB2E2E0C37B0003062BA /* PromptFW.swift in Sources */,
+				ED81EB2C2E0C3544003062BA /* ContainerPromptView.swift in Sources */,
 				A46C081F2E02F9F100129CE7 /* ImagePicker.swift in Sources */,
 				A46C08212E03040A00129CE7 /* RespostaCard.swift in Sources */,
 				ED80F5B72E0AEABD00B61E97 /* DurationPickerView.swift in Sources */,
@@ -545,6 +556,7 @@
 				ED80F5AE2E0ADB4100B61E97 /* PingPongViewModel.swift in Sources */,
 				A47175AA2E018F9D00AC6B12 /* SessaoMaieutica+CoreDataClass.swift in Sources */,
 				A47175A72E018F9D00AC6B12 /* Projeto+CoreDataProperties.swift in Sources */,
+				ED81EB342E0C393A003062BA /* RespostaFW.swift in Sources */,
 				A417CC9D2DF9CB7800564508 /* FreeWritingViewModel.swift in Sources */,
 				ED0B0E9B2E02F9C200785DDD /* PageControlView.swift in Sources */,
 				A471759E2E018F9D00AC6B12 /* SessaoPingPong+CoreDataClass.swift in Sources */,

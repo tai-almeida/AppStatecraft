@@ -10,7 +10,7 @@ import SwiftUI
 struct TabBar: View {
     var body: some View {
         TabView {
-            MetodologiasView()
+            MaieuticaIdeiasView()
                 .tabItem {
                     Label("Metodologias", systemImage: "calendar")
                 }

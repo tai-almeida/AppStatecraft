@@ -13,11 +13,22 @@ struct PingPongView: View {
     @Binding var textoIA: String
     @Binding var palavras: [String]
     @State var input = ""
+    @StateObject private var timerVM: TimerViewModel = TimerViewModel(minutos: 0, segundos: 0)
+    
+    let minutos: Int
+    let segundos: Int
+    
+    
+    
     @Environment(\.dismiss) var dismiss
     var body: some View {
         NavigationView {
             ScrollView(.vertical) {
                 VStack () {
+                    Text(timerVM.tempoFormatado)
+                        .font(.title2)
+                        .foregroundColor(.black)
+                    
                     ForEach (palavras, id: \.self) { palavra in
                         VStack {
                             ZStack {
@@ -38,7 +49,12 @@ struct PingPongView: View {
                             //.multilineTextAlignment(.center)
                     }
                 }
+                .onAppear {
+                    timerVM.resetar(minutos: minutos, segundos: segundos)
+                    timerVM.comecaContagem()
+                }
             }
+            
             .padding()
             .navigationTitle("Ping-Pong")
             .navigationBarTitleDisplayMode(.inline)
@@ -57,6 +73,7 @@ struct PingPongView: View {
                 }
             }
         }
+        
                 //.frame(alignment: .top)
                 /*.task {
                     if textoIA == "" {

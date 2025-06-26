@@ -8,12 +8,20 @@
 import SwiftUI
 
 struct TimerView: View {
-    @Binding var minutes: Int
-    @Binding var seconds: Int
-//    var viewController = TimerViewController()
+    @Binding var minutos: Int
+    @Binding var segundos: Int
+    @StateObject var viewModel:TimerViewModel
+    
+    init(minutos: Binding<Int>, segundos: Binding<Int>) {
+        self._minutos = minutos
+        self._segundos = segundos
+        self._viewModel = StateObject(wrappedValue: TimerViewModel(minutos: minutos.wrappedValue, segundos: segundos.wrappedValue))
+    }
     
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        VStack {
+            Text(viewModel.tempoFormatado)
+        }
     }
 }
 

@@ -73,7 +73,7 @@ struct InicialPingPongView: View {
                 textoIA = aux;
                 palavras.append(textoIA)
             }}) {
-                PingPongView(textoIA: $textoIA, palavras: $palavras)
+                PingPongView(textoIA: $textoIA, palavras: $palavras, minutos: minutes, segundos: seconds)
             }
             .frame(maxWidth: .infinity)
             .padding()

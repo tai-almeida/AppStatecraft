@@ -16,17 +16,13 @@ struct PingPongView: View {
     @StateObject private var timerVM: TimerViewModel = TimerViewModel(minutos: 0, segundos: 0)
     let minutos: Int
     let segundos: Int
+    
     var body: some View {
         NavigationView {
             VStack {
                 Text(timerVM.tempoFormatado)
                     .font(.title2)
                     .foregroundColor(.black)
-                    .onAppear {
-                        timerVM.resetar(minutos:minutos, segundos: segundos)
-                        timerVM.comecaContagem()
-                    }
-                
                 
                 ScrollViewReader { scrollProxy in
                     ScrollView(.vertical) {
@@ -44,10 +40,18 @@ struct PingPongView: View {
                             }
                             ZStack {
                                 Image("CaixinhaPingPong")
-                                TextFieldUIKit(texto: $input, onEnter: {novoTexto in
-                                    palavras.append(novoTexto)
-                                })
-                                    .frame(height: 40)
+                                TextField("Escreva", text: $input)
+                                    .onSubmit{
+                                        palavras.append(input)
+                                        input = ""
+                                    }
+                                    .multilineTextAlignment(.center)
+                                    .foregroundColor(.black)
+                                
+//                                TextFieldUIKit(texto: $input, onEnter: { novoTexto in
+//                                    palavras.append(novoTexto)
+//                                })
+//                                    .frame(height: 40)
                                 //TextField ("Escreva aqui", text: $input)
                                     //.multilineTextAlignment(.center)
                             }
@@ -80,6 +84,10 @@ struct PingPongView: View {
                     }
                 }
         }
+    }
+    .onAppear {
+        timerVM.resetar(minutos:minutos, segundos: segundos)
+        timerVM.comecaContagem()
     }
         
     }

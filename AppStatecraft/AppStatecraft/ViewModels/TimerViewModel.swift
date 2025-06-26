@@ -27,9 +27,9 @@ class TimerViewModel: ObservableObject {
     
     func comecaContagem() {
         // verifica se ja ha um timer rodando
-        guard !self.sendoFeito else {
-            return
-        }
+//      guard !self.sendoFeito else {
+//                    return
+//                }
         
         self.sendoFeito = true
         self.timer = Timer.scheduledTimer(withTimeInterval: 1.0, repeats: true) { _ in

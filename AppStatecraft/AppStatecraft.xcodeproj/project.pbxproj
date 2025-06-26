@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		24E7D6792E0C1F2F0064BAD1 /* PingPongViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24E7D6782E0C1F2F0064BAD1 /* PingPongViewController.swift */; };
+		A40B05BB2E0D8614009B053D /* Secrets.plist in Resources */ = {isa = PBXBuildFile; fileRef = A40B05BA2E0D8614009B053D /* Secrets.plist */; };
 		A40C5B202E02DFDE00C30D6E /* DesafiosMultimidiaView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A40C5B1F2E02DFDE00C30D6E /* DesafiosMultimidiaView.swift */; };
 		A417CC9D2DF9CB7800564508 /* FreeWritingViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A417CC9C2DF9CB7800564508 /* FreeWritingViewModel.swift */; };
 		A44BD6FA2E0AD68400B840EB /* AddProjetoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A44BD6F92E0AD68400B840EB /* AddProjetoView.swift */; };
@@ -39,6 +41,18 @@
 		ED695A672E01B37C009C0BE0 /* TabBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED695A662E01B37C009C0BE0 /* TabBar.swift */; };
 		ED695A6A2E01B3DA009C0BE0 /* MetodologiasView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED695A692E01B3DA009C0BE0 /* MetodologiasView.swift */; };
 		ED80F5A32E0AC46D00B61E97 /* ColorExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED80F5A22E0AC46D00B61E97 /* ColorExtension.swift */; };
+		ED80F5AE2E0ADB4100B61E97 /* PingPongViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED80F5AD2E0ADB4100B61E97 /* PingPongViewModel.swift */; };
+		ED80F5B12E0ADB5F00B61E97 /* PingPongView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED80F5B02E0ADB5F00B61E97 /* PingPongView.swift */; };
+		ED80F5B52E0AE5CE00B61E97 /* InicialPingPongView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED80F5B42E0AE5CE00B61E97 /* InicialPingPongView.swift */; };
+		ED80F5B72E0AEABD00B61E97 /* DurationPickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED80F5B62E0AEABD00B61E97 /* DurationPickerView.swift */; };
+		ED81EB282E0C25B1003062BA /* InicialFreeWritingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED81EB272E0C25B1003062BA /* InicialFreeWritingView.swift */; };
+		ED81EB2A2E0C25D7003062BA /* FreeWritingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED81EB292E0C25D7003062BA /* FreeWritingView.swift */; };
+		ED81EB2C2E0C3544003062BA /* ContainerPromptView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED81EB2B2E0C3544003062BA /* ContainerPromptView.swift */; };
+		ED81EB2E2E0C37B0003062BA /* PromptFW.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED81EB2D2E0C37B0003062BA /* PromptFW.swift */; };
+		ED81EB342E0C393A003062BA /* RespostaFW.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED81EB332E0C393A003062BA /* RespostaFW.swift */; };
+		ED81EB362E0C3AFC003062BA /* BancoFW.json in Resources */ = {isa = PBXBuildFile; fileRef = ED81EB352E0C3AFC003062BA /* BancoFW.json */; };
+		ED81EB3A2E0C455F003062BA /* TimerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED81EB392E0C455F003062BA /* TimerView.swift */; };
+		ED81EB3C2E0D65F2003062BA /* TimerViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED81EB3B2E0D65F2003062BA /* TimerViewModel.swift */; };
 		ED82ED342DFC4C70006BE6D5 /* BancoQuestoes.json in Resources */ = {isa = PBXBuildFile; fileRef = ED82ED332DFC4C70006BE6D5 /* BancoQuestoes.json */; };
 		ED82ED3F2DFC6E05006BE6D5 /* DesafiosMultimidiaViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED82ED3E2DFC6E05006BE6D5 /* DesafiosMultimidiaViewModel.swift */; };
 		ED82ED432DFC6FC0006BE6D5 /* DesafiosUtilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED82ED422DFC6FC0006BE6D5 /* DesafiosUtilities.swift */; };
@@ -74,6 +88,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		24E7D6782E0C1F2F0064BAD1 /* PingPongViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PingPongViewController.swift; sourceTree = "<group>"; };
+		A40B05BA2E0D8614009B053D /* Secrets.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Secrets.plist; sourceTree = "<group>"; };
 		A40C5B1F2E02DFDE00C30D6E /* DesafiosMultimidiaView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DesafiosMultimidiaView.swift; sourceTree = "<group>"; };
 		A417CC9C2DF9CB7800564508 /* FreeWritingViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FreeWritingViewModel.swift; sourceTree = "<group>"; };
 		A44BD6F92E0AD68400B840EB /* AddProjetoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddProjetoView.swift; sourceTree = "<group>"; };
@@ -107,6 +123,18 @@
 		ED695A662E01B37C009C0BE0 /* TabBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBar.swift; sourceTree = "<group>"; };
 		ED695A692E01B3DA009C0BE0 /* MetodologiasView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MetodologiasView.swift; sourceTree = "<group>"; };
 		ED80F5A22E0AC46D00B61E97 /* ColorExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorExtension.swift; sourceTree = "<group>"; };
+		ED80F5AD2E0ADB4100B61E97 /* PingPongViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PingPongViewModel.swift; sourceTree = "<group>"; };
+		ED80F5B02E0ADB5F00B61E97 /* PingPongView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PingPongView.swift; sourceTree = "<group>"; };
+		ED80F5B42E0AE5CE00B61E97 /* InicialPingPongView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InicialPingPongView.swift; sourceTree = "<group>"; };
+		ED80F5B62E0AEABD00B61E97 /* DurationPickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DurationPickerView.swift; sourceTree = "<group>"; };
+		ED81EB272E0C25B1003062BA /* InicialFreeWritingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InicialFreeWritingView.swift; sourceTree = "<group>"; };
+		ED81EB292E0C25D7003062BA /* FreeWritingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FreeWritingView.swift; sourceTree = "<group>"; };
+		ED81EB2B2E0C3544003062BA /* ContainerPromptView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContainerPromptView.swift; sourceTree = "<group>"; };
+		ED81EB2D2E0C37B0003062BA /* PromptFW.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PromptFW.swift; sourceTree = "<group>"; };
+		ED81EB332E0C393A003062BA /* RespostaFW.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RespostaFW.swift; sourceTree = "<group>"; };
+		ED81EB352E0C3AFC003062BA /* BancoFW.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = BancoFW.json; sourceTree = "<group>"; };
+		ED81EB392E0C455F003062BA /* TimerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerView.swift; sourceTree = "<group>"; };
+		ED81EB3B2E0D65F2003062BA /* TimerViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerViewModel.swift; sourceTree = "<group>"; };
 		ED82ED332DFC4C70006BE6D5 /* BancoQuestoes.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = BancoQuestoes.json; sourceTree = "<group>"; };
 		ED82ED3E2DFC6E05006BE6D5 /* DesafiosMultimidiaViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DesafiosMultimidiaViewModel.swift; sourceTree = "<group>"; };
 		ED82ED422DFC6FC0006BE6D5 /* DesafiosUtilities.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DesafiosUtilities.swift; sourceTree = "<group>"; };
@@ -155,6 +183,7 @@
 			isa = PBXGroup;
 			children = (
 				ED82ED442DFC6FD2006BE6D5 /* QuestaoDesafios.swift */,
+				ED81EB2D2E0C37B0003062BA /* PromptFW.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -165,6 +194,9 @@
 				A417CC9C2DF9CB7800564508 /* FreeWritingViewModel.swift */,
 				ED82ED3E2DFC6E05006BE6D5 /* DesafiosMultimidiaViewModel.swift */,
 				A48ABE052E0C293500483673 /* HistoricoDesafiosViewModel.swift */,
+				ED80F5AD2E0ADB4100B61E97 /* PingPongViewModel.swift */,
+				24E7D6782E0C1F2F0064BAD1 /* PingPongViewController.swift */,
+				ED81EB3B2E0D65F2003062BA /* TimerViewModel.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -173,6 +205,8 @@
 			isa = PBXGroup;
 			children = (
 				E8DDC8742E0AEBEF00365D65 /* MeusProjetosView.swift */,
+				ED81EB242E0C255A003062BA /* FreeWriting */,
+				ED80F5AF2E0ADB5100B61E97 /* PingPong */,
 				ED0B0E942E02EFAF00785DDD /* CardView.swift */,
 				ED0B0E9A2E02F9C200785DDD /* PageControlView.swift */,
 				ED695A692E01B3DA009C0BE0 /* MetodologiasView.swift */,
@@ -250,6 +284,28 @@
 			path = Extensions;
 			sourceTree = "<group>";
 		};
+		ED80F5AF2E0ADB5100B61E97 /* PingPong */ = {
+			isa = PBXGroup;
+			children = (
+				ED80F5B02E0ADB5F00B61E97 /* PingPongView.swift */,
+				ED80F5B42E0AE5CE00B61E97 /* InicialPingPongView.swift */,
+				ED80F5B62E0AEABD00B61E97 /* DurationPickerView.swift */,
+				ED81EB392E0C455F003062BA /* TimerView.swift */,
+			);
+			path = PingPong;
+			sourceTree = "<group>";
+		};
+		ED81EB242E0C255A003062BA /* FreeWriting */ = {
+			isa = PBXGroup;
+			children = (
+				ED81EB272E0C25B1003062BA /* InicialFreeWritingView.swift */,
+				ED81EB292E0C25D7003062BA /* FreeWritingView.swift */,
+				ED81EB2B2E0C3544003062BA /* ContainerPromptView.swift */,
+				ED81EB332E0C393A003062BA /* RespostaFW.swift */,
+			);
+			path = FreeWriting;
+			sourceTree = "<group>";
+		};
 		ED82ED2F2DFC4C2F006BE6D5 /* Core */ = {
 			isa = PBXGroup;
 			children = (
@@ -285,6 +341,7 @@
 				A47175AD2E01929000AC6B12 /* Classes */,
 				ED82ED352DFC59F0006BE6D5 /* Images */,
 				ED82ED332DFC4C70006BE6D5 /* BancoQuestoes.json */,
+				ED81EB352E0C3AFC003062BA /* BancoFW.json */,
 			);
 			path = Persistence;
 			sourceTree = "<group>";
@@ -310,6 +367,7 @@
 		EDF265422DF9A9F800898EBA = {
 			isa = PBXGroup;
 			children = (
+				A40B05BA2E0D8614009B053D /* Secrets.plist */,
 				EDF2654D2DF9A9F800898EBA /* AppStatecraft */,
 				EDF2655E2DF9A9FC00898EBA /* AppStatecraftTests */,
 				EDF265682DF9A9FC00898EBA /* AppStatecraftUITests */,
@@ -475,6 +533,8 @@
 				EDF265562DF9A9FC00898EBA /* Preview Assets.xcassets in Resources */,
 				ED8481942E003F2D007E5709 /* viajante.jpg in Resources */,
 				ED8481962E003F3A007E5709 /* moca_arte.jpg in Resources */,
+				A40B05BB2E0D8614009B053D /* Secrets.plist in Resources */,
+				ED81EB362E0C3AFC003062BA /* BancoFW.json in Resources */,
 				ED84819D2E0047CC007E5709 /* Assets.xcassets in Resources */,
 				ED8481982E003F6B007E5709 /* homem.jpg in Resources */,
 				ED82ED342DFC4C70006BE6D5 /* BancoQuestoes.json in Resources */,
@@ -502,43 +562,59 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				ED81EB3A2E0C455F003062BA /* TimerView.swift in Sources */,
+				A47175A82E018F9D00AC6B12 /* SessaoFreeWriting+CoreDataClass.swift in Sources */,
+				A471759F2E018F9D00AC6B12 /* SessaoPingPong+CoreDataProperties.swift in Sources */,
 				ED2C7E052E097ACA004F5E9F /* InicialDesafiosView.swift in Sources */,
+				A47175A12E018F9D00AC6B12 /* SessaoDesafioMult+CoreDataProperties.swift in Sources */,
+				ED81EB2E2E0C37B0003062BA /* PromptFW.swift in Sources */,
+				ED81EB2C2E0C3544003062BA /* ContainerPromptView.swift in Sources */,
 				A46C081F2E02F9F100129CE7 /* ImagePicker.swift in Sources */,
 				A48ABDFB2E0C22FA00483673 /* Registro+CoreDataClass.swift in Sources */,
 				A46C08212E03040A00129CE7 /* RespostaCard.swift in Sources */,
+				ED80F5B72E0AEABD00B61E97 /* DurationPickerView.swift in Sources */,
+				ED81EB3C2E0D65F2003062BA /* TimerViewModel.swift in Sources */,
+				ED80F5B52E0AE5CE00B61E97 /* InicialPingPongView.swift in Sources */,
 				A4773CA72E01B0F2002D27D7 /* DataController.swift in Sources */,
 				ED82ED3F2DFC6E05006BE6D5 /* DesafiosMultimidiaViewModel.swift in Sources */,
 				ED80F5A32E0AC46D00B61E97 /* ColorExtension.swift in Sources */,
+				A47175A52E018F9D00AC6B12 /* Registro+CoreDataProperties.swift in Sources */,
+				A47175A42E018F9D00AC6B12 /* Registro+CoreDataClass.swift in Sources */,
+				ED80F5AE2E0ADB4100B61E97 /* PingPongViewModel.swift in Sources */,
+				A47175AA2E018F9D00AC6B12 /* SessaoMaieutica+CoreDataClass.swift in Sources */,
+				A47175A72E018F9D00AC6B12 /* Projeto+CoreDataProperties.swift in Sources */,
+				ED81EB342E0C393A003062BA /* RespostaFW.swift in Sources */,
 				A417CC9D2DF9CB7800564508 /* FreeWritingViewModel.swift in Sources */,
 				A48ABDF62E0C22FA00483673 /* SessaoDesafioMult+CoreDataProperties.swift in Sources */,
 				A48ABDFA2E0C22FA00483673 /* SessaoPingPong+CoreDataProperties.swift in Sources */,
 				A48ABDF52E0C22FA00483673 /* SessaoDesafioMult+CoreDataClass.swift in Sources */,
 				A48ABDF92E0C22FA00483673 /* SessaoPingPong+CoreDataClass.swift in Sources */,
-				A48ABDF82E0C22FA00483673 /* Sessao+CoreDataProperties.swift in Sources */,
 				A44BD6FA2E0AD68400B840EB /* AddProjetoView.swift in Sources */,
 				ED0B0E9B2E02F9C200785DDD /* PageControlView.swift in Sources */,
-				A48ABDFF2E0C22FA00483673 /* Projeto+CoreDataClass.swift in Sources */,
 				ED695A6A2E01B3DA009C0BE0 /* MetodologiasView.swift in Sources */,
-				A48ABDFC2E0C22FA00483673 /* Registro+CoreDataProperties.swift in Sources */,
-				A48ABDF32E0C22FA00483673 /* SessaoMaieutica+CoreDataClass.swift in Sources */,
 				A4773CA52E01B0E4002D27D7 /* AppStatecraft.xcdatamodeld in Sources */,
 				ED84819B2E004534007E5709 /* DesafioUtilities.swift in Sources */,
 				E8DDC8752E0AEBEF00365D65 /* MeusProjetosView.swift in Sources */,
-				A48ABDFE2E0C22FA00483673 /* SessaoFreeWriting+CoreDataProperties.swift in Sources */,
 				A48ABE042E0C291F00483673 /* HistoricoDesafiosView.swift in Sources */,
 				ED82ED452DFC6FD2006BE6D5 /* QuestaoDesafios.swift in Sources */,
 				ED82ED432DFC6FC0006BE6D5 /* DesafiosUtilities.swift in Sources */,
-				A48ABE002E0C22FA00483673 /* Projeto+CoreDataProperties.swift in Sources */,
 				EDF2654F2DF9A9F800898EBA /* AppStatecraftApp.swift in Sources */,
 				A48ABDFD2E0C22FA00483673 /* SessaoFreeWriting+CoreDataClass.swift in Sources */,
 				A48ABDF42E0C22FA00483673 /* SessaoMaieutica+CoreDataProperties.swift in Sources */,
 				ED0B0E952E02EFAF00785DDD /* CardView.swift in Sources */,
+				A47175A62E018F9D00AC6B12 /* Projeto+CoreDataClass.swift in Sources */,
+				A47175A32E018F9D00AC6B12 /* Sessao+CoreDataProperties.swift in Sources */,
+				A47175A22E018F9D00AC6B12 /* Sessao+CoreDataClass.swift in Sources */,
+				24E7D6792E0C1F2F0064BAD1 /* PingPongViewController.swift in Sources */,
+				A47175A92E018F9D00AC6B12 /* SessaoFreeWriting+CoreDataProperties.swift in Sources */,
+				ED81EB282E0C25B1003062BA /* InicialFreeWritingView.swift in Sources */,
 				A40C5B202E02DFDE00C30D6E /* DesafiosMultimidiaView.swift in Sources */,
 				A47175B92E01A23A00AC6B12 /* ContainerEnunciadoView.swift in Sources */,
+				ED80F5B12E0ADB5F00B61E97 /* PingPongView.swift in Sources */,
+				ED81EB2A2E0C25D7003062BA /* FreeWritingView.swift in Sources */,
 				ED695A672E01B37C009C0BE0 /* TabBar.swift in Sources */,
 				A48ABE062E0C293500483673 /* HistoricoDesafiosViewModel.swift in Sources */,
 				ED0B0E972E02F6D100785DDD /* CarrosselView.swift in Sources */,
-				A48ABDF72E0C22FA00483673 /* Sessao+CoreDataClass.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

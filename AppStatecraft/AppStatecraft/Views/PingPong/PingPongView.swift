@@ -16,26 +16,34 @@ struct PingPongView: View {
     @Environment(\.dismiss) var dismiss
     var body: some View {
         NavigationView {
-            ScrollView(.vertical) {
-                VStack () {
-                    ForEach (palavras, id: \.self) { palavra in
-                        VStack {
-                            ZStack {
-                                Image("CaixinhaPingPong")
-                                Text(palavra)
-                                    .foregroundColor(.black)
+            ScrollViewReader { scrollProxy in
+                ScrollView(.vertical) {
+                    VStack () {
+                        ForEach (Array(palavras.enumerated()), id: \.0) { index, palavra in
+                            VStack {
+                                ZStack {
+                                    Image("CaixinhaPingPong")
+                                    Text(palavra)
+                                        .foregroundColor(.black)
+                                }
+                                Image("LinhaPingPong")
                             }
-                            Image("LinhaPingPong")
                         }
+                        ZStack {
+                            Image("CaixinhaPingPong")
+                            TextFieldUIKit(texto: $input, onEnter: {novoTexto in
+                                palavras.append(novoTexto)
+                            })
+                                .frame(height: 40)
+                            //TextField ("Escreva aqui", text: $input)
+                                //.multilineTextAlignment(.center)
+                        }
+                        .id("textField")
                     }
-                    ZStack {
-                        Image("CaixinhaPingPong")
-                        TextFieldUIKit(texto: $input, onEnter: {novoTexto in
-                            palavras.append(novoTexto)
-                        })
-                            .frame(height: 40)
-                        //TextField ("Escreva aqui", text: $input)
-                            //.multilineTextAlignment(.center)
+                }
+                .onChange(of: palavras.count) { _ in
+                    withAnimation {
+                        scrollProxy.scrollTo("textField", anchor: .bottom)
                     }
                 }
             }
@@ -50,7 +58,7 @@ struct PingPongView: View {
                     .foregroundColor(.accentColor)
                 }
                 ToolbarItem(placement: .confirmationAction) {
-                    Button("OK") {
+                    Button("Salvar") {
                         dismiss()
                     }
                     .foregroundColor(.accentColor)

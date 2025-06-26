@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		24E7D6792E0C1F2F0064BAD1 /* PingPongViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24E7D6782E0C1F2F0064BAD1 /* PingPongViewController.swift */; };
+		A40B05BB2E0D8614009B053D /* Secrets.plist in Resources */ = {isa = PBXBuildFile; fileRef = A40B05BA2E0D8614009B053D /* Secrets.plist */; };
 		A40C5B202E02DFDE00C30D6E /* DesafiosMultimidiaView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A40C5B1F2E02DFDE00C30D6E /* DesafiosMultimidiaView.swift */; };
 		A417CC9D2DF9CB7800564508 /* FreeWritingViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A417CC9C2DF9CB7800564508 /* FreeWritingViewModel.swift */; };
 		A46C081F2E02F9F100129CE7 /* ImagePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = A46C081E2E02F9F100129CE7 /* ImagePicker.swift */; };
@@ -84,7 +85,7 @@
 
 /* Begin PBXFileReference section */
 		24E7D6782E0C1F2F0064BAD1 /* PingPongViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PingPongViewController.swift; sourceTree = "<group>"; };
-		A40B05B72E0D6355009B053D /* Secrets.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Secrets.plist; sourceTree = "<group>"; };
+		A40B05BA2E0D8614009B053D /* Secrets.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Secrets.plist; sourceTree = "<group>"; };
 		A40C5B1F2E02DFDE00C30D6E /* DesafiosMultimidiaView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DesafiosMultimidiaView.swift; sourceTree = "<group>"; };
 		A417CC9C2DF9CB7800564508 /* FreeWritingViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FreeWritingViewModel.swift; sourceTree = "<group>"; };
 		A46C081E2E02F9F100129CE7 /* ImagePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePicker.swift; sourceTree = "<group>"; };
@@ -354,7 +355,7 @@
 		EDF265422DF9A9F800898EBA = {
 			isa = PBXGroup;
 			children = (
-				A40B05B72E0D6355009B053D /* Secrets.plist */,
+				A40B05BA2E0D8614009B053D /* Secrets.plist */,
 				EDF2654D2DF9A9F800898EBA /* AppStatecraft */,
 				EDF2655E2DF9A9FC00898EBA /* AppStatecraftTests */,
 				EDF265682DF9A9FC00898EBA /* AppStatecraftUITests */,
@@ -520,6 +521,7 @@
 				EDF265562DF9A9FC00898EBA /* Preview Assets.xcassets in Resources */,
 				ED8481942E003F2D007E5709 /* viajante.jpg in Resources */,
 				ED8481962E003F3A007E5709 /* moca_arte.jpg in Resources */,
+				A40B05BB2E0D8614009B053D /* Secrets.plist in Resources */,
 				ED81EB362E0C3AFC003062BA /* BancoFW.json in Resources */,
 				ED84819D2E0047CC007E5709 /* Assets.xcassets in Resources */,
 				ED8481982E003F6B007E5709 /* homem.jpg in Resources */,

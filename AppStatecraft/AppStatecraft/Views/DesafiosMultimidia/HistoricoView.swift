@@ -30,6 +30,8 @@ struct HistoricoView: View {
                             Image(systemName: "chevron.right").foregroundColor(.secondary)
                         }.foregroundColor(.primary)
                     }
+                    
+                    //TODO: display de outras metodologias aqui
                 }
             }
             

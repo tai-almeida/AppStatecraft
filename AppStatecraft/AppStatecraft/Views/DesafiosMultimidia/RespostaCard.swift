@@ -13,8 +13,7 @@ struct RespostaCard: View {
     
     var body: some View {
         ZStack{
-            if let image = image
-            {
+            if let image = image {
                 Image(uiImage: image)
                     .resizable()
                     .scaledToFit()
@@ -37,7 +36,6 @@ struct RespostaCard: View {
                     Spacer()
                 }
                 .padding(12)
-                
             } else {
                 ZStack(alignment: .topLeading) {
                     Text(respostaTexto + "\n")
@@ -61,7 +59,6 @@ struct RespostaCard: View {
             }
             Spacer()
         }
-        
     }
 }
 

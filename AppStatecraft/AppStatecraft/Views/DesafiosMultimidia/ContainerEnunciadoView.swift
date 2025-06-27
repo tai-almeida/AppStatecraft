@@ -26,7 +26,8 @@ struct ContainerEnunciadoView: View {
             }else{
                 Text(desafio.conteudo)
                     .italic()
-                    .padding(.bottom, 10)
+                    .padding(.vertical, 10)
+                    .padding(.horizontal, 10)
             }
         }
         .background( //coloca view atras da view atual

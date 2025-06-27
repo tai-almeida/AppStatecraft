@@ -2,7 +2,7 @@
 //  Sessao+CoreDataProperties.swift
 //  AppStatecraft
 //
-//  Created by Sofia Villas Bôas on 17/06/25.
+//  Created by Sofia Villas Bôas on 25/06/25.
 //
 //
 

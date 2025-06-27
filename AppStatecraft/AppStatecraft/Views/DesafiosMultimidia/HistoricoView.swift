@@ -44,7 +44,7 @@ struct HistoricoView: View {
         .sheet(item: $sessaoSelecionada) { sessao in
             //TODO: colocar aqui as views especificas de visualizacao para cada metodologia salva
             if let multimidia = sessao as? SessaoDesafioMult {
-                Text(multimidia.enunciado ?? "vazio")
+                MultimidiaSalvoView(sessao: multimidia)
             }else if let pingpong = sessao as? SessaoPingPong{
                 Text("Sessão Ping Pong")
             }else if let maieutica = sessao as? SessaoMaieutica{

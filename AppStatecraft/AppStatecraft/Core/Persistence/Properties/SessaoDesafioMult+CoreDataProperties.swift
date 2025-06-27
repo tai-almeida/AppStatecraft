@@ -21,5 +21,7 @@ extension SessaoDesafioMult {
     @NSManaged public var mediaTexto: String?
     @NSManaged public var respostaFoto: Data?
     @NSManaged public var respostaTexto: String?
+    @NSManaged public var desafioFeito: Bool
+    @NSManaged public var desafioID: Int64
 
 }

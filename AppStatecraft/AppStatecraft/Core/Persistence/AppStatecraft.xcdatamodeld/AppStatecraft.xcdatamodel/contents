@@ -21,6 +21,8 @@
         <relationship name="projeto" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Projeto" inverseName="sessoes" inverseEntity="Projeto"/>
     </entity>
     <entity name="SessaoDesafioMult" representedClassName="SessaoDesafioMult" parentEntity="Sessao" syncable="YES">
+        <attribute name="desafioFeito" optional="YES" attributeType="Boolean" usesScalarValueType="YES"/>
+        <attribute name="desafioID" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES"/>
         <attribute name="enunciado" optional="YES" attributeType="String"/>
         <attribute name="mediaFoto" optional="YES" attributeType="Binary"/>
         <attribute name="mediaTexto" optional="YES" attributeType="String"/>

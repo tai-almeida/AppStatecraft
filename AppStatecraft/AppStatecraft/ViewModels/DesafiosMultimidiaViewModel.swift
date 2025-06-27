@@ -138,6 +138,8 @@ class DesafiosMultimidiaViewModel: ObservableObject {
                 sessaoDesafio.id = UUID()
                 sessaoDesafio.data = Date()
                 sessaoDesafio.enunciado = desafio.enunciado
+                sessaoDesafio.desafioID = Int64(desafio.id)
+                sessaoDesafio.desafioFeito = desafio.feita
                 
                 if desafio.tipo == "imagem"{
                     sessaoDesafio.mediaFoto = converterAssetParaData(nome: desafio.conteudo)

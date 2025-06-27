@@ -578,8 +578,6 @@
 				ED80F5A32E0AC46D00B61E97 /* ColorExtension.swift in Sources */,
 				ED80F5AE2E0ADB4100B61E97 /* PingPongViewModel.swift in Sources */,
 				ED81EB342E0C393A003062BA /* RespostaFW.swift in Sources */,
-=======
->>>>>>> feature/correcao-historico
 				A417CC9D2DF9CB7800564508 /* FreeWritingViewModel.swift in Sources */,
 				A48ABDF62E0C22FA00483673 /* SessaoDesafioMult+CoreDataProperties.swift in Sources */,
 				A48ABDFA2E0C22FA00483673 /* SessaoPingPong+CoreDataProperties.swift in Sources */,

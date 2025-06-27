@@ -47,6 +47,7 @@ struct PingPongView: View {
                                     }
                                     .multilineTextAlignment(.center)
                                     .foregroundColor(.black)
+                                    .disabled(!timerVM.sendoFeito)
                                 
 //                                TextFieldUIKit(texto: $input, onEnter: { novoTexto in
 //                                    palavras.append(novoTexto)

@@ -61,7 +61,7 @@ struct InicialFreeWritingView: View {
                 showingSheet.toggle()
             }
             .sheet(isPresented: $showingSheet) {
-                FreeWritingView()
+                FreeWritingView(minutos: minutes, segundos: seconds)
             }
             .frame(maxWidth: .infinity)
             .padding()

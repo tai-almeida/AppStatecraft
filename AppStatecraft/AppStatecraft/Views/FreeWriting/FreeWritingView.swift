@@ -12,11 +12,16 @@ struct FreeWritingView: View {
     @State private var respostaTexto: String = ""
     @StateObject private var viewModel = FreeWritingViewModel()
     @State private var prompt: PromptFW?
-    
+    let minutos: Int
+    let segundos: Int
+    @StateObject var timerVM: TimerViewModel = TimerViewModel(minutos: 0, segundos: 0)
     
     var body: some View {
         NavigationView {
             VStack {
+                Text(timerVM.tempoFormatado)
+                    .font(.title2)
+                    .foregroundColor(.black)
                 ScrollView{
                     if let prompt = prompt{
                         ContainerPromptView(prompt: prompt).padding()
@@ -25,20 +30,11 @@ struct FreeWritingView: View {
                     }
                     Divider()
                     RespostaFW(respostaTexto: $respostaTexto).foregroundColor(.primary)
+                        .disabled(!timerVM.sendoFeito)
                 }
                 
                 HStack{
                     Spacer()
-//                    Button(action: {
-//                        self.showImagePicker = true
-//                    }, label: {
-//                        Label("", systemImage: "photo.on.rectangle")
-//                    })
-//                        .padding()
-//                        .sheet(isPresented: $showImagePicker) {
-//                            ImagePicker(selectedImage: $image)
-//                        }
-//                        .foregroundColor(.accentColor)
                     
                         .navigationTitle("Free-Writing")
                         .navigationBarTitleDisplayMode(.inline)
@@ -62,6 +58,9 @@ struct FreeWritingView: View {
                 self.prompt = viewModel.sorteiaPrompt()
             }
         }
-//        .foregroundColor(.primary)
+        .onAppear {
+            timerVM.resetar(minutos:minutos, segundos: segundos)
+            timerVM.comecaContagem()
+        }
     }
 }

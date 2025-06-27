@@ -4,7 +4,7 @@
 //
 //  Created by Aluno 45 on 24/06/25.
 import UIKit
-
+import AVFoundation
 import SwiftUI
 
 struct PingPongView: View {
@@ -84,6 +84,13 @@ struct PingPongView: View {
                         .foregroundColor(.accentColor)
                     }
                 }
+        }
+    }
+    .onChange(of: timerVM.sendoFeito) { checagem in
+        if (!checagem) {
+            let generator = UIImpactFeedbackGenerator(style: .medium)
+            generator.impactOccurred()
+            //print("deu certo a vibracao")
         }
     }
     .onAppear {

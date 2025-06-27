@@ -16,7 +16,7 @@ struct TabBar: View {
                 }
             
             
-            Text("Tela de Projetos")
+            ProjetosView()
                 .tabItem {
                     Label("Projetos", systemImage: "folder")
                 }

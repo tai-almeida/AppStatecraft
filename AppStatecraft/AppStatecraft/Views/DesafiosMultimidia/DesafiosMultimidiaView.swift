@@ -7,14 +7,21 @@
 
 import SwiftUI
 import PhotosUI
+import CoreData
 
 struct DesafiosMultimidiaView: View {
+    //vamo refatorar isso dps slk
     @Environment(\.dismiss) var dismiss
+    @Environment(\.managedObjectContext) private var viewContext
+    
+    
     @State private var showImagePicker: Bool = false
     @State private var image: UIImage?
     @State private var respostaTexto: String = ""
     @StateObject private var desafiosVM = DesafiosMultimidiaViewModel()
     @State private var desafio: QuestaoDesafios?
+    @State private var isShowingDialog = false
+    @State private var isShowingAddProjetos = false
     
     
     var body: some View {
@@ -29,7 +36,6 @@ struct DesafiosMultimidiaView: View {
                     Divider()
                     RespostaCard(image: $image, respostaTexto: $respostaTexto).foregroundColor(.primary)
                 }
-                
                 HStack{
                     Spacer()
                     Button(action: {
@@ -42,7 +48,6 @@ struct DesafiosMultimidiaView: View {
                             ImagePicker(selectedImage: $image)
                         }
                         .foregroundColor(.accentColor)
-                    
                         .navigationTitle("Desafio")
                         .navigationBarTitleDisplayMode(.inline)
                         .toolbar {
@@ -54,11 +59,54 @@ struct DesafiosMultimidiaView: View {
                             }
                             ToolbarItem(placement: .confirmationAction) {
                                 Button("OK") {
-                                    dismiss()
+                                    isShowingDialog = true
+                                } .foregroundColor(.accentColor) // TODO: queria muito tirar esses um milhao foregroundColor!!
+                                .confirmationDialog(
+                                    "Tem certeza que finalizou o desafio?",
+                                    isPresented: $isShowingDialog,
+                                    titleVisibility: .hidden
+                                ) {
+                                    Button("Adicionar a Projeto") {
+                                        self.isShowingAddProjetos = true
+                                        //dps associamos a projeto
+                                        desafiosVM.salvarSemProjeto(
+                                            contexto: viewContext,
+                                            respostaTexto: respostaTexto,
+                                            respostaImagem: image,
+                                            desafio: desafio
+                                        )
+                                        //TODO: logica de permanencia dos dados sinistra
+                                        //criar o "objeto"
+                                        //navegar para o modal de adicionar a projeto
+                                        //salvar o objeto no coredata quando a pessoa clicar no projeto
+                                        
+                                        self.respostaTexto = ""
+                                        self.image = nil
+                                        dismiss()
+                                    }
+                                    Button("Salvar em Esboços") {
+                                        //TODO: logica de permanencia dos dados, so que salvar no esbocos tomee
+                                    }
+                                    Button("Descartar", role: .destructive) {
+                                        dismiss()
+                                    }
+                                    Button("Continuar Editando", role: .cancel) {
+                                        isShowingDialog = false
+                                    }
                                 }
-                                .foregroundColor(.accentColor)
                             }
-                        }
+                        }//por enquanto vou salvar sem projeto para testar o mecanismo -sofi
+//                        .fullScreenCover(isPresented: $isShowingAddProjetos) {
+//                            //view de addProjeto
+//                            if let desafio = desafio{
+//                                AddProjetoView(
+//                                    respostaTexto: respostaTexto,
+//                                    respostaFoto: image,
+//                                    desafio: desafio)
+//                            }else{
+//                                //tratar se for nil
+//                            }
+                        //}
                 }
             }.onAppear{
                 self.desafio = desafiosVM.sorteiaDesafio()
@@ -67,3 +115,4 @@ struct DesafiosMultimidiaView: View {
         .foregroundColor(.primary)
     }
 }
+

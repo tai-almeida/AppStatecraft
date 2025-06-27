@@ -7,12 +7,14 @@
 
 import Foundation
 import SwiftUI
+import CoreData
 
 class DesafiosMultimidiaViewModel: ObservableObject {
     
     @Published var todosDesafios = [QuestaoDesafios]()
     @Published var desafiosFeitos = [QuestaoDesafios]()
     @Published var desafiosNaoFeitos = [QuestaoDesafios]()
+    
     //@Published var desafio = SessaoDesafioMult()
     
     //    private var dadosURL: URL {
@@ -128,5 +130,53 @@ class DesafiosMultimidiaViewModel: ObservableObject {
         verificaDesafiosVazios()
         return desafiosNaoFeitos.randomElement()
     }
-}
+    
+    func salvarSemProjeto(contexto: NSManagedObjectContext, respostaTexto: String, respostaImagem: UIImage?, desafio: QuestaoDesafios?){
+        do {
+            if let desafio = desafio{
+                let sessaoDesafio = SessaoDesafioMult(context: contexto)
+                sessaoDesafio.id = UUID()
+                sessaoDesafio.data = Date()
+                sessaoDesafio.enunciado = desafio.enunciado
+                
+                if desafio.tipo == "imagem"{
+                    sessaoDesafio.mediaFoto = converterAssetParaData(nome: desafio.conteudo)
+                }else{
+                    sessaoDesafio.mediaTexto = desafio.conteudo
+                }
+                
+                //se a resposta do usuario for uma imagem
+                if let img = respostaImagem {
+                    sessaoDesafio.respostaFoto = img.pngData() //transformar para binary data
+                }else{
+                    sessaoDesafio.respostaTexto = respostaTexto
+                }
+                
+                try contexto.save()
+                print("deu bom salvou")
+            }else{
+                print("Desafio ta vazio")
+            }
+        } catch {
+            print("erro ao salvar a resposta - \(error)")
+        }
+    }
+    
+    func converterAssetParaData(nome: String) -> Data? {
+        // criar a UIImage a partir do nome do asset
+        guard let uiImage = UIImage(named: nome) else {
+            print("Erro: Imagem com o nome '\(nome)' não encontrada no Asset Catalog.")
+            return nil
+        }
+        
+        // cconverter a UIImage para o formato PNG Data
+        guard let data = uiImage.pngData() else {
+            print("Erro: Não foi possível converter a UIImage '\(nome)' para Data.")
+            return nil
+        }
 
+        return data
+    }
+    
+
+}

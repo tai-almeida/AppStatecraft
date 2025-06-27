@@ -12,7 +12,7 @@ struct FreeWritingView: View {
     @State private var respostaTexto: String = ""
     @StateObject private var viewModel = FreeWritingViewModel()
     @State private var prompt: PromptFW?
-    
+    @StateObject timerVM: TimerViewMode
     
     var body: some View {
         NavigationView {
@@ -25,6 +25,7 @@ struct FreeWritingView: View {
                     }
                     Divider()
                     RespostaFW(respostaTexto: $respostaTexto).foregroundColor(.primary)
+                        .disabled(!timerVM.sendoFeito)
                 }
                 
                 HStack{

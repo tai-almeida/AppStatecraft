@@ -13,7 +13,7 @@ struct InicialDMView: View {
     var body: some View {
         VStack {
             ScrollView {
-                NavigationLink(destination: HistoricoDesafiosView() .navigationTitle("Histórico")) {
+                NavigationLink(destination: HistoricoView(tipoMetodologia: "multimidia") .navigationTitle("Histórico")) {
                 HStack(alignment: .top) {
                     Image(systemName: "tray")
                         .foregroundColor(Color.accentColor)
@@ -40,7 +40,7 @@ struct InicialDMView: View {
             .fullScreenCover(isPresented: $showingSheet) {
                 DesafiosMultimidiaView()
                 .accentColor(Color("AccentColor"))
-                .interactiveDismissDisabled() // impede o gesto de deslizar
+                .interactiveDismissDisabled() // impede deslizar
             }
             .frame(maxWidth: .infinity)
             .padding()

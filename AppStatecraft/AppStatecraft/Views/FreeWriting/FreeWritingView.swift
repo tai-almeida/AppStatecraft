@@ -58,6 +58,13 @@ struct FreeWritingView: View {
                 self.prompt = viewModel.sorteiaPrompt()
             }
         }
+        .onChange(of: timerVM.sendoFeito) { checagem in
+            if (!checagem) {
+                let generator = UIImpactFeedbackGenerator(style: .medium)
+                generator.impactOccurred()
+                print("deu certo a vibracao")
+            }
+        }
         .onAppear {
             timerVM.resetar(minutos:minutos, segundos: segundos)
             timerVM.comecaContagem()

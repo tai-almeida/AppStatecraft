@@ -3,5 +3,47 @@
         "id": 0,
         "enunciado": "Imagine que você é uma sensação. Qual sensação é você? Em que momentos você acontece? Com que outras sensações você está relacionado?",
         "feita": false
+    },
+    {
+        "id": 1,
+        "enunciado": "As últimas palavras da sua novela são: 'Quando a noite virou dia, ele começou a entender a verdade.' Agora, escreva o resto.",
+        "feita": false
+    },
+    {
+        "id": 2,
+        "enunciado": "Escreva uma conversa que você e um desconhecido têm em um avião.",
+        "feita": false
+    },
+    {
+        "id": 3,
+        "enunciado": "Você encontra uma carta escrita por você mesmo, mas do futuro. O que ela diz? Como você reage?",
+        "feita": false
+    },
+    {
+        "id": 4,
+        "enunciado": "Escreva o diário de um objeto que passa o dia inteiro em silêncio observando o mundo — uma escova de dentes, uma luminária, uma poltrona.",
+        "feita": false
+    },
+    {
+        "id": 5,
+        "enunciado": "Se os sonhos tivessem cor, qual foi a cor do seu último sonho? E o que ela significava?",
+        "feita": false
+    },
+    {
+        "id": 6,
+        "enunciado": "Reescreva um momento comum do seu dia como se fosse uma cena de um filme épico.",
+        "feita": false
+    },
+    {
+        "id": 7,
+        "enunciado": "'Eu não estava procurando nada, mas encontrei um universo.' Use essa frase como ponto de partida para uma história.",
+        "feita": false
+    },
+    {
+        "id": 8,
+        "enunciado": "Se você fosse um som que toca em um momento específico da vida, que som seria? Onde ele ecoaria? Quem o escutaria?",
+        "feita": false
     }
+
+    
 ]

@@ -10,7 +10,7 @@ import Foundation
 class MaieuticaViewModel: ObservableObject {
 
     func fazerRequisicao(context: String) async -> String {
-        let url = URL(string: "https://api.replicate.com/v1/models/openai/gpt-4o-mini/predictions")!
+        let url = URL(string: "https://api.openai.com/v1/responses")!
         var request = URLRequest(url: url)
         request.httpMethod = "POST"
         
@@ -23,39 +23,36 @@ class MaieuticaViewModel: ObservableObject {
         request.setValue("application/json", forHTTPHeaderField: "Content-Type")
         
         let system_prompt = """
-        Como Sócrates, você deve realizar o processo da maiêutica com base no prompt. Dado uma ideia escrita por um usuário, identifique os termos mais importantes e gere uma pergunta bem sucinta e que faça sentido, mas também criativa, que estimule o usuário a expandir sua ideia. Questione a viabilidade, implicações e suposições por trás dos termos usados. Evite repetir a ideia. Seja direto e instigante. Faça uma pergunta bem curta, finalizada por um ponto de interrogação. Não disserte, só faça a pergunta.
+        Como Sócrates, você deve realizar o processo da maiêutica com base no prompt. Dado uma ideia escrita por um usuário, identifique os termos mais importantes e gere uma pergunta bem sucinta e que faça sentido, mas também criativa, que estimule o usuário a expandir sua ideia. Questione a viabilidade, implicações e suposições por trás dos termos usados. Evite repetir a ideia. Seja direto e instigante. Faça uma pergunta bem curta, finalizada por um ponto de interrogação. Não disserte, só faça a pergunta. Segue o prompt do usuário:
         """
         
         let jsonBody: [String: Any] = [
-            "stream": false,
-            "input": [
-                "prompt": context,
-                "system_prompt": system_prompt,
-                "temperature": 0.9,
-                "max_completion_tokens": 45
-            ]
+            "model": "gpt-4o-mini-2024-07-18",
+            "input": system_prompt + context
         ]
+        
+        print(jsonBody)
         
         request.httpBody = try? JSONSerialization.data(withJSONObject: jsonBody)
         
         do {
+            print("AAAAA")
             let (data, _) = try await URLSession.shared.data(for: request)
-            
-            if let json = try? JSONSerialization.jsonObject(with: data) as? [String: Any],
-               let predictionId = json["id"] as? String {
-                
-                // Espera a resposta finalizada
-                if let resposta = await checarRequisicao(idRequisicao: predictionId) {
-                    return resposta
-                } else {
-                    return "Erro ao obter resposta."
+            print("AAAAA")
+            if let json = try? JSONSerialization.jsonObject(with: data) as? [String: Any]{
+                    print(json)
+                    //return resp.joined()
                 }
-            } else {
-                return "Erro ao criar requisição."
+            else {
+                return "Erro ao obter resposta."
+                print("cccc")
             }
-        } catch {
-            return "Erro: \(error.localizedDescription)"
         }
+        catch {
+            return "Erro: \(error.localizedDescription)"
+            print("BBBBB")
+        }
+        return "deu certo"
     }
     
     /// Checa o status da requisição até terminar, e retorna a resposta

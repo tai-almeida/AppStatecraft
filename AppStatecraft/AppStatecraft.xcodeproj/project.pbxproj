@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		242B85562E0EBFA1006EE127 /* MaieuticaViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 242B85552E0EBFA1006EE127 /* MaieuticaViewModel.swift */; };
+		242B85582E0EBFD6006EE127 /* InicialMaieuticaView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 242B85572E0EBFD6006EE127 /* InicialMaieuticaView.swift */; };
+		242B855A2E0EC00A006EE127 /* MaieuticaView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 242B85592E0EC00A006EE127 /* MaieuticaView.swift */; };
+		242B855C2E0EC558006EE127 /* RespostaMaieutica.swift in Sources */ = {isa = PBXBuildFile; fileRef = 242B855B2E0EC558006EE127 /* RespostaMaieutica.swift */; };
 		24BC38DF2E0D99360050023C /* Secrets.plist in Resources */ = {isa = PBXBuildFile; fileRef = 24BC38DE2E0D99360050023C /* Secrets.plist */; };
 		24E7D6792E0C1F2F0064BAD1 /* PingPongViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24E7D6782E0C1F2F0064BAD1 /* PingPongViewController.swift */; };
 		A40C5B202E02DFDE00C30D6E /* DesafiosMultimidiaView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A40C5B1F2E02DFDE00C30D6E /* DesafiosMultimidiaView.swift */; };
@@ -88,6 +92,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		242B85552E0EBFA1006EE127 /* MaieuticaViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MaieuticaViewModel.swift; sourceTree = "<group>"; };
+		242B85572E0EBFD6006EE127 /* InicialMaieuticaView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InicialMaieuticaView.swift; sourceTree = "<group>"; };
+		242B85592E0EC00A006EE127 /* MaieuticaView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MaieuticaView.swift; sourceTree = "<group>"; };
+		242B855B2E0EC558006EE127 /* RespostaMaieutica.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RespostaMaieutica.swift; sourceTree = "<group>"; };
 		24BC38DE2E0D99360050023C /* Secrets.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Secrets.plist; sourceTree = "<group>"; };
 		24E7D6782E0C1F2F0064BAD1 /* PingPongViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PingPongViewController.swift; sourceTree = "<group>"; };
 		A40B05B72E0D6355009B053D /* Secrets.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Secrets.plist; sourceTree = "<group>"; };
@@ -180,6 +188,16 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		242B85542E0EBF6D006EE127 /* Maieutica */ = {
+			isa = PBXGroup;
+			children = (
+				242B85572E0EBFD6006EE127 /* InicialMaieuticaView.swift */,
+				242B85592E0EC00A006EE127 /* MaieuticaView.swift */,
+				242B855B2E0EC558006EE127 /* RespostaMaieutica.swift */,
+			);
+			path = Maieutica;
+			sourceTree = "<group>";
+		};
 		A417CC9A2DF9CAE400564508 /* Models */ = {
 			isa = PBXGroup;
 			children = (
@@ -198,6 +216,7 @@
 				ED81EB3B2E0D65F2003062BA /* TimerViewModel.swift */,
 				ED82ED3E2DFC6E05006BE6D5 /* DesafiosMultimidiaViewModel.swift */,
 				A48ABE052E0C293500483673 /* HistoricoViewModel.swift */,
+				242B85552E0EBFA1006EE127 /* MaieuticaViewModel.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -205,6 +224,7 @@
 		A417CCA02DF9CB9100564508 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				242B85542E0EBF6D006EE127 /* Maieutica */,
 				ED81EB242E0C255A003062BA /* FreeWriting */,
 				ED80F5AF2E0ADB5100B61E97 /* PingPong */,
 				E8DDC8742E0AEBEF00365D65 /* MeusProjetosView.swift */,
@@ -564,6 +584,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				ED81EB3A2E0C455F003062BA /* TimerView.swift in Sources */,
+				242B85582E0EBFD6006EE127 /* InicialMaieuticaView.swift in Sources */,
 				ED2C7E052E097ACA004F5E9F /* InicialDesafiosView.swift in Sources */,
 				ED81EB2E2E0C37B0003062BA /* PromptFW.swift in Sources */,
 				ED81EB2C2E0C3544003062BA /* ContainerPromptView.swift in Sources */,
@@ -587,6 +608,8 @@
 				A44BD6FA2E0AD68400B840EB /* AddProjetoView.swift in Sources */,
 				ED0B0E9B2E02F9C200785DDD /* PageControlView.swift in Sources */,
 				A48ABDFF2E0C22FA00483673 /* Projeto+CoreDataClass.swift in Sources */,
+				242B85562E0EBFA1006EE127 /* MaieuticaViewModel.swift in Sources */,
+				242B855A2E0EC00A006EE127 /* MaieuticaView.swift in Sources */,
 				ED695A6A2E01B3DA009C0BE0 /* MetodologiasView.swift in Sources */,
 				A48ABDFC2E0C22FA00483673 /* Registro+CoreDataProperties.swift in Sources */,
 				A48ABDF32E0C22FA00483673 /* SessaoMaieutica+CoreDataClass.swift in Sources */,
@@ -603,6 +626,7 @@
 				A48ABDF42E0C22FA00483673 /* SessaoMaieutica+CoreDataProperties.swift in Sources */,
 				ED0B0E952E02EFAF00785DDD /* CardView.swift in Sources */,
 				24E7D6792E0C1F2F0064BAD1 /* PingPongViewController.swift in Sources */,
+				242B855C2E0EC558006EE127 /* RespostaMaieutica.swift in Sources */,
 				ED81EB282E0C25B1003062BA /* InicialFreeWritingView.swift in Sources */,
 				A40C5B202E02DFDE00C30D6E /* DesafiosMultimidiaView.swift in Sources */,
 				A47175B92E01A23A00AC6B12 /* ContainerEnunciadoView.swift in Sources */,

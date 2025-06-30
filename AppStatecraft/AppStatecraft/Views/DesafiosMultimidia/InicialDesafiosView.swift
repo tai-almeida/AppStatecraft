@@ -13,7 +13,7 @@ struct InicialDMView: View {
     var body: some View {
         VStack {
             ScrollView {
-                NavigationLink(destination: HistoricoView(tipoMetodologia: "multimidia") .navigationTitle("Histórico")) {
+                NavigationLink(destination: HistoricoView(tipoMetodologia: "multimidia").navigationTitle("Histórico")) {
                 HStack(alignment: .top) {
                     Image(systemName: "tray")
                         .foregroundColor(Color.accentColor)

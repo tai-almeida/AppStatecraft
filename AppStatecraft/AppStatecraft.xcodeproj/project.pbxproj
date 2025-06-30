@@ -34,6 +34,7 @@
 		A46C081F2E02F9F100129CE7 /* ImagePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = A46C081E2E02F9F100129CE7 /* ImagePicker.swift */; };
 		A46C08212E03040A00129CE7 /* RespostaCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = A46C08202E03040A00129CE7 /* RespostaCard.swift */; };
 		A47175B92E01A23A00AC6B12 /* ContainerEnunciadoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A47175B82E01A23A00AC6B12 /* ContainerEnunciadoView.swift */; };
+		A47649542E12DA6700EC8A4D /* FreeWritingSalvo.swift in Sources */ = {isa = PBXBuildFile; fileRef = A47649532E12DA6700EC8A4D /* FreeWritingSalvo.swift */; };
 		A4773CA52E01B0E4002D27D7 /* AppStatecraft.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = A4773CA32E01B0E4002D27D7 /* AppStatecraft.xcdatamodeld */; };
 		A4773CA72E01B0F2002D27D7 /* DataController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4773CA62E01B0F2002D27D7 /* DataController.swift */; };
 		A48ABE042E0C291F00483673 /* HistoricoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A48ABE032E0C291F00483673 /* HistoricoView.swift */; };
@@ -122,6 +123,7 @@
 		A46C081E2E02F9F100129CE7 /* ImagePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePicker.swift; sourceTree = "<group>"; };
 		A46C08202E03040A00129CE7 /* RespostaCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RespostaCard.swift; sourceTree = "<group>"; };
 		A47175B82E01A23A00AC6B12 /* ContainerEnunciadoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContainerEnunciadoView.swift; sourceTree = "<group>"; };
+		A47649532E12DA6700EC8A4D /* FreeWritingSalvo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FreeWritingSalvo.swift; sourceTree = "<group>"; };
 		A4773CA42E01B0E4002D27D7 /* AppStatecraft.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = AppStatecraft.xcdatamodel; sourceTree = "<group>"; };
 		A4773CA62E01B0F2002D27D7 /* DataController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataController.swift; sourceTree = "<group>"; };
 		A4773CA82E01B204002D27D7 /* oi.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = oi.swift; path = AppStatecraft/Core/Persistence/oi.swift; sourceTree = SOURCE_ROOT; };
@@ -331,6 +333,7 @@
 				ED81EB292E0C25D7003062BA /* FreeWritingView.swift */,
 				ED81EB2B2E0C3544003062BA /* ContainerPromptView.swift */,
 				ED81EB332E0C393A003062BA /* RespostaFW.swift */,
+				A47649532E12DA6700EC8A4D /* FreeWritingSalvo.swift */,
 			);
 			path = FreeWriting;
 			sourceTree = "<group>";
@@ -613,6 +616,7 @@
 				A43C40882E0EFC34009B9E85 /* Projeto+CoreDataClass.swift in Sources */,
 				A417CC9D2DF9CB7800564508 /* FreeWritingViewModel.swift in Sources */,
 				A44BD6FA2E0AD68400B840EB /* AddProjetoView.swift in Sources */,
+				A47649542E12DA6700EC8A4D /* FreeWritingSalvo.swift in Sources */,
 				ED0B0E9B2E02F9C200785DDD /* PageControlView.swift in Sources */,
 				242B85562E0EBFA1006EE127 /* MaieuticaViewModel.swift in Sources */,
 				242B855A2E0EC00A006EE127 /* MaieuticaView.swift in Sources */,

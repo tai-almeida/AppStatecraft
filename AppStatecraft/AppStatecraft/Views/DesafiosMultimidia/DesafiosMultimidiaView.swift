@@ -67,7 +67,7 @@ struct DesafiosMultimidiaView: View {
                                     titleVisibility: .hidden
                                 ) {
                                     Button("Adicionar a Projeto") {
-                                        self.isShowingAddProjetos = true
+                                        //self.isShowingAddProjetos = true
                                         //dps associamos a projeto
                                         desafiosVM.salvarSemProjeto(
                                             contexto: viewContext,

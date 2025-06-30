@@ -18,58 +18,55 @@ struct InicialFreeWritingView: View {
     var body: some View {
         VStack {
             ScrollView {
-                NavigationLink(destination: Text("Conteudo historico") .navigationTitle("Histórico")) {
-                HStack(alignment: .top) {
-                    Image(systemName: "tray")
-                        .foregroundColor(Color.accentColor)
-                    
-                    Text("Histórico")
-                        .foregroundColor(.primary)
+                NavigationLink(destination: HistoricoView(tipoMetodologia: "freewriting").navigationTitle("Histórico")) {
+                    HStack(alignment: .top) {
+                        Image(systemName: "tray")
+                            .foregroundColor(Color.accentColor)
                         
-                    Spacer()
-                    Image(systemName: "chevron.right")
-                        .foregroundColor(Color(.tertiaryLabel))
+                        Text("Histórico")
+                            .foregroundColor(.primary)
+                        
+                        Spacer()
+                        Image(systemName: "chevron.right")
+                            .foregroundColor(Color(.tertiaryLabel))
                         
                     }
-                    
-                .padding(.horizontal)
-                
+                    .padding(.horizontal)
                 }
                 Divider().padding(.horizontal)
-                    
+                
                 Text("Receba um desafio e crie um texto livre, com a imaginação guiando a escrita!")
                 Divider().padding(.horizontal)
                 Spacer()
-                    
+                
                 HStack {
                     Text("Timer")
                         .foregroundColor(Color.accentColor)
-//
+                    //
                     Spacer()
-//
+                    //
                     Text(String(format: "%02d:%02d", minutes, seconds))
                         .padding(2)
                         .background(Color(.secondarySystemBackground))
                         .clipShape(RoundedRectangle(cornerRadius: 6))
-//                        .cornerRadius(10)
-                        
-//
+                    //                        .cornerRadius(10)
+                    
+                    //
                 }.padding(.horizontal)
                 DurationPickerView(minutes: $minutes, seconds: $seconds)
             }
             Button("Começar") {
                 showingSheet.toggle()
-            }
-            .sheet(isPresented: $showingSheet) {
-                FreeWritingView(minutos: minutes, segundos: seconds)
-            }
-            .frame(maxWidth: .infinity)
-            .padding()
-            .background(Color.accentColor)
-            .foregroundColor(.white)
-            .clipShape(Capsule())
-            .padding(.horizontal)
-            .padding(.vertical)
+            }.frame(maxWidth: .infinity)
+                .padding()
+                .background(Color.accentColor)
+                .foregroundColor(.white)
+                .clipShape(Capsule())
+                .padding(.horizontal)
+                .padding(.vertical)
+                .sheet(isPresented: $showingSheet) {
+                    FreeWritingView(minutos: minutes, segundos: seconds)
+                }
         }
         .navigationTitle("Free-Writing")
     }

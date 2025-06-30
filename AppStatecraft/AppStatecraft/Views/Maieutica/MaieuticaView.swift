@@ -18,7 +18,7 @@ struct MaieuticaView: View {
                 Text(historicoIA[indiceAtual])
                     .foregroundColor(.black)
                     .font(.title3)
-                    .padding(.horizontal)
+                    //.padding(.horizontal)
                 Divider()
                 
                 if indiceAtual == historicoIA.count - 1 {

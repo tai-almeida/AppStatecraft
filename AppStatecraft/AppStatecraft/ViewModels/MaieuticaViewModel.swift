@@ -7,6 +7,19 @@
 
 import Foundation
 
+struct ContentItem: Codable {
+    let type: String
+    let text: String
+}
+
+struct OutputItem: Codable {
+    let content: [ContentItem]
+}
+
+struct OpenAIResponse: Codable {
+    let output: [OutputItem]
+}
+
 class MaieuticaViewModel: ObservableObject {
 
     func fazerRequisicao(context: String) async -> String {
@@ -31,66 +44,20 @@ class MaieuticaViewModel: ObservableObject {
             "input": system_prompt + context
         ]
         
-        print(jsonBody)
-        
         request.httpBody = try? JSONSerialization.data(withJSONObject: jsonBody)
         
         do {
-            print("AAAAA")
             let (data, _) = try await URLSession.shared.data(for: request)
-            print("AAAAA")
-            if let json = try? JSONSerialization.jsonObject(with: data) as? [String: Any]{
-                    print(json)
-                    //return resp.joined()
-                }
-            else {
-                return "Erro ao obter resposta."
-                print("cccc")
-            }
-        }
-        catch {
-            return "Erro: \(error.localizedDescription)"
-            print("BBBBB")
-        }
-        return "deu certo"
-    }
-    
-    /// Checa o status da requisição até terminar, e retorna a resposta
-    func checarRequisicao(idRequisicao: String) async -> String? {
-        let url_ans = URL(string: "https://api.replicate.com/v1/predictions/\(idRequisicao)")!
-        var request_ans = URLRequest(url: url_ans)
-        request_ans.httpMethod = "GET"
-        
-        if let path = Bundle.main.path(forResource: "Secrets", ofType: "plist"),
-           let dict = NSDictionary(contentsOfFile: path),
-           let apiKey = dict["API_KEY"] as? String {
-            request_ans.setValue("Bearer \(apiKey)", forHTTPHeaderField: "Authorization")
-        }
-        request_ans.setValue("application/json", forHTTPHeaderField: "Content-Type")
-        
-        do {
-            var (data, _) = try await URLSession.shared.data(for: request_ans)
-            if var json = try? JSONSerialization.jsonObject(with: data) as? [String: Any],
-               var status = json["status"] as? String {
-                
-                // Espera até terminar
-                while status != "succeeded" {
-                    try await Task.sleep(nanoseconds: 1_000_000_000) // 1 segundo entre tentativas
-                    (data, _) = try await URLSession.shared.data(for: request_ans)
-                    json = try JSONSerialization.jsonObject(with: data) as? [String: Any] ?? [:]
-                    status = json["status"] as? String ?? "error"
-                }
-                
-                if let ans = json["output"] as? [String] {
-                    return ans.joined()
-                } else {
-                    return nil
-                }
+            let decoded = try JSONDecoder().decode(OpenAIResponse.self, from: data)
+            if let text = decoded.output.first?.content.first?.text {
+                print("Texto da resposta: \(text)")
+                return text
+            } else {
+                return "Texto não encontrado"
             }
         } catch {
-            return nil
+            return "Erro ao decodificar JSON: \(error)"
         }
-        return nil
     }
 }
 

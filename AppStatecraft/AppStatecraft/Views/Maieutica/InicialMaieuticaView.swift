@@ -36,6 +36,13 @@ struct InicialMaieuticaView: View {
             Text("Responda as perguntas geradas com base na sua própria ideia!")
                     .padding(.horizontal)
             Spacer()
+            Text("O limite do número de perguntas é 10")
+                    .padding(.horizontal)
+                    .frame(maxWidth: .infinity, alignment: .leading)
+                    .font(.subheadline)
+                    .foregroundColor(.gray)
+                
+            Spacer()
             }
             Button("Começar") {
                 showingSheet.toggle()

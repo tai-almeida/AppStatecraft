@@ -69,12 +69,12 @@ struct DesafiosMultimidiaView: View {
                                     Button("Adicionar a Projeto") {
                                         self.isShowingAddProjetos = true
                                         //dps associamos a projeto
-                                        desafiosVM.salvarSemProjeto(
-                                            contexto: viewContext,
-                                            respostaTexto: respostaTexto,
-                                            respostaImagem: image,
-                                            desafio: desafio
-                                        )
+//                                        desafiosVM.salvarSemProjeto(
+//                                            contexto: viewContext,
+//                                            respostaTexto: respostaTexto,
+//                                            respostaImagem: image,
+//                                            desafio: desafio
+                                     //   )  LEMBRAR DE ARRUMAR ISSO DEPOIS
                                         //TODO: logica de permanencia dos dados sinistra
                                         //criar o "objeto"
                                         //navegar para o modal de adicionar a projeto
@@ -110,6 +110,10 @@ struct DesafiosMultimidiaView: View {
                 }
             }.onAppear{
                 self.desafio = desafiosVM.sorteiaDesafio()
+            }
+            .fullScreenCover(isPresented: $isShowingAddProjetos) {
+                            AddProjetoView(respostaTexto:respostaTexto, respostaFoto: image,
+                                           desafio:desafio!)
             }
         }
         .foregroundColor(.primary)

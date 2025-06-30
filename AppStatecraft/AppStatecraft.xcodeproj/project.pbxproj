@@ -13,8 +13,10 @@
 		242B855C2E0EC558006EE127 /* RespostaMaieutica.swift in Sources */ = {isa = PBXBuildFile; fileRef = 242B855B2E0EC558006EE127 /* RespostaMaieutica.swift */; };
 		24BC38DF2E0D99360050023C /* Secrets.plist in Resources */ = {isa = PBXBuildFile; fileRef = 24BC38DE2E0D99360050023C /* Secrets.plist */; };
 		24E7D6792E0C1F2F0064BAD1 /* PingPongViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24E7D6782E0C1F2F0064BAD1 /* PingPongViewController.swift */; };
+		644EC39E2E12AB41003AD6E9 /* ReqProjetos.swift in Sources */ = {isa = PBXBuildFile; fileRef = 644EC39D2E12AB41003AD6E9 /* ReqProjetos.swift */; };
 		64D09EDF2E0EE41A00758A21 /* DetalhesProjetoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64D09EDE2E0EE41A00758A21 /* DetalhesProjetoView.swift */; };
 		64D09EE12E0EE46300758A21 /* ProjetoCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64D09EE02E0EE46300758A21 /* ProjetoCardView.swift */; };
+		64D09EE32E0EE7B700758A21 /* ProjetosViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64D09EE22E0EE7B700758A21 /* ProjetosViewModel.swift */; };
 		A40C5B202E02DFDE00C30D6E /* DesafiosMultimidiaView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A40C5B1F2E02DFDE00C30D6E /* DesafiosMultimidiaView.swift */; };
 		A417CC9D2DF9CB7800564508 /* FreeWritingViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A417CC9C2DF9CB7800564508 /* FreeWritingViewModel.swift */; };
 		A44BD6FA2E0AD68400B840EB /* AddProjetoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A44BD6F92E0AD68400B840EB /* AddProjetoView.swift */; };
@@ -100,8 +102,10 @@
 		242B855B2E0EC558006EE127 /* RespostaMaieutica.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RespostaMaieutica.swift; sourceTree = "<group>"; };
 		24BC38DE2E0D99360050023C /* Secrets.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Secrets.plist; sourceTree = "<group>"; };
 		24E7D6782E0C1F2F0064BAD1 /* PingPongViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PingPongViewController.swift; sourceTree = "<group>"; };
+		644EC39D2E12AB41003AD6E9 /* ReqProjetos.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReqProjetos.swift; sourceTree = "<group>"; };
 		64D09EDE2E0EE41A00758A21 /* DetalhesProjetoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetalhesProjetoView.swift; sourceTree = "<group>"; };
 		64D09EE02E0EE46300758A21 /* ProjetoCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjetoCardView.swift; sourceTree = "<group>"; };
+		64D09EE22E0EE7B700758A21 /* ProjetosViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjetosViewModel.swift; sourceTree = "<group>"; };
 		A40C5B1F2E02DFDE00C30D6E /* DesafiosMultimidiaView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DesafiosMultimidiaView.swift; sourceTree = "<group>"; };
 		A417CC9C2DF9CB7800564508 /* FreeWritingViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FreeWritingViewModel.swift; sourceTree = "<group>"; };
 		A44BD6F92E0AD68400B840EB /* AddProjetoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddProjetoView.swift; sourceTree = "<group>"; };
@@ -205,6 +209,7 @@
 			isa = PBXGroup;
 			children = (
 				ED82ED442DFC6FD2006BE6D5 /* QuestaoDesafios.swift */,
+				644EC39D2E12AB41003AD6E9 /* ReqProjetos.swift */,
 				ED81EB2D2E0C37B0003062BA /* PromptFW.swift */,
 			);
 			path = Models;
@@ -219,6 +224,7 @@
 				ED81EB3B2E0D65F2003062BA /* TimerViewModel.swift */,
 				ED82ED3E2DFC6E05006BE6D5 /* DesafiosMultimidiaViewModel.swift */,
 				A48ABE052E0C293500483673 /* HistoricoViewModel.swift */,
+				64D09EE22E0EE7B700758A21 /* ProjetosViewModel.swift */,
 				242B85552E0EBFA1006EE127 /* MaieuticaViewModel.swift */,
 			);
 			path = ViewModels;
@@ -616,6 +622,7 @@
 				242B85562E0EBFA1006EE127 /* MaieuticaViewModel.swift in Sources */,
 				242B855A2E0EC00A006EE127 /* MaieuticaView.swift in Sources */,
 				ED695A6A2E01B3DA009C0BE0 /* MetodologiasView.swift in Sources */,
+				64D09EE32E0EE7B700758A21 /* ProjetosViewModel.swift in Sources */,
 				A48ABDFC2E0C22FA00483673 /* Registro+CoreDataProperties.swift in Sources */,
 				A48ABDF32E0C22FA00483673 /* SessaoMaieutica+CoreDataClass.swift in Sources */,
 				A4773CA52E01B0E4002D27D7 /* AppStatecraft.xcdatamodeld in Sources */,
@@ -629,6 +636,7 @@
 				64D09EDF2E0EE41A00758A21 /* DetalhesProjetoView.swift in Sources */,
 				EDF2654F2DF9A9F800898EBA /* AppStatecraftApp.swift in Sources */,
 				A48ABDFD2E0C22FA00483673 /* SessaoFreeWriting+CoreDataClass.swift in Sources */,
+				644EC39E2E12AB41003AD6E9 /* ReqProjetos.swift in Sources */,
 				A48ABDF42E0C22FA00483673 /* SessaoMaieutica+CoreDataProperties.swift in Sources */,
 				64D09EE12E0EE46300758A21 /* ProjetoCardView.swift in Sources */,
 				ED0B0E952E02EFAF00785DDD /* CardView.swift in Sources */,

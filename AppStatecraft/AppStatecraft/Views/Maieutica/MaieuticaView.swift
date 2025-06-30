@@ -10,6 +10,7 @@ struct MaieuticaView: View {
     @State private var indiceAtual = 0
     private let maxPerguntas = 10
     @State private var mostrarLimitePerguntas = false
+    @State var cliqueButton: Int = 0
     
     var body: some View {
         NavigationView {
@@ -17,7 +18,7 @@ struct MaieuticaView: View {
                 Text(historicoIA[indiceAtual])
                     .foregroundColor(.black)
                     .font(.title3)
-                    .padding(.horizontal)
+                    //.padding(.horizontal)
                 Divider()
                 
                 if indiceAtual == historicoIA.count - 1 {
@@ -49,7 +50,7 @@ struct MaieuticaView: View {
                 
                 Spacer()
                 
-                Button(action: {
+                Button(action: {cliqueButton += 1; 
                     Task {
                         if indiceAtual == historicoIA.count - 1 {
                             if historicoIA.count < maxPerguntas {
@@ -64,6 +65,7 @@ struct MaieuticaView: View {
                                 respostasUsuario.append("")
                                 indiceAtual = historicoIA.count - 1
                                 textoUser = ""
+                                cliqueButton = 0
                             } else {
                                 mostrarLimitePerguntas = true
                             }
@@ -83,7 +85,7 @@ struct MaieuticaView: View {
                         .padding(.horizontal)
                         .padding(.vertical)
                 }
-                .disabled(indiceAtual == historicoIA.count - 1 && textoUser.isEmpty)
+                .disabled((indiceAtual == historicoIA.count - 1 && textoUser.isEmpty))
             }
             .padding()
             .navigationTitle("Maiêutica")
@@ -94,6 +96,7 @@ struct MaieuticaView: View {
                         if indiceAtual > 0 {
                             indiceAtual -= 1
                         }
+                        cliqueButton = 0
                     }
                     .foregroundColor(.accentColor)
                 }

@@ -2,7 +2,7 @@
 //  SessaoFreeWriting+CoreDataClass.swift
 //  AppStatecraft
 //
-//  Created by Sofia Villas Bôas on 25/06/25.
+//  Created by Sofia Villas Bôas on 27/06/25.
 //
 //
 

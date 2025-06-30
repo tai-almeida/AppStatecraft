@@ -2,7 +2,7 @@
 //  SessaoFreeWriting+CoreDataProperties.swift
 //  AppStatecraft
 //
-//  Created by Sofia Villas Bôas on 25/06/25.
+//  Created by Sofia Villas Bôas on 27/06/25.
 //
 //
 
@@ -17,5 +17,6 @@ extension SessaoFreeWriting {
     }
 
     @NSManaged public var enunciado: String?
+    @NSManaged public var resposta: String?
 
 }

@@ -65,7 +65,6 @@ struct MaieuticaView: View {
                                 respostasUsuario.append("")
                                 indiceAtual = historicoIA.count - 1
                                 textoUser = ""
-                                cliqueButton = 0
                             } else {
                                 mostrarLimitePerguntas = true
                             }
@@ -74,6 +73,7 @@ struct MaieuticaView: View {
                                 indiceAtual += 1
                             }
                         }
+                        cliqueButton = 0
                     }
                 }) {
                     Text("Seguinte")
@@ -85,7 +85,7 @@ struct MaieuticaView: View {
                         .padding(.horizontal)
                         .padding(.vertical)
                 }
-                .disabled((indiceAtual == historicoIA.count - 1 && textoUser.isEmpty))
+                .disabled((indiceAtual == historicoIA.count - 1 && textoUser.isEmpty) || (cliqueButton>=1))
             }
             .padding()
             .navigationTitle("Maiêutica")
@@ -110,7 +110,7 @@ struct MaieuticaView: View {
             .alert("Limite de perguntas atingido", isPresented: $mostrarLimitePerguntas) {
                 Button("OK", role: .cancel) { }
             } message: {
-                Text("Você já respondeu 10 perguntas. Salve ou volte para revisar.")
+                Text("Você já respondeu 10 perguntas. Salve ou apague sua sessão.")
             }
         }
     }

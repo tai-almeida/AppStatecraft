@@ -7,6 +7,7 @@
 
 import Foundation
 import UIKit
+import CoreData
 
 class PingPongViewModel: ObservableObject {
     
@@ -54,4 +55,20 @@ class PingPongViewModel: ObservableObject {
         }
     }
     
+    
+    func salvarSemProjeto(contexto: NSManagedObjectContext, palavras: [String]){
+        let novaSessao = SessaoPingPong(context: contexto)
+        novaSessao.id = UUID()
+        novaSessao.data = Date()
+        
+        do {
+            let logData = try JSONEncoder().encode(palavras)
+            novaSessao.log = logData
+            try contexto.save()
+            print("deu bom salvou")
+                
+        }catch{
+            print("Desafio ta vazio")
+        }
+    }
 }

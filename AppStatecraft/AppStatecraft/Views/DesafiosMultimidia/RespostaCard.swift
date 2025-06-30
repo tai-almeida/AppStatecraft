@@ -47,13 +47,11 @@ struct RespostaCard: View {
                     TextEditor(text: $respostaTexto)
                         .font(.body)
                     
-                    // Placeholder para o TextEditor
-                    
                     if respostaTexto.isEmpty {
                         Text("Digite sua resposta aqui...")
                             .foregroundColor(.gray.opacity(0.7))
                             .padding(12)
-                            .allowsHitTesting(false) // Permite que o toque "passe" para o TextEditor
+                            .allowsHitTesting(false) 
                     }
                 }
             }

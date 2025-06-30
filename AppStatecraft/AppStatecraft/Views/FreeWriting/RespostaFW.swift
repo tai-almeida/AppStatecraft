@@ -16,7 +16,6 @@ struct RespostaFW: View {
             ZStack(alignment: .topLeading) {
                 Text(respostaTexto + "\n")
                     .font(.body)
-                    .padding(8)
                     .foregroundColor(.clear)
                     .accessibilityHidden(true)
                 

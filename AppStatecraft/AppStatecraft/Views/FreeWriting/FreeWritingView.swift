@@ -6,15 +6,18 @@
 //
 
 import SwiftUI
+import CoreData
 
 struct FreeWritingView: View {
     @Environment(\.dismiss) var dismiss
-    @State private var respostaTexto: String = ""
-    @StateObject private var viewModel = FreeWritingViewModel()
+    @Environment(\.managedObjectContext) private var contexto
+
+    @StateObject private var freewritingVM = FreeWritingViewModel()
     @State private var prompt: PromptFW?
     let minutos: Int
     let segundos: Int
     @StateObject var timerVM: TimerViewModel = TimerViewModel(minutos: 0, segundos: 0)
+
     
     var body: some View {
         NavigationView {
@@ -29,7 +32,7 @@ struct FreeWritingView: View {
                         Text("Erro ao carregar prompt")
                     }
                     Divider()
-                    RespostaFW(respostaTexto: $respostaTexto).foregroundColor(.primary)
+                    RespostaFW(respostaTexto: $freewritingVM.respostaTexto).foregroundColor(.primary)
                         .disabled(!timerVM.sendoFeito)
                 }
                 
@@ -47,27 +50,59 @@ struct FreeWritingView: View {
                             }
                             ToolbarItem(placement: .confirmationAction) {
                                 Button("OK") {
-                                    dismiss()
+                                    freewritingVM.isShowingDialog = true
                                 }
                                 .foregroundColor(.accentColor)
+                                .confirmationDialog(
+                                    "Tem certeza que finalizou?",
+                                    isPresented: $freewritingVM.isShowingDialog,
+                                    titleVisibility: .hidden
+                                ) {
+                                    Button("Adicionar a Projeto") {
+                                        //self.isShowingAddProjetos = true
+                                        //dps associamos a projeto
+                                        //TODO: logica de permanencia dos dados sinistra (associar a projeto)
+                                        if let prompt = prompt{
+                                            freewritingVM.salvarSemProjeto(
+                                                contexto: contexto,
+                                                respostaTexto: freewritingVM.respostaTexto,
+                                                prompt: prompt.enunciado)
+                                        }
+                                        
+                                        freewritingVM.respostaTexto = ""
+                                        dismiss()
+                                    }
+                                    Button("Salvar em Esboços") {
+                                        //TODO: logica de permanencia dos dados, so que salvar no esbocos tomee
+                                        freewritingVM.isShowingDialog = false
+
+                                    }
+                                    Button("Descartar", role: .destructive) {
+                                        dismiss()
+                                    }
+                                    Button("Continuar Editando", role: .cancel) {
+                                        freewritingVM.isShowingDialog = false
+                                    }
+                                    .foregroundColor(.accentColor)
+                                }
                             }
                         }
                 }
+                .onAppear{
+                    self.prompt = freewritingVM.sorteiaPrompt()
+                }
             }
-            .onAppear{
-                self.prompt = viewModel.sorteiaPrompt()
+            .onChange(of: timerVM.sendoFeito) { checagem in
+                if (!checagem) {
+                    let generator = UIImpactFeedbackGenerator(style: .medium)
+                    generator.impactOccurred()
+                    print("deu certo a vibracao")
+                }
             }
-        }
-        .onChange(of: timerVM.sendoFeito) { checagem in
-            if (!checagem) {
-                let generator = UIImpactFeedbackGenerator(style: .medium)
-                generator.impactOccurred()
-                print("deu certo a vibracao")
+            .onAppear {
+                timerVM.resetar(minutos:minutos, segundos: segundos)
+                timerVM.comecaContagem()
             }
-        }
-        .onAppear {
-            timerVM.resetar(minutos:minutos, segundos: segundos)
-            timerVM.comecaContagem()
         }
     }
 }

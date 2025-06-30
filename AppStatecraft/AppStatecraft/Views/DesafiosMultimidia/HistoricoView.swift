@@ -30,7 +30,7 @@ struct HistoricoView: View {
                             Image(systemName: "chevron.right").foregroundColor(.secondary)
                         }.foregroundColor(.primary)
                     }
-                    if let pingpong = sessao as? SessaoPingPong {
+                    else if let pingpong = sessao as? SessaoPingPong {
                         HStack {
                             if let logData = pingpong.log,
                             let palavras = try? JSONDecoder().decode([String].self, from: logData),
@@ -41,6 +41,20 @@ struct HistoricoView: View {
                             }
                             Spacer()
                             Text(pingpong.data ?? Date(), style: .date)
+                                .font(.caption)
+                                .foregroundColor(.secondary)
+                        }.foregroundColor(.primary)
+                    } else if let maieutica = sessao as? SessaoMaieutica {
+                        HStack {
+                            if let logData = maieutica.log,
+                               let historico = try? JSONDecoder().decode([String:String].self, from: logData),
+                            !historico.isEmpty {
+                                Text(historico.values.first ?? "Erro").lineLimit(1)
+                            } else {
+                                Text("vazio")
+                            }
+                            Spacer()
+                            Text(maieutica.data ?? Date(), style: .date)
                                 .font(.caption)
                                 .foregroundColor(.secondary)
                         }.foregroundColor(.primary)
@@ -71,4 +85,6 @@ struct HistoricoView: View {
         }
     }
 }
+
+
 

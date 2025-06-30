@@ -6,6 +6,8 @@
 //
 
 import Foundation
+import SwiftUI
+import CoreData
 
 struct ContentItem: Codable {
     let type: String
@@ -57,6 +59,36 @@ class MaieuticaViewModel: ObservableObject {
             }
         } catch {
             return "Erro ao decodificar JSON: \(error)"
+        }
+    }
+    
+    func juntaPromptsRespostas(historicoIA: [String], respostasUsuario: [String]) -> [String:String] {
+        var historico: [String:String] = [:]
+        let numRespostas = min(historicoIA.count, respostasUsuario.count)
+        
+        for index in 0..<numRespostas {
+            historico[historicoIA[index]] = respostasUsuario[index]
+        }
+        return historico
+    }
+    
+    func salvarSemProjeto(contexto: NSManagedObjectContext, historicoIA: [String], respostasUsuario: [String]){
+        
+        let historico = juntaPromptsRespostas(historicoIA: historicoIA, respostasUsuario: respostasUsuario)
+    
+        
+        let novaSessao = SessaoMaieutica(context: contexto)
+        novaSessao.id = UUID()
+        novaSessao.data = Date()
+        
+        do {
+            let logData = try JSONEncoder().encode(historico)
+            novaSessao.log = logData
+            try contexto.save()
+            print("deu bom salvou")
+                
+        }catch{
+            print("Desafio ta vazio")
         }
     }
 }

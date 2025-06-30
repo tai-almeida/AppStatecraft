@@ -6,7 +6,23 @@
 //
 
 import Foundation
+import SwiftUI
 
-struct ReqDesafios: Codable, Identifiable {
+struct ReqProjetos: Codable, Identifiable {
+    
+    enum CodingKeys: CodingKey {
+        case data
+        case finalizado
+        case id
+        case imagemCapa
+        case nome
+    }
+    
+    let data: Data
+    let finalizado: Bool
+    let id: Int
+    let imagemCapa: String
+    let nome: String
+    
     
 }

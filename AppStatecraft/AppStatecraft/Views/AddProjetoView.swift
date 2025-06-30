@@ -13,7 +13,7 @@ struct AddProjetoView: View {
     @Environment(\.dismiss) private var dismiss
     @Environment(\.managedObjectContext) var viewContext
     
-    @FetchRequest(sortDescriptors: [NSSortDescriptor(keyPath: \Projeto.id, ascending: false)])
+    @FetchRequest(sortDescriptors: [NSSortDescriptor(keyPath: \Projeto.data, ascending: false)])
    
     private var projetos: FetchedResults<Projeto>
     let respostaTexto: String?

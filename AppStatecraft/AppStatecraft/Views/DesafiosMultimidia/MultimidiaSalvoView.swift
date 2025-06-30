@@ -8,18 +8,34 @@
 import SwiftUI
 
 struct MultimidiaSalvoView: View {
+    @Environment(\.dismiss) var dismiss
     @State var sessao: SessaoDesafioMult
     
     var body: some View {
-        VStack{
+        VStack(alignment: .leading){
+            HStack {
+                Spacer()
+                Button(action: {
+                    dismiss()
+                }) {
+                    Image(systemName: "xmark.circle.fill")
+                        .font(.title2)
+                        .foregroundColor(.gray)
+                }.padding(.top)
+                    .padding(.trailing)
+            }
             EnunciadoSalvoView(sessao: sessao).padding()
             Divider()
             if let data = sessao.respostaFoto, let uiImage = UIImage(data: data) {
-                Image(uiImage: uiImage)
-                    .resizable()
-                    .scaledToFit()
-                    .clipShape(RoundedRectangle(cornerRadius: 10))
-                    .padding()
+                HStack {
+                    Spacer() // Espaçador à esquerda
+                    Image(uiImage: uiImage)
+                        .resizable()
+                        .scaledToFit()
+                        .clipShape(RoundedRectangle(cornerRadius: 10))
+                        .padding(.bottom)
+                    Spacer() // Espaçador à direita
+                }
             }else{
                 Text(sessao.respostaTexto ?? "vazio")
                     .font(.body)

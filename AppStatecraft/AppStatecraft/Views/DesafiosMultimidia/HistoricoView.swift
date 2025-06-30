@@ -61,7 +61,8 @@ struct HistoricoView: View {
             if let multimidia = sessao as? SessaoDesafioMult {
                 MultimidiaSalvoView(sessao: multimidia)
             }else if let pingpong = sessao as? SessaoPingPong {
-                Text("Sessão Ping Pong")
+//                Text("Sessão Ping Pong")
+                PingPongSalvoView(sessao: pingpong)
             }else if let maieutica = sessao as? SessaoMaieutica{
                 Text("Sessao Maieutica")
             }else if let freewriting = sessao as? SessaoFreeWriting{

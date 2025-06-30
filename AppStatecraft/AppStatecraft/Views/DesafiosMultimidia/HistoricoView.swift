@@ -78,7 +78,7 @@ struct HistoricoView: View {
                     }else if let maieutica = sessao as? SessaoMaieutica{
                         Text("Sessao Maieutica")
                     }else if let freewriting = sessao as? SessaoFreeWriting{
-                        Text("Sessao FreeWriting")
+                        FreeWritingSalvo()
                     }
                 }
             }

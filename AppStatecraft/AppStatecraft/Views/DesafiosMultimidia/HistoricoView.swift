@@ -30,6 +30,21 @@ struct HistoricoView: View {
                             Image(systemName: "chevron.right").foregroundColor(.secondary)
                         }.foregroundColor(.primary)
                     }
+                    if let pingpong = sessao as? SessaoPingPong {
+                        HStack {
+                            if let logData = pingpong.log,
+                            let palavras = try? JSONDecoder().decode([String].self, from: logData),
+                            !palavras.isEmpty {
+                                Text(palavras[0])
+                            } else {
+                                Text("vazio")
+                            }
+                            Spacer()
+                            Text(pingpong.data ?? Date(), style: .date)
+                                .font(.caption)
+                                .foregroundColor(.secondary)
+                        }.foregroundColor(.primary)
+                    }
                     
                     //TODO: display de outras metodologias aqui
                 }
@@ -45,7 +60,7 @@ struct HistoricoView: View {
             //TODO: colocar aqui as views especificas de visualizacao para cada metodologia salva
             if let multimidia = sessao as? SessaoDesafioMult {
                 MultimidiaSalvoView(sessao: multimidia)
-            }else if let pingpong = sessao as? SessaoPingPong{
+            }else if let pingpong = sessao as? SessaoPingPong {
                 Text("Sessão Ping Pong")
             }else if let maieutica = sessao as? SessaoMaieutica{
                 Text("Sessao Maieutica")

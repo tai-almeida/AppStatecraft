@@ -21,7 +21,7 @@ struct InicialPingPongView: View {
     var body: some View {
         VStack {
             ScrollView {
-                NavigationLink(destination: Text("Conteudo historico") .navigationTitle("Histórico")) {
+                NavigationLink(destination: HistoricoView(tipoMetodologia: "pingpong") .navigationTitle("Histórico")) {
                 HStack(alignment: .top) {
                     Image(systemName: "tray")
                         .foregroundColor(Color.accentColor)

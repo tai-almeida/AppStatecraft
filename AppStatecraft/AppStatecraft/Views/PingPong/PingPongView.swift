@@ -14,8 +14,13 @@ struct PingPongView: View {
     @State var input = ""
     @Environment(\.dismiss) var dismiss
     @StateObject private var timerVM: TimerViewModel = TimerViewModel(minutos: 0, segundos: 0)
+    @Environment(\.managedObjectContext) private var viewContext
+
     let minutos: Int
     let segundos: Int
+    @State private var isShowingDialog = false
+    @State private var isShowingAddProjetos = false
+    @StateObject var pingpongVM: PingPongViewModel = PingPongViewModel()
     
     var body: some View {
         NavigationView {
@@ -49,12 +54,6 @@ struct PingPongView: View {
                                     .foregroundColor(.black)
                                     .disabled(!timerVM.sendoFeito)
                                 
-//                                TextFieldUIKit(texto: $input, onEnter: { novoTexto in
-//                                    palavras.append(novoTexto)
-//                                })
-//                                    .frame(height: 40)
-                                //TextField ("Escreva aqui", text: $input)
-                                    //.multilineTextAlignment(.center)
                             }
                             .id("textField")
                         }
@@ -79,7 +78,37 @@ struct PingPongView: View {
                     }
                     ToolbarItem(placement: .confirmationAction) {
                         Button("Salvar") {
-                            dismiss()
+                            isShowingDialog = true
+                        } .foregroundColor(.accentColor) // TODO: queria muito tirar esses um milhao foregroundColor!!
+                        .confirmationDialog(
+                            "Tem certeza que finalizou o desafio?",
+                            isPresented: $isShowingDialog,
+                            titleVisibility: .hidden
+                        ) {
+                            Button("Adicionar a Projeto") {
+                                self.isShowingAddProjetos = true
+                                //dps associamos a projeto
+                                pingpongVM.salvarSemProjeto(
+                                    contexto: viewContext,
+                                    palavras: palavras
+                                )
+                                //TODO: logica de permanencia dos dados sinistra
+                                //criar o "objeto"
+                                //navegar para o modal de adicionar a projeto
+                                //salvar o objeto no coredata quando a pessoa clicar no projeto
+                                
+                                self.palavras = []
+                                dismiss()
+                            }
+                            Button("Salvar em Esboços") {
+                                //TODO: logica de permanencia dos dados, so que salvar no esbocos tomee
+                            }
+                            Button("Descartar", role: .destructive) {
+                                dismiss()
+                            }
+                            Button("Continuar Editando", role: .cancel) {
+                                isShowingDialog = false
+                            }
                         }
                         .foregroundColor(.accentColor)
                     }

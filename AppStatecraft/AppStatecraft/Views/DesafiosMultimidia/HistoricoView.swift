@@ -47,9 +47,10 @@ struct HistoricoView: View {
                     } else if let maieutica = sessao as? SessaoMaieutica {
                         HStack {
                             if let logData = maieutica.log,
-                               let historico = try? JSONDecoder().decode([String:String].self, from: logData),
+                               let historico = try? JSONDecoder().decode([PromptResposta].self, from: logData),
                             !historico.isEmpty {
-                                Text(historico.values.first ?? "Erro").lineLimit(1)
+                                let historicoOrdenado = historico.sorted { $0.index < $1.index }
+                                Text(historicoOrdenado[0].resposta ?? "Erro").lineLimit(1)
                             } else {
                                 Text("vazio")
                             }

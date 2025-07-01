@@ -21,6 +21,8 @@ struct PingPongView: View {
     @State private var isShowingDialog = false
     @State private var isShowingAddProjetos = false
     @StateObject var pingpongVM: PingPongViewModel = PingPongViewModel()
+    @Binding var ehIndividual: Bool
+    @State var estaProcessando: Bool = false
     
     var body: some View {
         NavigationView {
@@ -43,19 +45,29 @@ struct PingPongView: View {
                                     Image("LinhaPingPong")
                                 }
                             }
-                            ZStack {
-                                Image("CaixinhaPingPong")
-                                TextField("Escreva", text: $input)
-                                    .onSubmit{
-                                        palavras.append(input)
-                                        input = ""
-                                    }
-                                    .multilineTextAlignment(.center)
-                                    .foregroundColor(.black)
-                                    .disabled(!timerVM.sendoFeito)
-                                
+                            if (!estaProcessando) {
+                                ZStack {
+                                    Image("CaixinhaPingPong")
+                                    TextField("Escreva", text: $input)
+                                        .onSubmit{
+                                            palavras.append(input)
+                                            input = ""
+                                            if (!ehIndividual) {
+                                                Task {
+                                                    estaProcessando = true
+                                                    let palavraNova = await pingpongVM.continuarPingPong(context: palavras)
+                                                    palavras.append(palavraNova ?? "Erro")
+                                                    estaProcessando = false
+                                                }
+                                            }
+                                        }
+                                        .multilineTextAlignment(.center)
+                                        .foregroundColor(.black)
+                                        .disabled(!timerVM.sendoFeito)
+                                    
+                                }
+                                .id("textField")
                             }
-                            .id("textField")
                         }
             
                     }

@@ -34,33 +34,56 @@ struct MaieuticaSalvoView: View {
 
 struct EtapasSalvasView: View {
     @State var sessao: SessaoMaieutica
+    @State var cliqueButton: Int = 0
+    @State var indiceAtual = 0
     
     var body: some View {
         
         if let logData = sessao.log,
        let historico = try? JSONDecoder().decode([String:String].self, from: logData),
        !historico.isEmpty {
-            VStack {
-                ForEach(Array(historico.keys.sorted()), id: \.self) { prompt in
-                    if let valor = historico[prompt] {
-                        VStack {
-                            Text(prompt)
-                                .foregroundColor(.black)
-                                .font(.title3)
-                            Divider()
-                            Text(valor)
-                                .font(.body)
-                                .padding(8)
-                                .foregroundColor(.black)
-                                .frame(maxWidth: .infinity, alignment: .leading)
-                                .accessibilityHidden(true)
-                                .background(Color.gray.opacity(0.1))
-                                .cornerRadius(8)
-                                
-                        }
-                    }
+            
+            let historicoArray = Array(historico)
+            
+            let prompt = historicoArray[indiceAtual].key
+            let resposta = historicoArray[indiceAtual].value
+            
+            NavigationView {
+                VStack {
+                    Text(prompt)
+                        .foregroundColor(.black)
+                        .font(.title3)
+                    
+                    Divider()
+
+                    Text(resposta)
+                        .font(.body)
+                        .padding(8)
+                        .foregroundColor(.black)
+                        .frame(maxWidth: .infinity, alignment: .leading)
+                        .accessibilityHidden(true)
+                        .background(Color.gray.opacity(0.1))
+                        .cornerRadius(8)
                 }
+                .padding()
             }
+            
+            Button(action: {
+                if indiceAtual < historicoArray.count - 1 {
+                    indiceAtual += 1
+                }
+            }) {
+                Text("Seguinte")
+                    .frame(maxWidth: .infinity)
+                    .padding()
+                    .background(Color.accentColor)
+                    .foregroundColor(.white)
+                    .clipShape(Capsule())
+                    .padding(.horizontal)
+                    .padding(.vertical)
+
+            }
+            .disabled(indiceAtual == historicoArray.count - 1)
         }
     }
 }

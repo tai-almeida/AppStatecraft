@@ -22,7 +22,7 @@
     },
     {
         "id": 3,
-        "enunciado": "Faça um desenho a partir do poema a seguir:",
+        "enunciado": "Faça um desenho, fotografe e insira aqui o resultado a partir do poema a seguir:",
         "conteudo": "\nComo um vento na floresta,\nMinha emoção não tem fim.\nNada sou, nada me resta.\nNão sei quem sou para mim.\n\nE como entre os arvoredos\nHá grandes sons de folhagem,\nTambém agito segredos\nNo fundo da minha imagem.\n\nE o grande ruído do vento\nQue as folhas cobrem de som\nDespe-me do pensamento:\nSou ninguém, temo ser bom'\n\nFernando Pessoa, em 'Poesias Inéditas'",
         "tipo": "texto",
         "feita": false
@@ -36,8 +36,43 @@
     },
     {
         "id": 5,
-        "enunciado": "Faça um desenho a partir do trecho a seguir:",
+        "enunciado": "Faça um desenho, fotografe e insira aqui o resultado a partir do trecho a seguir:",
         "conteudo": "Não tive filhos, não transmiti a nenhuma criatura o legado da nossa miséria.\n\nMachado de Assis, em 'Memórias Póstumas de Brás Cubas'.",
+        "tipo": "texto",
+        "feita": false
+    },
+    {
+        "id": 6,
+        "enunciado": "Crie uma narrativa de suspense baseada na pintura A Ilha dos Mortos (Arnold Böcklin, 1883). Quem chega? Por que veio?",
+        "conteudo": "A Ilha dos Mortos",
+        "tipo": "imagem",
+        "feita": false
+    },
+    {
+        "id": 7,
+        "enunciado": "Faça um desenho, fotografe e oinsira aqui, a partir do trecho a seguir:",
+        "conteudo": "Capitu era dissimulada. Olhos de cigana oblíqua e dissimulada.",
+        "tipo": "texto",
+        "feita": false
+    },
+    {
+        "id": 8,
+        "enunciado": "Escreva uma carta deixada por uma das figuras da pintura O Grito (Edvard Munch, 1893). O que ela queria dizer antes de desaparecer na névoa?",
+        "conteudo": "O Grito",
+        "tipo": "texto",
+        "feita": false
+    },
+    {
+        "id": 9,
+        "enunciado": "Após visitar O Jardim das Delícias Terrenas (Hieronymus Bosch, c. 1500), escreva o diário de um anjo que se perdeu no painel central.",
+        "conteudo": "O Jardim das Delicias",
+        "tipo": "imagem",
+        "feita": false
+    },
+    {
+        "id": 10,
+        "enunciado": "Reescreva o mito da Vitória-Régia como se fosse um curta animado para crianças. Quais cores e sons dariam vida à transformação da jovem em flor?",
+        "conteudo": "Naiá, uma jovem indígena, sonhava tanto em se tornar uma estrela (cunhantã-verá) que passava as noites admirando o céu e recusava o amor de todos. Um dia, ao ver o reflexo da lua (Jaci) na água, acreditou que ela a chamava. Mergulhou na lagoa e desapareceu.\n\nComovida, a lua transformou Naiá numa flor aquática: a Vitória-Régia, que floresce à noite, branca como a lua.",
         "tipo": "texto",
         "feita": false
     }

@@ -119,12 +119,7 @@ struct DesafiosMultimidiaView: View {
                 self.desafio = desafiosVM.sorteiaDesafio()
             }
             .fullScreenCover(isPresented: $isShowingAddProjetos) {
-                            criarEAddProjetoView(
-                                isPresented: self.$isShowingAddProjetos,
-                                respostaTexto: self.respostaTexto,
-                                respostaFoto: self.image,
-                                desafio: self.desafio!
-                            )
+                AddProjetoView()
             }
         }
         .foregroundColor(.primary)

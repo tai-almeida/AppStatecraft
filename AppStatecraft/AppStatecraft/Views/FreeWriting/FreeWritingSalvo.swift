@@ -8,23 +8,32 @@
 import SwiftUI
 
 struct FreeWritingSalvo: View {
-    
+    var sessao: SessaoFreeWriting
     
     var body: some View {
-        VStack{
+        VStack(){
+            HStack {
+                Text("Free-Writing")
+                    .font(.largeTitle)
+                    .bold()
+                    .padding()
+                Spacer()
+                BotaoCloseModal()
+            }.padding()
+            
             ScrollView{
-                HStack {
-                    Spacer()
-                    BotaoCloseModal()
-                }
+                ContainerPromptView(enunciado: sessao.enunciado ?? "Vazio").padding()
+                Divider()
+                Text(sessao.resposta ?? "Vazio")
+                    .padding()
+                    .font(.body)
             }
         }
-        
     }
 }
-
-struct FreeWritingSalvo_Previews: PreviewProvider {
-    static var previews: some View {
-        FreeWritingSalvo()
-    }
-}
+//
+//struct FreeWritingSalvo_Previews: PreviewProvider {
+//    static var previews: some View {
+//        FreeWritingSalvo()
+//    }
+//}

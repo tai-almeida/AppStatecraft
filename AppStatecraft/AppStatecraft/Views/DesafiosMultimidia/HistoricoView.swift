@@ -22,7 +22,7 @@ struct HistoricoView: View {
             }else{
                 List{
                     ForEach(historicoVM.sessoes, id: \.objectID) { sessao in
-                    
+                        
                         Button(action: {
                             sessaoSelecionada = sessao
                         }) {
@@ -34,7 +34,7 @@ struct HistoricoView: View {
                                         .font(.caption)
                                         .foregroundColor(.secondary)
                                     Image(systemName: "chevron.right").foregroundColor(Color(.tertiaryLabel))
-
+                                    
                                 }.foregroundColor(.primary)
                             }
                             if let pingpong = sessao as? SessaoPingPong {
@@ -60,7 +60,7 @@ struct HistoricoView: View {
                                         .font(.caption)
                                         .foregroundColor(.secondary)
                                     Image(systemName: "chevron.right").foregroundColor(Color(.tertiaryLabel))
-
+                                    
                                 }.foregroundColor(.primary)
                                 
                             }
@@ -78,7 +78,7 @@ struct HistoricoView: View {
                     }else if let maieutica = sessao as? SessaoMaieutica{
                         Text("Sessao Maieutica")
                     }else if let freewriting = sessao as? SessaoFreeWriting{
-                        FreeWritingSalvo()
+                        FreeWritingSalvo(sessao: freewriting)
                     }
                 }
             }

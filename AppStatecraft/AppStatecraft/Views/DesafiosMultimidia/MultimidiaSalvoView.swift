@@ -12,30 +12,39 @@ struct MultimidiaSalvoView: View {
     @State var sessao: SessaoDesafioMult
     
     var body: some View {
-        VStack(alignment: .leading){
+        VStack(){
+            
             HStack {
+                Text("Desafio")
+                    .font(.largeTitle)
+                    .bold()
+                    .padding()
                 Spacer()
                 BotaoCloseModal()
-            }
-            EnunciadoSalvoView(sessao: sessao).padding()
-            Divider()
-            if let data = sessao.respostaFoto, let uiImage = UIImage(data: data) {
-                HStack {
-                    Spacer() // Espaçador à esquerda
-                    Image(uiImage: uiImage)
-                        .resizable()
-                        .scaledToFit()
-                        .clipShape(RoundedRectangle(cornerRadius: 10))
-                        .padding(.bottom)
-                    Spacer() // Espaçador à direita
+            }.padding()
+            
+            ScrollView{
+                EnunciadoSalvoView(sessao: sessao).padding()
+                Divider()
+                if let data = sessao.respostaFoto, let uiImage = UIImage(data: data) {
+                    HStack {
+                        Spacer()
+                        Image(uiImage: uiImage)
+                            .resizable()
+                            .scaledToFit()
+                            .clipShape(RoundedRectangle(cornerRadius: 10))
+                            .padding(.bottom)
+                        Spacer()
+                    }
+                }else{
+                    VStack(alignment: .leading){
+                        Text(sessao.respostaTexto ?? "vazio")
+                            .padding()
+                            .font(.body)
+                    }
                 }
-            }else{
-                Text(sessao.respostaTexto ?? "vazio")
-                    .font(.body)
-                    .padding(.vertical, 10)
-                    .padding(.horizontal, 10)
+                Spacer()
             }
-            Spacer()
         }
     }
 }
@@ -47,8 +56,7 @@ struct EnunciadoSalvoView: View {
     var body: some View {
         VStack{
             Text(sessao.enunciado ?? "ta nil")
-                .padding(.top)
-                .padding(.horizontal, 10)
+                .padding()
             
             if let data = sessao.mediaFoto, let uiImage = UIImage(data: data) {
                 Image(uiImage: uiImage)
@@ -60,8 +68,7 @@ struct EnunciadoSalvoView: View {
             }else{
                 Text(sessao.mediaTexto ?? "vazio")
                     .italic()
-                    .padding(.vertical, 10)
-                    .padding(.horizontal, 10)
+                    .padding()
             }
         }
         .background(

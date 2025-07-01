@@ -9,7 +9,7 @@ import SwiftUI
 
 struct BotaoCloseModal: View {
     @Environment(\.dismiss) var dismiss
-
+    
     var body: some View {
         Button(action: {
             dismiss()
@@ -17,13 +17,12 @@ struct BotaoCloseModal: View {
             Image(systemName: "xmark.circle.fill")
                 .font(.title2)
                 .foregroundColor(.gray)
-        }.padding(.top)
-            .padding(.trailing)
+        }
     }
 }
-
-struct BotaoCloseModal_Previews: PreviewProvider {
-    static var previews: some View {
-        BotaoCloseModal()
-    }
-}
+//
+//struct BotaoCloseModal_Previews: PreviewProvider {
+//    static var previews: some View {
+//        BotaoCloseModal()
+//    }
+//}

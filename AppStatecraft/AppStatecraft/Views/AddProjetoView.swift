@@ -15,7 +15,6 @@ struct AddProjetoView: View {
     
     @FetchRequest(sortDescriptors: [NSSortDescriptor(keyPath: \Projeto.data, ascending: false)])
     
-    
    
     private var projetos: FetchedResults<Projeto>
     let respostaTexto: String?

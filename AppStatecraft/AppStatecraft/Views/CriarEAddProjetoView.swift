@@ -22,25 +22,29 @@ struct criarEAddProjetoView: View {
     @State private var nomeNovoProj = ""
     
     var body: some View {
-        VStack {
-            Form{
-                Section(header: Text("Nome do Projeto")) {
-                    TextField("ex: projeto de design", text: $nomeNovoProj)
-                }
-            }
-           
-                .navigationBarTitle("Novo Projeto")
-                .navigationBarTitleDisplayMode(.inline)
-                .toolbar {
-                    ToolbarItem(placement: .cancellationAction) {
-                        Button("Cancelar") {
-                            dismiss()
-                        }
+        NavigationView {
+            VStack {
+                Form{
+                    Section(header: Text("Nome do Projeto")) {
+                        TextField("ex: projeto de design", text: $nomeNovoProj)
                     }
-                    ToolbarItem(placement: .confirmationAction) {
-                        Button("Salvar") {
-                            salvarSessao()
-                            print("projeto salvo")
+                }
+                   .navigationBarTitle("Novo Projeto")
+                   .navigationBarTitleDisplayMode(.inline)
+                    .toolbar {
+                        ToolbarItem(placement: .cancellationAction) {
+                            Button("Cancelar") {
+                                dismiss()
+                            }
+                            foregroundColor(.accentColor)
+                        }
+                        ToolbarItem(placement: .confirmationAction) {
+                            Button("Salvar") {
+                                salvarSessao()
+                                print("salvou?")
+                                dismiss()
+                            }
+                            foregroundColor(.accentColor)
                         }
                     }
             }
@@ -48,6 +52,8 @@ struct criarEAddProjetoView: View {
     }
     
     private func salvarSessao() {
+        print("FUNCAO CHAMADA")
+        print("--- Dentro de salvarSessao. Tipo do desafio: '\(desafio.tipo)' ---")
         
         let novoProjeto = Projeto(context: viewContext)
         novoProjeto.id = UUID()
@@ -66,18 +72,18 @@ struct criarEAddProjetoView: View {
             
             novaSessao.projeto = novoProjeto
         
-        case "multimidia":
+        case "texto":
             let novaSessao = SessaoDesafioMult(context: viewContext)
             novaSessao.id = UUID()
             novaSessao.data = Date()
             
-            novaSessao.desafioFeito = Bool()
-            novaSessao.desafioID = Int64()
-            novaSessao.enunciado = String()
-            novaSessao.mediaFoto = Data()
-            novaSessao.mediaTexto = String()
-            novaSessao.respostaFoto = Data()
-            novaSessao.respostaTexto = String()
+            novaSessao.desafioFeito = true
+            novaSessao.desafioID = Int64(self.desafio.id)
+            novaSessao.enunciado = self.desafio.enunciado
+          //  novaSessao.mediaFoto = Data()
+           // novaSessao.mediaTexto =
+          //  novaSessao.respostaFoto =
+            novaSessao.respostaTexto = self.respostaTexto
             
             novaSessao.projeto = novoProjeto
             

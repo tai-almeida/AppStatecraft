@@ -18,7 +18,7 @@ struct ReqProjetos: Codable, Identifiable {
         case nome
     }
     
-    let data: Data
+    let data: Date
     let finalizado: Bool
     let id: Int
     let imagemCapa: String

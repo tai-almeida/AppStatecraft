@@ -67,7 +67,12 @@ struct DesafiosMultimidiaView: View {
                                     titleVisibility: .hidden
                                 ) {
                                     Button("Adicionar a Projeto") {
-                                        self.isShowingAddProjetos = true
+                                        
+                                        DispatchQueue.main.async {
+                                            self.isShowingAddProjetos = true
+                                        }
+                                            
+                                        
                                         //dps associamos a projeto
 //                                        desafiosVM.salvarSemProjeto(
 //                                            contexto: viewContext,
@@ -82,8 +87,9 @@ struct DesafiosMultimidiaView: View {
                                         
                                         self.respostaTexto = ""
                                         self.image = nil
-                                        dismiss()
-                                    }
+                                      //  dismiss()
+                                    } 
+                                    
                                     Button("Salvar em Esboços") {
                                         //TODO: logica de permanencia dos dados, so que salvar no esbocos tomee
                                     }
@@ -108,12 +114,17 @@ struct DesafiosMultimidiaView: View {
 //                            }
                         //}
                 }
+            
             }.onAppear{
                 self.desafio = desafiosVM.sorteiaDesafio()
             }
             .fullScreenCover(isPresented: $isShowingAddProjetos) {
-                            AddProjetoView(respostaTexto:respostaTexto, respostaFoto: image,
-                                           desafio:desafio!)
+                            criarEAddProjetoView(
+                                isPresented: self.$isShowingAddProjetos,
+                                respostaTexto: self.respostaTexto,
+                                respostaFoto: self.image,
+                                desafio: self.desafio!
+                            )
             }
         }
         .foregroundColor(.primary)

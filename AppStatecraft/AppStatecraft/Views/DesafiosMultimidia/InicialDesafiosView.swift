@@ -53,9 +53,3 @@ struct InicialDMView: View {
         .navigationTitle("Desafios Multimídia")
     }
 }
-
-struct InicialDesafiosView_Previews: PreviewProvider {
-    static var previews: some View {
-        InicialDMView()
-    }
-}

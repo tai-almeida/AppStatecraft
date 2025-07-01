@@ -18,6 +18,8 @@ struct HistoricoView: View {
             //refatorar isso depois em um jeito menos porco
             if historicoVM.sessoes.isEmpty  {
                 Text("Não há sessões salvas de \(tipoMetodologia).")
+                    .frame(maxWidth: .infinity, maxHeight: .infinity)
+                    .background(Color(.systemGroupedBackground))
                 //ver como deixar mais bonitinho essa view depois
             }else{
                 List{

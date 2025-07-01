@@ -64,8 +64,10 @@ struct InicialFreeWritingView: View {
                 .clipShape(Capsule())
                 .padding(.horizontal)
                 .padding(.vertical)
-                .sheet(isPresented: $showingSheet) {
+                .fullScreenCover(isPresented: $showingSheet) {
                     FreeWritingView(minutos: minutes, segundos: seconds)
+                        .accentColor(Color("AccentColor"))
+                        .interactiveDismissDisabled()
                 }
         }
         .navigationTitle("Free-Writing")

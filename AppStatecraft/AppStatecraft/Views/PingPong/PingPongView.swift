@@ -77,7 +77,7 @@ struct PingPongView: View {
                         .foregroundColor(.accentColor)
                     }
                     ToolbarItem(placement: .confirmationAction) {
-                        Button("Salvar") {
+                        Button("Finalizar") {
                             isShowingDialog = true
                         } .foregroundColor(.accentColor) // TODO: queria muito tirar esses um milhao foregroundColor!!
                         .confirmationDialog(

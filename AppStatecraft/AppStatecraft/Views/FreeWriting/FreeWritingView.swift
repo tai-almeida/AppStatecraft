@@ -49,7 +49,7 @@ struct FreeWritingView: View {
                                 .foregroundColor(.accentColor)
                             }
                             ToolbarItem(placement: .confirmationAction) {
-                                Button("OK") {
+                                Button("Finalizar") {
                                     freewritingVM.isShowingDialog = true
                                 }
                                 .foregroundColor(.accentColor)

@@ -107,9 +107,9 @@ struct MaieuticaView: View {
                         titleVisibility: .hidden
                     ) {
                         Button("Adicionar a Projeto") {
-                            print(indiceAtual)
-                            print(historicoIA.count)
-                            print(respostasUsuario.count)
+//                            print(indiceAtual)
+//                            print(historicoIA.count)
+//                            print(respostasUsuario.count)
                             self.isShowingAddProjetos = true
                             self.respostasUsuario.append(textoUser)
                             //dps associamos a projeto

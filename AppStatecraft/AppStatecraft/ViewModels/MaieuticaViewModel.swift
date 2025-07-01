@@ -79,7 +79,6 @@ class MaieuticaViewModel: ObservableObject {
         
         let historico = juntaPromptsRespostas(historicoIA: historicoIA, respostasUsuario: respostasUsuario)
     
-        
         let novaSessao = SessaoMaieutica(context: contexto)
         novaSessao.id = UUID()
         novaSessao.data = Date()
@@ -96,13 +95,11 @@ class MaieuticaViewModel: ObservableObject {
     }
 }
 
-<<<<<<< HEAD
-=======
+
 struct PromptResposta: Codable {
     let pergunta: String
     let resposta: String
     let index: Int
 }
->>>>>>> histMaieuticaView
 
 

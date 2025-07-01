@@ -43,13 +43,6 @@ struct MaieuticaView: View {
                         }
                     }
                     Spacer()
-                    /*Text(respostasUsuario[indiceAtual])
-                        .foregroundColor(.black)
-                        .frame(maxWidth: .infinity, alignment: .leading)
-                        .padding()
-                        .background(Color.gray.opacity(0.1))
-                        .cornerRadius(8)
-                        .padding(.horizontal)*/
                 }
                 
                 Spacer()

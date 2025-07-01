@@ -54,6 +54,7 @@ struct HistoricoView: View {
                                         .foregroundColor(.secondary)
                                 }.foregroundColor(.primary)
                             }
+<<<<<<< HEAD
                             else if let freewriting = sessao as? SessaoFreeWriting{
                                 HStack {
                                     Text(freewriting.enunciado ?? "vazio").lineLimit(1)
@@ -65,6 +66,22 @@ struct HistoricoView: View {
                                     
                                 }.foregroundColor(.primary)
                                 
+=======
+                            Spacer()
+                            Text(pingpong.data ?? Date(), style: .date)
+                                .font(.caption)
+                                .foregroundColor(.secondary)
+                        }.foregroundColor(.primary)
+                    } else if let maieutica = sessao as? SessaoMaieutica {
+                        HStack {
+                            if let logData = maieutica.log,
+                               let historico = try? JSONDecoder().decode([PromptResposta].self, from: logData),
+                            !historico.isEmpty {
+                                let historicoOrdenado = historico.sorted { $0.index < $1.index }
+                                Text(historicoOrdenado[0].resposta ?? "Erro").lineLimit(1)
+                            } else {
+                                Text("vazio")
+>>>>>>> histMaieuticaView
                             }
                             else if let maieutica = sessao as? SessaoMaieutica {
                                 HStack {

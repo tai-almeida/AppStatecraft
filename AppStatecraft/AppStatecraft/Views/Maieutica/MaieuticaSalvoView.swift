@@ -40,13 +40,14 @@ struct EtapasSalvasView: View {
     var body: some View {
         
         if let logData = sessao.log,
-       let historico = try? JSONDecoder().decode([String:String].self, from: logData),
+       let historico = try? JSONDecoder().decode([PromptResposta].self, from: logData),
        !historico.isEmpty {
             
-            let historicoArray = Array(historico)
+//            let historicoArray = Array(historico)
+            let historicoOrdenado = historico.sorted { $0.index < $1.index }
             
-            let prompt = historicoArray[indiceAtual].key
-            let resposta = historicoArray[indiceAtual].value
+            let prompt = historicoOrdenado[indiceAtual].pergunta
+            let resposta = historicoOrdenado[indiceAtual].resposta
             
             NavigationView {
                 VStack {
@@ -69,7 +70,7 @@ struct EtapasSalvasView: View {
             }
             
             Button(action: {
-                if indiceAtual < historicoArray.count - 1 {
+                if indiceAtual < historicoOrdenado.count - 1 {
                     indiceAtual += 1
                 }
             }) {
@@ -83,7 +84,7 @@ struct EtapasSalvasView: View {
                     .padding(.vertical)
 
             }
-            .disabled(indiceAtual == historicoArray.count - 1)
+            .disabled(indiceAtual == historicoOrdenado.count - 1)
         }
     }
 }

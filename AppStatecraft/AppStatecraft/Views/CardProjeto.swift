@@ -1,20 +1,36 @@
-//
-//  CardProjeto.swift
-//  AppStatecraft
-//
-//  Created by Aluno 24 on 30/06/25.
-//
-
 import SwiftUI
 
 struct CardProjeto: View {
-    var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
-    }
-}
+    let systemImage: String
+    let titulo: String
+    let corDeFundo: Color
+    let acao: () -> Void
 
-struct CardProjeto_Previews: PreviewProvider {
-    static var previews: some View {
-        CardProjeto()
+    var body: some View {
+        
+        VStack{
+            Image(systemName: systemImage)
+                .resizable()
+                .scaledToFit()
+                .frame(width: 30, height: 60)
+                .foregroundColor(.yellow)
+                .padding(30)
+                .cornerRadius(40)
+            
+            
+        }
+        .frame(width: 140, height: 140)
+        .contentShape(Rectangle())
+        .background(corDeFundo)
+        .cornerRadius(40)
+        .onTapGesture {
+            acao()
+        }
+        Text("Meus projetos")
+            .font(.subheadline)
+            .foregroundColor(.primary)
+            .padding(20)
+        Spacer()
     }
+     
 }

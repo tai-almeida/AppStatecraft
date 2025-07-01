@@ -1,41 +1,79 @@
 import SwiftUI
 
-
-
 struct ProjetosView: View {
     @State private var minhaIdeiaModal = false
+    @State private var adicionarProjeto = false
+    @Binding var pesquisarProjeto: String
+    @State private var projetosConcluidos = "Em andamento"
+
     var body: some View {
-        VStack(spacing: 12) {
-            Button {
-                minhaIdeiaModal = true
-            } label: {
-                Image(systemName: "lightbulb.fill")
-                    .resizable()
-                    .scaledToFit()
-                    .frame(width: 60, height: 60)
-                    .foregroundColor(.yellow)
-                    .padding(30)
-                    .background(Color.yellow.opacity(0.1))
-                    .cornerRadius(20)
-                    .shadow(radius: 6)
-                    .frame(width: 200, height: 200)
+        NavigationView {
+            VStack(spacing: 12) {
+                Picker("", selection: $projetosConcluidos) {
+                    Text("Em andamento").tag("Em andamento")
+                    Text("Concluido").tag("Concluido")
+                }
+                .pickerStyle(.segmented)
+                .padding(.horizontal)
+                .padding(.top, 8)
+
+                if projetosConcluidos == "Em andamento" {
+                    VStack(alignment: .leading, spacing: 8) {
+                        
+                        CardProjeto(
+                            systemImage: "lightbulb.fill",
+                            titulo: "Minhas Ideias",
+                            corDeFundo: Color.yellow.opacity(0.2)
+                        ) {
+                            minhaIdeiaModal = true
+                        }
+
+                    }
+                    .frame(maxWidth: .infinity, alignment: .leading)
+                    .padding(.leading, 20)
+                } else {
+                    VStack {
+                        Text("Conteúdo dos projetos concluídos")
+                            .foregroundColor(.gray)
+                    }
+                }
+
+                Spacer(minLength: 0)
             }
-            // Texto fora do botão/card
-            Text("Minhas Ideias")
-                .font(.headline)
-                .foregroundColor(.primary)
+            .padding(.top, 10)
+            .navigationTitle("Projetos")
+            .toolbar {
+                ToolbarItemGroup(placement: .navigationBarTrailing) {
+                    Button(action: {
+                        
+                        // Lógica de criar um projeto novo
+                        print("Novo projeto criado")
+                        
+                    }) {
+                        Image(systemName: "plus")
+                    }
+
+                    Button(action: {
+                        
+                        //Lógica de editar um projeto existente
+                        
+                        print("teste editando editando")
+                        
+                    }) {
+                        Image(systemName: "pencil")
+                    }
+                }
+            }
+            .searchable(text: $pesquisarProjeto)
         }
-        .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .topLeading)
-        .padding([.top, .leading], 20)
-        // Modal vazio
         .sheet(isPresented: $minhaIdeiaModal) {
-            // Modal content — pode personalizar depois
             VStack {
                 Text("Aqui vai ser guardado os rascunhos?")
                     .font(.title)
                 Spacer()
             }
-            .padding()
+            .padding() 
         }
     }
 }
+

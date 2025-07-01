@@ -58,11 +58,6 @@ struct AddProjetoView: View {
             
             
             
-            
-            
-            
-            
-            
             VStack() {
 //                HStack(alignment: .top) {
 //                    Image(systemName: "plus")

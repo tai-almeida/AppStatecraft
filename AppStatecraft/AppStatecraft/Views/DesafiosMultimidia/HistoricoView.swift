@@ -106,5 +106,21 @@ struct HistoricoView: View {
         .onChange(of: tipoMetodologia) { novoTipo in
             historicoVM.fetchDesafiosFeitos(contexto: contexto, tipo: novoTipo)
         }
+<<<<<<< HEAD
+=======
+        .sheet(item: $sessaoSelecionada) { sessao in
+            //TODO: colocar aqui as views especificas de visualizacao para cada metodologia salva
+            if let multimidia = sessao as? SessaoDesafioMult {
+                MultimidiaSalvoView(sessao: multimidia)
+            }else if let pingpong = sessao as? SessaoPingPong {
+//                Text("Sessão Ping Pong")
+                PingPongSalvoView(sessao: pingpong)
+            }else if let maieutica = sessao as? SessaoMaieutica{
+                MaieuticaSalvoView(sessao: maieutica)
+            }else if let freewriting = sessao as? SessaoFreeWriting{
+                Text("Sessao FreeWriting")
+            }
+        }
+>>>>>>> 050ea3e (inicio tela maieutica historico)
     }
 }

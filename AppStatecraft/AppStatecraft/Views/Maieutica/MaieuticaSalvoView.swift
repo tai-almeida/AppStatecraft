@@ -36,7 +36,32 @@ struct EtapasSalvasView: View {
     @State var sessao: SessaoMaieutica
     
     var body: some View {
-        Text("Hello World")
+        
+        if let logData = sessao.log,
+       let historico = try? JSONDecoder().decode([String:String].self, from: logData),
+       !historico.isEmpty {
+            VStack {
+                ForEach(Array(historico.keys.sorted()), id: \.self) { prompt in
+                    if let valor = historico[prompt] {
+                        VStack {
+                            Text(prompt)
+                                .foregroundColor(.black)
+                                .font(.title3)
+                            Divider()
+                            Text(valor)
+                                .font(.body)
+                                .padding(8)
+                                .foregroundColor(.black)
+                                .frame(maxWidth: .infinity, alignment: .leading)
+                                .accessibilityHidden(true)
+                                .background(Color.gray.opacity(0.1))
+                                .cornerRadius(8)
+                                
+                        }
+                    }
+                }
+            }
+        }
     }
 }
 

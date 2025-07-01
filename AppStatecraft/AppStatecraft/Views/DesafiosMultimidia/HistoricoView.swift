@@ -65,10 +65,6 @@ struct HistoricoView: View {
                                         
                                     }.foregroundColor(.primary)
                                     
-                                Spacer()
-                                Text(freewriting.data ?? Date(), style: .date)
-                                    .font(.caption)
-                                    .foregroundColor(.secondary)
                             
                             } else if let maieutica = sessao as? SessaoMaieutica {
                                 HStack {
@@ -84,6 +80,7 @@ struct HistoricoView: View {
                                     Text(maieutica.data ?? Date(), style: .date)
                                         .font(.caption)
                                         .foregroundColor(.secondary)
+                                    Image(systemName: "chevron.right").foregroundColor(Color(.tertiaryLabel))
                                 }.foregroundColor(.primary)
                             }
                         }
@@ -99,7 +96,7 @@ struct HistoricoView: View {
                     }else if let maieutica = sessao as? SessaoMaieutica{
                         MaieuticaSalvoView(sessao: maieutica)
                     }else if let freewriting = sessao as? SessaoFreeWriting{
-                        FreeWritingSalvo()
+                        FreeWritingSalvo(sessao: freewriting)
                     }
                 }
             }

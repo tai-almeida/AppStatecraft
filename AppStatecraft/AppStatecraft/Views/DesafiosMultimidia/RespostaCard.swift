@@ -38,11 +38,11 @@ struct RespostaCard: View {
                 .padding(12)
             } else {
                 ZStack(alignment: .topLeading) {
-                    Text(respostaTexto + "\n")
+                    Text(respostaTexto)
                         .font(.body)
-                        .padding(8)
                         .foregroundColor(.clear)
                         .accessibilityHidden(true)
+                        .padding()
                     
                     TextEditor(text: $respostaTexto)
                         .font(.body)

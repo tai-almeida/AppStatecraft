@@ -11,13 +11,13 @@ import CoreData
 struct FreeWritingView: View {
     @Environment(\.dismiss) var dismiss
     @Environment(\.managedObjectContext) private var contexto
-
+    
     @StateObject private var freewritingVM = FreeWritingViewModel()
     @State private var prompt: PromptFW?
     let minutos: Int
     let segundos: Int
     @StateObject var timerVM: TimerViewModel = TimerViewModel(minutos: 0, segundos: 0)
-
+    
     
     var body: some View {
         NavigationView {
@@ -27,7 +27,7 @@ struct FreeWritingView: View {
                     .foregroundColor(.black)
                 ScrollView{
                     if let prompt = prompt{
-                        ContainerPromptView(prompt: prompt).padding()
+                        ContainerPromptView(enunciado: prompt.enunciado).padding()
                     }else{
                         Text("Erro ao carregar prompt")
                     }
@@ -38,7 +38,6 @@ struct FreeWritingView: View {
                 
                 HStack{
                     Spacer()
-                    
                         .navigationTitle("Free-Writing")
                         .navigationBarTitleDisplayMode(.inline)
                         .toolbar {
@@ -75,7 +74,7 @@ struct FreeWritingView: View {
                                     Button("Salvar em Esboços") {
                                         //TODO: logica de permanencia dos dados, so que salvar no esbocos tomee
                                         freewritingVM.isShowingDialog = false
-
+                                        
                                     }
                                     Button("Descartar", role: .destructive) {
                                         dismiss()

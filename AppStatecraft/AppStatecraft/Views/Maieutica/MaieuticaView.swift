@@ -59,7 +59,7 @@ struct MaieuticaView: View {
                                 
                                 let respostaIA = await viewModel.fazerRequisicao(context: textoUser)
                                 historicoIA.append(respostaIA)
-                                respostasUsuario.append("")
+                                //respostasUsuario.append("")
                                 indiceAtual = historicoIA.count - 1
                                 textoUser = ""
                             } else {

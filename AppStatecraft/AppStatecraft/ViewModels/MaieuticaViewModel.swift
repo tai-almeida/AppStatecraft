@@ -62,12 +62,15 @@ class MaieuticaViewModel: ObservableObject {
         }
     }
     
-    func juntaPromptsRespostas(historicoIA: [String], respostasUsuario: [String]) -> [String:String] {
-        var historico: [String:String] = [:]
+    
+    
+    func juntaPromptsRespostas(historicoIA: [String], respostasUsuario: [String]) -> [PromptResposta] {
+        var historico: [PromptResposta] = []
         let numRespostas = min(historicoIA.count, respostasUsuario.count)
         
-        for index in 0..<numRespostas {
-            historico[historicoIA[index]] = respostasUsuario[index]
+        for i in 0..<numRespostas {
+            historico.append(PromptResposta(pergunta: historicoIA[i], resposta: respostasUsuario[i], index: i))
+//            historico[historicoIA[index]] = respostasUsuario[index]
         }
         return historico
     }
@@ -93,5 +96,10 @@ class MaieuticaViewModel: ObservableObject {
     }
 }
 
+struct PromptResposta: Codable {
+    let pergunta: String
+    let resposta: String
+    let index: Int
+}
 
 

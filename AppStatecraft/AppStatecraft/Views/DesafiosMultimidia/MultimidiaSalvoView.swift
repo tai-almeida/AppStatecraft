@@ -15,14 +15,7 @@ struct MultimidiaSalvoView: View {
         VStack(alignment: .leading){
             HStack {
                 Spacer()
-                Button(action: {
-                    dismiss()
-                }) {
-                    Image(systemName: "xmark.circle.fill")
-                        .font(.title2)
-                        .foregroundColor(.gray)
-                }.padding(.top)
-                    .padding(.trailing)
+                BotaoCloseModal()
             }
             EnunciadoSalvoView(sessao: sessao).padding()
             Divider()

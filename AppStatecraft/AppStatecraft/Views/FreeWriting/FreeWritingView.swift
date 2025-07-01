@@ -27,7 +27,7 @@ struct FreeWritingView: View {
                     .foregroundColor(.black)
                 ScrollView{
                     if let prompt = prompt{
-                        ContainerPromptView(prompt: prompt).padding()
+                        ContainerPromptView(enunciado: prompt.enunciado).padding()
                     }else{
                         Text("Erro ao carregar prompt")
                     }

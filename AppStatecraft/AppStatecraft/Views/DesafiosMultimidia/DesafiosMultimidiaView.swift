@@ -58,7 +58,7 @@ struct DesafiosMultimidiaView: View {
                                 .foregroundColor(.accentColor)
                             }
                             ToolbarItem(placement: .confirmationAction) {
-                                Button("OK") {
+                                Button("Finalizar") {
                                     isShowingDialog = true
                                 } .foregroundColor(.accentColor) // TODO: queria muito tirar esses um milhao foregroundColor!!
                                 .confirmationDialog(

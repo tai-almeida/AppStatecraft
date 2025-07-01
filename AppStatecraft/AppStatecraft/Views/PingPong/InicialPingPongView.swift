@@ -64,7 +64,7 @@ struct InicialPingPongView: View {
             Button("Começar") {
                 showingSheet.toggle()
             }
-            .sheet(isPresented: $showingSheet, onDismiss: { Task{
+            .fullScreenCover(isPresented: $showingSheet, onDismiss: { Task{
                 palavras.removeAll()
                 var aux = await viewModel.fazerRequisicao(context: []) ?? "Erro da IA"
                 while aux == "Erro da IA" {
@@ -74,6 +74,8 @@ struct InicialPingPongView: View {
                 palavras.append(textoIA)
             }}) {
                 PingPongView(textoIA: $textoIA, palavras: $palavras, minutos: minutes, segundos: seconds)
+                    .accentColor(Color("AccentColor"))
+                    .interactiveDismissDisabled()
             }
             .frame(maxWidth: .infinity)
             .padding()

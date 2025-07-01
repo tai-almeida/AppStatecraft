@@ -47,8 +47,10 @@ struct InicialMaieuticaView: View {
             Button("Começar") {
                 showingSheet.toggle()
             }
-            .sheet(isPresented: $showingSheet) {
+            .fullScreenCover(isPresented: $showingSheet) {
                 MaieuticaView()
+                    .accentColor(Color("AccentColor"))
+                    .interactiveDismissDisabled()
             }
             .frame(maxWidth: .infinity)
             .padding()

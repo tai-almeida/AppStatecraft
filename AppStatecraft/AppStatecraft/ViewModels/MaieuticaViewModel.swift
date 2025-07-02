@@ -75,7 +75,7 @@ class MaieuticaViewModel: ObservableObject {
         return historico
     }
     
-    func salvarSemProjeto(contexto: NSManagedObjectContext) -> SessaoMaieutica {
+    func criaSessao(contexto: NSManagedObjectContext) -> SessaoMaieutica {
         
         let novaSessao = SessaoMaieutica(context: contexto)
         novaSessao.id = UUID()

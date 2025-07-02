@@ -113,11 +113,11 @@ struct MaieuticaView: View {
                             self.isShowingAddProjetos = true
                             self.respostasUsuario.append(textoUser)
                             //dps associamos a projeto
-                            viewModel.salvarSemProjeto(
-                                contexto: viewContext,
-                                historicoIA: historicoIA,
-                                respostasUsuario: respostasUsuario
+                            let sessao = viewModel.criaSessao(
+                                contexto: viewContext
                             )
+                            
+                            viewModel.salvaContexto(sessao: sessao, contexto: viewContext, historicoIA: historicoIA, respostasUsuario: respostasUsuario)
                             //TODO: logica de permanencia dos dados sinistra
                             //criar o "objeto"
                             //navegar para o modal de adicionar a projeto

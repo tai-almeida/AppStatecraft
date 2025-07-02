@@ -69,7 +69,10 @@ struct DesafiosMultimidiaView: View {
                                     Button("Adicionar a Projeto") {
                                         //self.isShowingAddProjetos = true
                                         //dps associamos a projeto
-                                        desafiosVM.salvarSemProjeto(
+                                        let sessaoDesafios = desafiosVM.criarSessao(contexto: viewContext)
+                                        
+                                        desafiosVM.salvarContexto(
+                                            sessao: sessaoDesafios,
                                             contexto: viewContext,
                                             respostaTexto: respostaTexto,
                                             respostaImagem: image,

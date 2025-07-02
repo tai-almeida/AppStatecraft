@@ -68,9 +68,9 @@ struct DesafiosMultimidiaView: View {
                                 ) {
                                     Button("Adicionar a Projeto") {
                                         
-                                        DispatchQueue.main.async {
+                                      //  DispatchQueue.main.async {
                                             self.isShowingAddProjetos = true
-                                        }
+                                      //  }
                                             
                                         
                                         //self.isShowingAddProjetos = true

@@ -5,6 +5,7 @@ struct ProjetosView: View {
     @State private var adicionarProjeto = false
     @Binding var pesquisarProjeto: String
     @State private var projetosConcluidos = "Em andamento"
+    @State private var addProjetoVazio = false
 
     var body: some View {
         NavigationView {
@@ -47,12 +48,15 @@ struct ProjetosView: View {
             .toolbar {
                 ToolbarItemGroup(placement: .navigationBarTrailing) {
                     Button(action: {
-                        
+                        addProjetoVazio = true
                         // Lógica de criar um projeto novo
                         print("Novo projeto criado")
                         
                     }) {
                         Image(systemName: "plus")
+                    }
+                    .sheet(isPresented: $addProjetoVazio) {
+                        AddProjetoVazioView()
                     }
 
                     Button(action: {

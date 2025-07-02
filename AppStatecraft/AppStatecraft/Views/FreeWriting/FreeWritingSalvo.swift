@@ -1,0 +1,39 @@
+//
+//  FreeWritingSalvo.swift
+//  AppStatecraft
+//
+//  Created by Sofia Villas Bôas on 30/06/25.
+//
+
+import SwiftUI
+
+struct FreeWritingSalvo: View {
+    var sessao: SessaoFreeWriting
+    
+    var body: some View {
+        VStack(){
+            HStack {
+                Text("Free-Writing")
+                    .font(.largeTitle)
+                    .bold()
+                    .padding()
+                Spacer()
+                BotaoCloseModal()
+            }.padding()
+            
+            ScrollView{
+                ContainerPromptView(enunciado: sessao.enunciado ?? "Vazio").padding()
+                Divider()
+                Text(sessao.resposta ?? "Vazio")
+                    .padding()
+                    .font(.body)
+            }
+        }
+    }
+}
+//
+//struct FreeWritingSalvo_Previews: PreviewProvider {
+//    static var previews: some View {
+//        FreeWritingSalvo()
+//    }
+//}

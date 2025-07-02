@@ -58,11 +58,6 @@ struct AddProjetoView: View {
             //                    desafio: desafio
             //                ).environment(\.managedObjectContext, self.viewContext)
             
-            }
-            }
-            }
-            }
-            
             //    private func salvarSessao(em projeto: Projeto) {
             //        switch desafio.tipo {
             //        case "maieutica":

@@ -58,7 +58,7 @@ struct DesafiosMultimidiaView: View {
                                 .foregroundColor(.accentColor)
                             }
                             ToolbarItem(placement: .confirmationAction) {
-                                Button("OK") {
+                                Button("Finalizar") {
                                     isShowingDialog = true
                                 } .foregroundColor(.accentColor) // TODO: queria muito tirar esses um milhao foregroundColor!!
                                 .confirmationDialog(
@@ -67,12 +67,12 @@ struct DesafiosMultimidiaView: View {
                                     titleVisibility: .hidden
                                 ) {
                                     Button("Adicionar a Projeto") {
-                                        
                                         DispatchQueue.main.async {
                                             self.isShowingAddProjetos = true
                                         }
                                             
                                         
+                                        //self.isShowingAddProjetos = true
                                         //dps associamos a projeto
 //                                        desafiosVM.salvarSemProjeto(
 //                                            contexto: viewContext,

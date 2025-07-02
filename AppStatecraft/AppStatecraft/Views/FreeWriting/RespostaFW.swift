@@ -12,13 +12,12 @@ struct RespostaFW: View {
     
     var body: some View {
         ZStack{
-            
             ZStack(alignment: .topLeading) {
-                Text(respostaTexto + "\n")
+                Text(respostaTexto)
                     .font(.body)
-                    .padding(8)
                     .foregroundColor(.clear)
                     .accessibilityHidden(true)
+                    .padding()
                 
                 TextEditor(text: $respostaTexto)
                     .font(.body)

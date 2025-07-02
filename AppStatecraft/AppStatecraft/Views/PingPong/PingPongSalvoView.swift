@@ -13,6 +13,12 @@ struct PingPongSalvoView: View {
     
     var body: some View {
         HStack {
+            Text("Ping-Pong")
+                .font(.title)
+                .foregroundColor(.black)
+                .fontWeight(.bold)
+                .padding(.top)
+                .padding(.leading)
             Spacer()
             Button(action: {
                 dismiss()
@@ -37,28 +43,27 @@ struct PalavrasSalvasView: View {
     
     
     var body: some View {
-        if let logData = sessao.log,
-        let palavras = try? JSONDecoder().decode([String].self, from: logData),
-        !palavras.isEmpty {
-            VStack {
-                ForEach (Array(palavras.enumerated()), id: \.0) { index, palavra in
-                    VStack {
-                        ZStack {
-                            Image("CaixinhaPingPong")
-                            Text(palavra)
-                                .foregroundColor(.black)
-                        }
-                        if index < palavras.count - 1  {
-                            Image("LinhaPingPong")
+        ScrollView {
+            if let logData = sessao.log,
+            let palavras = try? JSONDecoder().decode([String].self, from: logData),
+            !palavras.isEmpty {
+                VStack {
+                    ForEach (Array(palavras.enumerated()), id: \.0) { index, palavra in
+                        VStack {
+                            ZStack {
+                                Image("CaixinhaPingPong")
+                                Text(palavra)
+                                    .foregroundColor(.black)
+                            }
+                            if index < palavras.count - 1  {
+                                Image("LinhaPingPong")
+                            }
                         }
                     }
+    //                .id("textField")
                 }
-//                .id("textField")
             }
         }
-            
-        
-        
     }
 }
 

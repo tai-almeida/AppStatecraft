@@ -19,6 +19,8 @@ struct InicialPingPongView: View {
     @State var individual: Bool = true
     @State var mostrarInfo: Bool = false
     @State var mostrarTimer: Bool = false
+    let modalidades = ["Livre", "Conduzida"]
+    @State var selecionada = "Conduzida"
     
     var body: some View {
         VStack {
@@ -65,9 +67,9 @@ struct InicialPingPongView: View {
                 DurationPickerView(minutes: $minutes, seconds: $seconds)
 
                 Divider().padding(.horizontal)
-                Toggle(isOn: $individual) {
+                /*Toggle(isOn: $individual) {
                     HStack {
-                        Text((individual == true ? "Modalidade individual" : "Modalidade em dupla"))
+                        Text((individual == true ? "Modalidade livre" : "Modalidade conduzida"))
                         Button(action: {
                             mostrarInfo = true
                         }) {
@@ -77,7 +79,37 @@ struct InicialPingPongView: View {
                         .buttonStyle(.plain)
                     }
                 }
-                    .padding(.horizontal)
+                    .padding(.horizontal)*/
+                
+                HStack {
+                    Text("Modalidade")
+                    Button(action: {
+                        mostrarInfo = true
+                    }) {
+                        Image(systemName: "info.circle")
+                            .foregroundColor(Color.accentColor)
+                    }
+                    .buttonStyle(.plain)
+                    Spacer()
+                        Picker("Selecione a modalidade", selection: $selecionada) {
+                            ForEach(modalidades, id: \.self) {
+                                Text($0)
+                            }
+                        }
+                        .pickerStyle(.menu)
+                    Image(systemName: "chevron.up")
+                        .foregroundColor(Color.accentColor)
+                    
+                }
+                .padding(.horizontal)
+                
+                /*Picker("Selecione a modalidade", selection: $selecionada) {
+                    ForEach(modalidades, id: \.self) {
+                        Text($0)
+                    }
+                }
+                .pickerStyle(.menu)
+                .padding(.horizontal)*/
                 
             }
             Button("Começar") {
@@ -107,7 +139,7 @@ struct InicialPingPongView: View {
         .alert("Sobre as modalidades", isPresented: $mostrarInfo) {
             Button("Entendi", role: .cancel) {}
         } message: {
-            Text("No modo individual, você vai receber apenas a primeira palavra. Já no modo em dupla, assim que você enviar uma palavra, você receberá outra.")
+            Text("No modo livre, você vai receber apenas a primeira palavra. Já no modo conduzido, assim que você enviar uma palavra, você receberá outra.")
         }
         .onAppear {
             Task {

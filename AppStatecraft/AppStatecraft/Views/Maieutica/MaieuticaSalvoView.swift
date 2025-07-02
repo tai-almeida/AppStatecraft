@@ -13,6 +13,12 @@ struct MaieuticaSalvoView: View {
     
     var body: some View {
         HStack {
+            Text("Maiêutica")
+                .font(.title)
+                .foregroundColor(.black)
+                .fontWeight(.bold)
+                .padding(.top)
+                .padding(.leading)
             Spacer()
             Button(action: {
                 dismiss()
@@ -38,60 +44,54 @@ struct EtapasSalvasView: View {
     @State var indiceAtual = 0
     
     var body: some View {
-        
-        if let logData = sessao.log,
-       let historico = try? JSONDecoder().decode([PromptResposta].self, from: logData),
-       !historico.isEmpty {
-            
-//            let historicoArray = Array(historico)
-            let historicoOrdenado = historico.sorted { $0.index < $1.index }
-            
-            let prompt = historicoOrdenado[indiceAtual].pergunta
-            let resposta = historicoOrdenado[indiceAtual].resposta
-            
-            NavigationView {
-                VStack {
-                    Text(prompt)
-                        .foregroundColor(.black)
-                        .font(.title3)
-                    
-                    Divider()
+        ScrollView {
+            if let logData = sessao.log,
+           let historico = try? JSONDecoder().decode([PromptResposta].self, from: logData),
+           !historico.isEmpty {
+                
+                let historicoOrdenado = historico.sorted { $0.index < $1.index }
+                
+                let prompt = historicoOrdenado[indiceAtual].pergunta
+                let resposta = historicoOrdenado[indiceAtual].resposta
+                
+                NavigationView {
+                    VStack {
+                        Text(prompt)
+                            .foregroundColor(.black)
+                            .font(.title3)
+                        
+                        Divider()
 
-                    Text(resposta)
-                        .font(.body)
-                        .padding(8)
-                        .foregroundColor(.black)
-                        .frame(maxWidth: .infinity, alignment: .leading)
-                        .accessibilityHidden(true)
-                        .background(Color.gray.opacity(0.1))
-                        .cornerRadius(8)
-                }
-                .padding()
-            }
-            
-            Button(action: {
-                if indiceAtual < historicoOrdenado.count - 1 {
-                    indiceAtual += 1
-                }
-            }) {
-                Text("Seguinte")
-                    .frame(maxWidth: .infinity)
+                        Text(resposta)
+                            .font(.body)
+                            .padding(8)
+                            .foregroundColor(.black)
+                            .frame(maxWidth: .infinity, alignment: .leading)
+                            .accessibilityHidden(true)
+                            .background(Color.gray.opacity(0.1))
+                            .cornerRadius(8)
+                    }
                     .padding()
-                    .background(Color.accentColor)
-                    .foregroundColor(.white)
-                    .clipShape(Capsule())
-                    .padding(.horizontal)
-                    .padding(.vertical)
+                }
+                
+                Button(action: {
+                    if indiceAtual < historicoOrdenado.count - 1 {
+                        indiceAtual += 1
+                    }
+                }) {
+                    Text("Seguinte")
+                        .frame(maxWidth: .infinity)
+                        .padding()
+                        .background(Color.accentColor)
+                        .foregroundColor(.white)
+                        .clipShape(Capsule())
+                        .padding(.horizontal)
+                        .padding(.vertical)
 
+                }
+                .disabled(indiceAtual == historicoOrdenado.count - 1)
             }
-            .disabled(indiceAtual == historicoOrdenado.count - 1)
         }
+       
     }
 }
-
-//
-//struct MaieuticaSalvoView_Previews: PreviewProvider {
-//    static var previews: some View {
-//        MaieuticaSalvoView()
-//    }
-//}

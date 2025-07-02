@@ -22,6 +22,7 @@ struct DesafiosMultimidiaView: View {
     @State private var desafio: QuestaoDesafios?
     @State private var isShowingDialog = false
     @State private var isShowingAddProjetos = false
+    @State var sessaoDesafios: SessaoDesafioMult? = nil
     
     
     var body: some View {
@@ -67,35 +68,19 @@ struct DesafiosMultimidiaView: View {
                                     titleVisibility: .hidden
                                 ) {
                                     Button("Adicionar a Projeto") {
+                                        sessaoDesafios = desafiosVM.criarSessao(contexto: viewContext, respostaTexto: respostaTexto, respostaImagem: image, desafio: desafio)
+                                        //desafiosVM.salvarContexto(contexto: viewContext) //isso aqui vai sari daqui
                                         DispatchQueue.main.async {
                                             self.isShowingAddProjetos = true
                                         }
-                                            
-                                        
-                                        //self.isShowingAddProjetos = true
-                                        //dps associamos a projeto
-
-                                        let sessaoDesafios = desafiosVM.criarSessao(contexto: viewContext)
-                                        
-                                        desafiosVM.salvarContexto(
-                                            sessao: sessaoDesafios,
-                                            contexto: viewContext,
-                                            respostaTexto: respostaTexto,
-                                            respostaImagem: image,
-                                            desafio: desafio
-                                        )
-                                        //TODO: logica de permanencia dos dados sinistra
-                                        //criar o "objeto"
-                                        //navegar para o modal de adicionar a projeto
-                                        //salvar o objeto no coredata quando a pessoa clicar no projeto
-                                        
                                         self.respostaTexto = ""
                                         self.image = nil
-                                      //  dismiss()
-                                    } 
+                                    }
                                     
-                                    Button("Salvar em Esboços") {
-                                        //TODO: logica de permanencia dos dados, so que salvar no esbocos tomee
+                                    Button("Salvar no Histórico") {
+                                        sessaoDesafios = desafiosVM.criarSessao(contexto: viewContext, respostaTexto: respostaTexto, respostaImagem: image, desafio: desafio)
+                                        desafiosVM.salvarContexto(contexto: viewContext) //isso aqui vai sari daqui
+                                        dismiss()
                                     }
                                     Button("Descartar", role: .destructive) {
                                         dismiss()
@@ -123,7 +108,7 @@ struct DesafiosMultimidiaView: View {
                 self.desafio = desafiosVM.sorteiaDesafio()
             }
             .fullScreenCover(isPresented: $isShowingAddProjetos) {
-                AddProjetoView()
+                AddProjetoView(sessao: sessaoDesafios)
             }
         }
         .foregroundColor(.primary)

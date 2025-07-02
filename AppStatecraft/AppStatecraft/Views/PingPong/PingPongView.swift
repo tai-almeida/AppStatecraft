@@ -14,8 +14,16 @@ struct PingPongView: View {
     @State var input = ""
     @Environment(\.dismiss) var dismiss
     @StateObject private var timerVM: TimerViewModel = TimerViewModel(minutos: 0, segundos: 0)
+    @Environment(\.managedObjectContext) private var viewContext
+
     let minutos: Int
     let segundos: Int
+    @State private var isShowingDialog = false
+    @State private var isShowingAddProjetos = false
+    @StateObject var pingpongVM: PingPongViewModel = PingPongViewModel()
+    @Binding var ehIndividual: Bool
+    @State var estaProcessando: Bool = false
+    @State var acabouTempo: Bool = false
     
     var body: some View {
         NavigationView {
@@ -29,34 +37,51 @@ struct PingPongView: View {
                         VStack () {
 
                             ForEach (Array(palavras.enumerated()), id: \.0) { index, palavra in
-                                VStack {
-                                    ZStack {
-                                        Image("CaixinhaPingPong")
-                                        Text(palavra)
-                                            .foregroundColor(.black)
+                                if (index == palavras.count - 1) {
+                                    VStack {
+                                        ZStack {
+                                            Image("CaixinhaPingPong")
+                                            Text(palavra)
+                                                .foregroundColor(.black)
+                                        }
+                                        Image("LinhaPingPong")
                                     }
-                                    Image("LinhaPingPong")
+                                    .id("ultimaCaixa")
+                                }
+                                else {
+                                    VStack {
+                                        ZStack {
+                                            Image("CaixinhaPingPong")
+                                            Text(palavra)
+                                                .foregroundColor(.black)
+                                        }
+                                        Image("LinhaPingPong")
+                                    }
                                 }
                             }
-                            ZStack {
-                                Image("CaixinhaPingPong")
-                                TextField("Escreva", text: $input)
-                                    .onSubmit{
-                                        palavras.append(input)
-                                        input = ""
-                                    }
-                                    .multilineTextAlignment(.center)
-                                    .foregroundColor(.black)
-                                    .disabled(!timerVM.sendoFeito)
-                                
-//                                TextFieldUIKit(texto: $input, onEnter: { novoTexto in
-//                                    palavras.append(novoTexto)
-//                                })
-//                                    .frame(height: 40)
-                                //TextField ("Escreva aqui", text: $input)
-                                    //.multilineTextAlignment(.center)
+                            if (!estaProcessando) {
+                                ZStack {
+                                    Image("CaixinhaPingPong")
+                                    TextField("Escreva", text: $input)
+                                        .onSubmit{
+                                            palavras.append(input)
+                                            input = ""
+                                            if (!ehIndividual) {
+                                                Task {
+                                                    estaProcessando = true
+                                                    let palavraNova = await pingpongVM.continuarPingPong(context: palavras)
+                                                    palavras.append(palavraNova ?? "Erro")
+                                                    estaProcessando = false
+                                                }
+                                            }
+                                        }
+                                        .multilineTextAlignment(.center)
+                                        .foregroundColor(.black)
+                                        .disabled(!timerVM.sendoFeito)
+                                    
+                                }
+                                .id("textField")
                             }
-                            .id("textField")
                         }
             
                     }
@@ -78,8 +103,38 @@ struct PingPongView: View {
                         .foregroundColor(.accentColor)
                     }
                     ToolbarItem(placement: .confirmationAction) {
-                        Button("Salvar") {
-                            dismiss()
+                        Button("Finalizar") {
+                            isShowingDialog = true
+                        } .foregroundColor(.accentColor) // TODO: queria muito tirar esses um milhao foregroundColor!!
+                        .confirmationDialog(
+                            "Tem certeza que finalizou o desafio?",
+                            isPresented: $isShowingDialog,
+                            titleVisibility: .hidden
+                        ) {
+                            Button("Adicionar a Projeto") {
+                                self.isShowingAddProjetos = true
+                                //dps associamos a projeto
+                                pingpongVM.salvarSemProjeto(
+                                    contexto: viewContext,
+                                    palavras: palavras
+                                )
+                                //TODO: logica de permanencia dos dados sinistra
+                                //criar o "objeto"
+                                //navegar para o modal de adicionar a projeto
+                                //salvar o objeto no coredata quando a pessoa clicar no projeto
+                                
+                                self.palavras = []
+                                dismiss()
+                            }
+                            Button("Salvar em Esboços") {
+                                //TODO: logica de permanencia dos dados, so que salvar no esbocos tomee
+                            }
+                            Button("Descartar", role: .destructive) {
+                                dismiss()
+                            }
+                            Button("Continuar Editando", role: .cancel) {
+                                isShowingDialog = false
+                            }
                         }
                         .foregroundColor(.accentColor)
                     }
@@ -90,12 +145,18 @@ struct PingPongView: View {
         if (!checagem) {
             let generator = UIImpactFeedbackGenerator(style: .medium)
             generator.impactOccurred()
+            acabouTempo = true
             //print("deu certo a vibracao")
         }
     }
     .onAppear {
         timerVM.resetar(minutos:minutos, segundos: segundos)
         timerVM.comecaContagem()
+    }
+    .alert("Acabou o tempo!", isPresented: $acabouTempo) {
+        Button("Entendi", role: .cancel) {}
+    } message: {
+        Text("O tempo da atividade se esgotou. Agora, finalize a sessão.")
     }
         
     }

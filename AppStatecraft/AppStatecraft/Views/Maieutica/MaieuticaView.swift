@@ -6,10 +6,15 @@ struct MaieuticaView: View {
     @State private var textoUser = ""
     @StateObject private var viewModel = MaieuticaViewModel()
     @State private var historicoIA: [String] = ["Conte sobre sua ideia!"]
-    @State private var respostasUsuario: [String] = [""]
+    @State private var respostasUsuario: [String] = []
     @State private var indiceAtual = 0
     private let maxPerguntas = 10
     @State private var mostrarLimitePerguntas = false
+    @State var cliqueButton: Int = 0
+    @State private var isShowingDialog = false
+    @State private var isShowingAddProjetos = false
+    @Environment(\.managedObjectContext) private var viewContext
+
     
     var body: some View {
         NavigationView {
@@ -17,7 +22,7 @@ struct MaieuticaView: View {
                 Text(historicoIA[indiceAtual])
                     .foregroundColor(.black)
                     .font(.title3)
-                    .padding(.horizontal)
+                    //.padding(.horizontal)
                 Divider()
                 
                 if indiceAtual == historicoIA.count - 1 {
@@ -38,18 +43,11 @@ struct MaieuticaView: View {
                         }
                     }
                     Spacer()
-                    /*Text(respostasUsuario[indiceAtual])
-                        .foregroundColor(.black)
-                        .frame(maxWidth: .infinity, alignment: .leading)
-                        .padding()
-                        .background(Color.gray.opacity(0.1))
-                        .cornerRadius(8)
-                        .padding(.horizontal)*/
                 }
                 
                 Spacer()
                 
-                Button(action: {
+                Button(action: {cliqueButton += 1; 
                     Task {
                         if indiceAtual == historicoIA.count - 1 {
                             if historicoIA.count < maxPerguntas {
@@ -61,7 +59,7 @@ struct MaieuticaView: View {
                                 
                                 let respostaIA = await viewModel.fazerRequisicao(context: textoUser)
                                 historicoIA.append(respostaIA)
-                                respostasUsuario.append("")
+                                //respostasUsuario.append("")
                                 indiceAtual = historicoIA.count - 1
                                 textoUser = ""
                             } else {
@@ -72,6 +70,7 @@ struct MaieuticaView: View {
                                 indiceAtual += 1
                             }
                         }
+                        cliqueButton = 0
                     }
                 }) {
                     Text("Seguinte")
@@ -83,7 +82,7 @@ struct MaieuticaView: View {
                         .padding(.horizontal)
                         .padding(.vertical)
                 }
-                .disabled(indiceAtual == historicoIA.count - 1 && textoUser.isEmpty)
+                .disabled((indiceAtual == historicoIA.count - 1 && textoUser.isEmpty) || (cliqueButton>=1))
             }
             .padding()
             .navigationTitle("Maiêutica")
@@ -94,12 +93,50 @@ struct MaieuticaView: View {
                         if indiceAtual > 0 {
                             indiceAtual -= 1
                         }
+                        cliqueButton = 0
                     }
                     .foregroundColor(.accentColor)
                 }
                 ToolbarItem(placement: .confirmationAction) {
-                    Button("Salvar") {
-                        dismiss()
+                    Button("Finalizar") {
+                        isShowingDialog = true
+                    } .foregroundColor(.accentColor) // TODO: queria muito tirar esses um milhao foregroundColor!!
+                    .confirmationDialog(
+                        "Tem certeza que finalizou o desafio?",
+                        isPresented: $isShowingDialog,
+                        titleVisibility: .hidden
+                    ) {
+                        Button("Adicionar a Projeto") {
+//                            print(indiceAtual)
+//                            print(historicoIA.count)
+//                            print(respostasUsuario.count)
+                            self.isShowingAddProjetos = true
+                            self.respostasUsuario.append(textoUser)
+                            //dps associamos a projeto
+                            viewModel.salvarSemProjeto(
+                                contexto: viewContext,
+                                historicoIA: historicoIA,
+                                respostasUsuario: respostasUsuario
+                            )
+                            //TODO: logica de permanencia dos dados sinistra
+                            //criar o "objeto"
+                            //navegar para o modal de adicionar a projeto
+                            //salvar o objeto no coredata quando a pessoa clicar no projeto
+                            
+                            self.indiceAtual = 0
+                            self.historicoIA = ["Conte sobre sua ideia!"]
+                            self.respostasUsuario = []
+                            dismiss()
+                        }
+                        Button("Salvar em Esboços") {
+                            //TODO: logica de permanencia dos dados, so que salvar no esbocos tomee
+                        }
+                        Button("Descartar", role: .destructive) {
+                            dismiss()
+                        }
+                        Button("Continuar Editando", role: .cancel) {
+                            isShowingDialog = false
+                        }
                     }
                     .foregroundColor(.accentColor)
                 }
@@ -107,7 +144,7 @@ struct MaieuticaView: View {
             .alert("Limite de perguntas atingido", isPresented: $mostrarLimitePerguntas) {
                 Button("OK", role: .cancel) { }
             } message: {
-                Text("Você já respondeu 10 perguntas. Salve ou volte para revisar.")
+                Text("Você já respondeu 10 perguntas. Salve ou apague sua sessão.")
             }
         }
     }

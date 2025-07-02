@@ -16,12 +16,14 @@ struct InicialPingPongView: View {
     @State var textoIA = ""
     @StateObject var viewModel = PingPongViewModel()
     @State var palavras: [String] = []
-    
+    @State var individual: Bool = true
+    @State var mostrarInfo: Bool = false
+    @State var mostrarTimer: Bool = false
     
     var body: some View {
         VStack {
             ScrollView {
-                NavigationLink(destination: Text("Conteudo historico") .navigationTitle("Histórico")) {
+                NavigationLink(destination: HistoricoView(tipoMetodologia: "pingpong") .navigationTitle("Histórico")) {
                 HStack(alignment: .top) {
                     Image(systemName: "tray")
                         .foregroundColor(Color.accentColor)
@@ -47,24 +49,41 @@ struct InicialPingPongView: View {
                     
                 HStack {
                     Text("Timer")
-                        .foregroundColor(Color.accentColor)
-//
+                        .foregroundColor(.black)
+                    //
                     Spacer()
-//
+                    //
                     Text(String(format: "%02d:%02d", minutes, seconds))
                         .padding(2)
+                        .foregroundColor(Color.accentColor)
                         .background(Color(.secondarySystemBackground))
                         .clipShape(RoundedRectangle(cornerRadius: 6))
-//                        .cornerRadius(10)
-                        
-//
+                    //                        .cornerRadius(10)
+                    
+                    //
                 }.padding(.horizontal)
                 DurationPickerView(minutes: $minutes, seconds: $seconds)
+
+                Divider().padding(.horizontal)
+                Toggle(isOn: $individual) {
+                    HStack {
+                        Text((individual == true ? "Modalidade individual" : "Modalidade em dupla"))
+                        Button(action: {
+                            mostrarInfo = true
+                        }) {
+                            Image(systemName: "info.circle")
+                                .foregroundColor(Color.accentColor)
+                        }
+                        .buttonStyle(.plain)
+                    }
+                }
+                    .padding(.horizontal)
+                
             }
             Button("Começar") {
                 showingSheet.toggle()
             }
-            .sheet(isPresented: $showingSheet, onDismiss: { Task{
+            .fullScreenCover(isPresented: $showingSheet, onDismiss: { Task{
                 palavras.removeAll()
                 var aux = await viewModel.fazerRequisicao(context: []) ?? "Erro da IA"
                 while aux == "Erro da IA" {
@@ -73,7 +92,9 @@ struct InicialPingPongView: View {
                 textoIA = aux;
                 palavras.append(textoIA)
             }}) {
-                PingPongView(textoIA: $textoIA, palavras: $palavras, minutos: minutes, segundos: seconds)
+                PingPongView(textoIA: $textoIA, palavras: $palavras, minutos: minutes, segundos: seconds, ehIndividual: $individual)
+                    .accentColor(Color("AccentColor"))
+                    .interactiveDismissDisabled()
             }
             .frame(maxWidth: .infinity)
             .padding()
@@ -82,6 +103,11 @@ struct InicialPingPongView: View {
             .clipShape(Capsule())
             .padding(.horizontal)
             .padding(.vertical)
+        }
+        .alert("Sobre as modalidades", isPresented: $mostrarInfo) {
+            Button("Entendi", role: .cancel) {}
+        } message: {
+            Text("No modo individual, você vai receber apenas a primeira palavra. Já no modo em dupla, assim que você enviar uma palavra, você receberá outra.")
         }
         .onAppear {
             Task {

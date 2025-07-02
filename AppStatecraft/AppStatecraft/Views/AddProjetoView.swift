@@ -129,6 +129,7 @@ struct AddProjetoView: View {
             
     
             
+<<<<<<< HEAD
 
             
             
@@ -167,6 +168,12 @@ struct AddProjetoView: View {
 //                    Button("Cancelar") {
 //                        dismiss()
 //                    }.foregroundColor(.accentColor)
+=======
+            VStack() {
+//                HStack(alignment: .top) {
+//                    Image(systemName: "plus")
+//                        .foregroundColor(Color.accentColor)
+>>>>>>> aad7ec5bb0cf1bc10b08b8bc0b3c35c3e7f5645b
 //                }
 //            }
 //            .navigationTitle("Meus Projetos")

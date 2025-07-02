@@ -7,12 +7,18 @@
 
 import Foundation
 import SwiftUI
+import CoreData
+
 
 class FreeWritingViewModel: ObservableObject {
     
     @Published var todosPrompts = [PromptFW]()
     @Published var promptsFeitos = [PromptFW]()
     @Published var promptsNaoFeitos = [PromptFW]()
+    @Published var isShowingDialog = false
+    @Published var respostaTexto: String = ""
+
+
     //@Published var desafio = SessaoDesafioMult()
     
     //    private var dadosURL: URL {
@@ -127,6 +133,20 @@ class FreeWritingViewModel: ObservableObject {
         /* Sorteia um desafio dentre os nao feitos para o usuario fazer */
         verificaPromptsVazios()
         return promptsNaoFeitos.randomElement()
+    }
+    
+    func salvarSemProjeto(contexto: NSManagedObjectContext, respostaTexto: String, prompt: String){
+        do {
+            let sessaoFreeWriting = SessaoFreeWriting(context: contexto)
+            sessaoFreeWriting.id = UUID()
+            sessaoFreeWriting.data = Date()
+            sessaoFreeWriting.enunciado = prompt
+            sessaoFreeWriting.resposta = respostaTexto
+            
+            try contexto.save()
+        } catch {
+            print("erro ao salvar a resposta - \(error)")
+        }
     }
 }
 

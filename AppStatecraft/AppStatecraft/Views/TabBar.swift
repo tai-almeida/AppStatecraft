@@ -1,26 +1,20 @@
-//
-//  TabBar.swift
-//  AppStatecraft
-//
-//  Created by Aluno 45 on 17/06/25.
-//
-
 import SwiftUI
 
+
 struct TabBar: View {
+    @State private var pesquisarProjeto = ""
     var body: some View {
+        
         TabView {
             MetodologiasView()
                 .tabItem {
                     Label("Metodologias", systemImage: "book")
                 }
             
-            
-            ProjetosView()
+            ProjetosView(pesquisarProjeto: $pesquisarProjeto)
                 .tabItem {
                     Label("Projetos", systemImage: "folder")
-                }
-                
+            }
         }
     }
 }
@@ -30,4 +24,3 @@ struct TabBar: View {
 //        TabBar()
 //    }
 //}
-//

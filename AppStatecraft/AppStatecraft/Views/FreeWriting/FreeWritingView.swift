@@ -6,15 +6,18 @@
 //
 
 import SwiftUI
+import CoreData
 
 struct FreeWritingView: View {
     @Environment(\.dismiss) var dismiss
-    @State private var respostaTexto: String = ""
-    @StateObject private var viewModel = FreeWritingViewModel()
+    @Environment(\.managedObjectContext) private var contexto
+    
+    @StateObject private var freewritingVM = FreeWritingViewModel()
     @State private var prompt: PromptFW?
     let minutos: Int
     let segundos: Int
     @StateObject var timerVM: TimerViewModel = TimerViewModel(minutos: 0, segundos: 0)
+    @State var acabouTempo: Bool = false
     
     var body: some View {
         NavigationView {
@@ -24,18 +27,17 @@ struct FreeWritingView: View {
                     .foregroundColor(.black)
                 ScrollView{
                     if let prompt = prompt{
-                        ContainerPromptView(prompt: prompt).padding()
+                        ContainerPromptView(enunciado: prompt.enunciado).padding()
                     }else{
                         Text("Erro ao carregar prompt")
                     }
                     Divider()
-                    RespostaFW(respostaTexto: $respostaTexto).foregroundColor(.primary)
+                    RespostaFW(respostaTexto: $freewritingVM.respostaTexto).foregroundColor(.primary)
                         .disabled(!timerVM.sendoFeito)
                 }
                 
                 HStack{
                     Spacer()
-                    
                         .navigationTitle("Free-Writing")
                         .navigationBarTitleDisplayMode(.inline)
                         .toolbar {
@@ -46,28 +48,65 @@ struct FreeWritingView: View {
                                 .foregroundColor(.accentColor)
                             }
                             ToolbarItem(placement: .confirmationAction) {
-                                Button("OK") {
-                                    dismiss()
+                                Button("Finalizar") {
+                                    freewritingVM.isShowingDialog = true
                                 }
                                 .foregroundColor(.accentColor)
+                                .confirmationDialog(
+                                    "Tem certeza que finalizou?",
+                                    isPresented: $freewritingVM.isShowingDialog,
+                                    titleVisibility: .hidden
+                                ) {
+                                    Button("Adicionar a Projeto") {
+                                        //self.isShowingAddProjetos = true
+                                        //dps associamos a projeto
+                                        //TODO: logica de permanencia dos dados sinistra (associar a projeto)
+                                        if let prompt = prompt{
+                                            freewritingVM.salvarSemProjeto(
+                                                contexto: contexto,
+                                                respostaTexto: freewritingVM.respostaTexto,
+                                                prompt: prompt.enunciado)
+                                        }
+                                        
+                                        freewritingVM.respostaTexto = ""
+                                        dismiss()
+                                    }
+                                    Button("Salvar em Esboços") {
+                                        //TODO: logica de permanencia dos dados, so que salvar no esbocos tomee
+                                        freewritingVM.isShowingDialog = false
+                                        
+                                    }
+                                    Button("Descartar", role: .destructive) {
+                                        dismiss()
+                                    }
+                                    Button("Continuar Editando", role: .cancel) {
+                                        freewritingVM.isShowingDialog = false
+                                    }
+                                    .foregroundColor(.accentColor)
+                                }
                             }
                         }
                 }
+                .onAppear{
+                    self.prompt = freewritingVM.sorteiaPrompt()
+                }
             }
-            .onAppear{
-                self.prompt = viewModel.sorteiaPrompt()
+            .onChange(of: timerVM.sendoFeito) { checagem in
+                if (!checagem) {
+                    let generator = UIImpactFeedbackGenerator(style: .medium)
+                    generator.impactOccurred()
+                    acabouTempo = true
+                }
             }
-        }
-        .onChange(of: timerVM.sendoFeito) { checagem in
-            if (!checagem) {
-                let generator = UIImpactFeedbackGenerator(style: .medium)
-                generator.impactOccurred()
-                print("deu certo a vibracao")
+            .onAppear {
+                timerVM.resetar(minutos:minutos, segundos: segundos)
+                timerVM.comecaContagem()
             }
-        }
-        .onAppear {
-            timerVM.resetar(minutos:minutos, segundos: segundos)
-            timerVM.comecaContagem()
+            .alert("Acabou o tempo!", isPresented: $acabouTempo) {
+                Button("Entendi", role: .cancel) {}
+            } message: {
+                Text("O tempo da atividade se esgotou. Agora, finalize a sessão.")
+            }
         }
     }
 }

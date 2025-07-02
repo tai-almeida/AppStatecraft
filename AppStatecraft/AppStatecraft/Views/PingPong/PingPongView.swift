@@ -114,10 +114,14 @@ struct PingPongView: View {
                             Button("Adicionar a Projeto") {
                                 self.isShowingAddProjetos = true
                                 //dps associamos a projeto
-                                pingpongVM.salvarSemProjeto(
-                                    contexto: viewContext,
-                                    palavras: palavras
+                                let sessao = pingpongVM.criarSessao(
+                                    contexto: viewContext
                                 )
+                                
+                                pingpongVM.salvarContexto(
+                                    sessao: sessao,
+                                    contexto: viewContext,
+                                    palavras: palavras)
                                 //TODO: logica de permanencia dos dados sinistra
                                 //criar o "objeto"
                                 //navegar para o modal de adicionar a projeto

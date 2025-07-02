@@ -100,14 +100,18 @@ class PingPongViewModel: ObservableObject {
     }
     
     
-    func salvarSemProjeto(contexto: NSManagedObjectContext, palavras: [String]){
+    func criarSessao(contexto: NSManagedObjectContext) -> SessaoPingPong {
         let novaSessao = SessaoPingPong(context: contexto)
         novaSessao.id = UUID()
         novaSessao.data = Date()
         
+        return novaSessao
+    }
+    
+    func salvarContexto(sessao: SessaoPingPong, contexto: NSManagedObjectContext, palavras: [String]) {
         do {
             let logData = try JSONEncoder().encode(palavras)
-            novaSessao.log = logData
+            sessao.log = logData
             try contexto.save()
             print("deu bom salvou")
                 

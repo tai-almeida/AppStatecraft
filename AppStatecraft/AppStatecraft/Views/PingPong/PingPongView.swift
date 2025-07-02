@@ -23,6 +23,7 @@ struct PingPongView: View {
     @StateObject var pingpongVM: PingPongViewModel = PingPongViewModel()
     @Binding var ehIndividual: Bool
     @State var estaProcessando: Bool = false
+    @State var acabouTempo: Bool = false
     
     var body: some View {
         NavigationView {
@@ -36,13 +37,26 @@ struct PingPongView: View {
                         VStack () {
 
                             ForEach (Array(palavras.enumerated()), id: \.0) { index, palavra in
-                                VStack {
-                                    ZStack {
-                                        Image("CaixinhaPingPong")
-                                        Text(palavra)
-                                            .foregroundColor(.black)
+                                if (index == palavras.count - 1) {
+                                    VStack {
+                                        ZStack {
+                                            Image("CaixinhaPingPong")
+                                            Text(palavra)
+                                                .foregroundColor(.black)
+                                        }
+                                        Image("LinhaPingPong")
                                     }
-                                    Image("LinhaPingPong")
+                                    .id("ultimaCaixa")
+                                }
+                                else {
+                                    VStack {
+                                        ZStack {
+                                            Image("CaixinhaPingPong")
+                                            Text(palavra)
+                                                .foregroundColor(.black)
+                                        }
+                                        Image("LinhaPingPong")
+                                    }
                                 }
                             }
                             if (!estaProcessando) {
@@ -131,12 +145,18 @@ struct PingPongView: View {
         if (!checagem) {
             let generator = UIImpactFeedbackGenerator(style: .medium)
             generator.impactOccurred()
+            acabouTempo = true
             //print("deu certo a vibracao")
         }
     }
     .onAppear {
         timerVM.resetar(minutos:minutos, segundos: segundos)
         timerVM.comecaContagem()
+    }
+    .alert("Acabou o tempo!", isPresented: $acabouTempo) {
+        Button("Entendi", role: .cancel) {}
+    } message: {
+        Text("O tempo da atividade se esgotou. Agora, finalize a sessão.")
     }
         
     }

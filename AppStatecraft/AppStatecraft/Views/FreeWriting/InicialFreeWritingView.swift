@@ -41,12 +41,13 @@ struct InicialFreeWritingView: View {
                 
                 HStack {
                     Text("Timer")
-                        .foregroundColor(Color.accentColor)
+                        .foregroundColor(.black)
                     //
                     Spacer()
                     //
                     Text(String(format: "%02d:%02d", minutes, seconds))
                         .padding(2)
+                        .foregroundColor(Color.accentColor)
                         .background(Color(.secondarySystemBackground))
                         .clipShape(RoundedRectangle(cornerRadius: 6))
                     //                        .cornerRadius(10)

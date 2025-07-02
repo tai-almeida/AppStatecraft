@@ -47,42 +47,23 @@ struct InicialPingPongView: View {
                 Divider().padding(.horizontal)
                 Spacer()
                     
-                /*HStack {
+                HStack {
                     Text("Timer")
-                        .foregroundColor(Color.accentColor)
-//
+                        .foregroundColor(.black)
+                    //
                     Spacer()
-//
+                    //
                     Text(String(format: "%02d:%02d", minutes, seconds))
                         .padding(2)
+                        .foregroundColor(Color.accentColor)
                         .background(Color(.secondarySystemBackground))
                         .clipShape(RoundedRectangle(cornerRadius: 6))
-//                        .cornerRadius(10)
-                        
-//
-                }*/
-                    //.padding(.horizontal)
-                DisclosureGroup (isExpanded: $mostrarTimer){
-                    DurationPickerView(minutes: $minutes, seconds: $seconds)
-                } label: {
-                    Button (action: {mostrarTimer = !mostrarTimer}) {
-                        HStack {
-                            Text("Timer")
-                                .foregroundColor(.black)
-        //
-                            Spacer()
-        //
-                            Text(String(format: "%02d:%02d", minutes, seconds))
-                                .padding(2)
-                                .background(Color(.secondarySystemBackground))
-                                .clipShape(RoundedRectangle(cornerRadius: 6))
-        //                        .cornerRadius(10)
-                                
-        //
-                        }
-                    }
-                }
-                .padding(.horizontal)
+                    //                        .cornerRadius(10)
+                    
+                    //
+                }.padding(.horizontal)
+                DurationPickerView(minutes: $minutes, seconds: $seconds)
+
                 Divider().padding(.horizontal)
                 Toggle(isOn: $individual) {
                     HStack {

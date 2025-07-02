@@ -20,13 +20,15 @@ struct ProjetosView: View {
                 if projetosConcluidos == "Em andamento" {
                     VStack(alignment: .leading, spacing: 8) {
                         
-                        CardProjeto(
+                        CardMyProject(
                             systemImage: "lightbulb.fill",
                             titulo: "Minhas Ideias",
                             corDeFundo: Color.yellow.opacity(0.2)
                         ) {
                             minhaIdeiaModal = true
                         }
+                        
+                        
 
                     }
                     .frame(maxWidth: .infinity, alignment: .leading)

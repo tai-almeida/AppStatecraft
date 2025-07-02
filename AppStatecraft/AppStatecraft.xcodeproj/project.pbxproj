@@ -41,6 +41,7 @@
 		A48ABE062E0C293500483673 /* HistoricoViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A48ABE052E0C293500483673 /* HistoricoViewModel.swift */; };
 		E8DDC8752E0AEBEF00365D65 /* MeusProjetosView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8DDC8742E0AEBEF00365D65 /* MeusProjetosView.swift */; };
 		E8FF55472E12D64D001C5407 /* CardProjeto.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8FF55462E12D64D001C5407 /* CardProjeto.swift */; };
+		E8FF55492E142DA9001C5407 /* SwiftUIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8FF55482E142DA9001C5407 /* SwiftUIView.swift */; };
 		ED0B0E952E02EFAF00785DDD /* CardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED0B0E942E02EFAF00785DDD /* CardView.swift */; };
 		ED0B0E972E02F6D100785DDD /* CarrosselView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED0B0E962E02F6D100785DDD /* CarrosselView.swift */; };
 		ED0B0E9B2E02F9C200785DDD /* PageControlView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED0B0E9A2E02F9C200785DDD /* PageControlView.swift */; };
@@ -130,6 +131,7 @@
 		A48ABE052E0C293500483673 /* HistoricoViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoricoViewModel.swift; sourceTree = "<group>"; };
 		E8DDC8742E0AEBEF00365D65 /* MeusProjetosView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeusProjetosView.swift; sourceTree = "<group>"; };
 		E8FF55462E12D64D001C5407 /* CardProjeto.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardProjeto.swift; sourceTree = "<group>"; };
+		E8FF55482E142DA9001C5407 /* SwiftUIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftUIView.swift; sourceTree = "<group>"; };
 		ED0B0E942E02EFAF00785DDD /* CardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardView.swift; sourceTree = "<group>"; };
 		ED0B0E962E02F6D100785DDD /* CarrosselView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarrosselView.swift; sourceTree = "<group>"; };
 		ED0B0E9A2E02F9C200785DDD /* PageControlView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PageControlView.swift; sourceTree = "<group>"; };
@@ -235,6 +237,7 @@
 				E8DDC8742E0AEBEF00365D65 /* MeusProjetosView.swift */,
 				ED0B0E942E02EFAF00785DDD /* CardView.swift */,
 				ED0B0E9A2E02F9C200785DDD /* PageControlView.swift */,
+				E8FF55482E142DA9001C5407 /* SwiftUIView.swift */,
 				E8FF55462E12D64D001C5407 /* CardProjeto.swift */,
 				ED695A692E01B3DA009C0BE0 /* MetodologiasView.swift */,
 				ED0B0E962E02F6D100785DDD /* CarrosselView.swift */,
@@ -638,6 +641,7 @@
 				ED0B0E952E02EFAF00785DDD /* CardView.swift in Sources */,
 				24E7D6792E0C1F2F0064BAD1 /* PingPongViewController.swift in Sources */,
 				242B855C2E0EC558006EE127 /* RespostaMaieutica.swift in Sources */,
+				E8FF55492E142DA9001C5407 /* SwiftUIView.swift in Sources */,
 				ED81EB282E0C25B1003062BA /* InicialFreeWritingView.swift in Sources */,
 				A40C5B202E02DFDE00C30D6E /* DesafiosMultimidiaView.swift in Sources */,
 				A47175B92E01A23A00AC6B12 /* ContainerEnunciadoView.swift in Sources */,

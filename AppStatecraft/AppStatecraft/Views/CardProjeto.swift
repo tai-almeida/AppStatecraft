@@ -1,6 +1,6 @@
 import SwiftUI
 
-struct CardProjeto: View {
+struct CardMyProject: View {
     let systemImage: String
     let titulo: String
     let corDeFundo: Color

@@ -135,14 +135,18 @@ class FreeWritingViewModel: ObservableObject {
         return promptsNaoFeitos.randomElement()
     }
     
-    func salvarSemProjeto(contexto: NSManagedObjectContext, respostaTexto: String, prompt: String){
+    func criarSessao(contexto: NSManagedObjectContext) -> SessaoFreeWriting {
+        let sessaoFreeWriting = SessaoFreeWriting(context: contexto)
+        sessaoFreeWriting.id = UUID()
+        sessaoFreeWriting.data = Date()
+        
+        return sessaoFreeWriting
+    }
+    
+    func salvarContexto(sessao: SessaoFreeWriting, contexto: NSManagedObjectContext, respostaTexto: String, prompt: String) {
         do {
-            let sessaoFreeWriting = SessaoFreeWriting(context: contexto)
-            sessaoFreeWriting.id = UUID()
-            sessaoFreeWriting.data = Date()
-            sessaoFreeWriting.enunciado = prompt
-            sessaoFreeWriting.resposta = respostaTexto
-            
+            sessao.enunciado = prompt
+            sessao.resposta = respostaTexto
             try contexto.save()
         } catch {
             print("erro ao salvar a resposta - \(error)")

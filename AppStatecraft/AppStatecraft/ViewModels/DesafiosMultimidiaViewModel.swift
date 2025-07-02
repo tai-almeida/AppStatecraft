@@ -131,27 +131,34 @@ class DesafiosMultimidiaViewModel: ObservableObject {
         return desafiosNaoFeitos.randomElement()
     }
     
-    func salvarSemProjeto(contexto: NSManagedObjectContext, respostaTexto: String, respostaImagem: UIImage?, desafio: QuestaoDesafios?){
+    func criarSessao(contexto: NSManagedObjectContext) -> SessaoDesafioMult {
+        
+        let sessaoDesafio = SessaoDesafioMult(context: contexto)
+        sessaoDesafio.id = UUID()
+        sessaoDesafio.data = Date()
+        
+       return sessaoDesafio
+    }
+    
+    func salvarContexto(sessao: SessaoDesafioMult, contexto: NSManagedObjectContext, respostaTexto: String, respostaImagem: UIImage?, desafio: QuestaoDesafios?) {
         do {
             if let desafio = desafio{
-                let sessaoDesafio = SessaoDesafioMult(context: contexto)
-                sessaoDesafio.id = UUID()
-                sessaoDesafio.data = Date()
-                sessaoDesafio.enunciado = desafio.enunciado
-                sessaoDesafio.desafioID = Int64(desafio.id)
-                sessaoDesafio.desafioFeito = desafio.feita
+                
+                sessao.enunciado = desafio.enunciado
+                sessao.desafioID = Int64(desafio.id)
+                sessao.desafioFeito = desafio.feita
                 
                 if desafio.tipo == "imagem"{
-                    sessaoDesafio.mediaFoto = converterAssetParaData(nome: desafio.conteudo)
+                    sessao.mediaFoto = converterAssetParaData(nome: desafio.conteudo)
                 }else{
-                    sessaoDesafio.mediaTexto = desafio.conteudo
+                    sessao.mediaTexto = desafio.conteudo
                 }
                 
                 //se a resposta do usuario for uma imagem
                 if let img = respostaImagem {
-                    sessaoDesafio.respostaFoto = img.pngData() //transformar para binary data
+                    sessao.respostaFoto = img.pngData() //transformar para binary data
                 }else{
-                    sessaoDesafio.respostaTexto = respostaTexto
+                    sessao.respostaTexto = respostaTexto
                 }
                 
                 try contexto.save()

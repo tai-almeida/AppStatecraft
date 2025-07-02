@@ -62,10 +62,15 @@ struct FreeWritingView: View {
                                         //dps associamos a projeto
                                         //TODO: logica de permanencia dos dados sinistra (associar a projeto)
                                         if let prompt = prompt{
-                                            freewritingVM.salvarSemProjeto(
-                                                contexto: contexto,
-                                                respostaTexto: freewritingVM.respostaTexto,
-                                                prompt: prompt.enunciado)
+                                            let sessao = freewritingVM.criarSessao(contexto: contexto)
+                                            
+                                            freewritingVM.salvarContexto(
+                                                            sessao: sessao,
+                                                            contexto: contexto,
+                                                            respostaTexto: freewritingVM.respostaTexto,
+                                                            prompt: prompt.enunciado)
+                                            
+                                                
                                         }
                                         
                                         freewritingVM.respostaTexto = ""

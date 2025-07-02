@@ -81,6 +81,15 @@ struct DesafiosMultimidiaView: View {
 //                                            respostaImagem: image,
 //                                            desafio: desafio
                                      //   )  LEMBRAR DE ARRUMAR ISSO DEPOIS
+                                        let sessaoDesafios = desafiosVM.criarSessao(contexto: viewContext)
+                                        
+                                        desafiosVM.salvarContexto(
+                                            sessao: sessaoDesafios,
+                                            contexto: viewContext,
+                                            respostaTexto: respostaTexto,
+                                            respostaImagem: image,
+                                            desafio: desafio
+                                        )
                                         //TODO: logica de permanencia dos dados sinistra
                                         //criar o "objeto"
                                         //navegar para o modal de adicionar a projeto

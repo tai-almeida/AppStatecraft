@@ -17,7 +17,7 @@ struct FreeWritingView: View {
     let minutos: Int
     let segundos: Int
     @StateObject var timerVM: TimerViewModel = TimerViewModel(minutos: 0, segundos: 0)
-    
+    @State var acabouTempo: Bool = false
     
     var body: some View {
         NavigationView {
@@ -62,10 +62,15 @@ struct FreeWritingView: View {
                                         //dps associamos a projeto
                                         //TODO: logica de permanencia dos dados sinistra (associar a projeto)
                                         if let prompt = prompt{
-                                            freewritingVM.salvarSemProjeto(
-                                                contexto: contexto,
-                                                respostaTexto: freewritingVM.respostaTexto,
-                                                prompt: prompt.enunciado)
+                                            let sessao = freewritingVM.criarSessao(contexto: contexto)
+                                            
+                                            freewritingVM.salvarContexto(
+                                                            sessao: sessao,
+                                                            contexto: contexto,
+                                                            respostaTexto: freewritingVM.respostaTexto,
+                                                            prompt: prompt.enunciado)
+                                            
+                                                
                                         }
                                         
                                         freewritingVM.respostaTexto = ""
@@ -95,12 +100,17 @@ struct FreeWritingView: View {
                 if (!checagem) {
                     let generator = UIImpactFeedbackGenerator(style: .medium)
                     generator.impactOccurred()
-                    print("deu certo a vibracao")
+                    acabouTempo = true
                 }
             }
             .onAppear {
                 timerVM.resetar(minutos:minutos, segundos: segundos)
                 timerVM.comecaContagem()
+            }
+            .alert("Acabou o tempo!", isPresented: $acabouTempo) {
+                Button("Entendi", role: .cancel) {}
+            } message: {
+                Text("O tempo da atividade se esgotou. Agora, finalize a sessão.")
             }
         }
     }

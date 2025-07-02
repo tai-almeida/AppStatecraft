@@ -21,6 +21,9 @@ struct PingPongView: View {
     @State private var isShowingDialog = false
     @State private var isShowingAddProjetos = false
     @StateObject var pingpongVM: PingPongViewModel = PingPongViewModel()
+    @Binding var ehIndividual: Bool
+    @State var estaProcessando: Bool = false
+    @State var acabouTempo: Bool = false
     
     var body: some View {
         NavigationView {
@@ -34,28 +37,51 @@ struct PingPongView: View {
                         VStack () {
 
                             ForEach (Array(palavras.enumerated()), id: \.0) { index, palavra in
-                                VStack {
-                                    ZStack {
-                                        Image("CaixinhaPingPong")
-                                        Text(palavra)
-                                            .foregroundColor(.black)
+                                if (index == palavras.count - 1) {
+                                    VStack {
+                                        ZStack {
+                                            Image("CaixinhaPingPong")
+                                            Text(palavra)
+                                                .foregroundColor(.black)
+                                        }
+                                        Image("LinhaPingPong")
                                     }
-                                    Image("LinhaPingPong")
+                                    .id("ultimaCaixa")
+                                }
+                                else {
+                                    VStack {
+                                        ZStack {
+                                            Image("CaixinhaPingPong")
+                                            Text(palavra)
+                                                .foregroundColor(.black)
+                                        }
+                                        Image("LinhaPingPong")
+                                    }
                                 }
                             }
-                            ZStack {
-                                Image("CaixinhaPingPong")
-                                TextField("Escreva", text: $input)
-                                    .onSubmit{
-                                        palavras.append(input)
-                                        input = ""
-                                    }
-                                    .multilineTextAlignment(.center)
-                                    .foregroundColor(.black)
-                                    .disabled(!timerVM.sendoFeito)
-                                
+                            if (!estaProcessando) {
+                                ZStack {
+                                    Image("CaixinhaPingPong")
+                                    TextField("Escreva", text: $input)
+                                        .onSubmit{
+                                            palavras.append(input)
+                                            input = ""
+                                            if (!ehIndividual) {
+                                                Task {
+                                                    estaProcessando = true
+                                                    let palavraNova = await pingpongVM.continuarPingPong(context: palavras)
+                                                    palavras.append(palavraNova ?? "Erro")
+                                                    estaProcessando = false
+                                                }
+                                            }
+                                        }
+                                        .multilineTextAlignment(.center)
+                                        .foregroundColor(.black)
+                                        .disabled(!timerVM.sendoFeito)
+                                    
+                                }
+                                .id("textField")
                             }
-                            .id("textField")
                         }
             
                     }
@@ -88,10 +114,14 @@ struct PingPongView: View {
                             Button("Adicionar a Projeto") {
                                 self.isShowingAddProjetos = true
                                 //dps associamos a projeto
-                                pingpongVM.salvarSemProjeto(
-                                    contexto: viewContext,
-                                    palavras: palavras
+                                let sessao = pingpongVM.criarSessao(
+                                    contexto: viewContext
                                 )
+                                
+                                pingpongVM.salvarContexto(
+                                    sessao: sessao,
+                                    contexto: viewContext,
+                                    palavras: palavras)
                                 //TODO: logica de permanencia dos dados sinistra
                                 //criar o "objeto"
                                 //navegar para o modal de adicionar a projeto
@@ -119,6 +149,7 @@ struct PingPongView: View {
         if (!checagem) {
             let generator = UIImpactFeedbackGenerator(style: .medium)
             generator.impactOccurred()
+            acabouTempo = true
             //print("deu certo a vibracao")
         }
     }
@@ -126,12 +157,13 @@ struct PingPongView: View {
         timerVM.resetar(minutos:minutos, segundos: segundos)
         timerVM.comecaContagem()
     }
+    .alert("Acabou o tempo!", isPresented: $acabouTempo) {
+        Button("Entendi", role: .cancel) {}
+    } message: {
+        Text("O tempo da atividade se esgotou. Agora, finalize a sessão.")
+    }
         
     }
-}//struct PingPongView_Previews: PreviewProvider {
-//    static var previews: some View {
-//        PingPongView()
-//    }
-//}
+}
 
 

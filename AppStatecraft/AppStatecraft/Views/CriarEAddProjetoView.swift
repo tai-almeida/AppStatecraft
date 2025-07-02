@@ -14,7 +14,7 @@ struct criarEAddProjetoView: View {
     
     @Environment(\.managedObjectContext) private var viewContext
     @Environment(\.dismiss) private var dismiss
-    private var projeto: FetchRequest<Projeto>
+   // private var projeto: FetchRequest<Projeto>
     
     let respostaTexto: String?
     let respostaFoto: UIImage? //ver depois de passar como objeto mesmo para ficar mais legivel
@@ -35,6 +35,7 @@ struct criarEAddProjetoView: View {
                     .toolbar {
                         ToolbarItem(placement: .cancellationAction) {
                             Button("Cancelar") {
+                            
                                 dismiss()
                             }
                             foregroundColor(.accentColor)

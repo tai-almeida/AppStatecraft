@@ -8,11 +8,11 @@
 import SwiftUI
 
 struct ContainerPromptView: View {
-    var prompt: PromptFW
+    var enunciado: String
     
     var body: some View {
         VStack{
-            Text(prompt.enunciado)
+            Text(enunciado)
                 .foregroundColor(.black)
                 .padding(.vertical)
                 .padding(.horizontal, 10)

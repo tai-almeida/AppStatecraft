@@ -43,13 +43,6 @@ struct MaieuticaView: View {
                         }
                     }
                     Spacer()
-                    /*Text(respostasUsuario[indiceAtual])
-                        .foregroundColor(.black)
-                        .frame(maxWidth: .infinity, alignment: .leading)
-                        .padding()
-                        .background(Color.gray.opacity(0.1))
-                        .cornerRadius(8)
-                        .padding(.horizontal)*/
                 }
                 
                 Spacer()
@@ -66,7 +59,7 @@ struct MaieuticaView: View {
                                 
                                 let respostaIA = await viewModel.fazerRequisicao(context: textoUser)
                                 historicoIA.append(respostaIA)
-                                respostasUsuario.append("")
+                                //respostasUsuario.append("")
                                 indiceAtual = historicoIA.count - 1
                                 textoUser = ""
                             } else {
@@ -114,9 +107,9 @@ struct MaieuticaView: View {
                         titleVisibility: .hidden
                     ) {
                         Button("Adicionar a Projeto") {
-                            print(indiceAtual)
-                            print(historicoIA.count)
-                            print(respostasUsuario.count)
+//                            print(indiceAtual)
+//                            print(historicoIA.count)
+//                            print(respostasUsuario.count)
                             self.isShowingAddProjetos = true
                             self.respostasUsuario.append(textoUser)
                             //dps associamos a projeto

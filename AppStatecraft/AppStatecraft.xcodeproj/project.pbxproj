@@ -664,7 +664,7 @@
 				A43C40942E0EFC34009B9E85 /* Sessao+CoreDataClass.swift in Sources */,
 				ED82ED432DFC6FC0006BE6D5 /* DesafiosUtilities.swift in Sources */,
 
-				A48ABE002E0C22FA00483673 /* Projeto+CoreDataProperties.swift in Sources */,
+				
 				64D09EDF2E0EE41A00758A21 /* DetalhesProjetoView.swift in Sources */,
 				
 				A48ABDFD2E0C22FA00483673 /* SessaoFreeWriting+CoreDataClass.swift in Sources */,

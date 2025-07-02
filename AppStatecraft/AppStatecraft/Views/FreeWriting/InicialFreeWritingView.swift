@@ -11,7 +11,7 @@ import SwiftUI
 struct InicialFreeWritingView: View {
     
     @State private var showingSheet = false
-    @State private var minutes = 1
+    @State private var minutes = 15
     @State private var seconds = 0
     
     

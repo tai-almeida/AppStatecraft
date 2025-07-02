@@ -67,16 +67,13 @@ struct DesafiosMultimidiaView: View {
                                     titleVisibility: .hidden
                                 ) {
                                     Button("Adicionar a Projeto") {
-<<<<<<< HEAD
                                         
                                         DispatchQueue.main.async {
                                             self.isShowingAddProjetos = true
                                         }
                                             
                                         
-=======
                                         //self.isShowingAddProjetos = true
->>>>>>> aad7ec5bb0cf1bc10b08b8bc0b3c35c3e7f5645b
                                         //dps associamos a projeto
 //                                        desafiosVM.salvarSemProjeto(
 //                                            contexto: viewContext,

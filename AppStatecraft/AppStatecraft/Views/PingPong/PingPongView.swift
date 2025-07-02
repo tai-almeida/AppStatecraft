@@ -117,11 +117,12 @@ struct PingPongView: View {
                                 sessao = pingpongVM.criarSessao(contexto: viewContext, palavras: palavras)
                                 self.isShowingAddProjetos = true
                                 self.palavras = []
-                                dismiss()
                             }
-                            Button("Salvar em Esboços") {
+                            Button("Salvar em Histórico") {
                                 sessao = pingpongVM.criarSessao(contexto: viewContext, palavras: palavras)
                                 pingpongVM.salvarContexto(contexto: viewContext)
+                                self.isShowingAddProjetos = true
+                                self.palavras = []
                                 dismiss()
                             }
                             Button("Descartar", role: .destructive) {

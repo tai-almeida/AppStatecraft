@@ -80,6 +80,8 @@ struct DesafiosMultimidiaView: View {
                                     Button("Salvar no Histórico") {
                                         sessaoDesafios = desafiosVM.criarSessao(contexto: viewContext, respostaTexto: respostaTexto, respostaImagem: image, desafio: desafio)
                                         desafiosVM.salvarContexto(contexto: viewContext) //isso aqui vai sari daqui
+                                        self.respostaTexto = ""
+                                        self.image = nil
                                         dismiss()
                                     }
                                     Button("Descartar", role: .destructive) {

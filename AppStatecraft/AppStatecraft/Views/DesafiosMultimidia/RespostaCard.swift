@@ -38,22 +38,20 @@ struct RespostaCard: View {
                 .padding(12)
             } else {
                 ZStack(alignment: .topLeading) {
-                    Text(respostaTexto + "\n")
+                    Text(respostaTexto)
                         .font(.body)
-                        .padding(8)
                         .foregroundColor(.clear)
                         .accessibilityHidden(true)
+                        .padding()
                     
                     TextEditor(text: $respostaTexto)
                         .font(.body)
-                    
-                    // Placeholder para o TextEditor
                     
                     if respostaTexto.isEmpty {
                         Text("Digite sua resposta aqui...")
                             .foregroundColor(.gray.opacity(0.7))
                             .padding(12)
-                            .allowsHitTesting(false) // Permite que o toque "passe" para o TextEditor
+                            .allowsHitTesting(false) 
                     }
                 }
             }

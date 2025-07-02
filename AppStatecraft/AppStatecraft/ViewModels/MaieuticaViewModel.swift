@@ -6,11 +6,26 @@
 //
 
 import Foundation
+import SwiftUI
+import CoreData
+
+struct ContentItem: Codable {
+    let type: String
+    let text: String
+}
+
+struct OutputItem: Codable {
+    let content: [ContentItem]
+}
+
+struct OpenAIResponse: Codable {
+    let output: [OutputItem]
+}
 
 class MaieuticaViewModel: ObservableObject {
 
     func fazerRequisicao(context: String) async -> String {
-        let url = URL(string: "https://api.replicate.com/v1/models/openai/gpt-4o-mini/predictions")!
+        let url = URL(string: "https://api.openai.com/v1/responses")!
         var request = URLRequest(url: url)
         request.httpMethod = "POST"
         
@@ -23,77 +38,68 @@ class MaieuticaViewModel: ObservableObject {
         request.setValue("application/json", forHTTPHeaderField: "Content-Type")
         
         let system_prompt = """
-        Como Sócrates, você deve realizar o processo da maiêutica com base no prompt. Dado uma ideia escrita por um usuário, identifique os termos mais importantes e gere uma pergunta bem sucinta e que faça sentido, mas também criativa, que estimule o usuário a expandir sua ideia. Questione a viabilidade, implicações e suposições por trás dos termos usados. Evite repetir a ideia. Seja direto e instigante. Faça uma pergunta bem curta, finalizada por um ponto de interrogação. Não disserte, só faça a pergunta.
+        Como Sócrates, você deve realizar o processo da maiêutica com base no prompt. Dado uma ideia escrita por um usuário, identifique os termos mais importantes e gere uma pergunta bem sucinta e que faça sentido, mas também criativa, que estimule o usuário a expandir sua ideia. Questione a viabilidade, implicações e suposições por trás dos termos usados. Evite repetir a ideia. Seja direto e instigante. Faça uma pergunta bem curta, finalizada por um ponto de interrogação. Não disserte, só faça a pergunta. Segue o prompt do usuário:
         """
         
         let jsonBody: [String: Any] = [
-            "stream": false,
-            "input": [
-                "prompt": context,
-                "system_prompt": system_prompt,
-                "temperature": 0.9,
-                "max_completion_tokens": 45
-            ]
+            "model": "gpt-4o-mini-2024-07-18",
+            "input": system_prompt + context
         ]
         
         request.httpBody = try? JSONSerialization.data(withJSONObject: jsonBody)
         
         do {
             let (data, _) = try await URLSession.shared.data(for: request)
-            
-            if let json = try? JSONSerialization.jsonObject(with: data) as? [String: Any],
-               let predictionId = json["id"] as? String {
-                
-                // Espera a resposta finalizada
-                if let resposta = await checarRequisicao(idRequisicao: predictionId) {
-                    return resposta
-                } else {
-                    return "Erro ao obter resposta."
-                }
+            let decoded = try JSONDecoder().decode(OpenAIResponse.self, from: data)
+            if let text = decoded.output.first?.content.first?.text {
+                print("Texto da resposta: \(text)")
+                return text
             } else {
-                return "Erro ao criar requisição."
+                return "Texto não encontrado"
             }
         } catch {
-            return "Erro: \(error.localizedDescription)"
+            return "Erro ao decodificar JSON: \(error)"
         }
     }
     
-    /// Checa o status da requisição até terminar, e retorna a resposta
-    func checarRequisicao(idRequisicao: String) async -> String? {
-        let url_ans = URL(string: "https://api.replicate.com/v1/predictions/\(idRequisicao)")!
-        var request_ans = URLRequest(url: url_ans)
-        request_ans.httpMethod = "GET"
+    
+    
+    func juntaPromptsRespostas(historicoIA: [String], respostasUsuario: [String]) -> [PromptResposta] {
+        var historico: [PromptResposta] = []
+        let numRespostas = min(historicoIA.count, respostasUsuario.count)
         
-        if let path = Bundle.main.path(forResource: "Secrets", ofType: "plist"),
-           let dict = NSDictionary(contentsOfFile: path),
-           let apiKey = dict["API_KEY"] as? String {
-            request_ans.setValue("Bearer \(apiKey)", forHTTPHeaderField: "Authorization")
+        for i in 0..<numRespostas {
+            historico.append(PromptResposta(pergunta: historicoIA[i], resposta: respostasUsuario[i], index: i))
+//            historico[historicoIA[index]] = respostasUsuario[index]
         }
-        request_ans.setValue("application/json", forHTTPHeaderField: "Content-Type")
+        return historico
+    }
+    
+    func salvarSemProjeto(contexto: NSManagedObjectContext, historicoIA: [String], respostasUsuario: [String]){
+        
+        let historico = juntaPromptsRespostas(historicoIA: historicoIA, respostasUsuario: respostasUsuario)
+    
+        let novaSessao = SessaoMaieutica(context: contexto)
+        novaSessao.id = UUID()
+        novaSessao.data = Date()
         
         do {
-            var (data, _) = try await URLSession.shared.data(for: request_ans)
-            if var json = try? JSONSerialization.jsonObject(with: data) as? [String: Any],
-               var status = json["status"] as? String {
+            let logData = try JSONEncoder().encode(historico)
+            novaSessao.log = logData
+            try contexto.save()
+            print("deu bom salvou")
                 
-                // Espera até terminar
-                while status != "succeeded" {
-                    try await Task.sleep(nanoseconds: 1_000_000_000) // 1 segundo entre tentativas
-                    (data, _) = try await URLSession.shared.data(for: request_ans)
-                    json = try JSONSerialization.jsonObject(with: data) as? [String: Any] ?? [:]
-                    status = json["status"] as? String ?? "error"
-                }
-                
-                if let ans = json["output"] as? [String] {
-                    return ans.joined()
-                } else {
-                    return nil
-                }
-            }
-        } catch {
-            return nil
+        }catch{
+            print("Desafio ta vazio")
         }
-        return nil
     }
 }
+
+
+struct PromptResposta: Codable {
+    let pergunta: String
+    let resposta: String
+    let index: Int
+}
+
 

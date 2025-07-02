@@ -40,7 +40,7 @@ class HistoricoViewModel: ObservableObject {
             requisicao = NSFetchRequest<Sessao>(entityName: "SessaoDesafioMult")
             ordenadorDeData = NSSortDescriptor(keyPath: \SessaoDesafioMult.data, ascending: false)
         case "freewriting":
-            requisicao = NSFetchRequest<Sessao>(entityName: "SessaoFreewriting")
+            requisicao = NSFetchRequest<Sessao>(entityName: "SessaoFreeWriting")
             ordenadorDeData = NSSortDescriptor(keyPath: \SessaoFreeWriting.data, ascending: false)
         case "pingpong":
             requisicao = NSFetchRequest<Sessao>(entityName: "SessaoPingPong")

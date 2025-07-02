@@ -44,7 +44,7 @@ struct EtapasSalvasView: View {
     @State var indiceAtual = 0
     
     var body: some View {
-        ScrollView {
+//        ScrollView {
             if let logData = sessao.log,
            let historico = try? JSONDecoder().decode([PromptResposta].self, from: logData),
            !historico.isEmpty {
@@ -91,7 +91,7 @@ struct EtapasSalvasView: View {
                 }
                 .disabled(indiceAtual == historicoOrdenado.count - 1)
             }
-        }
+//        }
        
     }
 }

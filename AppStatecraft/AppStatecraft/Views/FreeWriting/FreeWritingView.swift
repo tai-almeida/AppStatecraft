@@ -18,6 +18,9 @@ struct FreeWritingView: View {
     let segundos: Int
     @StateObject var timerVM: TimerViewModel = TimerViewModel(minutos: 0, segundos: 0)
     @State var acabouTempo: Bool = false
+    @State private var sessao: SessaoFreeWriting? = nil
+    @State private var isShowingAddProjetos = false
+
     
     var body: some View {
         NavigationView {
@@ -58,28 +61,28 @@ struct FreeWritingView: View {
                                     titleVisibility: .hidden
                                 ) {
                                     Button("Adicionar a Projeto") {
-                                        //self.isShowingAddProjetos = true
-                                        //dps associamos a projeto
-                                        //TODO: logica de permanencia dos dados sinistra (associar a projeto)
-                                        if let prompt = prompt{
-                                            let sessao = freewritingVM.criarSessao(contexto: contexto)
-                                            
-                                            freewritingVM.salvarContexto(
-                                                            sessao: sessao,
-                                                            contexto: contexto,
-                                                            respostaTexto: freewritingVM.respostaTexto,
-                                                            prompt: prompt.enunciado)
-                                            
-                                                
+                                        guard let prompt = prompt else {
+                                            print("Erro: O prompt é nulo. A sessão não pode ser criada.")
+                                            return
                                         }
                                         
+                                        sessao = freewritingVM.criarSessao(contexto: contexto, resposta: freewritingVM.respostaTexto, prompt: prompt)
+                                        freewritingVM.salvarContexto(contexto: contexto)
+                                        
+                                        self.isShowingAddProjetos = true
                                         freewritingVM.respostaTexto = ""
                                         dismiss()
                                     }
-                                    Button("Salvar em Esboços") {
-                                        //TODO: logica de permanencia dos dados, so que salvar no esbocos tomee
-                                        freewritingVM.isShowingDialog = false
+                                    Button("Salvar em Histórico") {
+                                        guard let prompt = prompt else {
+                                            print("Erro: O prompt é nulo. A sessão não pode ser criada.")
+                                            return
+                                        }
                                         
+                                        sessao = freewritingVM.criarSessao(contexto: contexto, resposta: freewritingVM.respostaTexto, prompt: prompt)
+                                        freewritingVM.salvarContexto(contexto: contexto)
+                                        freewritingVM.respostaTexto = ""
+                                        dismiss()
                                     }
                                     Button("Descartar", role: .destructive) {
                                         dismiss()
@@ -95,6 +98,9 @@ struct FreeWritingView: View {
                 .onAppear{
                     self.prompt = freewritingVM.sorteiaPrompt()
                 }
+            }
+            .fullScreenCover(isPresented: $isShowingAddProjetos) {
+                AddProjetoView(sessao: sessao)
             }
             .onChange(of: timerVM.sendoFeito) { checagem in
                 if (!checagem) {

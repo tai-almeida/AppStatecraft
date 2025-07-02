@@ -75,21 +75,22 @@ class MaieuticaViewModel: ObservableObject {
         return historico
     }
     
-    func criaSessao(contexto: NSManagedObjectContext) -> SessaoMaieutica {
-        
-        let novaSessao = SessaoMaieutica(context: contexto)
-        novaSessao.id = UUID()
-        novaSessao.data = Date()
-        
-        return novaSessao
-    }
-    
-    func salvaContexto(sessao: SessaoMaieutica, contexto: NSManagedObjectContext, historicoIA: [String], respostasUsuario: [String]) {
+    func criaSessao(contexto: NSManagedObjectContext, historicoIA: [String], respostasUsuario: [String]) -> SessaoMaieutica {
         let historico = juntaPromptsRespostas(historicoIA: historicoIA, respostasUsuario: respostasUsuario)
-
+        let sessao = SessaoMaieutica(context: contexto)
+        sessao.id = UUID()
+        sessao.data = Date()
         do {
             let logData = try JSONEncoder().encode(historico)
             sessao.log = logData
+        } catch{
+            print("Erro ao decodificar json")
+        }
+        return sessao
+    }
+    
+    func salvaContexto(contexto: NSManagedObjectContext) {
+        do {
             try contexto.save()
             print("deu bom salvou")
                 

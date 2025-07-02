@@ -131,41 +131,39 @@ class DesafiosMultimidiaViewModel: ObservableObject {
         return desafiosNaoFeitos.randomElement()
     }
     
-    func criarSessao(contexto: NSManagedObjectContext) -> SessaoDesafioMult {
+    func criarSessao(contexto: NSManagedObjectContext, respostaTexto: String, respostaImagem: UIImage?, desafio: QuestaoDesafios?) -> SessaoDesafioMult {
         
         let sessaoDesafio = SessaoDesafioMult(context: contexto)
         sessaoDesafio.id = UUID()
         sessaoDesafio.data = Date()
-        
+        if let desafio = desafio{
+            
+            sessaoDesafio.enunciado = desafio.enunciado
+            sessaoDesafio.desafioID = Int64(desafio.id)
+            sessaoDesafio.desafioFeito = desafio.feita
+            
+            if desafio.tipo == "imagem"{
+                sessaoDesafio.mediaFoto = converterAssetParaData(nome: desafio.conteudo)
+            }else{
+                sessaoDesafio.mediaTexto = desafio.conteudo
+            }
+            
+            //se a resposta do usuario for uma imagem
+            if let img = respostaImagem {
+                sessaoDesafio.respostaFoto = img.pngData() //transformar para binary data
+            }else{
+                sessaoDesafio.respostaTexto = respostaTexto
+            }
+        }else{
+            print("Desafio ta vazio")
+        }
        return sessaoDesafio
     }
     
-    func salvarContexto(sessao: SessaoDesafioMult, contexto: NSManagedObjectContext, respostaTexto: String, respostaImagem: UIImage?, desafio: QuestaoDesafios?) {
+    func salvarContexto(contexto: NSManagedObjectContext) {
         do {
-            if let desafio = desafio{
-                
-                sessao.enunciado = desafio.enunciado
-                sessao.desafioID = Int64(desafio.id)
-                sessao.desafioFeito = desafio.feita
-                
-                if desafio.tipo == "imagem"{
-                    sessao.mediaFoto = converterAssetParaData(nome: desafio.conteudo)
-                }else{
-                    sessao.mediaTexto = desafio.conteudo
-                }
-                
-                //se a resposta do usuario for uma imagem
-                if let img = respostaImagem {
-                    sessao.respostaFoto = img.pngData() //transformar para binary data
-                }else{
-                    sessao.respostaTexto = respostaTexto
-                }
-                
-                try contexto.save()
-                print("deu bom salvou")
-            }else{
-                print("Desafio ta vazio")
-            }
+            try contexto.save()
+            print("deu bom salvou")
         } catch {
             print("erro ao salvar a resposta - \(error)")
         }

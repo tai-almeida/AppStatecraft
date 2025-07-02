@@ -13,8 +13,11 @@
 		242B855C2E0EC558006EE127 /* RespostaMaieutica.swift in Sources */ = {isa = PBXBuildFile; fileRef = 242B855B2E0EC558006EE127 /* RespostaMaieutica.swift */; };
 		24BC38DF2E0D99360050023C /* Secrets.plist in Resources */ = {isa = PBXBuildFile; fileRef = 24BC38DE2E0D99360050023C /* Secrets.plist */; };
 		24E7D6792E0C1F2F0064BAD1 /* PingPongViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24E7D6782E0C1F2F0064BAD1 /* PingPongViewController.swift */; };
+		644EC39E2E12AB41003AD6E9 /* ReqProjetos.swift in Sources */ = {isa = PBXBuildFile; fileRef = 644EC39D2E12AB41003AD6E9 /* ReqProjetos.swift */; };
+		644EC3A02E12CEE4003AD6E9 /* CriarEAddProjetoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 644EC39F2E12CEE3003AD6E9 /* CriarEAddProjetoView.swift */; };
 		64D09EDF2E0EE41A00758A21 /* DetalhesProjetoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64D09EDE2E0EE41A00758A21 /* DetalhesProjetoView.swift */; };
 		64D09EE12E0EE46300758A21 /* ProjetoCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64D09EE02E0EE46300758A21 /* ProjetoCardView.swift */; };
+		64D09EE32E0EE7B700758A21 /* ProjetosViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64D09EE22E0EE7B700758A21 /* ProjetosViewModel.swift */; };
 		A40457702E14036800F470D1 /* BotaoCloseModal.swift in Sources */ = {isa = PBXBuildFile; fileRef = A404576F2E14036800F470D1 /* BotaoCloseModal.swift */; };
 		A40C5B202E02DFDE00C30D6E /* DesafiosMultimidiaView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A40C5B1F2E02DFDE00C30D6E /* DesafiosMultimidiaView.swift */; };
 		A417CC9D2DF9CB7800564508 /* FreeWritingViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A417CC9C2DF9CB7800564508 /* FreeWritingViewModel.swift */; };
@@ -108,8 +111,11 @@
 		242B855B2E0EC558006EE127 /* RespostaMaieutica.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RespostaMaieutica.swift; sourceTree = "<group>"; };
 		24BC38DE2E0D99360050023C /* Secrets.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Secrets.plist; sourceTree = "<group>"; };
 		24E7D6782E0C1F2F0064BAD1 /* PingPongViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PingPongViewController.swift; sourceTree = "<group>"; };
+		644EC39D2E12AB41003AD6E9 /* ReqProjetos.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReqProjetos.swift; sourceTree = "<group>"; };
+		644EC39F2E12CEE3003AD6E9 /* CriarEAddProjetoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CriarEAddProjetoView.swift; sourceTree = "<group>"; };
 		64D09EDE2E0EE41A00758A21 /* DetalhesProjetoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetalhesProjetoView.swift; sourceTree = "<group>"; };
 		64D09EE02E0EE46300758A21 /* ProjetoCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjetoCardView.swift; sourceTree = "<group>"; };
+		64D09EE22E0EE7B700758A21 /* ProjetosViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjetosViewModel.swift; sourceTree = "<group>"; };
 		A404576F2E14036800F470D1 /* BotaoCloseModal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BotaoCloseModal.swift; sourceTree = "<group>"; };
 		A40C5B1F2E02DFDE00C30D6E /* DesafiosMultimidiaView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DesafiosMultimidiaView.swift; sourceTree = "<group>"; };
 		A417CC9C2DF9CB7800564508 /* FreeWritingViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FreeWritingViewModel.swift; sourceTree = "<group>"; };
@@ -222,6 +228,7 @@
 			isa = PBXGroup;
 			children = (
 				ED82ED442DFC6FD2006BE6D5 /* QuestaoDesafios.swift */,
+				644EC39D2E12AB41003AD6E9 /* ReqProjetos.swift */,
 				ED81EB2D2E0C37B0003062BA /* PromptFW.swift */,
 			);
 			path = Models;
@@ -236,6 +243,7 @@
 				ED81EB3B2E0D65F2003062BA /* TimerViewModel.swift */,
 				ED82ED3E2DFC6E05006BE6D5 /* DesafiosMultimidiaViewModel.swift */,
 				A48ABE052E0C293500483673 /* HistoricoViewModel.swift */,
+				64D09EE22E0EE7B700758A21 /* ProjetosViewModel.swift */,
 				242B85552E0EBFA1006EE127 /* MaieuticaViewModel.swift */,
 			);
 			path = ViewModels;
@@ -258,6 +266,7 @@
 				A404576F2E14036800F470D1 /* BotaoCloseModal.swift */,
 				A46C081E2E02F9F100129CE7 /* ImagePicker.swift */,
 				A44BD6F92E0AD68400B840EB /* AddProjetoView.swift */,
+				644EC39F2E12CEE3003AD6E9 /* CriarEAddProjetoView.swift */,
 				64D09EDE2E0EE41A00758A21 /* DetalhesProjetoView.swift */,
 				64D09EE02E0EE46300758A21 /* ProjetoCardView.swift */,
 				A47175B22E01A16C00AC6B12 /* DesafiosMultimidia */,
@@ -640,6 +649,7 @@
 				242B85562E0EBFA1006EE127 /* MaieuticaViewModel.swift in Sources */,
 				242B855A2E0EC00A006EE127 /* MaieuticaView.swift in Sources */,
 				ED695A6A2E01B3DA009C0BE0 /* MetodologiasView.swift in Sources */,
+				64D09EE32E0EE7B700758A21 /* ProjetosViewModel.swift in Sources */,
 				A43C40912E0EFC34009B9E85 /* SessaoMaieutica+CoreDataProperties.swift in Sources */,
 				A4773CA52E01B0E4002D27D7 /* AppStatecraft.xcdatamodeld in Sources */,
 				ED84819B2E004534007E5709 /* DesafioUtilities.swift in Sources */,
@@ -653,6 +663,7 @@
 				A43C40792E0EE7DE009B9E85 /* MultimidiaSalvoView.swift in Sources */,
 				A43C40942E0EFC34009B9E85 /* Sessao+CoreDataClass.swift in Sources */,
 				ED82ED432DFC6FC0006BE6D5 /* DesafiosUtilities.swift in Sources */,
+				644EC39E2E12AB41003AD6E9 /* ReqProjetos.swift in Sources */,
 				64D09EDF2E0EE41A00758A21 /* DetalhesProjetoView.swift in Sources */,
 				64D09EE12E0EE46300758A21 /* ProjetoCardView.swift in Sources */,
 				EDF2654F2DF9A9F800898EBA /* AppStatecraftApp.swift in Sources */,
@@ -664,6 +675,7 @@
 				242B855C2E0EC558006EE127 /* RespostaMaieutica.swift in Sources */,
 				E8FF55492E142DA9001C5407 /* SwiftUIView.swift in Sources */,
 				A43C408D2E0EFC34009B9E85 /* SessaoDesafioMult+CoreDataProperties.swift in Sources */,
+				644EC3A02E12CEE4003AD6E9 /* CriarEAddProjetoView.swift in Sources */,
 				ED81EB282E0C25B1003062BA /* InicialFreeWritingView.swift in Sources */,
 				A40C5B202E02DFDE00C30D6E /* DesafiosMultimidiaView.swift in Sources */,
 				A47175B92E01A23A00AC6B12 /* ContainerEnunciadoView.swift in Sources */,

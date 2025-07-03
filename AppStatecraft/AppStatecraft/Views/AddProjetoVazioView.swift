@@ -8,48 +8,64 @@
 import SwiftUI
 
 struct AddProjetoVazioView: View {
+    @Environment(\.dismiss) private var dismiss
     @Binding var nomeProjeto: String
     
     var body: some View {
-        VStack(alignment: .leading) {
-            Text("NOME DO PROJETO")
-                .foregroundColor(.secondary)
-            
-            Divider()
-            
-            TextField("Nome", text: $nomeProjeto)
-                .padding()
-                .frame(height: 40)
-                .background(.white)
-                .cornerRadius(8)
-            
-            Text("Capa")
-                .foregroundColor(.secondary)
-                .padding(.top)
-            Divider()
-                .padding(.bottom)
-                        
-            Button(action: {
+        NavigationView {
+            VStack(alignment: .leading) {
+                Text("NOME DO PROJETO")
+                    .foregroundColor(.secondary)
                 
-            }) {
-                HStack {
-                    Text("Escolher fotos existentes")
+                Divider()
+                
+                TextField("Nome", text: $nomeProjeto)
+                    .padding()
+                    .frame(height: 40)
+                    .background(.white)
+                    .cornerRadius(8)
+                
+                Text("Capa")
+                    .foregroundColor(.secondary)
+                    .padding(.top)
+                Divider()
+//                    .padding(.bottom)
+                            
+                Button(action: {
                     
-                    Spacer()
-                    
-                    Image(systemName: "chevron.right")
-                        .foregroundColor(Color(.tertiaryLabel))
-                        .background(.white)
+                }) {
+                    HStack {
+                        Text("Escolher fotos existentes")
+                        
+                        Spacer()
+                        
+                        Image(systemName: "chevron.right")
+                            .foregroundColor(Color(.tertiaryLabel))
 
-
+                    }
                 }
             }
-                
-                
+            .frame(maxWidth: .infinity, maxHeight: .infinity)
+            .padding()
+            .background(Color(UIColor.secondarySystemBackground))
+            .navigationTitle("Adicionar Projeto")
+            .navigationBarTitleDisplayMode(.inline)
+            
+            .toolbar {
+                ToolbarItem(placement: .navigationBarLeading) {
+                    Button("Cancelar") {
+                        dismiss()
+                    }
+                }
+                ToolbarItem(placement: .navigationBarTrailing) {
+                    Button("Salvar") {
+                        // chamar funcao criarNovoProjeto(nome: nomeProjeto, foto: foto)
+                    }
+                }
+            }
         }
-        .frame(maxWidth: .infinity, maxHeight: .infinity)
-        .padding()
-        .background(Color(UIColor.secondarySystemBackground))
+        
+        
 
         
     }

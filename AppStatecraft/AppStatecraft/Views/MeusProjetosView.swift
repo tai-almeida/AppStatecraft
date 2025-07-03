@@ -33,9 +33,9 @@ struct ProjetosView: View {
                 .padding(.top, 8)
                 
                 if projetosConcluidos == "Em andamento" {
-                    VStack(alignment: .leading, spacing: 8) {
+                    VStack(alignment: .center) {
                         ScrollView {
-                            LazyVGrid(columns: colunaCard, spacing: 20){
+                            LazyVGrid(columns: colunaCard, spacing: 16){
 //                                CardMyProject(
 //                                    systemImage: "lightbulb.fill",
 //                                    titulo: "Minhas Ideias",
@@ -49,7 +49,7 @@ struct ProjetosView: View {
                                     
                                 }
                             }
-                            .padding(20)
+//                            .padding(20)
                             
                             //                        LazyVGrid(columns: coalumns, spacing: 20) {
                             //                            ForEach(projetos, id: \.self) { projeto in
@@ -61,8 +61,8 @@ struct ProjetosView: View {
                             
                         }
                     }
-                    .frame(maxWidth: .infinity, alignment: .leading)
-                    .padding(.leading, 20)
+                    .frame(maxWidth: .infinity)
+                    .padding(.horizontal)
                 } else {
                     VStack {
                         Text("Conteúdo dos projetos concluídos")

@@ -13,8 +13,7 @@ struct DesafiosMultimidiaView: View {
     //vamo refatorar isso dps slk
     @Environment(\.dismiss) var dismiss
     @Environment(\.managedObjectContext) private var viewContext
-    
-    
+    @Binding var metodologiaAparecendo: Bool
     @State private var showImagePicker: Bool = false
     @State private var image: UIImage?
     @State private var respostaTexto: String = ""
@@ -54,7 +53,7 @@ struct DesafiosMultimidiaView: View {
                         .toolbar {
                             ToolbarItem(placement: .cancellationAction) {
                                 Button("Cancelar") {
-                                    dismiss()
+                                    self.metodologiaAparecendo = false
                                 }
                                 .foregroundColor(.accentColor)
                             }
@@ -70,9 +69,7 @@ struct DesafiosMultimidiaView: View {
                                     Button("Adicionar a Projeto") {
                                         sessaoDesafios = desafiosVM.criarSessao(contexto: viewContext, respostaTexto: respostaTexto, respostaImagem: image, desafio: desafio)
                                         //desafiosVM.salvarContexto(contexto: viewContext) //isso aqui vai sari daqui
-                                        DispatchQueue.main.async {
-                                            self.isShowingAddProjetos = true
-                                        }
+                                        self.isShowingAddProjetos = true
                                         self.respostaTexto = ""
                                         self.image = nil
                                     }
@@ -92,25 +89,14 @@ struct DesafiosMultimidiaView: View {
                                     }
                                 }
                             }
-                        }//por enquanto vou salvar sem projeto para testar o mecanismo -sofi
-//                        .fullScreenCover(isPresented: $isShowingAddProjetos) {
-//                            //view de addProjeto
-//                            if let desafio = desafio{
-//                                AddProjetoView(
-//                                    respostaTexto: respostaTexto,
-//                                    respostaFoto: image,
-//                                    desafio: desafio)
-//                            }else{
-//                                //tratar se for nil
-//                            }
-                        //}
+                        }
                 }
             
             }.onAppear{
                 self.desafio = desafiosVM.sorteiaDesafio()
             }
             .fullScreenCover(isPresented: $isShowingAddProjetos) {
-                AddProjetoView(sessao: sessaoDesafios)
+                AddProjetoView(metodologiaAparecendo: $metodologiaAparecendo, sessao: sessaoDesafios)
             }
         }
         .foregroundColor(.primary)

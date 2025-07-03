@@ -66,7 +66,7 @@ struct InicialFreeWritingView: View {
                 .padding(.horizontal)
                 .padding(.vertical)
                 .fullScreenCover(isPresented: $showingSheet) {
-                    FreeWritingView(minutos: minutes, segundos: seconds)
+                    FreeWritingView(metodologiaAparecendo: $showingSheet, minutos: minutes, segundos: seconds)
                         .accentColor(Color("AccentColor"))
                         .interactiveDismissDisabled()
                 }

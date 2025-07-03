@@ -8,14 +8,13 @@ import AVFoundation
 import SwiftUI
 
 struct PingPongView: View {
-    //@StateObject var viewModel = PingPongViewModel()
+    @Binding var metodologiaAparecendo: Bool
     @Binding var textoIA: String
     @Binding var palavras: [String]
     @State var input = ""
     @Environment(\.dismiss) var dismiss
     @StateObject private var timerVM: TimerViewModel = TimerViewModel(minutos: 0, segundos: 0)
     @Environment(\.managedObjectContext) private var viewContext
-
     let minutos: Int
     let segundos: Int
     @State private var isShowingDialog = false
@@ -121,7 +120,6 @@ struct PingPongView: View {
                             Button("Salvar em Histórico") {
                                 sessao = pingpongVM.criarSessao(contexto: viewContext, palavras: palavras)
                                 pingpongVM.salvarContexto(contexto: viewContext)
-                                self.isShowingAddProjetos = true
                                 self.palavras = []
                                 dismiss()
                             }
@@ -138,7 +136,7 @@ struct PingPongView: View {
         }
     }
     .fullScreenCover(isPresented: $isShowingAddProjetos) {
-        AddProjetoView(sessao: sessao)
+        AddProjetoView(metodologiaAparecendo: $metodologiaAparecendo, sessao: sessao)
     }
     .onChange(of: timerVM.sendoFeito) { checagem in
         if (!checagem) {

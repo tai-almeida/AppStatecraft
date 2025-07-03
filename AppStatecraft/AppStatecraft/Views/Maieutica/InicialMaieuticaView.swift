@@ -48,7 +48,7 @@ struct InicialMaieuticaView: View {
                 showingSheet.toggle()
             }
             .fullScreenCover(isPresented: $showingSheet) {
-                MaieuticaView()
+                MaieuticaView(metodologiaAparecendo: $showingSheet)
                     .accentColor(Color("AccentColor"))
                     .interactiveDismissDisabled()
             }

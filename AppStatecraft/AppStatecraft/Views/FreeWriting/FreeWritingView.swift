@@ -14,6 +14,7 @@ struct FreeWritingView: View {
     
     @StateObject private var freewritingVM = FreeWritingViewModel()
     @State private var prompt: PromptFW?
+    @Binding var metodologiaAparecendo: Bool
     let minutos: Int
     let segundos: Int
     @StateObject var timerVM: TimerViewModel = TimerViewModel(minutos: 0, segundos: 0)
@@ -67,11 +68,10 @@ struct FreeWritingView: View {
                                         }
                                         
                                         sessao = freewritingVM.criarSessao(contexto: contexto, resposta: freewritingVM.respostaTexto, prompt: prompt)
-                                        freewritingVM.salvarContexto(contexto: contexto)
+                                        //freewritingVM.salvarContexto(contexto: contexto)
                                         
                                         self.isShowingAddProjetos = true
                                         freewritingVM.respostaTexto = ""
-                                        dismiss()
                                     }
                                     Button("Salvar em Histórico") {
                                         guard let prompt = prompt else {
@@ -100,7 +100,7 @@ struct FreeWritingView: View {
                 }
             }
             .fullScreenCover(isPresented: $isShowingAddProjetos) {
-                AddProjetoView(sessao: sessao)
+                AddProjetoView(metodologiaAparecendo: $metodologiaAparecendo, sessao: sessao)
             }
             .onChange(of: timerVM.sendoFeito) { checagem in
                 if (!checagem) {

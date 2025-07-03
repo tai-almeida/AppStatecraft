@@ -26,8 +26,10 @@ struct AddProjetoView: View {
                     LazyVGrid(columns: columns, spacing: 20) {
                         ForEach(projetosVM.projetos, id: \.self) { projeto in
                             Button(action:{
-                                //TODO: linkar sessao nas sessoes do projeto
-                                //TODO: salvar o contexto
+                                if let sessao = sessao{
+                                    projeto.addToSessoes(sessao)
+                                    projetosVM.salvar(contexto: contexto)
+                                }
                                 dismiss()
                                 self.metodologiaAparecendo = false
                             }){

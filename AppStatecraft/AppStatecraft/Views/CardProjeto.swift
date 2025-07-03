@@ -7,30 +7,26 @@ struct CardMyProject: View {
     let acao: () -> Void
 
     var body: some View {
-        
-        VStack{
+        VStack(spacing: 8) {
             Image(systemName: systemImage)
                 .resizable()
                 .scaledToFit()
                 .frame(width: 30, height: 60)
                 .foregroundColor(.yellow)
                 .padding(30)
-                .cornerRadius(40)
             
-            
+            Text(titulo)
+                .font(.subheadline)
+                .foregroundColor(.primary)
+                .multilineTextAlignment(.center)
+                .padding(.horizontal, 8)
         }
-        .frame(width: 140, height: 140)
+        .frame(width: 140, height: 160) // ajustei altura para acomodar texto
         .contentShape(Rectangle())
-        .background(corDeFundo)
         .cornerRadius(40)
         .onTapGesture {
             acao()
         }
-        Text("Meus projetos")
-            .font(.subheadline)
-            .foregroundColor(.primary)
-            .padding(20)
-        Spacer()
     }
-     
 }
+

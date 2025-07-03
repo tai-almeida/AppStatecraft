@@ -35,16 +35,16 @@ struct InicialMaieuticaView: View {
                 }
             Divider()
                 
-            Text("Responda as perguntas sobre a sua ideia para conhecer melhor a essência dela!")
+            Text("Responda até 10 perguntas sobre seu projeto! Você pode finalizar a sessão quando quiser.")
                     .padding(.horizontal)
             Spacer()
-            Text("O limite do número de perguntas é 10")
+            /*Text("O limite do número de perguntas é 10.")
                     .padding(.horizontal)
                     .frame(maxWidth: .infinity, alignment: .leading)
                     //.padding(.horizontal)
                     .font(.subheadline)
                     .foregroundColor(.gray)
-                
+            */
             Spacer()
             }
             Button("Começar") {

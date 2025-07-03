@@ -18,6 +18,8 @@ struct InicialFreeWritingView: View {
     var body: some View {
         VStack {
             ScrollView {
+                Spacer()
+                    .padding(2)
                 NavigationLink(destination: HistoricoView(tipoMetodologia: "freewriting").navigationTitle("Histórico")) {
                     HStack(alignment: .top) {
                         Image(systemName: "tray")
@@ -35,7 +37,8 @@ struct InicialFreeWritingView: View {
                 }
                 Divider().padding(.horizontal)
                 
-                Text("Receba um desafio e crie um texto livre, com a imaginação guiando a escrita!")
+                Text("Receba um desafio e crie um texto livre, com a imaginação guiando a escrita! Defina um timer para a atividade.")
+                    .padding(.horizontal)
                 Divider().padding(.horizontal)
                 Spacer()
                 

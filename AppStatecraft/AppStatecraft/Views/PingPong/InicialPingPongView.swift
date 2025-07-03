@@ -21,10 +21,13 @@ struct InicialPingPongView: View {
     @State var mostrarTimer: Bool = false
     let modalidades = ["Livre", "Conduzida"]
     @State var selecionada = "Conduzida"
+    @State var resetaPicker = UUID()
     
     var body: some View {
         VStack {
             ScrollView {
+                Spacer()
+                    .padding(2)
                 NavigationLink(destination: HistoricoView(tipoMetodologia: "pingpong") .navigationTitle("Histórico")) {
                 HStack(alignment: .top) {
                     Image(systemName: "tray")
@@ -44,7 +47,8 @@ struct InicialPingPongView: View {
                 }
                 Divider().padding(.horizontal)
                     
-                Text("Te daremos uma palavra e, sem pensar demais, escreva palavras que ela te fizer lembrar!")
+                Text("Com a palavra recebida, escreva o que ela te lembrar! Escolha a modalidade e defina um timer para a atividade.")
+                    .padding(.horizontal)
                 
                 Divider().padding(.horizontal)
                 Spacer()
@@ -91,12 +95,13 @@ struct InicialPingPongView: View {
                     }
                     .buttonStyle(.plain)
                     Spacer()
-                        Picker("Selecione a modalidade", selection: $selecionada) {
+                        Picker("", selection: $selecionada) {
                             ForEach(modalidades, id: \.self) {
                                 Text($0)
                             }
                         }
                         .pickerStyle(.menu)
+                        .id(resetaPicker)
                     Image(systemName: "chevron.up")
                         .foregroundColor(Color.accentColor)
                     
@@ -115,7 +120,7 @@ struct InicialPingPongView: View {
             Button("Começar") {
                 showingSheet.toggle()
             }
-            .fullScreenCover(isPresented: $showingSheet, onDismiss: { Task{
+            .fullScreenCover(isPresented: $showingSheet, onDismiss: { resetaPicker = UUID(); selecionada = "Conduzida"; Task{
                 palavras.removeAll()
                 var aux = await viewModel.fazerRequisicao(context: []) ?? "Erro da IA"
                 while aux == "Erro da IA" {
@@ -124,7 +129,7 @@ struct InicialPingPongView: View {
                 textoIA = aux;
                 palavras.append(textoIA)
             }}) {
-                PingPongView(textoIA: $textoIA, palavras: $palavras, minutos: minutes, segundos: seconds, ehIndividual: $individual)
+                PingPongView(textoIA: $textoIA, palavras: $palavras, minutos: minutes, segundos: seconds, selecionada: $selecionada)
                     .accentColor(Color("AccentColor"))
                     .interactiveDismissDisabled()
             }

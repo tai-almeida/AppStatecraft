@@ -13,6 +13,8 @@ struct InicialDMView: View {
     var body: some View {
         VStack {
             ScrollView {
+                Spacer()
+                    .padding(2)
                 NavigationLink(destination: HistoricoView(tipoMetodologia: "multimidia").navigationTitle("Histórico")) {
                 HStack(alignment: .top) {
                     Image(systemName: "tray")
@@ -32,6 +34,7 @@ struct InicialDMView: View {
                 }
             Divider()
             Text("Crie uma nova obra de arte a partir de outra e explore sua criatividade!")
+                .padding(.horizontal)
             Spacer()
             }
             Button("Começar") {

@@ -14,6 +14,8 @@ struct InicialMaieuticaView: View {
     var body: some View {
         VStack {
             ScrollView {
+                Spacer()
+                    .padding(2)
                 NavigationLink(destination: HistoricoView(tipoMetodologia: "maieutica") .navigationTitle("Histórico")) {
                 HStack(alignment: .top) {
                     Image(systemName: "tray")
@@ -33,12 +35,13 @@ struct InicialMaieuticaView: View {
                 }
             Divider()
                 
-            Text("Responda as perguntas geradas com base na sua própria ideia!")
+            Text("Responda as perguntas sobre a sua ideia para conhecer melhor a essência dela!")
                     .padding(.horizontal)
             Spacer()
             Text("O limite do número de perguntas é 10")
                     .padding(.horizontal)
                     .frame(maxWidth: .infinity, alignment: .leading)
+                    //.padding(.horizontal)
                     .font(.subheadline)
                     .foregroundColor(.gray)
                 

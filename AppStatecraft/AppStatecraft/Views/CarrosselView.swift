@@ -12,10 +12,10 @@ struct CarrosselView: View {
     @State var paginaAtual = 0
     
     let cards = [
-        CardView(cor: Color(hex: 0xA0158B), imagem: "Maieutica", titulo: "Maiêutica", descricao: " Tire um tempo para refletir: Sócrates cutuca tanto com perguntas que a resposta nasce sozinha!", destino: AnyView(InicialMaieuticaView())),
-        CardView(cor: Color(hex: 0x19615b), imagem: "Desafios Multimidia", titulo: "Desafios Multimídia", descricao: "Gere pequenas produções explorando as mais diversas formas de arte", destino: AnyView(InicialDMView())),
-        CardView(cor: Color(hex: 0x3b36a0), imagem: "Free-Writing", titulo: "Free-Writing", descricao: "Crie textos criativos a partir de um desafio dado, sem regras ou limitações.", destino: AnyView(InicialFreeWritingView())),
-        CardView(cor: Color(hex: 0x377a95), imagem: "Ping-Pong", titulo: "Ping-Pong", descricao: "A partir de uma palavra, escreva todas as que vierem à mente em pouco tempo, sem parar", destino: AnyView(InicialPingPongView()))
+        CardView(cor: Color(hex: 0xA0158B), imagem: "Maieutica", titulo: "Maiêutica", descricao: "Descreva sua ideia e responda perguntas sobre ela, como em um diálogo com Sócrates", destino: AnyView(InicialMaieuticaView())),
+        CardView(cor: Color(hex: 0x19615b), imagem: "Desafios Multimidia", titulo: "Desafios Multimídia", descricao: "Crie produções com base em outras obras, explorando as diversas formas de arte", destino: AnyView(InicialDMView())),
+        CardView(cor: Color(hex: 0x3b36a0), imagem: "Free-Writing", titulo: "Free-Writing", descricao: "Escreva textos criativos a partir de um desafio dado, sem restrições", destino: AnyView(InicialFreeWritingView())),
+        CardView(cor: Color(hex: 0x377a95), imagem: "Ping-Pong", titulo: "Ping-Pong", descricao: "A partir de uma palavra, escreva todas que vierem à mente em pouco tempo, sem parar", destino: AnyView(InicialPingPongView()))
     ]
     
     var body: some View {

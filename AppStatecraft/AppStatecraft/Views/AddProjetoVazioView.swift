@@ -101,9 +101,7 @@ struct AddProjetoVazioView: View {
                             projeto: projeto)
                         
                         
-                        projetoVM.salvarProjetoVazio(
-                            contexto: contexto,
-                            projeto: novoProjeto)
+                        projetoVM.salvar(contexto: contexto)
                         
                         self.nomeProjeto = ""
                         self.foto = nil

@@ -11,7 +11,7 @@ import CoreData
 struct AddProjetoView: View {
     @Environment(\.dismiss) private var dismiss
     @Environment(\.managedObjectContext) private var contexto
-    @State private var projetos: [Projeto] = []
+    @StateObject private var projetosVM = ProjetosViewModel()
     private let columns = [
         GridItem(.adaptive(minimum: 80))
     ]
@@ -24,9 +24,10 @@ struct AddProjetoView: View {
             ScrollView {
                 VStack {
                     LazyVGrid(columns: columns, spacing: 20) {
-                        ForEach(projetos, id: \.self) { projeto in
+                        ForEach(projetosVM.projetos, id: \.self) { projeto in
                             Button(action:{
-                                //aqui eh para salvar o contexto
+                                //TODO: linkar sessao nas sessoes do projeto
+                                //TODO: salvar o contexto
                                 dismiss()
                                 self.metodologiaAparecendo = false
                             }){
@@ -49,20 +50,7 @@ struct AddProjetoView: View {
                     Image(systemName: "plus")
                 }).foregroundColor(.accentColor)
         }.onAppear {
-            getAllProjetos(contexto: contexto)
-        }
-    }
-    
-    private func getAllProjetos(contexto: NSManagedObjectContext){
-        let requisicao = NSFetchRequest<Projeto>(entityName: "Projeto")
-        let ordenadorDeData = NSSortDescriptor(keyPath: \Projeto.data, ascending: false) //mais recente para o mais velho
-        requisicao.sortDescriptors = [ordenadorDeData]
-        
-        do {
-            projetos = try contexto.fetch(requisicao)
-            print("Busca concluída: \(projetos.count) projetos encontradas.")
-        } catch let error {
-            print("Erro: \(error.localizedDescription)")
+            projetosVM.getAllProjetos(contexto: contexto)
         }
     }
 }

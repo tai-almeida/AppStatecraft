@@ -34,7 +34,7 @@ class ProjetosViewModel: ObservableObject {
         return projetoVazio
     }
     
-    func salvarProjetoVazio(contexto: NSManagedObjectContext, projeto: Projeto) {
+    func salvar(contexto: NSManagedObjectContext) {
         do {
             try contexto.save()
             print("salvou")
@@ -43,5 +43,17 @@ class ProjetosViewModel: ObservableObject {
         }
     }
     
+    func getAllProjetos(contexto: NSManagedObjectContext){
+        let requisicao = NSFetchRequest<Projeto>(entityName: "Projeto")
+        let ordenadorDeData = NSSortDescriptor(keyPath: \Projeto.data, ascending: false) //mais recente para o mais velho
+        requisicao.sortDescriptors = [ordenadorDeData]
+        
+        do {
+            projetos = try contexto.fetch(requisicao)
+            print("Busca concluída: \(projetos.count) projetos encontradas.")
+        } catch let error {
+            print("Erro: \(error.localizedDescription)")
+        }
+    }
     
 }

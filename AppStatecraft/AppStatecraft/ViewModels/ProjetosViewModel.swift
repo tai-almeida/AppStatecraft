@@ -42,4 +42,6 @@ class ProjetosViewModel: ObservableObject {
             print("erro")
         }
     }
+    
+    
 }

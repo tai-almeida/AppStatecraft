@@ -29,9 +29,8 @@ struct AddProjetoView: View {
                                 //aqui eh para salvar o contexto
                                 dismiss()
                                 self.metodologiaAparecendo = false
-                                Text(projeto.nome ?? "vazio")
                             }){
-                                Text("nao tem projeto por enquanto amou")
+                                Text(projeto.nome ?? "vazio")
                             }
                         }
                     }

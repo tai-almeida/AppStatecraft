@@ -17,7 +17,7 @@ struct ProjetosView: View {
     @State private var projetosConcluidos = "Em andamento"
     @State private var addProjetoVazio = false
     @State var nomeProjeto = ""
-
+    
     
     let colunaCard = [GridItem(.flexible()), GridItem(.flexible())]
     
@@ -35,31 +35,18 @@ struct ProjetosView: View {
                 if projetosConcluidos == "Em andamento" {
                     VStack(alignment: .leading, spacing: 8) {
                         ScrollView {
-                            LazyVGrid(columns: colunaCard, spacing: 20){
-//                                CardMyProject(
-//                                    systemImage: "lightbulb.fill",
-//                                    titulo: "Minhas Ideias",
-//                                    corDeFundo: Color.yellow.opacity(0.2)
-//                                ) {
-//                                    minhaIdeiaModal = true
-//                                }
-                                
-                                ForEach(projetos.filter { !$0.finalizado }) { projeto in
+                            LazyVGrid(columns: colunaCard, spacing: 20) {
+                                ForEach(projetos.filter { projeto in
+                                    !projeto.finalizado &&
+                                    (pesquisarProjeto.isEmpty ||
+    projeto.nome?.localizedCaseInsensitiveContains(pesquisarProjeto) == true)
+                                }) { projeto in
                                     projetoCardView(projeto: projeto)
-                                    
                                 }
                             }
-                            .padding(20)
-                            
-                            //                        LazyVGrid(columns: coalumns, spacing: 20) {
-                            //                            ForEach(projetos, id: \.self) { projeto in
-                            //                                NavigationLink(destination: detalhesProjetoView(projeto: projeto)) {
-                            //                                    Text(projeto.nome ?? "Sem nome")
-                            //                                }
-                            //                            }
-                            //                        }
-                            
+                            .padding(.horizontal, 20)
                         }
+                        
                     }
                     .frame(maxWidth: .infinity, alignment: .leading)
                     .padding(.leading, 20)
@@ -84,21 +71,21 @@ struct ProjetosView: View {
                     }) {
                         Image(systemName: "plus")
                     }
-
+                    
                     .sheet(isPresented: $addProjetoVazio) {
                         AddProjetoVazioView(nomeProjeto: $nomeProjeto)
                     }
-
-//                    Button(action: {
-//
-//                        //Lógica de editar um projeto existente
-//
-//                        print("teste editando editando")
-//
-//                    }) {
-//                        Image(systemName: "pencil")
-//                    }
-
+                    
+                    //                    Button(action: {
+                    //
+                    //                        //Lógica de editar um projeto existente
+                    //
+                    //                        print("teste editando editando")
+                    //
+                    //                    }) {
+                    //                        Image(systemName: "pencil")
+                    //                    }
+                    
                 }
             }
             .searchable(text: $pesquisarProjeto)

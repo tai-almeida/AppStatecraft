@@ -11,19 +11,16 @@ import CoreData
 
 struct AddProjetoVazioView: View {
     @Environment(\.dismiss) private var dismiss
+    @Environment(\.managedObjectContext) private var contexto
+
     @Binding var nomeProjeto: String
     @StateObject var projetoVM = ProjetosViewModel()
-    @Environment(\.managedObjectContext) private var contexto
+    
     @State private var foto: UIImage?
     @State private var showImagePicker: Bool = false
-
     @State private var projeto: Projeto?
     @State private var showingAlert = false
-    
-
-
-
-    
+        
     var body: some View {
         NavigationView {
             ZStack(alignment: .top) {
@@ -43,9 +40,6 @@ struct AddProjetoVazioView: View {
                         .foregroundColor(.secondary)
                         .padding(.top)
                     Divider()
-    //                    .padding(.bottom)
-                                
-    //                    HStack {
                             
                             Button(action: {
                                 self.showImagePicker = true
@@ -58,16 +52,16 @@ struct AddProjetoVazioView: View {
                                     Image(systemName: "chevron.right")
                                         .foregroundColor(Color(.tertiaryLabel))
                                 }
+                                .padding()
+                                .frame(height: 40)
+                                .background(.white)
+                                .cornerRadius(8)
                             })
-    //                            .padding()
                                 .sheet(isPresented: $showImagePicker) {
                                     ImagePicker(selectedImage: $foto)
                                 }
                         Divider()
                             
-                            
-
-    //                    }
                     }
                 .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .top)
                 .padding()
@@ -75,7 +69,6 @@ struct AddProjetoVazioView: View {
             }
             
             .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .top)
-//            .padding()
             .background(Color(UIColor.secondarySystemBackground))
             .navigationTitle("Adicionar Projeto")
             .navigationBarTitleDisplayMode(.inline)
@@ -121,9 +114,3 @@ struct AddProjetoVazioView: View {
         
     }
 }
-
-//struct AddProjetoVazioView_Previews: PreviewProvider {
-//    static var previews: some View {
-//        AddProjetoVazioView()
-//    }
-//}

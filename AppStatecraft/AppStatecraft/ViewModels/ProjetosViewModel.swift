@@ -21,22 +21,15 @@ class ProjetosViewModel: ObservableObject {
         let projetoVazio = Projeto(context: contexto)
         projetoVazio.id = UUID()
         projetoVazio.data = Date()
+        projetoVazio.finalizado = false
+        projetoVazio.nome = nome
         
-        if let projeto = projeto {
-            projetoVazio.finalizado = false
-            
-            if projeto.nome == "" {
-                
-            }
-            projetoVazio.nome = projeto.nome
-            
-            if projeto.imagemCapa == nil {
-                let image = UIImage(named: "Background")
-                projetoVazio.imagemCapa = image?.pngData()
-            } else {
-                projetoVazio.imagemCapa = foto?.pngData()
-            }
+        if let foto = foto {
+            projetoVazio.imagemCapa = foto.pngData()
+        } else {
+            projetoVazio.imagemCapa = UIImage(named: "Background")?.pngData()
         }
+            
         
         return projetoVazio
     }

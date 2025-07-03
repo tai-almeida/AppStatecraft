@@ -1,6 +1,16 @@
 import SwiftUI
+import CoreData
 
 struct ProjetosView: View {
+    
+    @Environment(\.managedObjectContext) private var viewContext
+    
+    @FetchRequest(
+        entity: Projeto.entity(),
+        sortDescriptors: [NSSortDescriptor(keyPath: \Projeto.data, ascending: false)]
+        
+    ) private var projetos: FetchedResults<Projeto>
+    
     @State private var minhaIdeiaModal = false
     @State private var adicionarProjeto = false
     @Binding var pesquisarProjeto: String
@@ -8,6 +18,9 @@ struct ProjetosView: View {
     @State private var addProjetoVazio = false
     @State var nomeProjeto = ""
 
+    
+    let colunaCard = [GridItem(.flexible()), GridItem(.flexible())]
+    
     var body: some View {
         NavigationView {
             VStack(spacing: 12) {
@@ -18,20 +31,35 @@ struct ProjetosView: View {
                 .pickerStyle(.segmented)
                 .padding(.horizontal)
                 .padding(.top, 8)
-
+                
                 if projetosConcluidos == "Em andamento" {
                     VStack(alignment: .leading, spacing: 8) {
-                        
-                        CardMyProject(
-                            systemImage: "lightbulb.fill",
-                            titulo: "Minhas Ideias",
-                            corDeFundo: Color.yellow.opacity(0.2)
-                        ) {
-                            minhaIdeiaModal = true
+                        ScrollView {
+                            LazyVGrid(columns: colunaCard, spacing: 20){
+                                CardMyProject(
+                                    systemImage: "lightbulb.fill",
+                                    titulo: "Minhas Ideias",
+                                    corDeFundo: Color.yellow.opacity(0.2)
+                                ) {
+                                    minhaIdeiaModal = true
+                                }
+                                
+                                ForEach(projetos.filter { !$0.finalizado }) { projeto in
+                                    projetoCardView(projeto: projeto)
+                                }
+                            }
+                            .padding(20)
+                            
+                            
+                            //                        LazyVGrid(columns: coalumns, spacing: 20) {
+                            //                            ForEach(projetos, id: \.self) { projeto in
+                            //                                NavigationLink(destination: detalhesProjetoView(projeto: projeto)) {
+                            //                                    Text(projeto.nome ?? "Sem nome")
+                            //                                }
+                            //                            }
+                            //                        }
+                            
                         }
-                        
-                        
-
                     }
                     .frame(maxWidth: .infinity, alignment: .leading)
                     .padding(.leading, 20)
@@ -41,7 +69,7 @@ struct ProjetosView: View {
                             .foregroundColor(.gray)
                     }
                 }
-
+                
                 Spacer(minLength: 0)
             }
             .padding(.top, 10)
@@ -79,7 +107,7 @@ struct ProjetosView: View {
                     .font(.title)
                 Spacer()
             }
-            .padding() 
+            .padding()
         }
     }
 }

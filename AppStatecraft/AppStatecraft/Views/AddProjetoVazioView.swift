@@ -26,51 +26,56 @@ struct AddProjetoVazioView: View {
     
     var body: some View {
         NavigationView {
-            VStack(alignment: .leading) {
-                Text("NOME DO PROJETO")
-                    .foregroundColor(.secondary)
-                
-                Divider()
-                
-                TextField("Nome", text: $nomeProjeto)
-                    .padding()
-                    .frame(height: 40)
-                    .background(.white)
-                    .cornerRadius(8)
-                
-                Text("Capa")
-                    .foregroundColor(.secondary)
-                    .padding(.top)
-                Divider()
-//                    .padding(.bottom)
-                            
-//                    HStack {
-                        
-                        Button(action: {
-                            self.showImagePicker = true
-                        }, label: {
-                            HStack {
-                                Text("Importar foto da galeria")
-                                
-                                Spacer()
-                                
-                                Image(systemName: "chevron.right")
-                                    .foregroundColor(Color(.tertiaryLabel))
-                            }
-                        })
-//                            .padding()
-                            .sheet(isPresented: $showImagePicker) {
-                                ImagePicker(selectedImage: $foto)
-                            }
+            ZStack(alignment: .top) {
+                VStack(alignment: .leading) {
+                    Text("NOME DO PROJETO")
+                        .foregroundColor(.secondary)
+                    
                     Divider()
-                        
-                        
+                    
+                    TextField("Nome", text: $nomeProjeto)
+                        .padding()
+                        .frame(height: 40)
+                        .background(.white)
+                        .cornerRadius(8)
+                    
+                    Text("Capa")
+                        .foregroundColor(.secondary)
+                        .padding(.top)
+                    Divider()
+    //                    .padding(.bottom)
+                                
+    //                    HStack {
+                            
+                            Button(action: {
+                                self.showImagePicker = true
+                            }, label: {
+                                HStack {
+                                    Text("Importar foto da galeria")
+                                    
+                                    Spacer()
+                                    
+                                    Image(systemName: "chevron.right")
+                                        .foregroundColor(Color(.tertiaryLabel))
+                                }
+                            })
+    //                            .padding()
+                                .sheet(isPresented: $showImagePicker) {
+                                    ImagePicker(selectedImage: $foto)
+                                }
+                        Divider()
+                            
+                            
 
-//                    }
-                }
+    //                    }
+                    }
+                .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .top)
+                .padding()
+
+            }
             
-            .frame(maxWidth: .infinity, maxHeight: .infinity)
-            .padding()
+            .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .top)
+//            .padding()
             .background(Color(UIColor.secondarySystemBackground))
             .navigationTitle("Adicionar Projeto")
             .navigationBarTitleDisplayMode(.inline)
@@ -113,6 +118,7 @@ struct AddProjetoVazioView: View {
                 }
             }
         }
+        
     }
 }
 

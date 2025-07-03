@@ -57,6 +57,8 @@
 		ED5B0E322E12D21700C23F20 /* MaieuticaSalvoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED5B0E312E12D21700C23F20 /* MaieuticaSalvoView.swift */; };
 		ED695A672E01B37C009C0BE0 /* TabBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED695A662E01B37C009C0BE0 /* TabBar.swift */; };
 		ED695A6A2E01B3DA009C0BE0 /* MetodologiasView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED695A692E01B3DA009C0BE0 /* MetodologiasView.swift */; };
+		ED6EAA912E16CE4D0010D4B4 /* ConteudoProjetoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED6EAA902E16CE4D0010D4B4 /* ConteudoProjetoView.swift */; };
+		ED6EAA932E16CE900010D4B4 /* CardAtividadesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED6EAA922E16CE900010D4B4 /* CardAtividadesView.swift */; };
 		ED80F5A32E0AC46D00B61E97 /* ColorExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED80F5A22E0AC46D00B61E97 /* ColorExtension.swift */; };
 		ED80F5AE2E0ADB4100B61E97 /* PingPongViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED80F5AD2E0ADB4100B61E97 /* PingPongViewModel.swift */; };
 		ED80F5B12E0ADB5F00B61E97 /* PingPongView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED80F5B02E0ADB5F00B61E97 /* PingPongView.swift */; };
@@ -156,6 +158,8 @@
 		ED5B0E312E12D21700C23F20 /* MaieuticaSalvoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MaieuticaSalvoView.swift; sourceTree = "<group>"; };
 		ED695A662E01B37C009C0BE0 /* TabBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBar.swift; sourceTree = "<group>"; };
 		ED695A692E01B3DA009C0BE0 /* MetodologiasView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MetodologiasView.swift; sourceTree = "<group>"; };
+		ED6EAA902E16CE4D0010D4B4 /* ConteudoProjetoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConteudoProjetoView.swift; sourceTree = "<group>"; };
+		ED6EAA922E16CE900010D4B4 /* CardAtividadesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardAtividadesView.swift; sourceTree = "<group>"; };
 		ED80F5A22E0AC46D00B61E97 /* ColorExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorExtension.swift; sourceTree = "<group>"; };
 		ED80F5AD2E0ADB4100B61E97 /* PingPongViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PingPongViewModel.swift; sourceTree = "<group>"; };
 		ED80F5B02E0ADB5F00B61E97 /* PingPongView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PingPongView.swift; sourceTree = "<group>"; };
@@ -271,6 +275,8 @@
 				64D09EE02E0EE46300758A21 /* ProjetoCardView.swift */,
 				ED593E4C2E157A5100A8DE01 /* AddProjetoVazioView.swift */,
 				A47175B22E01A16C00AC6B12 /* DesafiosMultimidia */,
+				ED6EAA902E16CE4D0010D4B4 /* ConteudoProjetoView.swift */,
+				ED6EAA922E16CE900010D4B4 /* CardAtividadesView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -659,6 +665,7 @@
 				A40457702E14036800F470D1 /* BotaoCloseModal.swift in Sources */,
 				A43C40932E0EFC34009B9E85 /* Registro+CoreDataProperties.swift in Sources */,
 				A43C408C2E0EFC34009B9E85 /* SessaoDesafioMult+CoreDataClass.swift in Sources */,
+				ED6EAA932E16CE900010D4B4 /* CardAtividadesView.swift in Sources */,
 				A43C408E2E0EFC34009B9E85 /* SessaoPingPong+CoreDataClass.swift in Sources */,
 				A43C40792E0EE7DE009B9E85 /* MultimidiaSalvoView.swift in Sources */,
 				A43C40942E0EFC34009B9E85 /* Sessao+CoreDataClass.swift in Sources */,
@@ -680,6 +687,7 @@
 				A40C5B202E02DFDE00C30D6E /* DesafiosMultimidiaView.swift in Sources */,
 				A47175B92E01A23A00AC6B12 /* ContainerEnunciadoView.swift in Sources */,
 				ED80F5B12E0ADB5F00B61E97 /* PingPongView.swift in Sources */,
+				ED6EAA912E16CE4D0010D4B4 /* ConteudoProjetoView.swift in Sources */,
 				ED81EB2A2E0C25D7003062BA /* FreeWritingView.swift in Sources */,
 				ED695A672E01B37C009C0BE0 /* TabBar.swift in Sources */,
 				A43C408F2E0EFC34009B9E85 /* SessaoPingPong+CoreDataProperties.swift in Sources */,

@@ -45,19 +45,12 @@ struct ProjetosView: View {
 //                                }
                                 
                                 ForEach(projetos.filter { !$0.finalizado }) { projeto in
-                                    projetoCardView(projeto: projeto)
+                                    NavigationLink(destination: DetalhesProjetoView(projeto: projeto)) {
+                                            projetoCardView(projeto: projeto)
+                                    }
                                     
                                 }
                             }
-//                            .padding(20)
-                            
-                            //                        LazyVGrid(columns: coalumns, spacing: 20) {
-                            //                            ForEach(projetos, id: \.self) { projeto in
-                            //                                NavigationLink(destination: detalhesProjetoView(projeto: projeto)) {
-                            //                                    Text(projeto.nome ?? "Sem nome")
-                            //                                }
-                            //                            }
-                            //                        }
                             
                         }
                     }

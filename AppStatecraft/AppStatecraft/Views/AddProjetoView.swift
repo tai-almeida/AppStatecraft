@@ -12,18 +12,16 @@ struct AddProjetoView: View {
     @Environment(\.dismiss) private var dismiss
     @Environment(\.managedObjectContext) private var contexto
     @StateObject private var projetosVM = ProjetosViewModel()
-    private let columns = [
-        GridItem(.adaptive(minimum: 80))
-    ]
+    private let colunaCard = [GridItem(.flexible()), GridItem(.flexible())]
     @Binding var metodologiaAparecendo: Bool
     @State var sessao: Sessao?
     @State private var telaCriarNovoProjeto = false
     
     var body: some View {
         NavigationView {
-            ScrollView {
-                VStack {
-                    LazyVGrid(columns: columns, spacing: 20) {
+            VStack {
+                ScrollView{
+                    LazyVGrid(columns: colunaCard, spacing: 20) {
                         ForEach(projetosVM.projetos, id: \.self) { projeto in
                             Button(action:{
                                 if let sessao = sessao{
@@ -33,12 +31,12 @@ struct AddProjetoView: View {
                                 dismiss()
                                 self.metodologiaAparecendo = false
                             }){
-                                Text(projeto.nome ?? "vazio")
+                                projetoCardView(projeto: projeto)
                             }
-                        }
+                        }.padding()
+                    }.sheet(isPresented: $telaCriarNovoProjeto) {
+                        //criarEAddProjetoView(isPresented: $telaCriarNovoProjeto)
                     }
-                }.sheet(isPresented: $telaCriarNovoProjeto) {
-                    //criarEAddProjetoView(isPresented: $telaCriarNovoProjeto)
                 }
             }
             .navigationBarTitle(Text("Meus Projetos"))
@@ -47,7 +45,7 @@ struct AddProjetoView: View {
                     dismiss()
                 },
                 trailing: Button(action: {
-                    self.telaCriarNovoProjeto = true
+                    //self.telaCriarNovoProjeto = true
                 }) {
                     Image(systemName: "plus")
                 }).foregroundColor(.accentColor)

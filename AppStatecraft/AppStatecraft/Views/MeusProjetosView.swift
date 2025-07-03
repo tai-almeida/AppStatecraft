@@ -18,7 +18,6 @@ struct ProjetosView: View {
     @State private var addProjetoVazio = false
     @State var nomeProjeto = ""
 
-    
     let colunaCard = [GridItem(.flexible()), GridItem(.flexible())]
     
     var body: some View {
@@ -36,29 +35,12 @@ struct ProjetosView: View {
                     VStack(alignment: .leading, spacing: 8) {
                         ScrollView {
                             LazyVGrid(columns: colunaCard, spacing: 20){
-//                                CardMyProject(
-//                                    systemImage: "lightbulb.fill",
-//                                    titulo: "Minhas Ideias",
-//                                    corDeFundo: Color.yellow.opacity(0.2)
-//                                ) {
-//                                    minhaIdeiaModal = true
-//                                }
-                                
                                 ForEach(projetos.filter { !$0.finalizado }) { projeto in
                                     projetoCardView(projeto: projeto)
                                     
                                 }
                             }
                             .padding(20)
-                            
-                            //                        LazyVGrid(columns: coalumns, spacing: 20) {
-                            //                            ForEach(projetos, id: \.self) { projeto in
-                            //                                NavigationLink(destination: detalhesProjetoView(projeto: projeto)) {
-                            //                                    Text(projeto.nome ?? "Sem nome")
-                            //                                }
-                            //                            }
-                            //                        }
-                            
                         }
                     }
                     .frame(maxWidth: .infinity, alignment: .leading)
@@ -88,17 +70,6 @@ struct ProjetosView: View {
                     .sheet(isPresented: $addProjetoVazio) {
                         AddProjetoVazioView(nomeProjeto: $nomeProjeto)
                     }
-
-//                    Button(action: {
-//
-//                        //Lógica de editar um projeto existente
-//
-//                        print("teste editando editando")
-//
-//                    }) {
-//                        Image(systemName: "pencil")
-//                    }
-
                 }
             }
             .searchable(text: $pesquisarProjeto)

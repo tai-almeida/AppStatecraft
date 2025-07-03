@@ -25,7 +25,7 @@ struct AddProjetoVazioView: View {
         NavigationView {
             ZStack(alignment: .top) {
                 VStack(alignment: .leading) {
-                    Text("NOME DO PROJETO")
+                    Text("Nome do Projeto")
                         .foregroundColor(.secondary)
                     
                     Divider()

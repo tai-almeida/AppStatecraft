@@ -6,10 +6,23 @@
 //
 
 import SwiftUI
+import PhotosUI
+import CoreData
 
 struct AddProjetoVazioView: View {
     @Environment(\.dismiss) private var dismiss
     @Binding var nomeProjeto: String
+    @StateObject var projetoVM = ProjetosViewModel()
+    @Environment(\.managedObjectContext) private var contexto
+    @State private var foto: UIImage?
+    @State private var showImagePicker: Bool = false
+
+    @State private var projeto: Projeto?
+    @State private var showingAlert = false
+    
+
+
+
     
     var body: some View {
         NavigationView {
@@ -31,20 +44,31 @@ struct AddProjetoVazioView: View {
                 Divider()
 //                    .padding(.bottom)
                             
-                Button(action: {
-                    
-                }) {
-                    HStack {
-                        Text("Escolher fotos existentes")
+//                    HStack {
                         
-                        Spacer()
+                        Button(action: {
+                            self.showImagePicker = true
+                        }, label: {
+                            HStack {
+                                Text("Importar foto da galeria")
+                                
+                                Spacer()
+                                
+                                Image(systemName: "chevron.right")
+                                    .foregroundColor(Color(.tertiaryLabel))
+                            }
+                        })
+//                            .padding()
+                            .sheet(isPresented: $showImagePicker) {
+                                ImagePicker(selectedImage: $foto)
+                            }
+                    Divider()
                         
-                        Image(systemName: "chevron.right")
-                            .foregroundColor(Color(.tertiaryLabel))
+                        
 
-                    }
+//                    }
                 }
-            }
+            
             .frame(maxWidth: .infinity, maxHeight: .infinity)
             .padding()
             .background(Color(UIColor.secondarySystemBackground))
@@ -59,15 +83,36 @@ struct AddProjetoVazioView: View {
                 }
                 ToolbarItem(placement: .navigationBarTrailing) {
                     Button("Salvar") {
-                        // chamar funcao criarNovoProjeto(nome: nomeProjeto, foto: foto)
+                        
+                        if nomeProjeto.isEmpty {
+                            showingAlert = true
+                            
+                            return
+                        }
+                        let novoProjeto = projetoVM.criarProjetoVazio(
+                            contexto: contexto,
+                            nome: nomeProjeto,
+                            foto: foto,
+                            projeto: projeto)
+                        
+                        
+                        projetoVM.salvarProjetoVazio(
+                            contexto: contexto,
+                            projeto: novoProjeto)
+                        
+                        self.nomeProjeto = ""
+                        self.foto = nil
+                        dismiss()
                     }
+                    .alert("Nome inválido", isPresented: $showingAlert) {
+                        Button("Ok", role: .cancel) { }
+                    } message: {
+                        Text("O nome do projeto não pode estar vazio. Insira um nome, por favor!")
+                    }
+                    
                 }
             }
         }
-        
-        
-
-        
     }
 }
 

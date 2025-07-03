@@ -111,7 +111,6 @@ struct MaieuticaView: View {
                         Button("Adicionar a Projeto") {
                             self.respostasUsuario.append(textoUser)
                             sessao = viewModel.criaSessao(contexto: viewContext, historicoIA: historicoIA, respostasUsuario: respostasUsuario)
-                            viewModel.salvaContexto(contexto: viewContext)
                             self.isShowingAddProjetos = true
                             self.indiceAtual = 0
                             self.historicoIA = ["Conte sobre sua ideia!"]

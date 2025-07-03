@@ -67,9 +67,7 @@ struct FreeWritingView: View {
                                             return
                                         }
                                         
-                                        sessao = freewritingVM.criarSessao(contexto: contexto, resposta: freewritingVM.respostaTexto, prompt: prompt)
-                                        //freewritingVM.salvarContexto(contexto: contexto)
-                                        
+                                        sessao = freewritingVM.criarSessao(contexto: contexto, resposta: freewritingVM.respostaTexto, prompt: prompt)                                       
                                         self.isShowingAddProjetos = true
                                         freewritingVM.respostaTexto = ""
                                     }

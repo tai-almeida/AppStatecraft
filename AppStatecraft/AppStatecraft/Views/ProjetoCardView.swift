@@ -10,7 +10,7 @@ import SwiftUI
 struct projetoCardView: View {
     
     let projeto: Projeto
-    let placeholderImage = UIImage(named: "placeholder")
+    let placeholderImage = UIImage(named: "Background")
     
     let colunas = [GridItem(.flexible()), GridItem(.flexible())]
     
@@ -23,12 +23,14 @@ struct projetoCardView: View {
                     .scaledToFill()
                     .frame(width: 150, height: 120)
                     .clipped()
+                    .cornerRadius(15)
             } else if let placeholder = placeholderImage {
                 Image(uiImage: placeholder)
                     .resizable()
                     .scaledToFill()
                     .frame(width: 150, height: 120)
                     .clipped()
+                    .cornerRadius(15)
             }
             Text(projeto.nome ?? "Projeto sem nome")
                 .font(.subheadline)
@@ -37,7 +39,6 @@ struct projetoCardView: View {
                 .lineLimit(1)
         }
         .frame(width: 150, height: 160)
-        .background(Color.gray.opacity(0.1))
         .cornerRadius(16)
     }
 }

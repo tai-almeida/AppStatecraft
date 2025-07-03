@@ -51,7 +51,6 @@ struct ProjetosView: View {
                             }
                             .padding(20)
                             
-                            
                             //                        LazyVGrid(columns: coalumns, spacing: 20) {
                             //                            ForEach(projetos, id: \.self) { projeto in
                             //                                NavigationLink(destination: detalhesProjetoView(projeto: projeto)) {
@@ -90,15 +89,15 @@ struct ProjetosView: View {
                         AddProjetoVazioView(nomeProjeto: $nomeProjeto)
                     }
 
-                    Button(action: {
-                        
-                        //Lógica de editar um projeto existente
-                        
-                        print("teste editando editando")
-                        
-                    }) {
-                        Image(systemName: "pencil")
-                    }
+//                    Button(action: {
+//
+//                        //Lógica de editar um projeto existente
+//
+//                        print("teste editando editando")
+//
+//                    }) {
+//                        Image(systemName: "pencil")
+//                    }
 
                 }
             }

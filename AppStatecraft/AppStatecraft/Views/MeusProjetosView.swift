@@ -6,6 +6,7 @@ struct ProjetosView: View {
     @Binding var pesquisarProjeto: String
     @State private var projetosConcluidos = "Em andamento"
     @State private var addProjetoVazio = false
+    @State var nomeProjeto = ""
 
     var body: some View {
         NavigationView {
@@ -56,7 +57,7 @@ struct ProjetosView: View {
                         Image(systemName: "plus")
                     }
                     .sheet(isPresented: $addProjetoVazio) {
-                        AddProjetoVazioView()
+                        AddProjetoVazioView(nomeProjeto: $nomeProjeto)
                     }
 
                     Button(action: {

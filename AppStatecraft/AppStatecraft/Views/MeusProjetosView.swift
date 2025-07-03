@@ -85,7 +85,7 @@ struct ProjetosView: View {
                     }) {
                         Image(systemName: "plus")
                     }
-<<<<<<< HEAD
+
                     .sheet(isPresented: $addProjetoVazio) {
                         AddProjetoVazioView(nomeProjeto: $nomeProjeto)
                     }
@@ -99,10 +99,7 @@ struct ProjetosView: View {
                     }) {
                         Image(systemName: "pencil")
                     }
-=======
-                    
 
->>>>>>> ec45390 (chore: Implementando card)
                 }
             }
             .searchable(text: $pesquisarProjeto)

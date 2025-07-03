@@ -33,16 +33,17 @@ struct ProjetosView: View {
                     VStack(alignment: .leading, spacing: 8) {
                         ScrollView {
                             LazyVGrid(columns: colunaCard, spacing: 20){
-                                CardMyProject(
-                                    systemImage: "lightbulb.fill",
-                                    titulo: "Minhas Ideias",
-                                    corDeFundo: Color.yellow.opacity(0.2)
-                                ) {
-                                    minhaIdeiaModal = true
-                                }
+//                                CardMyProject(
+//                                    systemImage: "lightbulb.fill",
+//                                    titulo: "Minhas Ideias",
+//                                    corDeFundo: Color.yellow.opacity(0.2)
+//                                ) {
+//                                    minhaIdeiaModal = true
+//                                }
                                 
                                 ForEach(projetos.filter { !$0.finalizado }) { projeto in
                                     projetoCardView(projeto: projeto)
+                                    
                                 }
                             }
                             .padding(20)
@@ -82,15 +83,7 @@ struct ProjetosView: View {
                         Image(systemName: "plus")
                     }
                     
-                    Button(action: {
-                        
-                        //Lógica de editar um projeto existente
-                        
-                        print("teste editando editando")
-                        
-                    }) {
-                        Image(systemName: "pencil")
-                    }
+
                 }
             }
             .searchable(text: $pesquisarProjeto)

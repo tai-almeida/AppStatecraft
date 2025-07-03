@@ -30,7 +30,6 @@ struct projetoCardView: View {
                     .frame(width: 150, height: 120)
                     .clipped()
             }
-            
             Text(projeto.nome ?? "Projeto sem nome")
                 .font(.subheadline)
                 .foregroundColor(.primary)

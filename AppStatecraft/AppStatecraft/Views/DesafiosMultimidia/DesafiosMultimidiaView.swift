@@ -67,34 +67,6 @@ struct DesafiosMultimidiaView: View {
                                     titleVisibility: .hidden
                                 ) {
                                     Button("Adicionar a Projeto") {
-                                        
-                                      //  DispatchQueue.main.async {
-                                            self.isShowingAddProjetos = true
-                                      //  }
-                                            
-                                        
-                                        //self.isShowingAddProjetos = true
-                                        //dps associamos a projeto
-//                                        desafiosVM.salvarSemProjeto(
-//                                            contexto: viewContext,
-//                                            respostaTexto: respostaTexto,
-//                                            respostaImagem: image,
-//                                            desafio: desafio
-                                     //   )  LEMBRAR DE ARRUMAR ISSO DEPOIS
-                                        let sessaoDesafios = desafiosVM.criarSessao(contexto: viewContext)
-                                        
-                                        desafiosVM.salvarContexto(
-                                            sessao: sessaoDesafios,
-                                            contexto: viewContext,
-                                            respostaTexto: respostaTexto,
-                                            respostaImagem: image,
-                                            desafio: desafio
-                                        )
-                                        //TODO: logica de permanencia dos dados sinistra
-                                        //criar o "objeto"
-                                        //navegar para o modal de adicionar a projeto
-                                        //salvar o objeto no coredata quando a pessoa clicar no projeto
-                                        
                                         sessaoDesafios = desafiosVM.criarSessao(contexto: viewContext, respostaTexto: respostaTexto, respostaImagem: image, desafio: desafio)
                                         //desafiosVM.salvarContexto(contexto: viewContext) //isso aqui vai sari daqui
                                         self.isShowingAddProjetos = true
@@ -130,4 +102,3 @@ struct DesafiosMultimidiaView: View {
         .foregroundColor(.primary)
     }
 }
-

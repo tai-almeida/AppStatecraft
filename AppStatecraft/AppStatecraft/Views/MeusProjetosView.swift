@@ -17,7 +17,7 @@ struct ProjetosView: View {
     @State private var projetosConcluidos = "Em andamento"
     @State private var addProjetoVazio = false
     @State var nomeProjeto = ""
-
+    
     
     let colunaCard = [GridItem(.flexible()), GridItem(.flexible())]
     
@@ -35,6 +35,18 @@ struct ProjetosView: View {
                 if projetosConcluidos == "Em andamento" {
                     VStack(alignment: .center) {
                         ScrollView {
+
+                            LazyVGrid(columns: colunaCard, spacing: 20) {
+                                ForEach(projetos.filter { projeto in
+                                    !projeto.finalizado &&
+                                    (pesquisarProjeto.isEmpty ||
+    projeto.nome?.localizedCaseInsensitiveContains(pesquisarProjeto) == true)
+                                }) { projeto in
+                                    projetoCardView(projeto: projeto)
+                                }
+                            }
+                            .padding(.horizontal, 20)
+
                             LazyVGrid(columns: colunaCard, spacing: 16){
 //                                CardMyProject(
 //                                    systemImage: "lightbulb.fill",
@@ -53,6 +65,7 @@ struct ProjetosView: View {
                             }
                             
                         }
+                        
                     }
                     .frame(maxWidth: .infinity)
                     .padding(.horizontal)
@@ -77,21 +90,21 @@ struct ProjetosView: View {
                     }) {
                         Image(systemName: "plus")
                     }
-
+                    
                     .sheet(isPresented: $addProjetoVazio) {
                         AddProjetoVazioView(nomeProjeto: $nomeProjeto)
                     }
-
-//                    Button(action: {
-//
-//                        //Lógica de editar um projeto existente
-//
-//                        print("teste editando editando")
-//
-//                    }) {
-//                        Image(systemName: "pencil")
-//                    }
-
+                    
+                    //                    Button(action: {
+                    //
+                    //                        //Lógica de editar um projeto existente
+                    //
+                    //                        print("teste editando editando")
+                    //
+                    //                    }) {
+                    //                        Image(systemName: "pencil")
+                    //                    }
+                    
                 }
             }
             .searchable(text: $pesquisarProjeto)

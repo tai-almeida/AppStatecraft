@@ -18,6 +18,8 @@ struct InicialFreeWritingView: View {
     var body: some View {
         VStack {
             ScrollView {
+                Spacer()
+                    .padding(2)
                 NavigationLink(destination: HistoricoView(tipoMetodologia: "freewriting").navigationTitle("Histórico")) {
                     HStack(alignment: .top) {
                         Image(systemName: "tray")
@@ -35,7 +37,8 @@ struct InicialFreeWritingView: View {
                 }
                 Divider().padding(.horizontal)
                 
-                Text("Receba um desafio e crie um texto livre, com a imaginação guiando a escrita!")
+                Text("Receba um desafio e crie um texto livre, com a imaginação guiando a escrita! Defina um timer para a atividade.")
+                    .padding(.horizontal)
                 Divider().padding(.horizontal)
                 Spacer()
                 
@@ -56,20 +59,23 @@ struct InicialFreeWritingView: View {
                 }.padding(.horizontal)
                 DurationPickerView(minutes: $minutes, seconds: $seconds)
             }
-            Button("Começar") {
-                showingSheet.toggle()
-            }.frame(maxWidth: .infinity)
-                .padding()
-                .background(Color.accentColor)
-                .foregroundColor(.white)
-                .clipShape(Capsule())
-                .padding(.horizontal)
-                .padding(.vertical)
-                .fullScreenCover(isPresented: $showingSheet) {
-                    FreeWritingView(metodologiaAparecendo: $showingSheet, minutos: minutes, segundos: seconds)
-                        .accentColor(Color("AccentColor"))
-                        .interactiveDismissDisabled()
-                }
+            Button(action: { showingSheet.toggle() }) {
+                Text("Começar")
+                    .frame(maxWidth: .infinity)
+                    .clipShape(Capsule())
+            }
+            .fullScreenCover(isPresented: $showingSheet) {
+                FreeWritingView(minutos: minutes, segundos: seconds)
+                    .accentColor(Color("AccentColor"))
+                    .interactiveDismissDisabled()
+            }
+            .frame(maxWidth: .infinity)
+            .padding()
+            .background(Color.accentColor)
+            .foregroundColor(.white)
+            .clipShape(Capsule())
+            .padding(.horizontal)
+            .padding(.vertical)
         }
         .navigationTitle("Free-Writing")
     }

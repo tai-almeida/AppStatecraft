@@ -91,13 +91,22 @@ struct MaieuticaView: View {
             .navigationBarTitleDisplayMode(.inline)
             .toolbar {
                 ToolbarItem(placement: .cancellationAction) {
-                    Button("Voltar") {
-                        if indiceAtual > 0 {
-                            indiceAtual -= 1
+                    if (indiceAtual>0) {
+                        Button("Voltar") {
+                            if indiceAtual > 0 {
+                                indiceAtual -= 1
+                            }
+                            cliqueButton = 0
                         }
-                        cliqueButton = 0
+                        .foregroundColor(.accentColor)
                     }
-                    .foregroundColor(.accentColor)
+                    else {
+                        Button("Cancelar") {
+                            cliqueButton = 0
+                            dismiss()
+                        }
+                        .foregroundColor(.accentColor)
+                    }
                 }
                 ToolbarItem(placement: .confirmationAction) {
                     Button("Finalizar") {

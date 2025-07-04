@@ -83,4 +83,3 @@ struct ProjetosView: View {
         }
     }
 }
-

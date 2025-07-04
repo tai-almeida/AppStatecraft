@@ -12,34 +12,62 @@ struct AddProjetoView: View {
     @Environment(\.dismiss) private var dismiss
     @Environment(\.managedObjectContext) private var contexto
     @StateObject private var projetosVM = ProjetosViewModel()
-    private let columns = [
-        GridItem(.adaptive(minimum: 80))
-    ]
+    private let colunaCard = [GridItem(.flexible()), GridItem(.flexible())]
     @Binding var metodologiaAparecendo: Bool
     @State var sessao: Sessao?
     @State private var telaCriarNovoProjeto = false
+    //@Binding var pesquisarProjeto: String
+    @State private var projetosConcluidos = "Em andamento"
     
+    private var projetosFiltrados: [Projeto] {
+            if projetosConcluidos == "Em andamento" {
+                return projetosVM.projetos.filter { !$0.finalizado }
+            } else {
+                return projetosVM.projetos.filter { $0.finalizado }
+            }
+        }
+
     var body: some View {
         NavigationView {
-            ScrollView {
-                VStack {
-                    LazyVGrid(columns: columns, spacing: 20) {
-                        ForEach(projetosVM.projetos, id: \.self) { projeto in
-                            Button(action:{
-                                if let sessao = sessao{
-                                    projeto.addToSessoes(sessao)
-                                    projetosVM.salvar(contexto: contexto)
+            VStack() {
+                
+                Picker("", selection: $projetosConcluidos) {
+                    Text("Em andamento").tag("Em andamento")
+                    Text("Concluido").tag("Concluido")
+                }
+                .pickerStyle(.segmented)
+                .padding(.horizontal)
+                
+                VStack(alignment: .center){
+                    ScrollView{
+                        
+                        if projetosFiltrados.isEmpty{
+                            Text("Não há projetos aqui.")
+                        }
+                        
+                        LazyVGrid(columns: colunaCard, spacing: 20) {
+                            ForEach(projetosFiltrados, id: \.self) { projeto in
+                                Button(action:{
+                                    if let sessao = sessao{
+                                        projeto.addToSessoes(sessao)
+                                        projetosVM.salvar(contexto: contexto)
+                                    }
+                                    dismiss()
+                                    self.metodologiaAparecendo = false
+                                }){
+                                    projetoCardView(projeto: projeto)
                                 }
-                                dismiss()
-                                self.metodologiaAparecendo = false
-                            }){
-                                Text(projeto.nome ?? "vazio")
                             }
                         }
+                    }.sheet(isPresented: $telaCriarNovoProjeto) {
+                        //criarEAddProjetoView(isPresented: $telaCriarNovoProjeto)
                     }
-                }.sheet(isPresented: $telaCriarNovoProjeto) {
-                    //criarEAddProjetoView(isPresented: $telaCriarNovoProjeto)
                 }
+                //.frame(maxWidth: .infinity) nao sei o quanto isso realmente eh necessario
+                .padding(.horizontal)
+                
+                
+                
             }
             .navigationBarTitle(Text("Meus Projetos"))
             .navigationBarItems(
@@ -47,7 +75,7 @@ struct AddProjetoView: View {
                     dismiss()
                 },
                 trailing: Button(action: {
-                    self.telaCriarNovoProjeto = true
+                    //self.telaCriarNovoProjeto = true
                 }) {
                     Image(systemName: "plus")
                 }).foregroundColor(.accentColor)

@@ -68,7 +68,6 @@ struct DesafiosMultimidiaView: View {
                                 ) {
                                     Button("Adicionar a Projeto") {
                                         sessaoDesafios = desafiosVM.criarSessao(contexto: viewContext, respostaTexto: respostaTexto, respostaImagem: image, desafio: desafio)
-                                        //desafiosVM.salvarContexto(contexto: viewContext) //isso aqui vai sari daqui
                                         self.isShowingAddProjetos = true
                                         self.respostaTexto = ""
                                         self.image = nil

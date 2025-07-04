@@ -36,13 +36,6 @@ struct ProjetosView: View {
                     VStack(alignment: .center) {
                         ScrollView {
                             LazyVGrid(columns: colunaCard, spacing: 16){
-//                                CardMyProject(
-//                                    systemImage: "lightbulb.fill",
-//                                    titulo: "Minhas Ideias",
-//                                    corDeFundo: Color.yellow.opacity(0.2)
-//                                ) {
-//                                    minhaIdeiaModal = true
-//                                }
                                 
                                 ForEach(projetos.filter { !$0.finalizado }) { projeto in
                                     NavigationLink(destination: DetalhesProjetoView(projeto: projeto)) {

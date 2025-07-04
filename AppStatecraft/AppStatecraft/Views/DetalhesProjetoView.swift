@@ -27,11 +27,11 @@ struct DetalhesProjetoView: View {
         
         List() {
             ForEach(sessoesDoProjeto) { sessao in
-                
+                CardAtividadesView(sessao: sessao)
             }
-            
-            
         }
+        
+        .navigationTitle(projeto.nome ?? "Sem Nome")
         
     }
 }

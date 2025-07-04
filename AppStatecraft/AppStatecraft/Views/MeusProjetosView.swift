@@ -40,7 +40,10 @@ struct ProjetosView: View {
                                     !projeto.finalizado &&
                                     (pesquisarProjeto.isEmpty || projeto.nome?.localizedCaseInsensitiveContains(pesquisarProjeto) == true)
                                 }) { projeto in
-                                    projetoCardView(projeto: projeto)
+                                    NavigationLink(destination: DetalhesProjetoView(projeto: projeto)) {
+                                            projetoCardView(projeto: projeto)
+
+                                    }
                                 }
                             }
                         }

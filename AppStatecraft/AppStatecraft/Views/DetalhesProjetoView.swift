@@ -9,7 +9,7 @@ import Foundation
 import SwiftUI
 import CoreData
 
-struct detalhesProjetoView: View {
+struct DetalhesProjetoView: View {
     
     @ObservedObject var projeto: Projeto
     

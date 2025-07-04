@@ -8,7 +8,6 @@ struct ProjetosView: View {
     @FetchRequest(
         entity: Projeto.entity(),
         sortDescriptors: [NSSortDescriptor(keyPath: \Projeto.data, ascending: false)]
-        
     ) private var projetos: FetchedResults<Projeto>
     
     @State private var minhaIdeiaModal = false
@@ -18,8 +17,15 @@ struct ProjetosView: View {
     @State private var addProjetoVazio = false
     @State var nomeProjeto = ""
     
-    
     let colunaCard = [GridItem(.flexible()), GridItem(.flexible())]
+    
+    var projetosFiltrados: [Projeto] {
+        projetos.filter { projeto in
+            !projeto.finalizado &&
+            (pesquisarProjeto.isEmpty ||
+             projeto.nome?.localizedCaseInsensitiveContains(pesquisarProjeto) == true)
+        }
+    }
     
     var body: some View {
         NavigationView {
@@ -33,47 +39,35 @@ struct ProjetosView: View {
                 .padding(.top, 8)
                 
                 if projetosConcluidos == "Em andamento" {
-                    VStack(alignment: .center) {
-                        ScrollView {
-
+                    ScrollView {
+                        if projetosFiltrados.isEmpty {
+                            VStack(spacing: 12) {
+                                Image(systemName: "tray")
+                                    .resizable()
+                                    .scaledToFit()
+                                    .frame(width: 60, height: 60)
+                                    .foregroundColor(.gray)
+                                Text("Você não possui nenhum projeto")
+                                    .foregroundColor(.gray)
+                                    .font(.headline)
+                            }
+                            .frame(maxWidth: .infinity, maxHeight: .infinity)
+                            .padding(.top, 40)
+                        } else {
                             LazyVGrid(columns: colunaCard, spacing: 20) {
-                                ForEach(projetos.filter { projeto in
-                                    !projeto.finalizado &&
-                                    (pesquisarProjeto.isEmpty ||
-    projeto.nome?.localizedCaseInsensitiveContains(pesquisarProjeto) == true)
-                                }) { projeto in
+                                ForEach(projetosFiltrados) { projeto in
                                     projetoCardView(projeto: projeto)
                                 }
                             }
                             .padding(.horizontal, 20)
-
-                            LazyVGrid(columns: colunaCard, spacing: 16){
-//                                CardMyProject(
-//                                    systemImage: "lightbulb.fill",
-//                                    titulo: "Minhas Ideias",
-//                                    corDeFundo: Color.yellow.opacity(0.2)
-//                                ) {
-//                                    minhaIdeiaModal = true
-//                                }
-                                
-                                ForEach(projetos.filter { !$0.finalizado }) { projeto in
-                                    NavigationLink(destination: DetalhesProjetoView(projeto: projeto)) {
-                                            projetoCardView(projeto: projeto)
-                                    }
-                                    
-                                }
-                            }
-                            
                         }
-                        
                     }
-                    .frame(maxWidth: .infinity)
-                    .padding(.horizontal)
                 } else {
                     VStack {
                         Text("Conteúdo dos projetos concluídos")
                             .foregroundColor(.gray)
                     }
+                    .frame(maxWidth: .infinity, maxHeight: .infinity)
                 }
                 
                 Spacer(minLength: 0)
@@ -84,27 +78,12 @@ struct ProjetosView: View {
                 ToolbarItemGroup(placement: .navigationBarTrailing) {
                     Button(action: {
                         addProjetoVazio = true
-                        // Lógica de criar um projeto novo
-                        print("Novo projeto criado")
-                        
                     }) {
                         Image(systemName: "plus")
                     }
-                    
                     .sheet(isPresented: $addProjetoVazio) {
                         AddProjetoVazioView(nomeProjeto: $nomeProjeto)
                     }
-                    
-                    //                    Button(action: {
-                    //
-                    //                        //Lógica de editar um projeto existente
-                    //
-                    //                        print("teste editando editando")
-                    //
-                    //                    }) {
-                    //                        Image(systemName: "pencil")
-                    //                    }
-                    
                 }
             }
             .searchable(text: $pesquisarProjeto)

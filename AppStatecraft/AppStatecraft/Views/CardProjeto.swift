@@ -21,7 +21,7 @@ struct CardMyProject: View {
                 .multilineTextAlignment(.center)
                 .padding(.horizontal, 8)
         }
-        .frame(width: 140, height: 160) // ajustei altura para acomodar texto
+        .frame(width: 140, height: 160)
         .contentShape(Rectangle())
         .cornerRadius(40)
         .onTapGesture {

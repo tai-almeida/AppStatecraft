@@ -37,8 +37,10 @@ struct InicialDMView: View {
                 .padding(.horizontal)
             Spacer()
             }
-            Button("Começar") {
-                showingSheet.toggle()
+            Button(action: { showingSheet.toggle() }) {
+                Text("Começar")
+                    .frame(maxWidth: .infinity)
+                    .clipShape(Capsule())
             }
             .fullScreenCover(isPresented: $showingSheet) {
                 DesafiosMultimidiaView()

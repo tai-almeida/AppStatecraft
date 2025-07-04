@@ -97,7 +97,7 @@ struct PingPongView: View {
                         }
             
                     }
-                    .ignoresSafeArea(.keyboard, edges: .bottom)
+                    //.ignoresSafeArea(.keyboard, edges: .bottom)
                     .onChange(of: palavras.count) { _ in
                         withAnimation {
                             scrollProxy.scrollTo("textField", anchor: .bottom)

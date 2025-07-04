@@ -117,8 +117,10 @@ struct InicialPingPongView: View {
                 .padding(.horizontal)*/
                 
             }
-            Button("Começar") {
-                showingSheet.toggle()
+            Button(action: { showingSheet.toggle() }) {
+                Text("Começar")
+                    .frame(maxWidth: .infinity)
+                    .clipShape(Capsule())
             }
             .fullScreenCover(isPresented: $showingSheet, onDismiss: { resetaPicker = UUID(); selecionada = "Conduzida"; Task{
                 palavras.removeAll()

@@ -59,20 +59,23 @@ struct InicialFreeWritingView: View {
                 }.padding(.horizontal)
                 DurationPickerView(minutes: $minutes, seconds: $seconds)
             }
-            Button("Começar") {
-                showingSheet.toggle()
-            }.frame(maxWidth: .infinity)
-                .padding()
-                .background(Color.accentColor)
-                .foregroundColor(.white)
-                .clipShape(Capsule())
-                .padding(.horizontal)
-                .padding(.vertical)
-                .fullScreenCover(isPresented: $showingSheet) {
-                    FreeWritingView(minutos: minutes, segundos: seconds)
-                        .accentColor(Color("AccentColor"))
-                        .interactiveDismissDisabled()
-                }
+            Button(action: { showingSheet.toggle() }) {
+                Text("Começar")
+                    .frame(maxWidth: .infinity)
+                    .clipShape(Capsule())
+            }
+            .fullScreenCover(isPresented: $showingSheet) {
+                FreeWritingView(minutos: minutes, segundos: seconds)
+                    .accentColor(Color("AccentColor"))
+                    .interactiveDismissDisabled()
+            }
+            .frame(maxWidth: .infinity)
+            .padding()
+            .background(Color.accentColor)
+            .foregroundColor(.white)
+            .clipShape(Capsule())
+            .padding(.horizontal)
+            .padding(.vertical)
         }
         .navigationTitle("Free-Writing")
     }

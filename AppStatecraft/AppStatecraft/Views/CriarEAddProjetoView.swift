@@ -64,63 +64,63 @@ struct criarEAddProjetoView: View {
         print("FUNCAO CHAMADA")
         print("--- Dentro de salvarSessao. Tipo do desafio: '\(desafio.tipo)' ---")
         
-        // cria um novo projeto
-        let novoProjeto = Projeto(context: viewContext)
-        novoProjeto.id = UUID()
-        novoProjeto.data = Date()
-        novoProjeto.nome = nomeNovoProj
-        novoProjeto.finalizado = false
-        novoProjeto.imagemCapa = Data()
-        
-        switch desafio.tipo {
-        case "maieutica":
-            let novaSessao = SessaoMaieutica(context: viewContext)
-            novaSessao.id = UUID()
-            novaSessao.data = Date()
-            
-            novaSessao.log = Data()
-            
-            novaSessao.projeto = novoProjeto
-        
-        case "texto":
-            let novaSessao = SessaoDesafioMult(context: viewContext)
-            novaSessao.id = UUID()
-            novaSessao.data = Date()
-            
-            novaSessao.desafioFeito = true
-            novaSessao.desafioID = Int64(self.desafio.id)
-            novaSessao.enunciado = self.desafio.enunciado
-          //  novaSessao.mediaFoto = Data()
-           // novaSessao.mediaTexto =
-          //  novaSessao.respostaFoto =
-            novaSessao.respostaTexto = self.respostaTexto
-            
-            novaSessao.projeto = novoProjeto
-            
-        case "free writing":
-            let novaSessao = SessaoFreeWriting(context: viewContext)
-            novaSessao.id = UUID()
-            novaSessao.data = Date()
-            
-            novaSessao.enunciado = String()
-            novaSessao.resposta = String()
-            
-            novaSessao.projeto = novoProjeto
-            
-        case "ping pong":
-            let novaSessao = SessaoPingPong(context: viewContext)
-            novaSessao.id = UUID()
-            novaSessao.data = Date()
-            
-            novaSessao.log = Data()
-            
-            novaSessao.projeto = novoProjeto
-        
-        default:
-            print("tipo invalido")
-            return
-            
-        }
+//        // cria um novo projeto
+//        let novoProjeto = Projeto(context: viewContext)
+//        novoProjeto.id = UUID()
+//        novoProjeto.data = Date()
+//        novoProjeto.nome = nomeNovoProj
+//        novoProjeto.finalizado = false
+//        novoProjeto.imagemCapa = Data()
+//
+//        switch desafio.tipo {
+//        case "maieutica":
+//            let novaSessao = SessaoMaieutica(context: viewContext)
+//            novaSessao.id = UUID()
+//            novaSessao.data = Date()
+//
+//            novaSessao.log = Data()
+//
+//            novaSessao.projeto = novoProjeto
+//        
+//        case "texto":
+//            let novaSessao = SessaoDesafioMult(context: viewContext)
+//            novaSessao.id = UUID()
+//            novaSessao.data = Date()
+//
+//            novaSessao.desafioFeito = true
+//            novaSessao.desafioID = Int64(self.desafio.id)
+//            novaSessao.enunciado = self.desafio.enunciado
+//          //  novaSessao.mediaFoto = Data()
+//           // novaSessao.mediaTexto =
+//          //  novaSessao.respostaFoto =
+//            novaSessao.respostaTexto = self.respostaTexto
+//
+//            novaSessao.projeto = novoProjeto
+//
+//        case "free writing":
+//            let novaSessao = SessaoFreeWriting(context: viewContext)
+//            novaSessao.id = UUID()
+//            novaSessao.data = Date()
+//
+//            novaSessao.enunciado = String()
+//            novaSessao.resposta = String()
+//
+//            novaSessao.projeto = novoProjeto
+//
+//        case "ping pong":
+//            let novaSessao = SessaoPingPong(context: viewContext)
+//            novaSessao.id = UUID()
+//            novaSessao.data = Date()
+//
+//            novaSessao.log = Data()
+//
+//            novaSessao.projeto = novoProjeto
+//
+//        default:
+//            print("tipo invalido")
+//            return
+//
+//        }
         
         do {
             try viewContext.save()

@@ -12,38 +12,49 @@ struct MultimidiaSalvoView: View {
     @State var sessao: SessaoDesafioMult
     
     var body: some View {
-        VStack(){
-            
-            HStack {
-                Text("Desafio")
-                    .font(.largeTitle)
-                    .bold()
-                    .padding()
-                Spacer()
-                BotaoCloseModal()
-            }.padding()
-            
-            ScrollView{
-                EnunciadoSalvoView(sessao: sessao).padding()
-                Divider()
-                if let data = sessao.respostaFoto, let uiImage = UIImage(data: data) {
-                    HStack {
-                        Spacer()
-                        Image(uiImage: uiImage)
-                            .resizable()
-                            .scaledToFit()
-                            .clipShape(RoundedRectangle(cornerRadius: 10))
-                            .padding(.bottom)
-                        Spacer()
+        NavigationView {
+            VStack(){
+                
+                /*HStack {
+                    Text("Desafio")
+                        .font(.largeTitle)
+                        .bold()
+                        .padding()
+                    Spacer()
+                    BotaoCloseModal()
+                }.padding()*/
+                
+                ScrollView{
+                    EnunciadoSalvoView(sessao: sessao).padding()
+                    Divider()
+                    if let data = sessao.respostaFoto, let uiImage = UIImage(data: data) {
+                        HStack {
+                            Spacer()
+                            Image(uiImage: uiImage)
+                                .resizable()
+                                .scaledToFit()
+                                .clipShape(RoundedRectangle(cornerRadius: 10))
+                                .padding(.bottom)
+                            Spacer()
+                        }
+                    }else{
+                        VStack(alignment: .leading){
+                            Text(sessao.respostaTexto ?? "vazio")
+                                .padding()
+                                .font(.body)
+                        }
                     }
-                }else{
-                    VStack(alignment: .leading){
-                        Text(sessao.respostaTexto ?? "vazio")
-                            .padding()
-                            .font(.body)
-                    }
+                    Spacer()
                 }
-                Spacer()
+            }
+            .navigationTitle("Desafio")
+            .navigationBarTitleDisplayMode(.inline)
+            .toolbar {
+                ToolbarItem(placement: .confirmationAction) {
+                    Button("Fechar") {
+                        dismiss()
+                    } .foregroundColor(Color.accentColor)
+                }
             }
         }
     }

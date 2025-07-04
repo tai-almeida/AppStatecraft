@@ -65,7 +65,7 @@ struct InicialFreeWritingView: View {
                     .clipShape(Capsule())
             }
             .fullScreenCover(isPresented: $showingSheet) {
-                FreeWritingView(minutos: minutes, segundos: seconds)
+                FreeWritingView(metodologiaAparecendo: $showingSheet, minutos: minutes, segundos: seconds)
                     .accentColor(Color("AccentColor"))
                     .interactiveDismissDisabled()
             }

@@ -92,7 +92,7 @@ struct InicialPingPongView: View {
                 textoIA = aux;
                 palavras.append(textoIA)
             }}) {
-                PingPongView(textoIA: $textoIA, palavras: $palavras, minutos: minutes, segundos: seconds, ehIndividual: $individual)
+                PingPongView(metodologiaAparecendo: $showingSheet, textoIA: $textoIA, palavras: $palavras, minutos: minutes, segundos: seconds, ehIndividual: $individual)
                     .accentColor(Color("AccentColor"))
                     .interactiveDismissDisabled()
             }

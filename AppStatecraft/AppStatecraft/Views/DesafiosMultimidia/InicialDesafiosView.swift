@@ -38,7 +38,7 @@ struct InicialDMView: View {
                 showingSheet.toggle()
             }
             .fullScreenCover(isPresented: $showingSheet) {
-                DesafiosMultimidiaView()
+                DesafiosMultimidiaView(metodologiaAparecendo: $showingSheet)
                 .accentColor(Color("AccentColor"))
                 .interactiveDismissDisabled() // impede deslizar
             }

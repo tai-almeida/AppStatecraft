@@ -13,8 +13,7 @@ struct DesafiosMultimidiaView: View {
     //vamo refatorar isso dps slk
     @Environment(\.dismiss) var dismiss
     @Environment(\.managedObjectContext) private var viewContext
-    
-    
+    @Binding var metodologiaAparecendo: Bool
     @State private var showImagePicker: Bool = false
     @State private var image: UIImage?
     @State private var respostaTexto: String = ""
@@ -22,6 +21,7 @@ struct DesafiosMultimidiaView: View {
     @State private var desafio: QuestaoDesafios?
     @State private var isShowingDialog = false
     @State private var isShowingAddProjetos = false
+    @State private var sessaoDesafios: SessaoDesafioMult? = nil
     
     
     var body: some View {
@@ -53,7 +53,7 @@ struct DesafiosMultimidiaView: View {
                         .toolbar {
                             ToolbarItem(placement: .cancellationAction) {
                                 Button("Cancelar") {
-                                    dismiss()
+                                    self.metodologiaAparecendo = false
                                 }
                                 .foregroundColor(.accentColor)
                             }
@@ -95,13 +95,19 @@ struct DesafiosMultimidiaView: View {
                                         //navegar para o modal de adicionar a projeto
                                         //salvar o objeto no coredata quando a pessoa clicar no projeto
                                         
+                                        sessaoDesafios = desafiosVM.criarSessao(contexto: viewContext, respostaTexto: respostaTexto, respostaImagem: image, desafio: desafio)
+                                        //desafiosVM.salvarContexto(contexto: viewContext) //isso aqui vai sari daqui
+                                        self.isShowingAddProjetos = true
                                         self.respostaTexto = ""
                                         self.image = nil
-                                      //  dismiss()
-                                    } 
+                                    }
                                     
-                                    Button("Salvar em Esboços") {
-                                        //TODO: logica de permanencia dos dados, so que salvar no esbocos tomee
+                                    Button("Salvar no Histórico") {
+                                        sessaoDesafios = desafiosVM.criarSessao(contexto: viewContext, respostaTexto: respostaTexto, respostaImagem: image, desafio: desafio)
+                                        desafiosVM.salvarContexto(contexto: viewContext) //isso aqui vai sari daqui
+                                        self.respostaTexto = ""
+                                        self.image = nil
+                                        dismiss()
                                     }
                                     Button("Descartar", role: .destructive) {
                                         dismiss()
@@ -111,30 +117,14 @@ struct DesafiosMultimidiaView: View {
                                     }
                                 }
                             }
-                        }//por enquanto vou salvar sem projeto para testar o mecanismo -sofi
-//                        .fullScreenCover(isPresented: $isShowingAddProjetos) {
-//                            //view de addProjeto
-//                            if let desafio = desafio{
-//                                AddProjetoView(
-//                                    respostaTexto: respostaTexto,
-//                                    respostaFoto: image,
-//                                    desafio: desafio)
-//                            }else{
-//                                //tratar se for nil
-//                            }
-                        //}
+                        }
                 }
             
             }.onAppear{
                 self.desafio = desafiosVM.sorteiaDesafio()
             }
             .fullScreenCover(isPresented: $isShowingAddProjetos) {
-                            criarEAddProjetoView(
-                                isPresented: self.$isShowingAddProjetos,
-                                respostaTexto: self.respostaTexto,
-                                respostaFoto: self.image,
-                                desafio: self.desafio!
-                            )
+                AddProjetoView(metodologiaAparecendo: $metodologiaAparecendo, sessao: sessaoDesafios)
             }
         }
         .foregroundColor(.primary)

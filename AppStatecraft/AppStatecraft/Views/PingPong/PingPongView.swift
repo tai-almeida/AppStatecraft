@@ -8,14 +8,13 @@ import AVFoundation
 import SwiftUI
 
 struct PingPongView: View {
-    //@StateObject var viewModel = PingPongViewModel()
+    @Binding var metodologiaAparecendo: Bool
     @Binding var textoIA: String
     @Binding var palavras: [String]
     @State var input = ""
     @Environment(\.dismiss) var dismiss
     @StateObject private var timerVM: TimerViewModel = TimerViewModel(minutos: 0, segundos: 0)
     @Environment(\.managedObjectContext) private var viewContext
-
     let minutos: Int
     let segundos: Int
     @State private var isShowingDialog = false
@@ -24,6 +23,8 @@ struct PingPongView: View {
     @Binding var ehIndividual: Bool
     @State var estaProcessando: Bool = false
     @State var acabouTempo: Bool = false
+    @State private var sessao: SessaoPingPong? = nil
+
     
     var body: some View {
         NavigationView {
@@ -112,26 +113,15 @@ struct PingPongView: View {
                             titleVisibility: .hidden
                         ) {
                             Button("Adicionar a Projeto") {
+                                sessao = pingpongVM.criarSessao(contexto: viewContext, palavras: palavras)
                                 self.isShowingAddProjetos = true
-                                //dps associamos a projeto
-                                let sessao = pingpongVM.criarSessao(
-                                    contexto: viewContext
-                                )
-                                
-                                pingpongVM.salvarContexto(
-                                    sessao: sessao,
-                                    contexto: viewContext,
-                                    palavras: palavras)
-                                //TODO: logica de permanencia dos dados sinistra
-                                //criar o "objeto"
-                                //navegar para o modal de adicionar a projeto
-                                //salvar o objeto no coredata quando a pessoa clicar no projeto
-                                
+                                self.palavras = []
+                            }
+                            Button("Salvar em Histórico") {
+                                sessao = pingpongVM.criarSessao(contexto: viewContext, palavras: palavras)
+                                pingpongVM.salvarContexto(contexto: viewContext)
                                 self.palavras = []
                                 dismiss()
-                            }
-                            Button("Salvar em Esboços") {
-                                //TODO: logica de permanencia dos dados, so que salvar no esbocos tomee
                             }
                             Button("Descartar", role: .destructive) {
                                 dismiss()
@@ -144,6 +134,9 @@ struct PingPongView: View {
                     }
                 }
         }
+    }
+    .fullScreenCover(isPresented: $isShowingAddProjetos) {
+        AddProjetoView(metodologiaAparecendo: $metodologiaAparecendo, sessao: sessao)
     }
     .onChange(of: timerVM.sendoFeito) { checagem in
         if (!checagem) {

@@ -9,36 +9,36 @@ import SwiftUI
 import CoreData
 
 struct AddProjetoView: View {
-    
     @Environment(\.dismiss) private var dismiss
-    @Environment(\.managedObjectContext) var viewContext
-    
-    @FetchRequest(sortDescriptors: [NSSortDescriptor(keyPath: \Projeto.data, ascending: false)])
-    
-   
-    private var projetos: FetchedResults<Projeto>
-    let respostaTexto: String?
-    let respostaFoto: UIImage? //ver depois de passar como objeto mesmo para ficar mais legivel
-    let desafio: QuestaoDesafios
-    let columns = [
+    @Environment(\.managedObjectContext) private var contexto
+    @StateObject private var projetosVM = ProjetosViewModel()
+    private let columns = [
         GridItem(.adaptive(minimum: 80))
     ]
-    @State private var minhaIdeiaModal = false
+    @Binding var metodologiaAparecendo: Bool
+    @State var sessao: Sessao?
     @State private var telaCriarNovoProjeto = false
     
-    
     var body: some View {
-        
         NavigationView {
             ScrollView {
                 VStack {
                     LazyVGrid(columns: columns, spacing: 20) {
-                        ForEach(projetos, id: \.self) { projeto in
-                            NavigationLink(destination: detalhesProjetoView(projeto: projeto)) {
-                                Text(projeto.nome ?? "Sem nome")
+                        ForEach(projetosVM.projetos, id: \.self) { projeto in
+                            Button(action:{
+                                if let sessao = sessao{
+                                    projeto.addToSessoes(sessao)
+                                    projetosVM.salvar(contexto: contexto)
+                                }
+                                dismiss()
+                                self.metodologiaAparecendo = false
+                            }){
+                                Text(projeto.nome ?? "vazio")
                             }
                         }
                     }
+                }.sheet(isPresented: $telaCriarNovoProjeto) {
+                    //criarEAddProjetoView(isPresented: $telaCriarNovoProjeto)
                 }
             }
             .navigationBarTitle(Text("Meus Projetos"))
@@ -50,19 +50,9 @@ struct AddProjetoView: View {
                     self.telaCriarNovoProjeto = true
                 }) {
                     Image(systemName: "plus")
-                    }
-            )
-            
-            .sheet(isPresented: $telaCriarNovoProjeto) {
-                criarEAddProjetoView(
-                    isPresented: self.$telaCriarNovoProjeto,
-                    respostaTexto: respostaTexto,
-                    respostaFoto: respostaFoto,
-                    desafio: desafio
-                ).environment(\.managedObjectContext, self.viewContext) 
-                    
-                }
-            }
+                }).foregroundColor(.accentColor)
+        }.onAppear {
+            projetosVM.getAllProjetos(contexto: contexto)
         }
     }
 
@@ -196,3 +186,4 @@ struct AddProjetoView: View {
 ////            }
  //   }
 
+}

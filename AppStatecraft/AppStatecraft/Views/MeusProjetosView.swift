@@ -1,12 +1,26 @@
 import SwiftUI
+import CoreData
 
 struct ProjetosView: View {
+    
+    @Environment(\.managedObjectContext) private var viewContext
+    
+    @FetchRequest(
+        entity: Projeto.entity(),
+        sortDescriptors: [NSSortDescriptor(keyPath: \Projeto.data, ascending: false)]
+        
+    ) private var projetos: FetchedResults<Projeto>
+    
     @State private var minhaIdeiaModal = false
     @State private var adicionarProjeto = false
     @Binding var pesquisarProjeto: String
     @State private var projetosConcluidos = "Em andamento"
     @State private var addProjetoVazio = false
-
+    @State var nomeProjeto = ""
+    
+    
+    let colunaCard = [GridItem(.flexible()), GridItem(.flexible())]
+    
     var body: some View {
         NavigationView {
             VStack(spacing: 12) {
@@ -17,30 +31,51 @@ struct ProjetosView: View {
                 .pickerStyle(.segmented)
                 .padding(.horizontal)
                 .padding(.top, 8)
-
+                
                 if projetosConcluidos == "Em andamento" {
-                    VStack(alignment: .leading, spacing: 8) {
-                        
-                        CardMyProject(
-                            systemImage: "lightbulb.fill",
-                            titulo: "Minhas Ideias",
-                            corDeFundo: Color.yellow.opacity(0.2)
-                        ) {
-                            minhaIdeiaModal = true
+                    VStack(alignment: .center) {
+                        ScrollView {
+
+                            LazyVGrid(columns: colunaCard, spacing: 20) {
+                                ForEach(projetos.filter { projeto in
+                                    !projeto.finalizado &&
+                                    (pesquisarProjeto.isEmpty ||
+    projeto.nome?.localizedCaseInsensitiveContains(pesquisarProjeto) == true)
+                                }) { projeto in
+                                    projetoCardView(projeto: projeto)
+                                }
+                            }
+                            .padding(.horizontal, 20)
+
+                            LazyVGrid(columns: colunaCard, spacing: 16){
+//                                CardMyProject(
+//                                    systemImage: "lightbulb.fill",
+//                                    titulo: "Minhas Ideias",
+//                                    corDeFundo: Color.yellow.opacity(0.2)
+//                                ) {
+//                                    minhaIdeiaModal = true
+//                                }
+                                
+                                ForEach(projetos.filter { !$0.finalizado }) { projeto in
+                                    NavigationLink(destination: DetalhesProjetoView(projeto: projeto)) {
+                                            projetoCardView(projeto: projeto)
+                                    }
+                                    
+                                }
+                            }
+                            
                         }
                         
-                        
-
                     }
-                    .frame(maxWidth: .infinity, alignment: .leading)
-                    .padding(.leading, 20)
+                    .frame(maxWidth: .infinity)
+                    .padding(.horizontal)
                 } else {
                     VStack {
                         Text("Conteúdo dos projetos concluídos")
                             .foregroundColor(.gray)
                     }
                 }
-
+                
                 Spacer(minLength: 0)
             }
             .padding(.top, 10)
@@ -55,19 +90,21 @@ struct ProjetosView: View {
                     }) {
                         Image(systemName: "plus")
                     }
+                    
                     .sheet(isPresented: $addProjetoVazio) {
-                        AddProjetoVazioView()
+                        AddProjetoVazioView(nomeProjeto: $nomeProjeto)
                     }
-
-                    Button(action: {
-                        
-                        //Lógica de editar um projeto existente
-                        
-                        print("teste editando editando")
-                        
-                    }) {
-                        Image(systemName: "pencil")
-                    }
+                    
+                    //                    Button(action: {
+                    //
+                    //                        //Lógica de editar um projeto existente
+                    //
+                    //                        print("teste editando editando")
+                    //
+                    //                    }) {
+                    //                        Image(systemName: "pencil")
+                    //                    }
+                    
                 }
             }
             .searchable(text: $pesquisarProjeto)
@@ -78,7 +115,7 @@ struct ProjetosView: View {
                     .font(.title)
                 Spacer()
             }
-            .padding() 
+            .padding()
         }
     }
 }

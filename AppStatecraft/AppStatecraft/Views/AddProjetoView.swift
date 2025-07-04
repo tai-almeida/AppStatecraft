@@ -18,6 +18,8 @@ struct AddProjetoView: View {
     @State private var telaCriarNovoProjeto = false
     //@Binding var pesquisarProjeto: String
     @State private var projetosConcluidos = "Em andamento"
+    @State var nomeNovoProjeto = ""
+
     
     private var projetosFiltrados: [Projeto] {
             if projetosConcluidos == "Em andamento" {
@@ -60,7 +62,14 @@ struct AddProjetoView: View {
                             }
                         }
                     }.sheet(isPresented: $telaCriarNovoProjeto) {
-                        //criarEAddProjetoView(isPresented: $telaCriarNovoProjeto)
+                        if let sessao = sessao {
+                            criarEAddProjetoView(
+                                isPresented: $telaCriarNovoProjeto,
+                                nomeNovoProjeto: $nomeNovoProjeto,
+                                sessao: .constant(sessao)
+                            )
+                        }
+                       
                     }
                 }
                 //.frame(maxWidth: .infinity) nao sei o quanto isso realmente eh necessario
@@ -69,13 +78,14 @@ struct AddProjetoView: View {
                 
                 
             }
-            .navigationBarTitle(Text("Meus Projetos"))
+            .navigationTitle("Meus Projetos")
             .navigationBarItems(
                 leading: Button("Cancelar") {
                     dismiss()
                 },
                 trailing: Button(action: {
-                    //self.telaCriarNovoProjeto = true
+                    telaCriarNovoProjeto = true
+
                 }) {
                     Image(systemName: "plus")
                 }).foregroundColor(.accentColor)
@@ -83,135 +93,4 @@ struct AddProjetoView: View {
             projetosVM.getAllProjetos(contexto: contexto)
         }
     }
-
-//    private func salvarSessao(em projeto: Projeto) {
-//        switch desafio.tipo {
-//        case "maieutica":
-//            let novaSessao = SessaoMaieutica(context: viewContext)
-//            novaSessao.id = UUID()
-//            novaSessao.data = Date()
-//            
-//            novaSessao.log = Data()
-//            
-//            novaSessao.projeto = projeto
-//        
-//        case "multimidia":
-//            let novaSessao = SessaoDesafioMult(context: viewContext)
-//            novaSessao.id = UUID()
-//            novaSessao.data = Date()
-//            
-//            novaSessao.desafioFeito = Bool()
-//            novaSessao.desafioID = Int64()
-//            novaSessao.enunciado = String()
-//            novaSessao.mediaFoto = Data()
-//            novaSessao.mediaTexto = String()
-//            novaSessao.respostaFoto = Data()
-//            novaSessao.respostaTexto = String()
-//            
-//            novaSessao.projeto = projeto
-//            
-//        case "free writing":
-//            let novaSessao = SessaoFreeWriting(context: viewContext)
-//            novaSessao.id = UUID()
-//            novaSessao.data = Date()
-//            
-//            novaSessao.enunciado = String()
-//            novaSessao.resposta = String()
-//            
-//            novaSessao.projeto = projeto
-//            
-//        case "ping pong":
-//            let novaSessao = SessaoPingPong(context: viewContext)
-//            novaSessao.id = UUID()
-//            novaSessao.data = Date()
-//            
-//            novaSessao.log = Data()
-//            
-//            novaSessao.projeto = projeto
-//        
-//        default:
-//            print("tipo invalido")
-//            return
-//            
-//        }
-//        
-//        do {
-//            try viewContext.save()
-//            print("eeeeeee :)")
-//            dismiss()
-//        } catch {
-//            let nsError = error as NSError
-//            print("aaaah :( \(nsError)")
-//        }
-//    }
-            
-    
-            
-
-            
-            
-            
-            
-            
-//
-//
-//            VStack() {
-////                HStack(alignment: .top) {
-////                    Image(systemName: "plus")
-////                        .foregroundColor(Color.accentColor)
-////                }
-//                    Button {
-//                        minhaIdeiaModal = true
-//                    } label: {
-//                        Image(systemName: "lightbulb.fill")
-//                            .resizable()
-//                            .scaledToFit()
-//                            .frame(width: 60, height: 60)
-//                            .foregroundColor(.yellow)
-//                            .padding(30)
-//                            .background(Color.yellow.opacity(0.1))
-//                            .cornerRadius(20)
-//                            .shadow(radius: 6)
-//                            .frame(width: 200, height: 200)
-//                    }
-//                    // Texto fora do botão/card
-//                    Text("Esboço")
-//                        .frame(width: 200, alignment: .leading)
-//                        .font(.headline)
-//                        .foregroundColor(.primary)
-//            }
-//            .toolbar {
-//                ToolbarItem(placement: .cancellationAction) {
-//                    Button("Cancelar") {
-//                        dismiss()
-//                    }.foregroundColor(.accentColor)
-       //     VStack() {
-//                HStack(alignment: .top) {
-//                    Image(systemName: "plus")
-//                        .foregroundColor(Color.accentColor)
-        //      }
-//            }
-//            .navigationTitle("Meus Projetos")
-//
-////                .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .topLeading)
-////                .padding([.top, .leading], 20)
-//                // Modal vazio
-//                .sheet(isPresented: $minhaIdeiaModal) {
-//                    // Modal content — pode personalizar depois
-//                    VStack {
-//                        Text("Aqui vai ser guardado os rascunhos?")
-//                            .font(.title)
-//                        Spacer()
-//                    }
-//                    .padding()
-//                }
-//            }
-////        .toolbar {
-////            ToolbarItem(placement: .cancellationAction) {
-////                Button("Cancelar") {
-////                    dismiss()
-////                }.foregroundColor(.accentColor)
-////            }
- //   }
-
 }

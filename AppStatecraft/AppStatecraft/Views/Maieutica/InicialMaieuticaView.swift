@@ -53,7 +53,7 @@ struct InicialMaieuticaView: View {
                     .clipShape(Capsule())
             }
             .fullScreenCover(isPresented: $showingSheet) {
-                MaieuticaView()
+                MaieuticaView(metodologiaAparecendo: $showingSheet)
                     .accentColor(Color("AccentColor"))
                     .interactiveDismissDisabled()
             }

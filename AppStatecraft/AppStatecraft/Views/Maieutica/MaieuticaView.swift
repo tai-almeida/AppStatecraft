@@ -3,6 +3,7 @@ import SwiftUI
 struct MaieuticaView: View {
     
     @Environment(\.dismiss) var dismiss
+    @Binding var metodologiaAparecendo: Bool
     @State private var textoUser = ""
     @StateObject private var viewModel = MaieuticaViewModel()
     @State private var historicoIA: [String] = ["Conte sobre sua ideia!"]
@@ -12,8 +13,9 @@ struct MaieuticaView: View {
     @State private var mostrarLimitePerguntas = false
     @State var cliqueButton: Int = 0
     @State private var isShowingDialog = false
-    @State private var isShowingAddProjetos = false
     @Environment(\.managedObjectContext) private var viewContext
+    @State private var sessao: SessaoMaieutica? = nil
+    @State private var isShowingAddProjetos = false
 
     
     var body: some View {
@@ -116,29 +118,23 @@ struct MaieuticaView: View {
                         titleVisibility: .hidden
                     ) {
                         Button("Adicionar a Projeto") {
-//                            print(indiceAtual)
-//                            print(historicoIA.count)
-//                            print(respostasUsuario.count)
-                            self.isShowingAddProjetos = true
                             self.respostasUsuario.append(textoUser)
-                            //dps associamos a projeto
-                            viewModel.salvarSemProjeto(
-                                contexto: viewContext,
-                                historicoIA: historicoIA,
-                                respostasUsuario: respostasUsuario
-                            )
-                            //TODO: logica de permanencia dos dados sinistra
-                            //criar o "objeto"
-                            //navegar para o modal de adicionar a projeto
-                            //salvar o objeto no coredata quando a pessoa clicar no projeto
+                            sessao = viewModel.criaSessao(contexto: viewContext, historicoIA: historicoIA, respostasUsuario: respostasUsuario)
+                            self.isShowingAddProjetos = true
+                            self.indiceAtual = 0
+                            self.historicoIA = ["Conte sobre sua ideia!"]
+                            self.respostasUsuario = []
+                        }
+                        Button("Salvar em Histórico") {
+                            self.respostasUsuario.append(textoUser)
+                            
+                            sessao = viewModel.criaSessao(contexto: viewContext, historicoIA: historicoIA, respostasUsuario: respostasUsuario)
+                            viewModel.salvaContexto(contexto: viewContext)
                             
                             self.indiceAtual = 0
                             self.historicoIA = ["Conte sobre sua ideia!"]
                             self.respostasUsuario = []
                             dismiss()
-                        }
-                        Button("Salvar em Esboços") {
-                            //TODO: logica de permanencia dos dados, so que salvar no esbocos tomee
                         }
                         Button("Descartar", role: .destructive) {
                             dismiss()
@@ -155,6 +151,8 @@ struct MaieuticaView: View {
             } message: {
                 Text("Você já respondeu 10 perguntas. Salve ou apague sua sessão.")
             }
+        }.fullScreenCover(isPresented: $isShowingAddProjetos) {
+            AddProjetoView(metodologiaAparecendo: $metodologiaAparecendo, sessao: sessao)
         }
     }
 }

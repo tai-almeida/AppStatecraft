@@ -43,7 +43,7 @@ struct InicialDMView: View {
                     .clipShape(Capsule())
             }
             .fullScreenCover(isPresented: $showingSheet) {
-                DesafiosMultimidiaView()
+                DesafiosMultimidiaView(metodologiaAparecendo: $showingSheet)
                 .accentColor(Color("AccentColor"))
                 .interactiveDismissDisabled() // impede deslizar
             }
@@ -56,11 +56,5 @@ struct InicialDMView: View {
             .padding(.vertical)
         }
         .navigationTitle("Desafios Multimídia")
-    }
-}
-
-struct InicialDesafiosView_Previews: PreviewProvider {
-    static var previews: some View {
-        InicialDMView()
     }
 }

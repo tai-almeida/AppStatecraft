@@ -9,107 +9,89 @@ import SwiftUI
 import CoreData
 
 struct AddProjetoView: View {
-    
     @Environment(\.dismiss) private var dismiss
-    @Environment(\.managedObjectContext) var viewContext
-    
-    @FetchRequest(sortDescriptors: [NSSortDescriptor(keyPath: \Projeto.id, ascending: false)])
-   
-    private var projetos: FetchedResults<Projeto>
-    let respostaTexto: String?
-    let respostaFoto: UIImage? //ver depois de passar como objeto mesmo para ficar mais legivel
-    let desafio: QuestaoDesafios
-    let columns = [
-        GridItem(.adaptive(minimum: 80))
-    ]
-    @State private var minhaIdeiaModal = false
+    @Environment(\.managedObjectContext) private var contexto
+    @StateObject private var projetosVM = ProjetosViewModel()
+    private let colunaCard = [GridItem(.flexible()), GridItem(.flexible())]
+    @Binding var metodologiaAparecendo: Bool
+    @State var sessao: Sessao?
     @State private var telaCriarNovoProjeto = false
     
+    @State private var projetosConcluidos = "Em andamento"
+    @State private var textoDaBusca = "" // estado local para a busca
     
-    var body: some View {
+    private var projetosFiltrados: [Projeto] {
+        let projetosPorStatus: [Projeto]
         
+        if projetosConcluidos == "Em andamento" {
+            projetosPorStatus = projetosVM.projetos.filter { !$0.finalizado }
+        } else {
+            projetosPorStatus = projetosVM.projetos.filter { $0.finalizado }
+        }
+        
+        //busca vazia, não precisa filtrar mais nada
+        if textoDaBusca.isEmpty {
+            return projetosPorStatus
+        }
+        
+        //resultado anterior pelo texto da busca
+        return projetosPorStatus.filter { projeto in
+            projeto.nome?.localizedCaseInsensitiveContains(textoDaBusca) ?? false
+        }
+    }
+
+    var body: some View {
         NavigationView {
-            ScrollView {
-                VStack {
-                    LazyVGrid(columns: columns, spacing: 20) {
-                        ForEach(projetos, id: \.self) { projeto in
-                            NavigationLink(destination: detalhesProjetoView(projeto: projeto)) {
-                                Text(projeto.nome ?? "Sem nome")
+            VStack() {
+                
+                Picker("", selection: $projetosConcluidos) {
+                    Text("Em andamento").tag("Em andamento")
+                    Text("Concluido").tag("Concluido")
+                }
+                .pickerStyle(.segmented)
+                .padding(.horizontal)
+                
+                VStack(alignment: .center){
+                    ScrollView{
+                        
+                        if projetosFiltrados.isEmpty{
+                            Text("Nenhum projeto encontrado.")
+                        }
+                        
+                        LazyVGrid(columns: colunaCard, spacing: 20) {
+                            ForEach(projetosFiltrados, id: \.self) { projeto in
+                                Button(action:{
+                                    if let sessao = sessao{
+                                        projeto.addToSessoes(sessao)
+                                        projetosVM.salvar(contexto: contexto)
+                                    }
+                                    dismiss()
+                                    self.metodologiaAparecendo = false
+                                }){
+                                    projetoCardView(projeto: projeto)
+                                }
                             }
                         }
+                    }.sheet(isPresented: $telaCriarNovoProjeto) {
+                        //criarEAddProjetoView(isPresented: $telaCriarNovoProjeto)
                     }
                 }
+                //.frame(maxWidth: .infinity) nao sei o quanto isso realmente eh necessario
+                .padding(.horizontal)
             }
             .navigationBarTitle(Text("Meus Projetos"))
+            .searchable(text: $textoDaBusca)
             .navigationBarItems(
                 leading: Button("Cancelar") {
                     dismiss()
                 },
                 trailing: Button(action: {
-                    self.telaCriarNovoProjeto = true
+                    //self.telaCriarNovoProjeto = true
                 }) {
                     Image(systemName: "plus")
-                    }
-            )
-            
-          //  .sheet(isPresented: $telaCriarNovoProjeto)
-            
-            
-            
-            
-            
-            VStack() {
-//                HStack(alignment: .top) {
-//                    Image(systemName: "plus")
-//                        .foregroundColor(Color.accentColor)
-//                }
-                    Button {
-                        minhaIdeiaModal = true
-                    } label: {
-                        Image(systemName: "lightbulb.fill")
-                            .resizable()
-                            .scaledToFit()
-                            .frame(width: 60, height: 60)
-                            .foregroundColor(.yellow)
-                            .padding(30)
-                            .background(Color.yellow.opacity(0.1))
-                            .cornerRadius(20)
-                            .shadow(radius: 6)
-                            .frame(width: 200, height: 200)
-                    }
-                    // Texto fora do botão/card
-                    Text("Esboço")
-                        .frame(width: 200, alignment: .leading)
-                        .font(.headline)
-                        .foregroundColor(.primary)
-            }
-            .toolbar {
-                ToolbarItem(placement: .cancellationAction) {
-                    Button("Cancelar") {
-                        dismiss()
-                    }.foregroundColor(.accentColor)
-                }
-            }
-            .navigationTitle("Meus Projetos")
-            
-//                .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .topLeading)
-//                .padding([.top, .leading], 20)
-                // Modal vazio
-                .sheet(isPresented: $minhaIdeiaModal) {
-                    // Modal content — pode personalizar depois
-                    VStack {
-                        Text("Aqui vai ser guardado os rascunhos?")
-                            .font(.title)
-                        Spacer()
-                    }
-                    .padding()
-                }
-            }
-//        .toolbar {
-//            ToolbarItem(placement: .cancellationAction) {
-//                Button("Cancelar") {
-//                    dismiss()
-//                }.foregroundColor(.accentColor)
-//            }
-//        }
-    }}
+                }).foregroundColor(.accentColor)
+        }.onAppear {
+            projetosVM.getAllProjetos(contexto: contexto)
+        }
+    }
+}

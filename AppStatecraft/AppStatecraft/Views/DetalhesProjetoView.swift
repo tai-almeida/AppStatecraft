@@ -9,13 +9,29 @@ import Foundation
 import SwiftUI
 import CoreData
 
-struct detalhesProjetoView: View {
-    var projeto: Projeto
+struct DetalhesProjetoView: View {
+    
+    @ObservedObject var projeto: Projeto
+    
+    @FetchRequest var sessoesDoProjeto: FetchedResults<Sessao>
+    
+    init(projeto: Projeto) {
+        self.projeto = projeto
+        self._sessoesDoProjeto = FetchRequest<Sessao>(
+            sortDescriptors: [NSSortDescriptor(keyPath: \Sessao.data, ascending: false)], // organiza por data
+            predicate: NSPredicate(format: "projeto == %@", projeto) // 'filtra' pra verificar quais sessoes pertencem
+            )                                                        // ao projeto e exibir
+    }
+    
     var body: some View {
-        VStack {
-            Text("detalhes projeto: \(projeto.nome ?? "")")
-            
+        
+        List() {
+            ForEach(sessoesDoProjeto) { sessao in
+                CardAtividadesView(sessao: sessao)
+            }
         }
+        
+        .navigationTitle(projeto.nome ?? "Sem Nome")
         
     }
 }

@@ -75,17 +75,22 @@ class MaieuticaViewModel: ObservableObject {
         return historico
     }
     
-    func salvarSemProjeto(contexto: NSManagedObjectContext, historicoIA: [String], respostasUsuario: [String]){
-        
+    func criaSessao(contexto: NSManagedObjectContext, historicoIA: [String], respostasUsuario: [String]) -> SessaoMaieutica {
         let historico = juntaPromptsRespostas(historicoIA: historicoIA, respostasUsuario: respostasUsuario)
-    
-        let novaSessao = SessaoMaieutica(context: contexto)
-        novaSessao.id = UUID()
-        novaSessao.data = Date()
-        
+        let sessao = SessaoMaieutica(context: contexto)
+        sessao.id = UUID()
+        sessao.data = Date()
         do {
             let logData = try JSONEncoder().encode(historico)
-            novaSessao.log = logData
+            sessao.log = logData
+        } catch{
+            print("Erro ao decodificar json")
+        }
+        return sessao
+    }
+    
+    func salvaContexto(contexto: NSManagedObjectContext) {
+        do {
             try contexto.save()
             print("deu bom salvou")
                 
@@ -94,6 +99,8 @@ class MaieuticaViewModel: ObservableObject {
         }
     }
 }
+
+
 
 
 struct PromptResposta: Codable {

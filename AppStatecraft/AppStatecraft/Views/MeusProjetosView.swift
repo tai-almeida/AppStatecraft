@@ -31,10 +31,10 @@ struct ProjetosView: View {
                 .pickerStyle(.segmented)
                 .padding(.horizontal)
                 
-                if projetosConcluidos == "Em andamento" {
-                    VStack(alignment: .center) {
-                        ScrollView {
-
+                ScrollView{
+                    if projetosConcluidos == "Em andamento" {
+                        VStack(alignment: .center) {
+                
                             LazyVGrid(columns: colunaCard, spacing: 20) {
                                 ForEach(projetos.filter { projeto in
                                     !projeto.finalizado &&
@@ -44,13 +44,13 @@ struct ProjetosView: View {
                                 }
                             }
                         }
-                    }
-                    .frame(maxWidth: .infinity)
-                    .padding(.horizontal)
-                } else {
-                    VStack {
-                        Text("Conteúdo dos projetos concluídos")
-                            .foregroundColor(.gray)
+                        .frame(maxWidth: .infinity)
+                        .padding(.horizontal)
+                    } else {
+                        VStack {
+                            Text("Conteúdo dos projetos concluídos")
+                                .foregroundColor(.gray)
+                        }
                     }
                 }
             }

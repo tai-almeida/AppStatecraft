@@ -111,10 +111,10 @@ struct FreeWritingView: View {
                 timerVM.resetar(minutos:minutos, segundos: segundos)
                 timerVM.comecaContagem()
             }
-            .alert("Acabou o tempo!", isPresented: $acabouTempo) {
+            .alert("Tempo encerrado!", isPresented: $acabouTempo) {
                 Button("Entendi", role: .cancel) {}
             } message: {
-                Text("O tempo da atividade se esgotou. Agora, finalize a sessão.")
+                Text("Você concluiu a atividade com sucesso! Agora, finalize a sessão e aproveite seu progresso.")
             }
         }
     }

@@ -9,24 +9,36 @@ import SwiftUI
 
 struct FreeWritingSalvo: View {
     var sessao: SessaoFreeWriting
+    @Environment(\.dismiss) var dismiss
     
     var body: some View {
-        VStack(){
-            HStack {
-                Text("Free-Writing")
-                    .font(.largeTitle)
-                    .bold()
-                    .padding()
-                Spacer()
-                BotaoCloseModal()
-            }.padding()
-            
-            ScrollView{
-                ContainerPromptView(enunciado: sessao.enunciado ?? "Vazio").padding()
-                Divider()
-                Text(sessao.resposta ?? "Vazio")
-                    .padding()
-                    .font(.body)
+        NavigationView {
+            VStack(){
+                /*HStack {
+                    Text("Free-Writing")
+                        .font(.largeTitle)
+                        .bold()
+                        .padding()
+                    Spacer()
+                    BotaoCloseModal()
+                }.padding()*/
+                
+                ScrollView{
+                    ContainerPromptView(enunciado: sessao.enunciado ?? "Vazio").padding()
+                    Divider()
+                    Text(sessao.resposta ?? "Vazio")
+                        .padding()
+                        .font(.body)
+                }
+            }
+            .navigationTitle("Free-Writing")
+            .navigationBarTitleDisplayMode(.inline)
+            .toolbar {
+                ToolbarItem(placement: .confirmationAction) {
+                    Button("Fechar") {
+                        dismiss()
+                    } .foregroundColor(Color.accentColor)
+                }
             }
         }
     }

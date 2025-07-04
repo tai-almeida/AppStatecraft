@@ -8,7 +8,6 @@ struct ProjetosView: View {
     @FetchRequest(
         entity: Projeto.entity(),
         sortDescriptors: [NSSortDescriptor(keyPath: \Projeto.data, ascending: false)]
-        
     ) private var projetos: FetchedResults<Projeto>
     
     @State private var minhaIdeiaModal = false
@@ -18,8 +17,15 @@ struct ProjetosView: View {
     @State private var addProjetoVazio = false
     @State var nomeProjeto = ""
     
-    
     let colunaCard = [GridItem(.flexible()), GridItem(.flexible())]
+    
+    var projetosFiltrados: [Projeto] {
+        projetos.filter { projeto in
+            !projeto.finalizado &&
+            (pesquisarProjeto.isEmpty ||
+             projeto.nome?.localizedCaseInsensitiveContains(pesquisarProjeto) == true)
+        }
+    }
     
     var body: some View {
         NavigationView {
@@ -31,26 +37,43 @@ struct ProjetosView: View {
                 .pickerStyle(.segmented)
                 .padding(.horizontal)
                 
-                if projetosConcluidos == "Em andamento" {
-                    VStack(alignment: .center) {
-                        ScrollView {
-
+                ScrollView{
+                    if projetosConcluidos == "Em andamento" {
+                        VStack(alignment: .center) {
+                            
+                            if projetosFiltrados.isEmpty {
+                                VStack(spacing: 12) {
+                                    Image(systemName: "tray")
+                                        .resizable()
+                                        .scaledToFit()
+                                        .frame(width: 60, height: 60)
+                                        .foregroundColor(.gray)
+                                    Text("Você não possui nenhum projeto")
+                                        .foregroundColor(.gray)
+                                        .font(.headline)
+                                }.frame(maxWidth: .infinity, maxHeight: .infinity)
+                                .padding(.top, 40)
+                            }
+                                
+                            
                             LazyVGrid(columns: colunaCard, spacing: 20) {
                                 ForEach(projetos.filter { projeto in
                                     !projeto.finalizado &&
                                     (pesquisarProjeto.isEmpty || projeto.nome?.localizedCaseInsensitiveContains(pesquisarProjeto) == true)
                                 }) { projeto in
-                                    projetoCardView(projeto: projeto)
+                                    NavigationLink(destination: DetalhesProjetoView(projeto: projeto)) {
+                                        projetoCardView(projeto: projeto)
+                                    }
                                 }
                             }
                         }
-                    }
-                    .frame(maxWidth: .infinity)
-                    .padding(.horizontal)
-                } else {
-                    VStack {
-                        Text("Conteúdo dos projetos concluídos")
-                            .foregroundColor(.gray)
+                        .frame(maxWidth: .infinity)
+                        .padding(.horizontal)
+                    } else {
+                        VStack {
+                            Text("Conteúdo dos projetos concluídos")
+                                .foregroundColor(.gray)
+                        }.frame(maxWidth: .infinity, maxHeight: .infinity)
                     }
                 }
             }
@@ -59,13 +82,9 @@ struct ProjetosView: View {
                 ToolbarItemGroup(placement: .navigationBarTrailing) {
                     Button(action: {
                         addProjetoVazio = true
-                        // Lógica de criar um projeto novo
-                        print("Novo projeto criado")
-                        
                     }) {
                         Image(systemName: "plus")
                     }
-                    
                     .sheet(isPresented: $addProjetoVazio) {
                         AddProjetoVazioView(nomeProjeto: $nomeProjeto)
                     }
@@ -82,4 +101,6 @@ struct ProjetosView: View {
             .padding()
         }
     }
+
 }
+

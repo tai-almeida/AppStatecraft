@@ -20,11 +20,16 @@ struct PingPongView: View {
     @State private var isShowingDialog = false
     @State private var isShowingAddProjetos = false
     @StateObject var pingpongVM: PingPongViewModel = PingPongViewModel()
-    @Binding var ehIndividual: Bool
+    @Binding var selecionada: String
     @State var estaProcessando: Bool = false
     @State var acabouTempo: Bool = false
     @State private var sessao: SessaoPingPong? = nil
 
+    
+    private enum Teclado: Int, Hashable {
+        case aberto, fechado
+    }
+    @FocusState private var tecladoFocado: Teclado?
     
     var body: some View {
         NavigationView {
@@ -64,16 +69,23 @@ struct PingPongView: View {
                                 ZStack {
                                     Image("CaixinhaPingPong")
                                     TextField("Escreva", text: $input)
+                                        .focused($tecladoFocado, equals: .aberto)
                                         .onSubmit{
                                             palavras.append(input)
                                             input = ""
-                                            if (!ehIndividual) {
+                                            if (selecionada == "Conduzida") {
                                                 Task {
                                                     estaProcessando = true
                                                     let palavraNova = await pingpongVM.continuarPingPong(context: palavras)
                                                     palavras.append(palavraNova ?? "Erro")
                                                     estaProcessando = false
+                                                    DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
+                                                        tecladoFocado = .aberto
+                                                    }
                                                 }
+                                            }
+                                            else {
+                                            tecladoFocado = .aberto
                                             }
                                         }
                                         .multilineTextAlignment(.center)
@@ -86,6 +98,7 @@ struct PingPongView: View {
                         }
             
                     }
+                    //.ignoresSafeArea(.keyboard, edges: .bottom)
                     .onChange(of: palavras.count) { _ in
                         withAnimation {
                             scrollProxy.scrollTo("textField", anchor: .bottom)
@@ -149,11 +162,15 @@ struct PingPongView: View {
     .onAppear {
         timerVM.resetar(minutos:minutos, segundos: segundos)
         timerVM.comecaContagem()
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.7) {
+            tecladoFocado = .aberto
+        }
+        
     }
-    .alert("Acabou o tempo!", isPresented: $acabouTempo) {
+    .alert("Tempo encerrado!", isPresented: $acabouTempo) {
         Button("Entendi", role: .cancel) {}
     } message: {
-        Text("O tempo da atividade se esgotou. Agora, finalize a sessão.")
+        Text("Você concluiu a atividade com sucesso! Agora, finalize a sessão e aproveite seu progresso.")
     }
         
     }

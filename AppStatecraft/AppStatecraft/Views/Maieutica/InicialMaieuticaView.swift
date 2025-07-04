@@ -14,6 +14,8 @@ struct InicialMaieuticaView: View {
     var body: some View {
         VStack {
             ScrollView {
+                Spacer()
+                    .padding(2)
                 NavigationLink(destination: HistoricoView(tipoMetodologia: "maieutica") .navigationTitle("Histórico")) {
                 HStack(alignment: .top) {
                     Image(systemName: "tray")
@@ -33,19 +35,22 @@ struct InicialMaieuticaView: View {
                 }
             Divider()
                 
-            Text("Responda as perguntas geradas com base na sua própria ideia!")
+            Text("Responda até 10 perguntas sobre seu projeto! Você pode finalizar a sessão quando quiser.")
                     .padding(.horizontal)
             Spacer()
-            Text("O limite do número de perguntas é 10")
+            /*Text("O limite do número de perguntas é 10.")
                     .padding(.horizontal)
                     .frame(maxWidth: .infinity, alignment: .leading)
+                    //.padding(.horizontal)
                     .font(.subheadline)
                     .foregroundColor(.gray)
-                
+            */
             Spacer()
             }
-            Button("Começar") {
-                showingSheet.toggle()
+            Button(action: { showingSheet.toggle() }) {
+                Text("Começar")
+                    .frame(maxWidth: .infinity)
+                    .clipShape(Capsule())
             }
             .fullScreenCover(isPresented: $showingSheet) {
                 MaieuticaView(metodologiaAparecendo: $showingSheet)

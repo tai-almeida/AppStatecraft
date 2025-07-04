@@ -16,18 +16,29 @@ struct AddProjetoView: View {
     @Binding var metodologiaAparecendo: Bool
     @State var sessao: Sessao?
     @State private var telaCriarNovoProjeto = false
-    //@Binding var pesquisarProjeto: String
     @State private var projetosConcluidos = "Em andamento"
     @State var nomeNovoProjeto = ""
-
+    @State private var textoDaBusca = "" // estado local para a busca
     
     private var projetosFiltrados: [Projeto] {
-            if projetosConcluidos == "Em andamento" {
-                return projetosVM.projetos.filter { !$0.finalizado }
-            } else {
-                return projetosVM.projetos.filter { $0.finalizado }
-            }
+        let projetosPorStatus: [Projeto]
+        
+        if projetosConcluidos == "Em andamento" {
+            projetosPorStatus = projetosVM.projetos.filter { !$0.finalizado }
+        } else {
+            projetosPorStatus = projetosVM.projetos.filter { $0.finalizado }
         }
+        
+        //busca vazia, não precisa filtrar mais nada
+        if textoDaBusca.isEmpty {
+            return projetosPorStatus
+        }
+        
+        //resultado anterior pelo texto da busca
+        return projetosPorStatus.filter { projeto in
+            projeto.nome?.localizedCaseInsensitiveContains(textoDaBusca) ?? false
+        }
+    }
 
     var body: some View {
         NavigationView {
@@ -44,7 +55,7 @@ struct AddProjetoView: View {
                     ScrollView{
                         
                         if projetosFiltrados.isEmpty{
-                            Text("Não há projetos aqui.")
+                            Text("Nenhum projeto encontrado.")
                         }
                         
                         LazyVGrid(columns: colunaCard, spacing: 20) {
@@ -74,11 +85,9 @@ struct AddProjetoView: View {
                 }
                 //.frame(maxWidth: .infinity) nao sei o quanto isso realmente eh necessario
                 .padding(.horizontal)
-                
-                
-                
             }
             .navigationTitle("Meus Projetos")
+            .searchable(text: $textoDaBusca)
             .navigationBarItems(
                 leading: Button("Cancelar") {
                     dismiss()

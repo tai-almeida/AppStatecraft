@@ -276,9 +276,9 @@
 				64D09EDE2E0EE41A00758A21 /* DetalhesProjetoView.swift */,
 				64D09EE02E0EE46300758A21 /* ProjetoCardView.swift */,
 				ED593E4C2E157A5100A8DE01 /* AddProjetoVazioView.swift */,
+				ED6EAA922E16CE900010D4B4 /* CardAtividadesView.swift */,
 				A47175B22E01A16C00AC6B12 /* DesafiosMultimidia */,
 				ED6EAA902E16CE4D0010D4B4 /* ConteudoProjetoView.swift */,
-				ED6EAA922E16CE900010D4B4 /* CardAtividadesView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";

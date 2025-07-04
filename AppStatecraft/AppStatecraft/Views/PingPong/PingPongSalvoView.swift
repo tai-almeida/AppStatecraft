@@ -12,28 +12,39 @@ struct PingPongSalvoView: View {
     @State var sessao: SessaoPingPong
     
     var body: some View {
-        HStack {
-            Text("Ping-Pong")
-                .font(.title)
-                .foregroundColor(.black)
-                .fontWeight(.bold)
-                .padding(.top)
-                .padding(.leading)
-            Spacer()
-            Button(action: {
-                dismiss()
-            })  {
-                Image(systemName: "xmark.circle.fill")
-                    .font(.title2)
-                    .foregroundColor(.gray)
-            }.padding(.top)
-                .padding(.trailing)
-        }
-        
-        VStack(alignment: .center) {
+        NavigationView {
+            /*HStack {
+                Text("Ping-Pong")
+                    .font(.title)
+                    .foregroundColor(.black)
+                    .fontWeight(.bold)
+                    .padding(.top)
+                    .padding(.leading)
+                Spacer()
+                Button(action: {
+                    dismiss()
+                })  {
+                    Image(systemName: "xmark.circle.fill")
+                        .font(.title2)
+                        .foregroundColor(.gray)
+                }.padding(.top)
+                    .padding(.trailing)
+            }*/
             
-            PalavrasSalvasView(sessao: sessao)
-                .padding()
+            HStack(alignment: .top) {
+                
+                PalavrasSalvasView(sessao: sessao)
+                    .padding()
+            }
+            .navigationTitle("Ping-Pong")
+            .navigationBarTitleDisplayMode(.inline)
+            .toolbar {
+                ToolbarItem(placement: .confirmationAction) {
+                    Button("Fechar") {
+                        dismiss()
+                    } .foregroundColor(Color.accentColor)
+                }
+            }
         }
     }
 }

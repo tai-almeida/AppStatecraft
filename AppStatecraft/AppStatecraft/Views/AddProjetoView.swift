@@ -14,10 +14,11 @@ struct AddProjetoView: View {
     @StateObject private var projetosVM = ProjetosViewModel()
     private let colunaCard = [GridItem(.flexible()), GridItem(.flexible())]
     @Binding var metodologiaAparecendo: Bool
+   // @Binding var addProjAparecendo: Bool
     @State var sessao: Sessao?
     @State private var telaCriarNovoProjeto = false
-    
     @State private var projetosConcluidos = "Em andamento"
+    @State var nomeNovoProjeto = ""
     @State private var textoDaBusca = "" // estado local para a busca
     
     private var projetosFiltrados: [Projeto] {
@@ -73,20 +74,31 @@ struct AddProjetoView: View {
                             }
                         }
                     }.sheet(isPresented: $telaCriarNovoProjeto) {
-                        //criarEAddProjetoView(isPresented: $telaCriarNovoProjeto)
+                        if let sessao = sessao {
+                            criarEAddProjetoView(
+                                isPresented: $telaCriarNovoProjeto,
+                                nomeNovoProjeto: $nomeNovoProjeto,
+                                sessao: .constant(sessao)
+                              //  addProjAparecendo: $addProjAparecendo
+                              //  metodologiaAparecendo: $metodologiaAparecendo
+                            )
+                        }
+                       
                     }
                 }
                 //.frame(maxWidth: .infinity) nao sei o quanto isso realmente eh necessario
                 .padding(.horizontal)
             }
-            .navigationBarTitle(Text("Meus Projetos"))
+            .navigationTitle("Meus Projetos")
             .searchable(text: $textoDaBusca)
             .navigationBarItems(
                 leading: Button("Cancelar") {
                     dismiss()
                 },
                 trailing: Button(action: {
-                    //self.telaCriarNovoProjeto = true
+                    telaCriarNovoProjeto = true
+                  //  self.addProjAparecendo = false
+
                 }) {
                     Image(systemName: "plus")
                 }).foregroundColor(.accentColor)

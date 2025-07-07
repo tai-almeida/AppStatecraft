@@ -56,4 +56,22 @@ class ProjetosViewModel: ObservableObject {
         }
     }
     
+    func criarProjComSessao(contexto: NSManagedObjectContext, nome: String, foto: UIImage?, sessao: Sessao) -> Projeto {
+        let novoProjetoComSessao = Projeto(context: contexto)
+        novoProjetoComSessao.id = UUID()
+        novoProjetoComSessao.nome = nome
+        novoProjetoComSessao.data = Date()
+        novoProjetoComSessao.finalizado = false
+        
+        if let foto = foto {
+            novoProjetoComSessao.imagemCapa = foto.pngData()
+        } else {
+            novoProjetoComSessao.imagemCapa = UIImage(named: "Background")?.pngData()
+        }
+        
+        novoProjetoComSessao.addToSessoes(sessao)
+        
+        return novoProjetoComSessao
+    }
+    
 }

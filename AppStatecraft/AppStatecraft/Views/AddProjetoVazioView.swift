@@ -91,7 +91,7 @@ struct AddProjetoVazioView: View {
                             contexto: contexto,
                             nome: nomeProjeto,
                             foto: foto,
-                            projeto: projeto)
+                            projeto: projeto) 
                         
                         
                         projetoVM.salvar(contexto: contexto)

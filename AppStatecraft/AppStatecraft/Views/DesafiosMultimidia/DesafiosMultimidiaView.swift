@@ -53,7 +53,8 @@ struct DesafiosMultimidiaView: View {
                         .toolbar {
                             ToolbarItem(placement: .cancellationAction) {
                                 Button("Cancelar") {
-                                    self.metodologiaAparecendo = false
+                                    dismiss()
+                                   // self.metodologiaAparecendo = false
                                 }
                                 .foregroundColor(.accentColor)
                             }
@@ -95,10 +96,11 @@ struct DesafiosMultimidiaView: View {
                 self.desafio = desafiosVM.sorteiaDesafio()
             }
             .fullScreenCover(isPresented: $isShowingAddProjetos) {
-                AddProjetoView(metodologiaAparecendo: $metodologiaAparecendo, sessao: sessaoDesafios)
+                AddProjetoView(metodologiaAparecendo: $metodologiaAparecendo,
+                             //  addProjAparecendo: $isShowingAddProjetos,
+                               sessao: sessaoDesafios)
             }
         }
         .foregroundColor(.primary)
     }
 }
-

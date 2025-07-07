@@ -152,7 +152,9 @@ struct MaieuticaView: View {
                 Text("Você já respondeu 10 perguntas. Salve ou apague sua sessão.")
             }
         }.fullScreenCover(isPresented: $isShowingAddProjetos) {
-            AddProjetoView(metodologiaAparecendo: $metodologiaAparecendo, sessao: sessao)
+            AddProjetoView(metodologiaAparecendo: $metodologiaAparecendo,
+                         //  addProjAparecendo: $isShowingAddProjetos ,
+                           sessao: sessao)
         }
     }
 }

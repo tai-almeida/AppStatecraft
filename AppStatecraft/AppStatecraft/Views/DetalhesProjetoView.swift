@@ -26,34 +26,31 @@ struct DetalhesProjetoView: View {
             )                                                        // ao projeto e exibir
     }
 
-//    private var sessoesFiltradas: [Sessao] {
-//
-////        sessoesDoProjeto.filter { sessao in
-//            if textoDaBusca.isEmpty {
-//                return Array(sessoesDoProjeto)
-//            } else {
-//                return sessoesDoProjeto.filter { sessao in
-//                    if let maieutica = sessao as? SessaoMaieutica,
-//                             let logData = maieutica.log,
-//                       let historico = try? JSONDecoder().decode([PromptResposta].self, from: logData) {
-//                        return historico.contains {
-//                            $0.resposta.localizedCaseInsensitiveContains(textoDaBusca)
-//                        }
-//                    }
-//                    return false
-//                }
-//            }
-////        }
-//    }
-    
-
     
     var body: some View {
         VStack(alignment: .center) {
             List() {
                 if textoDaBusca.isEmpty {
                     ForEach(sessoesDoProjeto) { sessao in
-                        CardAtividadesView(sessao: sessao)
+                        if let multimidia = sessao as? SessaoDesafioMult {
+                            NavigationLink(destination: MultimidiaSalvoView(sessao: multimidia)) {
+                                CardAtividadesView(sessao: multimidia)
+                            }
+                        } else if let freewriting = sessao as? SessaoFreeWriting {
+                            NavigationLink(destination: FreeWritingSalvo(sessao: freewriting)) {
+                                CardAtividadesView(sessao: freewriting)
+                            }
+                        } else if let pingpong = sessao as? SessaoPingPong {
+                            NavigationLink(destination: PingPongSalvoView(sessao: pingpong)) {
+                                CardAtividadesView(sessao: pingpong)
+                            }
+                        } else if let maieutica = sessao as? SessaoMaieutica {
+                            NavigationLink(destination: MaieuticaSalvoView(sessao: maieutica)) {
+                                CardAtividadesView(sessao: maieutica)
+                            }
+                        }
+                        
+                        
                     }
                     
                 } else {
@@ -61,7 +58,23 @@ struct DetalhesProjetoView: View {
                         CardAtividadesView(sessao: $0).textoPesquisavel
                             .localizedCaseInsensitiveContains(textoDaBusca)
                     }) { sessao in
-                        CardAtividadesView(sessao: sessao)
+                        if let multimidia = sessao as? SessaoDesafioMult {
+                            NavigationLink(destination: MultimidiaSalvoView(sessao: multimidia)) {
+                                CardAtividadesView(sessao: multimidia)
+                            }
+                        } else if let freewriting = sessao as? SessaoFreeWriting {
+                            NavigationLink(destination: FreeWritingSalvo(sessao: freewriting)) {
+                                CardAtividadesView(sessao: freewriting)
+                            }
+                        } else if let pingpong = sessao as? SessaoPingPong {
+                            NavigationLink(destination: PingPongSalvoView(sessao: pingpong)) {
+                                CardAtividadesView(sessao: pingpong)
+                            }
+                        } else if let maieutica = sessao as? SessaoMaieutica {
+                            NavigationLink(destination: MaieuticaSalvoView(sessao: maieutica)) {
+                                CardAtividadesView(sessao: maieutica)
+                            }
+                        }
                     }
                 }
                 

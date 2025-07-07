@@ -116,10 +116,10 @@ struct HistoricoView: View {
             }
         }
         .onAppear {
-            historicoVM.fetchDesafiosFeitos(contexto: contexto, tipo: tipoMetodologia)
+            historicoVM.fetchSessoesFeitas(contexto: contexto, tipo: tipoMetodologia)
         }
         .onChange(of: tipoMetodologia) { novoTipo in
-            historicoVM.fetchDesafiosFeitos(contexto: contexto, tipo: novoTipo)
+            historicoVM.fetchSessoesFeitas(contexto: contexto, tipo: novoTipo)
         }
 
     }

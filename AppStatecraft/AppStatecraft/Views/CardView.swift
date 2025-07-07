@@ -39,6 +39,5 @@ struct CardView: View {
         .background(cor)
         .clipShape(Capsule())
         .contentShape(Capsule())
-        
     }
 }

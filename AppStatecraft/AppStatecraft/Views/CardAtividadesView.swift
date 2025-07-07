@@ -49,7 +49,6 @@ struct CardAtividadesView: View {
      
     
     var body: some View {
-
             
             if let maieutica = sessao as? SessaoMaieutica {
                 if let logMaieutica = maieutica.log,
@@ -61,7 +60,7 @@ struct CardAtividadesView: View {
                             Text("Maiêutica")
 //                                .padding()
                                 .font(.title)
-                                .foregroundColor(.black)
+                                .foregroundColor(.primary)
                                 .padding(.bottom)
 //                                .weight(.bold)
                             
@@ -80,9 +79,8 @@ struct CardAtividadesView: View {
 
                         .background(
                             RoundedRectangle(cornerRadius: 12)
-                                .fill(.gray)
-                                .brightness(0.3)
-                                .shadow(radius: 4)
+                                .fill(Color(UIColor.tertiarySystemBackground))
+                                .shadow(color: Color.black.opacity(0.15), radius: 4, x: 0, y: 2) // Sombra mais sutil e adaptável
                             )
                     }
                     .frame(maxWidth: .infinity)
@@ -96,7 +94,7 @@ struct CardAtividadesView: View {
                         Text("Desafio Multimídia")
 //                                .padding()
                             .font(.title)
-                            .foregroundColor(.black)
+                            .foregroundColor(.primary)
                             .padding(.bottom)
 //                            .weight(.bold)
                             
@@ -116,9 +114,8 @@ struct CardAtividadesView: View {
 
                     .background(
                         RoundedRectangle(cornerRadius: 12)
-                            .fill(.gray)
-                            .brightness(0.3)
-                            .shadow(radius: 4)
+                            .fill(Color(UIColor.tertiarySystemBackground))
+                            .shadow(color: Color.black.opacity(0.15), radius: 4, x: 0, y: 2) // Sombra mais sutil e adaptável
                         )
                 }
                 .frame(maxWidth: .infinity)
@@ -133,7 +130,7 @@ struct CardAtividadesView: View {
                             Text("Ping-Pong")
 //                                .padding()
                                 .font(.title)
-                                .foregroundColor(.black)
+                                .foregroundColor(.primary)
                                 .padding(.bottom)
 //                                .weight(.bold)
                             Text(historico.enumerated()
@@ -153,9 +150,8 @@ struct CardAtividadesView: View {
 
                         .background(
                             RoundedRectangle(cornerRadius: 12)
-                                .fill(.gray)
-                                .brightness(0.3)
-                                .shadow(radius: 4)
+                                .fill(Color(UIColor.tertiarySystemBackground))
+                                .shadow(color: Color.black.opacity(0.15), radius: 4, x: 0, y: 2) // Sombra mais sutil e adaptável
                             )
                     }
                     .frame(maxWidth: .infinity)
@@ -169,7 +165,7 @@ struct CardAtividadesView: View {
                         Text("Free-Writing")
 //                                .padding()
                             .font(.title)
-                            .foregroundColor(.black)
+                            .foregroundColor(.primary)
                             .padding(.bottom)
 //                            .weight(.bold)
                             
@@ -189,9 +185,8 @@ struct CardAtividadesView: View {
 
                     .background(
                         RoundedRectangle(cornerRadius: 12)
-                            .fill(.gray)
-                            .brightness(0.3)
-                            .shadow(radius: 4)
+                            .fill(Color(UIColor.tertiarySystemBackground))
+                            .shadow(color: Color.black.opacity(0.15), radius: 4, x: 0, y: 2) // Sombra mais sutil e adaptável
                         )
                 }
                 .frame(maxWidth: .infinity)

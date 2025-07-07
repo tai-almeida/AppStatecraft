@@ -28,7 +28,7 @@ struct InicialPingPongView: View {
             ScrollView {
                 Spacer()
                     .padding(2)
-                NavigationLink(destination: HistoricoView(tipoMetodologia: "pingpong") .navigationTitle("Histórico")) {
+                NavigationLink(destination: HistoricoView(tipoMetodologia: "pingpong", metodologiaFormatada: "Ping-Pong") .navigationTitle("Histórico")) {
                 HStack(alignment: .top) {
                     Image(systemName: "tray")
                         .foregroundColor(Color.accentColor)

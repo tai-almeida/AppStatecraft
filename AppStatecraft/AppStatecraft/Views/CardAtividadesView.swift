@@ -9,6 +9,43 @@ import SwiftUI
 
 struct CardAtividadesView: View {
     @State var sessao: Sessao
+    
+    var textoPesquisavel: String {
+        if let maieutica = sessao as? SessaoMaieutica,
+           let log = maieutica.log,
+           let historico = try? JSONDecoder().decode([PromptResposta].self, from: log) {
+            var texto = "Maiêutica "
+            for item in historico {
+                texto += item.resposta + " "
+            }
+            return texto
+        } else if let pingpong = sessao as? SessaoPingPong,
+                  let log = pingpong.log,
+                  let historico = try? JSONDecoder().decode([String].self, from: log) {
+            
+            var texto = "Ping-Pong "
+            for item in historico {
+                texto += item + " "
+            }
+            return texto
+        } else if let freewriting = sessao as? SessaoFreeWriting {
+            var texto = "Free-Writing "
+            texto += freewriting.enunciado ?? "Vazio"
+            texto += " "
+            texto += freewriting.resposta ?? "vazio"
+            
+            return texto
+        } else if let multimidia = sessao as? SessaoDesafioMult {
+            var texto = "Desafios Multimídia "
+            texto += multimidia.enunciado ?? "Vazio"
+            texto += " "
+            if multimidia.respostaFoto != nil {
+                texto += multimidia.respostaTexto ?? "Vazio"
+            }
+            return texto
+        }
+        return ""
+    }
      
     
     var body: some View {

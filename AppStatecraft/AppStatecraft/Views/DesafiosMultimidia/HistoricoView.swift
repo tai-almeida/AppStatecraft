@@ -10,8 +10,10 @@ import SwiftUI
 struct HistoricoView: View {
     @Environment(\.managedObjectContext) private var contexto
     @State var tipoMetodologia: String
+    @State var metodologiaFormatada: String
     @State private var sessaoSelecionada: Sessao? //quando tiver valor o modal abre
     @StateObject private var historicoVM = HistoricoViewModel()
+    @Environment(\.dismiss) var dismiss
     
         var body: some View {
             VStack{
@@ -100,11 +102,24 @@ struct HistoricoView: View {
                     }
                 }
             }
-        }.onAppear {
-            historicoVM.fetchSessoesFeitas(contexto: contexto, tipo: tipoMetodologia)
+        }
+        .navigationBarBackButtonHidden(true)
+        .toolbar {
+            ToolbarItem(placement: .cancellationAction) {
+                Button (action: {dismiss()}) {
+                    HStack {
+                        Image(systemName: "chevron.left")
+                            .font(.system(size: 16, weight: .semibold))
+                        Text(metodologiaFormatada)
+                    }
+                }
+            }
+        }
+        .onAppear {
+            historicoVM.fetchDesafiosFeitos(contexto: contexto, tipo: tipoMetodologia)
         }
         .onChange(of: tipoMetodologia) { novoTipo in
-            historicoVM.fetchSessoesFeitas(contexto: contexto, tipo: novoTipo)
+            historicoVM.fetchDesafiosFeitos(contexto: contexto, tipo: novoTipo)
         }
 
     }

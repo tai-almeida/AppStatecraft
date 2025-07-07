@@ -16,7 +16,7 @@ struct InicialMaieuticaView: View {
             ScrollView {
                 Spacer()
                     .padding(2)
-                NavigationLink(destination: HistoricoView(tipoMetodologia: "maieutica") .navigationTitle("Histórico")) {
+                NavigationLink(destination: HistoricoView(tipoMetodologia: "maieutica", metodologiaFormatada: "Maiêutica") .navigationTitle("Histórico")) {
                 HStack(alignment: .top) {
                     Image(systemName: "tray")
                         .foregroundColor(Color.accentColor)

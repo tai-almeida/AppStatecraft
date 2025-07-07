@@ -14,6 +14,7 @@ struct AddProjetoView: View {
     @StateObject private var projetosVM = ProjetosViewModel()
     private let colunaCard = [GridItem(.flexible()), GridItem(.flexible())]
     @Binding var metodologiaAparecendo: Bool
+   // @Binding var addProjAparecendo: Bool
     @State var sessao: Sessao?
     @State private var telaCriarNovoProjeto = false
     @State private var projetosConcluidos = "Em andamento"
@@ -78,6 +79,8 @@ struct AddProjetoView: View {
                                 isPresented: $telaCriarNovoProjeto,
                                 nomeNovoProjeto: $nomeNovoProjeto,
                                 sessao: .constant(sessao)
+                              //  addProjAparecendo: $addProjAparecendo
+                              //  metodologiaAparecendo: $metodologiaAparecendo
                             )
                         }
                        
@@ -94,6 +97,7 @@ struct AddProjetoView: View {
                 },
                 trailing: Button(action: {
                     telaCriarNovoProjeto = true
+                  //  self.addProjAparecendo = false
 
                 }) {
                     Image(systemName: "plus")

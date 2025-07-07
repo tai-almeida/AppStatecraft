@@ -17,6 +17,7 @@ import SwiftUI
 import CoreData
 
 struct criarEAddProjetoView: View {
+    
     @Binding var isPresented: Bool
     
     @Environment(\.managedObjectContext) private var viewContext
@@ -24,11 +25,13 @@ struct criarEAddProjetoView: View {
     
     @Binding var nomeNovoProjeto: String
     @Binding var sessao: Sessao
+ //   @Binding var addProjAparecendo: Bool
+   // @Binding var metodologiaAparecendo: Bool
     @StateObject var projetoVM = ProjetosViewModel()
+    
     
     @State private var foto: UIImage?
     @State private var showImagePicker: Bool = false
-   // @State private var projeto: Projeto?
     @State private var showingAlert = false
     
     var body: some View {
@@ -110,6 +113,8 @@ struct criarEAddProjetoView: View {
                         self.nomeNovoProjeto = ""
                         self.foto = nil
                         dismiss()
+                       // self.addProjAparecendo = false
+                       // self.metodologiaAparecendo = false
                     }
                     .alert("Nome inválido", isPresented: $showingAlert) {
                         Button("Ok", role: .cancel) { }

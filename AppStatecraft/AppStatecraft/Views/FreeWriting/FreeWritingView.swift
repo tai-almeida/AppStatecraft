@@ -98,7 +98,9 @@ struct FreeWritingView: View {
                 }
             }
             .fullScreenCover(isPresented: $isShowingAddProjetos) {
-                AddProjetoView(metodologiaAparecendo: $metodologiaAparecendo, sessao: sessao)
+                AddProjetoView(metodologiaAparecendo: $metodologiaAparecendo,
+                               //addProjAparecendo: $isShowingAddProjetos,
+                               sessao: sessao)
             }
             .onChange(of: timerVM.sendoFeito) { checagem in
                 if (!checagem) {

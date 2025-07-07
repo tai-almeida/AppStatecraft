@@ -115,11 +115,11 @@ class DesafiosMultimidiaViewModel: ObservableObject {
     }
     
     func desafioConcluido(desafioRealizado: QuestaoDesafios) {
-        var copiaDesafio: QuestaoDesafios = desafioRealizado
+        //var copiaDesafio: QuestaoDesafios = desafioRealizado
+        var copiaDesafio = QuestaoDesafios(id: 20, enunciado: desafioRealizado.enunciado, conteudo: desafioRealizado.conteudo, tipo: desafioRealizado.tipo, feita: true)
         
         // encontra o elemento de id igual ao do desafio feito no vetor de nao realizados
         if let index = desafiosNaoFeitos.firstIndex(where: { $0.id == desafioRealizado.id }) {
-            copiaDesafio.feita = true
             desafiosNaoFeitos.remove(at: index)
             desafiosFeitos.append(copiaDesafio)
         }

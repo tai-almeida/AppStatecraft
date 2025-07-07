@@ -9,13 +9,14 @@ import SwiftUI
 struct InicialDMView: View {
     
     @State private var showingSheet = false
+    @Environment(\.dismiss) var dismiss
     
     var body: some View {
         VStack {
             ScrollView {
                 Spacer()
                     .padding(2)
-                NavigationLink(destination: HistoricoView(tipoMetodologia: "multimidia").navigationTitle("Histórico")) {
+                NavigationLink(destination: HistoricoView(tipoMetodologia: "multimidia", metodologiaFormatada: "Desafios").navigationTitle("Histórico")) {
                 HStack(alignment: .top) {
                     Image(systemName: "tray")
                         .foregroundColor(Color.accentColor)
@@ -55,6 +56,18 @@ struct InicialDMView: View {
             .padding(.horizontal)
             .padding(.vertical)
         }
+        .navigationBarBackButtonHidden(true)
         .navigationTitle("Desafios Multimídia")
+        .toolbar {
+            ToolbarItem(placement: .cancellationAction) {
+                Button (action: {dismiss()}) {
+                    HStack {
+                        Image(systemName: "chevron.left")
+                            .font(.system(size: 16, weight: .semibold))
+                        Text("Metodologias")
+                    }
+                }
+            }
+        }
     }
 }

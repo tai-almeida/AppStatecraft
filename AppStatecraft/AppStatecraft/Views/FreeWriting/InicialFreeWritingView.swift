@@ -20,7 +20,7 @@ struct InicialFreeWritingView: View {
             ScrollView {
                 Spacer()
                     .padding(2)
-                NavigationLink(destination: HistoricoView(tipoMetodologia: "freewriting").navigationTitle("Histórico")) {
+                NavigationLink(destination: HistoricoView(tipoMetodologia: "freewriting", metodologiaFormatada: "Free-Writing").navigationTitle("Histórico")) {
                     HStack(alignment: .top) {
                         Image(systemName: "tray")
                             .foregroundColor(Color.accentColor)

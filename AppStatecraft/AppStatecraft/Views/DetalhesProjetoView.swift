@@ -15,6 +15,8 @@ struct DetalhesProjetoView: View {
     
     @FetchRequest var sessoesDoProjeto: FetchedResults<Sessao>
     
+    @Environment(\.dismiss) var dismiss
+    
     init(projeto: Projeto) {
         self.projeto = projeto
         self._sessoesDoProjeto = FetchRequest<Sessao>(
@@ -32,6 +34,18 @@ struct DetalhesProjetoView: View {
         }
         
         .navigationTitle(projeto.nome ?? "Sem Nome")
+        .navigationBarBackButtonHidden(true)
+        .toolbar {
+            ToolbarItem(placement: .cancellationAction) {
+                Button (action: {dismiss()}) {
+                    HStack {
+                        Image(systemName: "chevron.left")
+                            .font(.system(size: 16, weight: .semibold))
+                        Text("Projetos")
+                    }
+                }
+            }
+        }
         
     }
 }

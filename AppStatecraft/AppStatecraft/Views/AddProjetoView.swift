@@ -19,6 +19,8 @@ struct AddProjetoView: View {
     
     @State private var projetosConcluidos = "Em andamento"
     @State private var textoDaBusca = "" // estado local para a busca
+    var desafio: QuestaoDesafios?
+    @StateObject private var desafiosVM = DesafiosMultimidiaViewModel()
     
     private var projetosFiltrados: [Projeto] {
         let projetosPorStatus: [Projeto]
@@ -64,6 +66,11 @@ struct AddProjetoView: View {
                                     if let sessao = sessao{
                                         projeto.addToSessoes(sessao)
                                         projetosVM.salvar(contexto: contexto)
+                                        
+                                    }
+                                    if desafio != nil {
+                                        desafiosVM.desafioConcluido(desafioRealizado: desafio!)
+                                        desafiosVM.atualizaJson()
                                     }
                                     dismiss()
                                     self.metodologiaAparecendo = false

@@ -80,6 +80,8 @@ struct FreeWritingView: View {
                                         sessao = freewritingVM.criarSessao(contexto: contexto, resposta: freewritingVM.respostaTexto, prompt: prompt)
                                         freewritingVM.salvarContexto(contexto: contexto)
                                         freewritingVM.respostaTexto = ""
+                                        self.freewritingVM.promptConcluido(promptRealizado: prompt)
+                                        self.freewritingVM.atualizaJson()
                                         dismiss()
                                     }
                                     Button("Descartar", role: .destructive) {
@@ -94,11 +96,14 @@ struct FreeWritingView: View {
                         }
                 }
                 .onAppear{
+                    self.freewritingVM.carregaPrompts()
+                    self.freewritingVM.verificaPromptsVazios()
                     self.prompt = freewritingVM.sorteiaPrompt()
+                    print(freewritingVM.promptsFeitos)
                 }
             }
             .fullScreenCover(isPresented: $isShowingAddProjetos) {
-                AddProjetoView(metodologiaAparecendo: $metodologiaAparecendo, sessao: sessao, desafio: nil)
+                AddProjetoView(metodologiaAparecendo: $metodologiaAparecendo, sessao: sessao, desafio: nil, prompt: prompt)
             }
             .onChange(of: timerVM.sendoFeito) { checagem in
                 if (!checagem) {

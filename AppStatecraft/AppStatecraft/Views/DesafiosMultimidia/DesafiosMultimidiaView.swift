@@ -99,10 +99,9 @@ struct DesafiosMultimidiaView: View {
                 self.desafiosVM.carregaDesafios()
                 self.desafiosVM.verificaDesafiosVazios()
                 self.desafio = desafiosVM.sorteiaDesafio()
-                print(desafiosVM.desafiosFeitos)
             }
             .fullScreenCover(isPresented: $isShowingAddProjetos) {
-                AddProjetoView(metodologiaAparecendo: $metodologiaAparecendo, sessao: sessaoDesafios, desafio: desafio)
+                AddProjetoView(metodologiaAparecendo: $metodologiaAparecendo, sessao: sessaoDesafios, desafio: desafio, prompt: nil)
             }
         }
         .foregroundColor(.primary)

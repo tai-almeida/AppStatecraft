@@ -12,11 +12,6 @@ struct CarrosselView: View {
     //guardr indice da pagina ativa
     @State var paginaAtual = 0
     
-    init() {
-            UIPageControl.appearance().currentPageIndicatorTintColor = UIColor(.accentColor)
-            UIPageControl.appearance().pageIndicatorTintColor = UIColor(.secondary)
-    }
-    
     let cards = [
         CardView(cor: Color(hex: 0xA0158B), imagem: "Maieutica", titulo: "Maiêutica", descricao: "Descreva sua ideia e responda perguntas sobre ela, como em um diálogo com Sócrates", destino: AnyView(InicialMaieuticaView())),
         CardView(cor: Color(hex: 0x19615b), imagem: "Desafios Multimidia", titulo: "Desafios Multimídia", descricao: "Crie produções com base em outras obras, explorando as diversas formas de arte", destino: AnyView(InicialDMView())),

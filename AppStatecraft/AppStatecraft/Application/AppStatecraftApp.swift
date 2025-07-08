@@ -10,6 +10,12 @@ import SwiftUI
 @main
 struct AppStatecraftApp: App {
     @State private var dataController = DataController()
+    
+    init() {
+            UIPageControl.appearance().currentPageIndicatorTintColor = UIColor(.accentColor)
+            UIPageControl.appearance().pageIndicatorTintColor = UIColor(.secondary)
+    }
+    
     var body: some Scene {
         WindowGroup {
             TabBar()

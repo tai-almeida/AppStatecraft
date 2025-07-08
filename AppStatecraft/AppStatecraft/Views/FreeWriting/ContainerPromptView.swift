@@ -13,7 +13,7 @@ struct ContainerPromptView: View {
     var body: some View {
         VStack{
             Text(enunciado)
-                .foregroundColor(.black)
+                .foregroundColor(.primary)
                 .padding(.vertical)
                 .padding(.horizontal, 10)
                 

@@ -38,7 +38,7 @@ struct projetoCardView: View {
                 .padding(.horizontal, 4)
                 .lineLimit(1)
         }
-        .frame(width: 150, height: 160)
+        .frame(width: 150, height: 150)
         .cornerRadius(16)
     }
 }

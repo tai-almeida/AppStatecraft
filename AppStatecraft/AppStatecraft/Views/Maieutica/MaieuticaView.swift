@@ -22,21 +22,21 @@ struct MaieuticaView: View {
         NavigationView {
             VStack() {
                 Text(historicoIA[indiceAtual])
-                    .foregroundColor(.black)
+                    .foregroundColor(.primary)
                     .font(.title3)
                     //.padding(.horizontal)
                 Divider()
                 
                 if indiceAtual == historicoIA.count - 1 {
                     RespostaMaieutica(respostaTexto: $textoUser)
-                        .foregroundColor(.black)
+                        .foregroundColor(.primary)
                 } else {
                     ZStack {
                         ZStack(alignment: .topLeading) {
                             Text(respostasUsuario[indiceAtual])
                                 .font(.body)
                                 .padding(8)
-                                .foregroundColor(.black)
+                                .foregroundColor(.primary)
                                 .frame(maxWidth: .infinity, alignment: .leading)
                                 .accessibilityHidden(true)
                                 .background(Color.gray.opacity(0.1))

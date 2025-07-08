@@ -12,13 +12,14 @@ struct AddProjetoView: View {
     @Environment(\.dismiss) private var dismiss
     @Environment(\.managedObjectContext) private var contexto
     @StateObject private var projetosVM = ProjetosViewModel()
-    private let colunaCard = [GridItem(.flexible()), GridItem(.flexible())]
     @Binding var metodologiaAparecendo: Bool
+   // @Binding var addProjAparecendo: Bool
     @State var sessao: Sessao?
     @State private var telaCriarNovoProjeto = false
-    
     @State private var projetosConcluidos = "Em andamento"
+    @State var nomeNovoProjeto = ""
     @State private var textoDaBusca = "" // estado local para a busca
+    private let colunaCard = [GridItem(.flexible()), GridItem(.flexible())]
     var desafio: QuestaoDesafios?
     @StateObject private var desafiosVM = DesafiosMultimidiaViewModel()
     
@@ -41,23 +42,23 @@ struct AddProjetoView: View {
             projeto.nome?.localizedCaseInsensitiveContains(textoDaBusca) ?? false
         }
     }
-
+    
     var body: some View {
         NavigationView {
             VStack() {
                 
-                Picker("", selection: $projetosConcluidos) {
-                    Text("Em andamento").tag("Em andamento")
-                    Text("Concluido").tag("Concluido")
-                }
-                .pickerStyle(.segmented)
-                .padding(.horizontal)
+                //                Picker("", selection: $projetosConcluidos) {
+                //                    Text("Em andamento").tag("Em andamento")
+                //                    Text("Concluido").tag("Concluido")
+                //                }
+                //                .pickerStyle(.segmented)
+                //                .padding(.horizontal)
                 
                 VStack(alignment: .center){
                     ScrollView{
                         
                         if projetosFiltrados.isEmpty{
-                            Text("Nenhum projeto encontrado.")
+                            TelaVaziaProjeto()
                         }
                         
                         LazyVGrid(columns: colunaCard, spacing: 20) {
@@ -77,28 +78,50 @@ struct AddProjetoView: View {
                                 }){
                                     projetoCardView(projeto: projeto)
                                 }
+                                .contextMenu { // .contextMenu para o long press
+                                    Button(action: {
+                                        projetosVM.toggleConcluidoProjeto(viewContext: contexto, projeto: projeto)
+                                    }) {
+                                        Label(projeto.finalizado ? "Marcar como Em Andamento" : "Marcar como Concluído",
+                                              systemImage: projeto.finalizado ? "arrow.uturn.backward.circle" : "checkmark.circle")
+                                    }
+                                    
+                                    Button(role: .destructive, action: {
+                                        projetosVM.deletarProjeto(viewContext: contexto, projeto: projeto)
+                                    }) {
+                                        Label("Deletar", systemImage: "trash")
+                                    }
+                                }
                             }
                         }
                     }.sheet(isPresented: $telaCriarNovoProjeto) {
-                        //criarEAddProjetoView(isPresented: $telaCriarNovoProjeto)
+                        if let sessao = sessao {
+                            criarEAddProjetoView(
+                                isPresented: $telaCriarNovoProjeto,
+                                nomeNovoProjeto: $nomeNovoProjeto,
+                                sessao: .constant(sessao)
+                              //  addProjAparecendo: $addProjAparecendo
+                              //  metodologiaAparecendo: $metodologiaAparecendo
+                            )
+                        }
+                       
                     }
+                    .padding(.horizontal)
                 }
-                //.frame(maxWidth: .infinity) nao sei o quanto isso realmente eh necessario
-                .padding(.horizontal)
+                .navigationBarTitle(Text("Meus Projetos"))
+                .searchable(text: $textoDaBusca, placement: .navigationBarDrawer(displayMode: .always)) //para a busca ficar fixa la em cima
+                .navigationBarItems(
+                    leading: Button("Cancelar") {
+                        dismiss()
+                    },
+                    trailing: Button(action: {
+                        //self.telaCriarNovoProjeto = true
+                    }) {
+                        Image(systemName: "plus")
+                    }).foregroundColor(.accentColor)
+            }.onAppear {
+                projetosVM.getAllProjetos(contexto: contexto)
             }
-            .navigationBarTitle(Text("Meus Projetos"))
-            .searchable(text: $textoDaBusca)
-            .navigationBarItems(
-                leading: Button("Cancelar") {
-                    dismiss()
-                },
-                trailing: Button(action: {
-                    //self.telaCriarNovoProjeto = true
-                }) {
-                    Image(systemName: "plus")
-                }).foregroundColor(.accentColor)
-        }.onAppear {
-            projetosVM.getAllProjetos(contexto: contexto)
         }
     }
 }

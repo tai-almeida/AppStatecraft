@@ -28,7 +28,7 @@ struct FreeWritingView: View {
             VStack {
                 Text(timerVM.tempoFormatado)
                     .font(.title2)
-                    .foregroundColor(.black)
+                    .foregroundColor(.primary)
                 ScrollView{
                     if let prompt = prompt{
                         ContainerPromptView(enunciado: prompt.enunciado).padding()

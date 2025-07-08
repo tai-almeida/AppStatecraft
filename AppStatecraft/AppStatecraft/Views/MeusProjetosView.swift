@@ -9,98 +9,91 @@ struct ProjetosView: View {
         entity: Projeto.entity(),
         sortDescriptors: [NSSortDescriptor(keyPath: \Projeto.data, ascending: false)]
     ) private var projetos: FetchedResults<Projeto>
-    
+    @StateObject private var projetosVM = ProjetosViewModel()
     @State private var minhaIdeiaModal = false
     @State private var adicionarProjeto = false
-    @Binding var pesquisarProjeto: String
     @State private var projetosConcluidos = "Em andamento"
     @State private var addProjetoVazio = false
     @State var nomeProjeto = ""
+    @State private var textoDaBusca = "" // estado local para a busca
+    
     
     let colunaCard = [GridItem(.flexible()), GridItem(.flexible())]
     
-    var projetosFiltrados: [Projeto] {
-        projetos.filter { projeto in
-            !projeto.finalizado &&
-            (pesquisarProjeto.isEmpty ||
-             projeto.nome?.localizedCaseInsensitiveContains(pesquisarProjeto) == true)
+    private var projetosFiltrados: [Projeto] {
+        let projetosPorStatus: [Projeto]
+        
+        if projetosConcluidos == "Em andamento" {
+            projetosPorStatus = projetos.filter { !$0.finalizado }
+        } else {
+            projetosPorStatus = projetos.filter { $0.finalizado }
+        }
+        
+        //busca vazia, não precisa filtrar mais nada
+        if textoDaBusca.isEmpty {
+            return projetosPorStatus
+        }
+        
+        //resultado anterior pelo texto da busca
+        return projetosPorStatus.filter { projeto in
+            projeto.nome?.localizedCaseInsensitiveContains(textoDaBusca) ?? false
         }
     }
     
     var body: some View {
         NavigationView {
             VStack(){
-                Picker("", selection: $projetosConcluidos) {
-                    Text("Em andamento").tag("Em andamento")
-                    Text("Concluido").tag("Concluido")
-                }
-                .pickerStyle(.segmented)
-                .padding(.horizontal)
+                //TODO: Colocar o icone de editar externo (nao so o longpress para deletar/concluido)
+//                Picker("", selection: $projetosConcluidos) {
+//                    Text("Em andamento").tag("Em andamento")
+//                    Text("Concluido").tag("Concluido")
+//                }
+//                .pickerStyle(.segmented)
+//                .padding(.horizontal)
                 
-                ScrollView{
-                    if projetosConcluidos == "Em andamento" {
-                        VStack(alignment: .center) {
-                            
-                            if projetosFiltrados.isEmpty {
-                                VStack(spacing: 12) {
-                                    Image(systemName: "tray")
-                                        .resizable()
-                                        .scaledToFit()
-                                        .frame(width: 60, height: 60)
-                                        .foregroundColor(.gray)
-                                    Text("Você não possui nenhum projeto")
-                                        .foregroundColor(.gray)
-                                        .font(.headline)
-                                }.frame(maxWidth: .infinity, maxHeight: .infinity)
-                                .padding(.top, 40)
-                            }
-                                
-                            
-                            LazyVGrid(columns: colunaCard, spacing: 20) {
-                                ForEach(projetos.filter { projeto in
-                                    !projeto.finalizado &&
-                                    (pesquisarProjeto.isEmpty || projeto.nome?.localizedCaseInsensitiveContains(pesquisarProjeto) == true)
-                                }) { projeto in
-                                    NavigationLink(destination: DetalhesProjetoView(projeto: projeto)) {
-                                        projetoCardView(projeto: projeto)
+                VStack(alignment: .center){
+                    ScrollView{
+                        if projetosFiltrados.isEmpty{
+                            TelaVaziaProjeto() //tentei deixar isso no meio da tela mas nao esta indo -sofi
+                        }
+                        
+                        LazyVGrid(columns: colunaCard, spacing: 20) {
+                            ForEach(projetosFiltrados, id: \.self) { projeto in
+                                NavigationLink(destination: DetalhesProjetoView(projeto: projeto)) {
+                                    projetoCardView(projeto: projeto)
+                                }.contextMenu { // .contextMenu para o long press
+                                    Button(action: {
+                                        projetosVM.toggleConcluidoProjeto(viewContext: viewContext, projeto: projeto)
+                                    }) {
+                                        Label(projeto.finalizado ? "Marcar como Em Andamento" : "Marcar como Concluído",
+                                              systemImage: projeto.finalizado ? "arrow.uturn.backward.circle" : "checkmark.circle")
+                                    }
+                                    
+                                    Button(role: .destructive, action: {
+                                        projetosVM.deletarProjeto(viewContext: viewContext, projeto: projeto)
+                                    }) {
+                                        Label("Deletar", systemImage: "trash")
                                     }
                                 }
                             }
                         }
-                        .frame(maxWidth: .infinity)
-                        .padding(.horizontal)
-                    } else {
-                        VStack {
-                            Text("Conteúdo dos projetos concluídos")
-                                .foregroundColor(.gray)
-                        }.frame(maxWidth: .infinity, maxHeight: .infinity)
+                    }.padding(.horizontal)
+                }
+                .navigationTitle("Projetos")
+                .searchable(text: $textoDaBusca, placement: .navigationBarDrawer(displayMode: .always)) //para a busca ficar fixa la em cima
+                .toolbar {
+                    ToolbarItemGroup(placement: .navigationBarTrailing) {
+                        Button(action: {
+                            addProjetoVazio = true
+                        }) {
+                            Image(systemName: "plus")
+                        }
+                        .sheet(isPresented: $addProjetoVazio) {
+                            AddProjetoVazioView(nomeProjeto: $nomeProjeto)
+                        }
                     }
                 }
             }
-            .navigationTitle("Projetos")
-            .toolbar {
-                ToolbarItemGroup(placement: .navigationBarTrailing) {
-                    Button(action: {
-                        addProjetoVazio = true
-                    }) {
-                        Image(systemName: "plus")
-                    }
-                    .sheet(isPresented: $addProjetoVazio) {
-                        AddProjetoVazioView(nomeProjeto: $nomeProjeto)
-                    }
-                }
-            }
-            .searchable(text: $pesquisarProjeto)
-        }
-        .sheet(isPresented: $minhaIdeiaModal) {
-            VStack {
-                Text("Aqui vai ser guardado os rascunhos?")
-                    .font(.title)
-                Spacer()
-            }
-            .padding()
         }
     }
-
 }
-

@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import UIKit
 
 struct CarrosselView: View {
     //guardr indice da pagina ativa
@@ -21,19 +22,20 @@ struct CarrosselView: View {
     var body: some View {
         VStack {
             TabView(selection: $paginaAtual) {
-                // itera pelos indices dos cards (0 a 3)
-                ForEach(0..<4) { index in
+                ForEach(0..<cards.count) { index in
                     NavigationLink(destination: cards[index].destino) {
                         cards[index]
                     }
                     .tag(index)
+                    .padding(.bottom)
                 }
                 
-            }
-            .tabViewStyle(.page)
-            PageControlView(numeroPaginas: 4, paginaAtual: $paginaAtual)
-                .frame(alignment: .center)
-                .padding(.bottom, 52)
+            }.tabViewStyle(.page(indexDisplayMode: .always))
+            .padding(.bottom, 30)
+
+//            PageControlView(numeroPaginas: 4, paginaAtual: $paginaAtual)
+//                .frame(alignment: .center)
+//                .padding(.bottom, 52)
             
         }
     }

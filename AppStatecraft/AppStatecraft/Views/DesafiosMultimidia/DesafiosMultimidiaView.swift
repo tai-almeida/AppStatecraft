@@ -53,7 +53,8 @@ struct DesafiosMultimidiaView: View {
                         .toolbar {
                             ToolbarItem(placement: .cancellationAction) {
                                 Button("Cancelar") {
-                                    self.metodologiaAparecendo = false
+                                    dismiss()
+                                   // self.metodologiaAparecendo = false
                                 }
                                 .foregroundColor(.accentColor)
                             }
@@ -107,4 +108,3 @@ struct DesafiosMultimidiaView: View {
         .foregroundColor(.primary)
     }
 }
-

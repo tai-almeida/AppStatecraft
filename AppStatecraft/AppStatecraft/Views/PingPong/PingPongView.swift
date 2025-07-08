@@ -36,7 +36,7 @@ struct PingPongView: View {
             VStack {
                 Text(timerVM.tempoFormatado)
                     .font(.title2)
-                    .foregroundColor(.black)
+                    .foregroundColor(.primary)
                 
                 ScrollViewReader { scrollProxy in
                     ScrollView(.vertical) {
@@ -47,8 +47,7 @@ struct PingPongView: View {
                                     VStack {
                                         ZStack {
                                             Image("CaixinhaPingPong")
-                                            Text(palavra)
-                                                .foregroundColor(.black)
+                                            Text(palavra).foregroundColor(.primary)
                                         }
                                         Image("LinhaPingPong")
                                     }
@@ -58,8 +57,7 @@ struct PingPongView: View {
                                     VStack {
                                         ZStack {
                                             Image("CaixinhaPingPong")
-                                            Text(palavra)
-                                                .foregroundColor(.black)
+                                            Text(palavra).foregroundColor(.primary)
                                         }
                                         Image("LinhaPingPong")
                                     }
@@ -89,7 +87,7 @@ struct PingPongView: View {
                                             }
                                         }
                                         .multilineTextAlignment(.center)
-                                        .foregroundColor(.black)
+                                        .foregroundColor(.primary)
                                         .disabled(!timerVM.sendoFeito)
                                     
                                 }

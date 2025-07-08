@@ -17,7 +17,7 @@ class ProjetosViewModel: ObservableObject {
     init(){
     }
     
-    func criarProjetoVazio(contexto: NSManagedObjectContext, nome: String, foto: UIImage?, projeto: Projeto?) -> Projeto {
+    func criarProjetoVazio(contexto: NSManagedObjectContext, nome: String, foto: UIImage?) -> Projeto {
         let projetoVazio = Projeto(context: contexto)
         projetoVazio.id = UUID()
         projetoVazio.data = Date()
@@ -56,4 +56,43 @@ class ProjetosViewModel: ObservableObject {
         }
     }
     
+    func criarProjComSessao(contexto: NSManagedObjectContext, nome: String, foto: UIImage?, sessao: Sessao) -> Projeto {
+        let novoProjetoComSessao = Projeto(context: contexto)
+        novoProjetoComSessao.id = UUID()
+        novoProjetoComSessao.nome = nome
+        novoProjetoComSessao.data = Date()
+        novoProjetoComSessao.finalizado = false
+        
+        if let foto = foto {
+            novoProjetoComSessao.imagemCapa = foto.pngData()
+        } else {
+            novoProjetoComSessao.imagemCapa = UIImage(named: "Background")?.pngData()
+        }
+        
+        novoProjetoComSessao.addToSessoes(sessao)
+        
+        return novoProjetoComSessao
+    }
+    
+    
+    func deletarProjeto(viewContext: NSManagedObjectContext, projeto: Projeto) {
+        viewContext.delete(projeto)
+        do {
+            try viewContext.save()
+        } catch {
+            print("Erro ao deletar projeto: \(error.localizedDescription)")
+            //adicionar um alerta para o usuário se a exclusão falhar
+        }
+    }
+    
+    func toggleConcluidoProjeto(viewContext: NSManagedObjectContext, projeto: Projeto) {
+        projeto.finalizado.toggle()
+        do {
+            try viewContext.save()
+        } catch {
+            print("Erro ao atualizar status do projeto: \(error.localizedDescription)")
+        }
+    }
 }
+
+

@@ -9,10 +9,46 @@ import SwiftUI
 
 struct CardAtividadesView: View {
     @State var sessao: Sessao
+    
+    var textoPesquisavel: String {
+        if let maieutica = sessao as? SessaoMaieutica,
+           let log = maieutica.log,
+           let historico = try? JSONDecoder().decode([PromptResposta].self, from: log) {
+            var texto = "Maiêutica "
+            for item in historico {
+                texto += item.resposta + " "
+            }
+            return texto
+        } else if let pingpong = sessao as? SessaoPingPong,
+                  let log = pingpong.log,
+                  let historico = try? JSONDecoder().decode([String].self, from: log) {
+            
+            var texto = "Ping-Pong "
+            for item in historico {
+                texto += item + " "
+            }
+            return texto
+        } else if let freewriting = sessao as? SessaoFreeWriting {
+            var texto = "Free-Writing "
+            texto += freewriting.enunciado ?? "Vazio"
+            texto += " "
+            texto += freewriting.resposta ?? "vazio"
+            
+            return texto
+        } else if let multimidia = sessao as? SessaoDesafioMult {
+            var texto = "Desafios Multimídia "
+            texto += multimidia.enunciado ?? "Vazio"
+            texto += " "
+            if multimidia.respostaFoto != nil {
+                texto += multimidia.respostaTexto ?? "Vazio"
+            }
+            return texto
+        }
+        return ""
+    }
      
     
     var body: some View {
-
             
             if let maieutica = sessao as? SessaoMaieutica {
                 if let logMaieutica = maieutica.log,
@@ -24,7 +60,7 @@ struct CardAtividadesView: View {
                             Text("Maiêutica")
 //                                .padding()
                                 .font(.title)
-                                .foregroundColor(.black)
+                                .foregroundColor(.primary)
                                 .padding(.bottom)
 //                                .weight(.bold)
                             
@@ -43,9 +79,8 @@ struct CardAtividadesView: View {
 
                         .background(
                             RoundedRectangle(cornerRadius: 12)
-                                .fill(.gray)
-                                .brightness(0.3)
-                                .shadow(radius: 4)
+                                .fill(Color(UIColor.tertiarySystemBackground))
+                                .shadow(color: Color.black.opacity(0.15), radius: 4, x: 0, y: 2) // Sombra mais sutil e adaptável
                             )
                     }
                     .frame(maxWidth: .infinity)
@@ -59,7 +94,7 @@ struct CardAtividadesView: View {
                         Text("Desafio Multimídia")
 //                                .padding()
                             .font(.title)
-                            .foregroundColor(.black)
+                            .foregroundColor(.primary)
                             .padding(.bottom)
 //                            .weight(.bold)
                             
@@ -79,9 +114,8 @@ struct CardAtividadesView: View {
 
                     .background(
                         RoundedRectangle(cornerRadius: 12)
-                            .fill(.gray)
-                            .brightness(0.3)
-                            .shadow(radius: 4)
+                            .fill(Color(UIColor.tertiarySystemBackground))
+                            .shadow(color: Color.black.opacity(0.15), radius: 4, x: 0, y: 2) // Sombra mais sutil e adaptável
                         )
                 }
                 .frame(maxWidth: .infinity)
@@ -96,7 +130,7 @@ struct CardAtividadesView: View {
                             Text("Ping-Pong")
 //                                .padding()
                                 .font(.title)
-                                .foregroundColor(.black)
+                                .foregroundColor(.primary)
                                 .padding(.bottom)
 //                                .weight(.bold)
                             Text(historico.enumerated()
@@ -116,9 +150,8 @@ struct CardAtividadesView: View {
 
                         .background(
                             RoundedRectangle(cornerRadius: 12)
-                                .fill(.gray)
-                                .brightness(0.3)
-                                .shadow(radius: 4)
+                                .fill(Color(UIColor.tertiarySystemBackground))
+                                .shadow(color: Color.black.opacity(0.15), radius: 4, x: 0, y: 2) // Sombra mais sutil e adaptável
                             )
                     }
                     .frame(maxWidth: .infinity)
@@ -132,7 +165,7 @@ struct CardAtividadesView: View {
                         Text("Free-Writing")
 //                                .padding()
                             .font(.title)
-                            .foregroundColor(.black)
+                            .foregroundColor(.primary)
                             .padding(.bottom)
 //                            .weight(.bold)
                             
@@ -152,9 +185,8 @@ struct CardAtividadesView: View {
 
                     .background(
                         RoundedRectangle(cornerRadius: 12)
-                            .fill(.gray)
-                            .brightness(0.3)
-                            .shadow(radius: 4)
+                            .fill(Color(UIColor.tertiarySystemBackground))
+                            .shadow(color: Color.black.opacity(0.15), radius: 4, x: 0, y: 2) // Sombra mais sutil e adaptável
                         )
                 }
                 .frame(maxWidth: .infinity)

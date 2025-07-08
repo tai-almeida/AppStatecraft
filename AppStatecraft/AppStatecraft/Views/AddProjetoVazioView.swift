@@ -18,7 +18,6 @@ struct AddProjetoVazioView: View {
     
     @State private var foto: UIImage?
     @State private var showImagePicker: Bool = false
-    @State private var projeto: Projeto?
     @State private var showingAlert = false
         
     var body: some View {
@@ -33,7 +32,8 @@ struct AddProjetoVazioView: View {
                     TextField("Nome", text: $nomeProjeto)
                         .padding()
                         .frame(height: 40)
-                        .background(.white)
+                        .foregroundColor(.primary)
+                        .background(Color(UIColor.systemBackground)) // Melhor para backgrounds de elementos
                         .cornerRadius(8)
                     
                     Text("Capa")
@@ -54,7 +54,7 @@ struct AddProjetoVazioView: View {
                                 }
                                 .padding()
                                 .frame(height: 40)
-                                .background(.white)
+                                .background(Color(UIColor.systemBackground)) // Melhor para backgrounds de elementos
                                 .cornerRadius(8)
                             })
                                 .sheet(isPresented: $showImagePicker) {
@@ -90,8 +90,7 @@ struct AddProjetoVazioView: View {
                         let novoProjeto = projetoVM.criarProjetoVazio(
                             contexto: contexto,
                             nome: nomeProjeto,
-                            foto: foto,
-                            projeto: projeto)
+                            foto: foto)
                         
                         
                         projetoVM.salvar(contexto: contexto)

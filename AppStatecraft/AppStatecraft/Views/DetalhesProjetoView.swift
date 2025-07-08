@@ -12,6 +12,10 @@ import CoreData
 struct DetalhesProjetoView: View {
     
     @ObservedObject var projeto: Projeto
+    @State private var textoDaBusca = "" // estado local para a busca
+    @State private var sessaoSelecionada: Sessao? = nil
+    @State private var mostrarModal = false
+//    @Environment(\.dismiss) var dismiss
     
     @FetchRequest var sessoesDoProjeto: FetchedResults<Sessao>
     
@@ -25,14 +29,46 @@ struct DetalhesProjetoView: View {
             )                                                        // ao projeto e exibir
     }
     
-    var body: some View {
-        
-        List() {
-            ForEach(sessoesDoProjeto) { sessao in
-                CardAtividadesView(sessao: sessao)
+    private func sessoesFiltradas() -> [Sessao] {
+        if textoDaBusca.isEmpty {
+            return Array(sessoesDoProjeto)
+        } else {
+            return sessoesDoProjeto.filter {
+                CardAtividadesView(sessao: $0).textoPesquisavel
+                    .localizedCaseInsensitiveContains(textoDaBusca)
             }
         }
-        
+    }
+    
+//    @ViewBuilder
+//    private func verificaSessao() -> some View {
+//
+//
+//    }
+
+    
+    var body: some View {
+        VStack(alignment: .center) {
+            List() {
+                
+                ForEach(sessoesFiltradas(), id: \.self) { sessao in
+                    Button(action: {
+                        sessaoSelecionada = sessao
+                        
+//                        DispatchQueue.main.async {
+                            mostrarModal = true
+//                        }
+                    }) {
+                        CardAtividadesView(sessao: sessao)
+                    }
+                    .listRowBackground(Color.clear)
+                }
+            }
+//            .listRowBackground(.clear)
+
+        }
+
+        .frame(maxWidth: .infinity)
         .navigationTitle(projeto.nome ?? "Sem Nome")
         .navigationBarBackButtonHidden(true)
         .toolbar {
@@ -46,6 +82,30 @@ struct DetalhesProjetoView: View {
                 }
             }
         }
-        
+        .searchable(text: $textoDaBusca, placement: .navigationBarDrawer(displayMode: .always))
+        .fullScreenCover(item: $sessaoSelecionada) { sessao in
+            if let sessao = sessaoSelecionada {
+                    if let multimidia = sessao as? SessaoDesafioMult {
+                         MultimidiaSalvoView(sessao: multimidia)
+                    } else if let freewriting = sessao as? SessaoFreeWriting {
+                         FreeWritingSalvo(sessao: freewriting)
+                    } else if let pingpong = sessao as? SessaoPingPong {
+                         PingPongSalvoView(sessao: pingpong)
+                    } else if let maieutica = sessao as? SessaoMaieutica {
+                         MaieuticaSalvoView(sessao: maieutica)
+                    } else {
+                         Text("Tipo de sessão desconhecido")
+                    }
+                }
+                else {
+                    Text("")
+//                    Button("Fechar") {
+//                        dismiss()
+//                    }
+                    .onAppear {
+                        dismiss()
+                    }
+                }
+        }
     }
 }

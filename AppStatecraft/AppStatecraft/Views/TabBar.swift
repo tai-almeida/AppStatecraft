@@ -2,7 +2,6 @@ import SwiftUI
 
 
 struct TabBar: View {
-    @State private var pesquisarProjeto = ""
     var body: some View {
         
         TabView {
@@ -11,7 +10,7 @@ struct TabBar: View {
                     Label("Metodologias", systemImage: "book")
                 }
             
-            ProjetosView(pesquisarProjeto: $pesquisarProjeto)
+            ProjetosView()
                 .tabItem {
                     Label("Projetos", systemImage: "folder")
             }

@@ -79,6 +79,8 @@ struct DesafiosMultimidiaView: View {
                                         desafiosVM.salvarContexto(contexto: viewContext) //isso aqui vai sari daqui
                                         self.respostaTexto = ""
                                         self.image = nil
+                                        self.desafiosVM.desafioConcluido(desafioRealizado: desafio!)
+                                        self.desafiosVM.atualizaJson()
                                         dismiss()
                                     }
                                     Button("Descartar", role: .destructive) {
@@ -93,12 +95,14 @@ struct DesafiosMultimidiaView: View {
                 }
             
             }.onAppear{
+                //self.desafiosVM.copiaJson()
+                self.desafiosVM.carregaDesafios()
+                self.desafiosVM.verificaDesafiosVazios()
                 self.desafio = desafiosVM.sorteiaDesafio()
+                print(desafiosVM.desafiosFeitos)
             }
             .fullScreenCover(isPresented: $isShowingAddProjetos) {
-                AddProjetoView(metodologiaAparecendo: $metodologiaAparecendo,
-                             //  addProjAparecendo: $isShowingAddProjetos,
-                               sessao: sessaoDesafios)
+                AddProjetoView(metodologiaAparecendo: $metodologiaAparecendo, sessao: sessaoDesafios, desafio: desafio)
             }
         }
         .foregroundColor(.primary)

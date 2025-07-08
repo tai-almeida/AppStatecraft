@@ -147,9 +147,7 @@ struct PingPongView: View {
         }
     }
     .fullScreenCover(isPresented: $isShowingAddProjetos) {
-        AddProjetoView(metodologiaAparecendo: $metodologiaAparecendo,
-                      // addProjAparecendo: $isShowingAddProjetos,
-                       sessao: sessao)
+        AddProjetoView(metodologiaAparecendo: $metodologiaAparecendo, sessao: sessao, desafio: nil)
     }
     .onChange(of: timerVM.sendoFeito) { checagem in
         if (!checagem) {

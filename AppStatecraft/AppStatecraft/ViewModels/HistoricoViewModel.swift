@@ -15,7 +15,7 @@ class HistoricoViewModel: ObservableObject {
     }
     
     //busca no banco os desafios salvos de determinado tipo
-    func fetchSessoesFeitas(contexto: NSManagedObjectContext, tipo: String){
+    func fetchDesafiosFeitos(contexto: NSManagedObjectContext, tipo: String){
         let (requisicao, ordenadorDeData) = getRequisicaoCerta(tipo)
         requisicao.sortDescriptors = [ordenadorDeData]
         

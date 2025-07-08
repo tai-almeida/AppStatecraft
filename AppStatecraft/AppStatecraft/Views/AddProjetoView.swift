@@ -22,6 +22,8 @@ struct AddProjetoView: View {
     private let colunaCard = [GridItem(.flexible()), GridItem(.flexible())]
     var desafio: QuestaoDesafios?
     @StateObject private var desafiosVM = DesafiosMultimidiaViewModel()
+    @StateObject private var freewritingVM = FreeWritingViewModel()
+    var prompt: PromptFW?
     
     private var projetosFiltrados: [Projeto] {
         let projetosPorStatus: [Projeto]
@@ -72,6 +74,10 @@ struct AddProjetoView: View {
                                     if desafio != nil {
                                         desafiosVM.desafioConcluido(desafioRealizado: desafio!)
                                         desafiosVM.atualizaJson()
+                                    }
+                                    if prompt != nil {
+                                        freewritingVM.promptConcluido(promptRealizado: prompt!)
+                                        freewritingVM.atualizaJson()
                                     }
                                     dismiss()
                                     self.metodologiaAparecendo = false

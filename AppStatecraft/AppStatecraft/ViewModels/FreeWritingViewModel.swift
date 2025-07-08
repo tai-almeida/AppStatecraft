@@ -12,9 +12,9 @@ import CoreData
 
 class FreeWritingViewModel: ObservableObject {
     
-    @Published var todosPrompts = [PromptFW]()
-    @Published var promptsFeitos = [PromptFW]()
-    @Published var promptsNaoFeitos = [PromptFW]()
+    @Published var todosPrompts: [PromptFW]?
+    @Published var promptsFeitos: [PromptFW]?
+    @Published var promptsNaoFeitos: [PromptFW]?
     @Published var isShowingDialog = false
     @Published var respostaTexto: String = ""
 
@@ -29,10 +29,40 @@ class FreeWritingViewModel: ObservableObject {
     //var desafiosUtilities = DesafiosUtilities()
     
     init() {
-        copiaJson()
+        if (todosPrompts == nil) {
+            todosPrompts = [PromptFW]()
+        }
+        if (promptsFeitos == nil) {
+            promptsFeitos = [PromptFW]()
+        }
+        if (promptsNaoFeitos == nil) {
+            promptsNaoFeitos = [PromptFW]()
+        }
+        //copiaJson()
         carregaPrompts()
         verificaPromptsVazios()
 //
+    }
+    
+    func atualizaJson() {
+        // atualiza o json apos manipular vetores com desafios completos e nao feitos pelo usuario
+        todosPrompts = promptsFeitos! + promptsNaoFeitos!
+        //print(todosDesafios)
+        print("ATUALIZA")
+        //print(todosPrompts)
+        
+        do {
+            // codifica dados do vetor para o json e acessa o arquivo pelo caminho
+            let data = try JSONEncoder().encode(todosPrompts)
+            let documentsDirectory = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first!
+            let fileURL = documentsDirectory.appendingPathComponent("BancoFW.json")
+            
+            // escreve no arquivo
+            try data.write(to: fileURL)
+            
+        } catch {
+            print("Erro ao salvar JSON: \(error)")
+        }
     }
     
 //    func atualizaJson() {
@@ -53,29 +83,18 @@ class FreeWritingViewModel: ObservableObject {
 //    }
     
     func carregaPrompts() {
-
-        // pega url do arquivo json
-        guard let url = Bundle.main.url(forResource: "BancoFW", withExtension: "json") else {
-            print("json file not found")
-            return
-        }
-
-        do {
-            // descarrega os dados decodificados
-            let data = try Data(contentsOf: url)
-            let decodedPrompts = try JSONDecoder().decode([PromptFW].self, from: data)
-
-
-            self.todosPrompts = decodedPrompts
-            self.promptsFeitos = self.todosPrompts.filter { $0.feita }
-            self.promptsNaoFeitos = self.todosPrompts.filter { !$0.feita }
-
-        }catch {
-            print("erro")
+        
+        let fileURL = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)[0].appendingPathComponent("BancoFW.json")
+        if let data = try? Data(contentsOf: fileURL),
+           let decodedPlants = try? JSONDecoder().decode([PromptFW].self, from: data) {
+            todosPrompts = decodedPlants
+            self.promptsFeitos = self.todosPrompts!.filter { $0.feita }
+            self.promptsNaoFeitos = self.todosPrompts!.filter { !$0.feita }
+            //print(todosDesafios)
         }
     }
     
-    func copiaJson() {
+    /*func copiaJson() {
         // manipulacao de arquivos
         let gerenciaArquivo = FileManager.default
 
@@ -94,7 +113,7 @@ class FreeWritingViewModel: ObservableObject {
                 }
             }
         }
-    }
+    }*/
     
 //        func carregaDados() {
 //            //desafiosUtilities.carregaDesafios()
@@ -106,13 +125,13 @@ class FreeWritingViewModel: ObservableObject {
 //        }
     
     func verificaPromptsVazios() {
-        if promptsNaoFeitos.isEmpty {
-            for prompt in promptsFeitos {
+        if promptsNaoFeitos!.isEmpty {
+            for prompt in promptsFeitos! {
                 var copiaPrompt = prompt
                 copiaPrompt.feita = false
-                promptsNaoFeitos.append(copiaPrompt)
+                promptsNaoFeitos!.append(copiaPrompt)
             }
-            promptsFeitos.removeAll()
+            promptsFeitos!.removeAll()
         } else {
             return
         }
@@ -129,10 +148,25 @@ class FreeWritingViewModel: ObservableObject {
 //        }
 //    }
 //
+    func promptConcluido(promptRealizado: PromptFW) {
+        //var copiaDesafio: QuestaoDesafios = desafioRealizado
+        var copiaPrompt = PromptFW(id: promptRealizado.id, enunciado: promptRealizado.enunciado, feita: true)
+        
+        // encontra o elemento de id igual ao do desafio feito no vetor de nao realizados
+        if let index = promptsNaoFeitos!.firstIndex(where: { $0.id == promptRealizado.id }) {
+            promptsNaoFeitos!.remove(at: index)
+            promptsFeitos!.append(copiaPrompt)
+            //print(desafiosFeitos)
+        }
+        //print("Atualizado")
+        //print(todosPrompts)
+    }
+    
+    
     func sorteiaPrompt() -> PromptFW? {
         /* Sorteia um desafio dentre os nao feitos para o usuario fazer */
         verificaPromptsVazios()
-        return promptsNaoFeitos.randomElement()
+        return promptsNaoFeitos!.randomElement()
     }
     
     func criarSessao(contexto: NSManagedObjectContext, resposta: String, prompt: PromptFW) -> SessaoFreeWriting {

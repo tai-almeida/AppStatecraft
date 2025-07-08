@@ -68,7 +68,7 @@ class DesafiosMultimidiaViewModel: ObservableObject {
             todosDesafios = decodedPlants
             self.desafiosFeitos = self.todosDesafios!.filter { $0.feita }
             self.desafiosNaoFeitos = self.todosDesafios!.filter { !$0.feita }
-            print(todosDesafios)
+            //print(todosDesafios)
         }
         // pega url do arquivo json
         /*guard let url = Bundle.main.url(forResource: "BancoQuestoes", withExtension: "json") else {

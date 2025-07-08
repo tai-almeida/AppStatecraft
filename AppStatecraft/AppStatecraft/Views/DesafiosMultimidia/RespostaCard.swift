@@ -38,7 +38,26 @@ struct RespostaCard: View {
                 .padding(12)
             } else {
                 ZStack(alignment: .topLeading) {
-                    Text(respostaTexto)
+                    Text(respostaTexto + "\n")
+                        .font(.body)
+                        .padding(12)
+                        .foregroundColor(.black)
+                        .accessibilityHidden(true)
+                    
+                    TextEditor(text: $respostaTexto)
+                        .font(.body)
+                        .padding(.horizontal, 12)
+                    
+                    // Placeholder para o TextEditor
+                    
+                    if respostaTexto.isEmpty {
+                        Text("Digite sua resposta aqui...")
+                            .foregroundColor(.gray.opacity(0.7))
+                            .padding(.horizontal, 18)
+                            .padding(.vertical, 9)
+                            .allowsHitTesting(false) // Permite que o toque "passe" para o TextEditor
+                    }
+                    /*Text(respostaTexto)
                         .font(.body)
                         .foregroundColor(.clear)
                         .accessibilityHidden(true)
@@ -52,7 +71,7 @@ struct RespostaCard: View {
                             .foregroundColor(.gray.opacity(0.7))
                             .padding(12)
                             .allowsHitTesting(false) 
-                    }
+                    }*/
                 }
             }
             Spacer()

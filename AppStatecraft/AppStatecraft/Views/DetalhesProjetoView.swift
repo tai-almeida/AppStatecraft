@@ -49,7 +49,7 @@ struct DetalhesProjetoView: View {
     
     var body: some View {
         VStack(alignment: .center) {
-            List() {
+            ScrollView() {
                 
                 ForEach(sessoesFiltradas(), id: \.self) { sessao in
                     Button(action: {
@@ -60,14 +60,17 @@ struct DetalhesProjetoView: View {
 //                        }
                     }) {
                         CardAtividadesView(sessao: sessao)
+                            
                     }
-                    .listRowBackground(Color.clear)
+                    .padding(.horizontal, 20)
+                    .padding(.vertical, 8)
+                    //.listRowBackground(Color.clear)
                 }
             }
 //            .listRowBackground(.clear)
 
         }
-
+        .background(Color(.systemGroupedBackground))
         .frame(maxWidth: .infinity)
         .navigationTitle(projeto.nome ?? "Sem Nome")
         .navigationBarBackButtonHidden(true)

@@ -61,36 +61,28 @@ class DesafiosMultimidiaViewModel: ObservableObject {
     }
     
     func carregaDesafios() {
-        
         let fileURL = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)[0].appendingPathComponent("BancoQuestoes.json")
-        if let data = try? Data(contentsOf: fileURL),
-           let decodedPlants = try? JSONDecoder().decode([QuestaoDesafios].self, from: data) {
-            todosDesafios = decodedPlants
-            self.desafiosFeitos = self.todosDesafios!.filter { $0.feita }
-            self.desafiosNaoFeitos = self.todosDesafios!.filter { !$0.feita }
-            //print(todosDesafios)
-        }
-        // pega url do arquivo json
-        /*guard let url = Bundle.main.url(forResource: "BancoQuestoes", withExtension: "json") else {
-            print("json file not found")
-            return
-        }
-        
-        do {
-            // descarrega os dados decodificados
-            let data = try Data(contentsOf: url)
-            let decodedDesafios = try JSONDecoder().decode([QuestaoDesafios].self, from: data)
-            
-            
-            self.todosDesafios = decodedDesafios
-            self.desafiosFeitos = self.todosDesafios!.filter { $0.feita }
-            self.desafiosNaoFeitos = self.todosDesafios!.filter { !$0.feita }
-            print("Recupera")
-            print(todosDesafios)
-            
-        }catch {
-            print("erro")
-        }*/
+//        do {
+            if let data = try? Data(contentsOf: fileURL),
+               let decodedPlants = try? JSONDecoder().decode([QuestaoDesafios].self, from: data) {
+                todosDesafios = decodedPlants
+                self.desafiosFeitos = self.todosDesafios!.filter { $0.feita }
+                self.desafiosNaoFeitos = self.todosDesafios!.filter { !$0.feita }
+                //print(todosDesafios)
+            } else {
+                guard let url = Bundle.main.url(forResource: "BancoQuestoes", withExtension: "json") else {
+                    print("json file not found")
+                    return
+                }
+                if let dataBundle = try? Data(contentsOf: url),
+                    let decodedDesafios = try? JSONDecoder().decode([QuestaoDesafios].self, from: dataBundle) {
+                     todosDesafios = decodedDesafios
+                     self.desafiosFeitos = self.todosDesafios!.filter { $0.feita }
+                     self.desafiosNaoFeitos = self.todosDesafios!.filter { !$0.feita }
+                }
+
+            }
+
     }
     
     func copiaJson() {

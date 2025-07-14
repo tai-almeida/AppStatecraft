@@ -18,8 +18,6 @@
 		64D09EDF2E0EE41A00758A21 /* DetalhesProjetoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64D09EDE2E0EE41A00758A21 /* DetalhesProjetoView.swift */; };
 		64D09EE12E0EE46300758A21 /* ProjetoCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64D09EE02E0EE46300758A21 /* ProjetoCardView.swift */; };
 		64D09EE32E0EE7B700758A21 /* ProjetosViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64D09EE22E0EE7B700758A21 /* ProjetosViewModel.swift */; };
-		64D09EDF2E0EE41A00758A21 /* DetalhesProjetoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64D09EDE2E0EE41A00758A21 /* DetalhesProjetoView.swift */; };
-		64D09EE12E0EE46300758A21 /* ProjetoCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64D09EE02E0EE46300758A21 /* ProjetoCardView.swift */; };
 		A40457702E14036800F470D1 /* BotaoCloseModal.swift in Sources */ = {isa = PBXBuildFile; fileRef = A404576F2E14036800F470D1 /* BotaoCloseModal.swift */; };
 		A40C5B202E02DFDE00C30D6E /* DesafiosMultimidiaView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A40C5B1F2E02DFDE00C30D6E /* DesafiosMultimidiaView.swift */; };
 		A417CC9D2DF9CB7800564508 /* FreeWritingViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A417CC9C2DF9CB7800564508 /* FreeWritingViewModel.swift */; };
@@ -118,9 +116,9 @@
 		24E7D6782E0C1F2F0064BAD1 /* PingPongViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PingPongViewController.swift; sourceTree = "<group>"; };
 		644EC39D2E12AB41003AD6E9 /* ReqProjetos.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReqProjetos.swift; sourceTree = "<group>"; };
 		644EC39F2E12CEE3003AD6E9 /* CriarEAddProjetoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CriarEAddProjetoView.swift; sourceTree = "<group>"; };
-		64D09EE22E0EE7B700758A21 /* ProjetosViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjetosViewModel.swift; sourceTree = "<group>"; };
 		64D09EDE2E0EE41A00758A21 /* DetalhesProjetoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetalhesProjetoView.swift; sourceTree = "<group>"; };
 		64D09EE02E0EE46300758A21 /* ProjetoCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjetoCardView.swift; sourceTree = "<group>"; };
+		64D09EE22E0EE7B700758A21 /* ProjetosViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjetosViewModel.swift; sourceTree = "<group>"; };
 		A404576F2E14036800F470D1 /* BotaoCloseModal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BotaoCloseModal.swift; sourceTree = "<group>"; };
 		A40C5B1F2E02DFDE00C30D6E /* DesafiosMultimidiaView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DesafiosMultimidiaView.swift; sourceTree = "<group>"; };
 		A417CC9C2DF9CB7800564508 /* FreeWritingViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FreeWritingViewModel.swift; sourceTree = "<group>"; };
@@ -186,7 +184,7 @@
 		ED8481972E003F6B007E5709 /* homem.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = homem.jpg; path = Images/homem.jpg; sourceTree = "<group>"; };
 		ED84819A2E004534007E5709 /* DesafioUtilities.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DesafioUtilities.swift; sourceTree = "<group>"; };
 		ED84819C2E0047CC007E5709 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		EDF2654B2DF9A9F800898EBA /* AppStatecraft.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AppStatecraft.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		EDF2654B2DF9A9F800898EBA /* Inventio.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Inventio.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		EDF2654E2DF9A9F800898EBA /* AppStatecraftApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppStatecraftApp.swift; sourceTree = "<group>"; };
 		EDF265552DF9A9FC00898EBA /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		EDF2655B2DF9A9FC00898EBA /* AppStatecraftTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AppStatecraftTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -448,7 +446,7 @@
 		EDF2654C2DF9A9F800898EBA /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				EDF2654B2DF9A9F800898EBA /* AppStatecraft.app */,
+				EDF2654B2DF9A9F800898EBA /* Inventio.app */,
 				EDF2655B2DF9A9FC00898EBA /* AppStatecraftTests.xctest */,
 				EDF265652DF9A9FC00898EBA /* AppStatecraftUITests.xctest */,
 			);
@@ -512,7 +510,7 @@
 			);
 			name = AppStatecraft;
 			productName = AppStatecraft;
-			productReference = EDF2654B2DF9A9F800898EBA /* AppStatecraft.app */;
+			productReference = EDF2654B2DF9A9F800898EBA /* Inventio.app */;
 			productType = "com.apple.product-type.application";
 		};
 		EDF2655A2DF9A9FC00898EBA /* AppStatecraftTests */ = {
@@ -675,9 +673,6 @@
 				A43C40792E0EE7DE009B9E85 /* MultimidiaSalvoView.swift in Sources */,
 				A43C40942E0EFC34009B9E85 /* Sessao+CoreDataClass.swift in Sources */,
 				ED82ED432DFC6FC0006BE6D5 /* DesafiosUtilities.swift in Sources */,
-				A48ABE002E0C22FA00483673 /* Projeto+CoreDataProperties.swift in Sources */,
-				A48ABDFD2E0C22FA00483673 /* SessaoFreeWriting+CoreDataClass.swift in Sources */,
-				A48ABDF42E0C22FA00483673 /* SessaoMaieutica+CoreDataProperties.swift in Sources */,
 				644EC39E2E12AB41003AD6E9 /* ReqProjetos.swift in Sources */,
 				64D09EDF2E0EE41A00758A21 /* DetalhesProjetoView.swift in Sources */,
 				A45FE8D22E1C13D80079CBCF /* TelaVaziaProjeto.swift in Sources */,
@@ -878,7 +873,7 @@
 				);
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = triviaSwift.AppStatecraft;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = Inventio;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -907,7 +902,7 @@
 				);
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = triviaSwift.AppStatecraft;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = Inventio;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";

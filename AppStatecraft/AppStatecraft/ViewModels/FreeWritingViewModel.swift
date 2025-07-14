@@ -91,38 +91,20 @@ class FreeWritingViewModel: ObservableObject {
             self.promptsFeitos = self.todosPrompts!.filter { $0.feita }
             self.promptsNaoFeitos = self.todosPrompts!.filter { !$0.feita }
             //print(todosDesafios)
+        } else {
+            guard let url = Bundle.main.url(forResource: "BancoFW", withExtension: "json") else {
+                print("json file not found")
+                return
+            }
+            if let dataBundle = try? Data(contentsOf: url),
+               let decodedPrompts = try? JSONDecoder().decode([PromptFW].self, from: dataBundle) {
+                todosPrompts = decodedPrompts
+                self.promptsFeitos = self.todosPrompts!.filter { $0.feita }
+                self.promptsNaoFeitos = self.todosPrompts!.filter { !$0.feita }
+            }
         }
     }
     
-    /*func copiaJson() {
-        // manipulacao de arquivos
-        let gerenciaArquivo = FileManager.default
-
-        // obtem caminho ate o arquivo json com as questoes
-        let url = gerenciaArquivo.urls(for: .documentDirectory, in: .userDomainMask)[0]
-        let caminho = url.appendingPathComponent("BancoFW.json")
-
-
-        // copia arquivo json e verifica se ha erros
-        if !gerenciaArquivo.fileExists(atPath: caminho.path){
-            if let origem = Bundle.main.url(forResource: "BancoFW", withExtension: "json") {
-                do {
-                    try gerenciaArquivo.copyItem(at: origem, to: caminho)
-                } catch {
-                    print("erro ao copiar arquivo")
-                }
-            }
-        }
-    }*/
-    
-//        func carregaDados() {
-//            //desafiosUtilities.carregaDesafios()
-//
-//            self.promptsFeitos = desafiosUtilities.desafiosFeitos
-//            self.desafiosNaoFeitos = desafiosUtilities.desafiosNaoFeitos
-//            verificaDesafiosVazios()
-//
-//        }
     
     func verificaPromptsVazios() {
         if promptsNaoFeitos!.isEmpty {

@@ -46,6 +46,7 @@
 		A48ABE042E0C291F00483673 /* HistoricoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A48ABE032E0C291F00483673 /* HistoricoView.swift */; };
 		A48ABE062E0C293500483673 /* HistoricoViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A48ABE052E0C293500483673 /* HistoricoViewModel.swift */; };
 		C371EB642E4B5BC800DD61F4 /* Secrets.plist in Resources */ = {isa = PBXBuildFile; fileRef = C371EB632E4B5BBD00DD61F4 /* Secrets.plist */; };
+		C371EB672E4B5F2800DD61F4 /* Registros.swift in Sources */ = {isa = PBXBuildFile; fileRef = C371EB662E4B5F2800DD61F4 /* Registros.swift */; };
 		E8DDC8752E0AEBEF00365D65 /* MeusProjetosView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8DDC8742E0AEBEF00365D65 /* MeusProjetosView.swift */; };
 		E8FF55472E12D64D001C5407 /* CardProjeto.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8FF55462E12D64D001C5407 /* CardProjeto.swift */; };
 		E8FF55492E142DA9001C5407 /* SwiftUIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8FF55482E142DA9001C5407 /* SwiftUIView.swift */; };
@@ -148,6 +149,7 @@
 		A48ABE032E0C291F00483673 /* HistoricoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoricoView.swift; sourceTree = "<group>"; };
 		A48ABE052E0C293500483673 /* HistoricoViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoricoViewModel.swift; sourceTree = "<group>"; };
 		C371EB632E4B5BBD00DD61F4 /* Secrets.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Secrets.plist; sourceTree = "<group>"; };
+		C371EB662E4B5F2800DD61F4 /* Registros.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Registros.swift; sourceTree = "<group>"; };
 		E8DDC8742E0AEBEF00365D65 /* MeusProjetosView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeusProjetosView.swift; sourceTree = "<group>"; };
 		E8FF55462E12D64D001C5407 /* CardProjeto.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardProjeto.swift; sourceTree = "<group>"; };
 		E8FF55482E142DA9001C5407 /* SwiftUIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftUIView.swift; sourceTree = "<group>"; };
@@ -258,6 +260,7 @@
 		A417CCA02DF9CB9100564508 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				C371EB652E4B5F1400DD61F4 /* Registros */,
 				242B85542E0EBF6D006EE127 /* Maieutica */,
 				ED81EB242E0C255A003062BA /* FreeWriting */,
 				ED80F5AF2E0ADB5100B61E97 /* PingPong */,
@@ -340,6 +343,14 @@
 				EDF2654E2DF9A9F800898EBA /* AppStatecraftApp.swift */,
 			);
 			path = Application;
+			sourceTree = "<group>";
+		};
+		C371EB652E4B5F1400DD61F4 /* Registros */ = {
+			isa = PBXGroup;
+			children = (
+				C371EB662E4B5F2800DD61F4 /* Registros.swift */,
+			);
+			path = Registros;
 			sourceTree = "<group>";
 		};
 		ED80F5A12E0AC43800B61E97 /* Extensions */ = {
@@ -692,6 +703,7 @@
 				A47175B92E01A23A00AC6B12 /* ContainerEnunciadoView.swift in Sources */,
 				ED80F5B12E0ADB5F00B61E97 /* PingPongView.swift in Sources */,
 				ED6EAA912E16CE4D0010D4B4 /* ConteudoProjetoView.swift in Sources */,
+				C371EB672E4B5F2800DD61F4 /* Registros.swift in Sources */,
 				ED81EB2A2E0C25D7003062BA /* FreeWritingView.swift in Sources */,
 				ED695A672E01B37C009C0BE0 /* TabBar.swift in Sources */,
 				A43C408F2E0EFC34009B9E85 /* SessaoPingPong+CoreDataProperties.swift in Sources */,

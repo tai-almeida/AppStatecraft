@@ -11,7 +11,6 @@
 		242B85582E0EBFD6006EE127 /* InicialMaieuticaView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 242B85572E0EBFD6006EE127 /* InicialMaieuticaView.swift */; };
 		242B855A2E0EC00A006EE127 /* MaieuticaView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 242B85592E0EC00A006EE127 /* MaieuticaView.swift */; };
 		242B855C2E0EC558006EE127 /* RespostaMaieutica.swift in Sources */ = {isa = PBXBuildFile; fileRef = 242B855B2E0EC558006EE127 /* RespostaMaieutica.swift */; };
-		24BC38DF2E0D99360050023C /* Secrets.plist in Resources */ = {isa = PBXBuildFile; fileRef = 24BC38DE2E0D99360050023C /* Secrets.plist */; };
 		24E7D6792E0C1F2F0064BAD1 /* PingPongViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24E7D6782E0C1F2F0064BAD1 /* PingPongViewController.swift */; };
 		644EC39E2E12AB41003AD6E9 /* ReqProjetos.swift in Sources */ = {isa = PBXBuildFile; fileRef = 644EC39D2E12AB41003AD6E9 /* ReqProjetos.swift */; };
 		644EC3A02E12CEE4003AD6E9 /* CriarEAddProjetoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 644EC39F2E12CEE3003AD6E9 /* CriarEAddProjetoView.swift */; };
@@ -46,6 +45,7 @@
 		A4773CA72E01B0F2002D27D7 /* DataController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4773CA62E01B0F2002D27D7 /* DataController.swift */; };
 		A48ABE042E0C291F00483673 /* HistoricoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A48ABE032E0C291F00483673 /* HistoricoView.swift */; };
 		A48ABE062E0C293500483673 /* HistoricoViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A48ABE052E0C293500483673 /* HistoricoViewModel.swift */; };
+		C371EB642E4B5BC800DD61F4 /* Secrets.plist in Resources */ = {isa = PBXBuildFile; fileRef = C371EB632E4B5BBD00DD61F4 /* Secrets.plist */; };
 		E8DDC8752E0AEBEF00365D65 /* MeusProjetosView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8DDC8742E0AEBEF00365D65 /* MeusProjetosView.swift */; };
 		E8FF55472E12D64D001C5407 /* CardProjeto.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8FF55462E12D64D001C5407 /* CardProjeto.swift */; };
 		E8FF55492E142DA9001C5407 /* SwiftUIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8FF55482E142DA9001C5407 /* SwiftUIView.swift */; };
@@ -112,7 +112,6 @@
 		242B85572E0EBFD6006EE127 /* InicialMaieuticaView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InicialMaieuticaView.swift; sourceTree = "<group>"; };
 		242B85592E0EC00A006EE127 /* MaieuticaView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MaieuticaView.swift; sourceTree = "<group>"; };
 		242B855B2E0EC558006EE127 /* RespostaMaieutica.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RespostaMaieutica.swift; sourceTree = "<group>"; };
-		24BC38DE2E0D99360050023C /* Secrets.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Secrets.plist; sourceTree = "<group>"; };
 		24E7D6782E0C1F2F0064BAD1 /* PingPongViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PingPongViewController.swift; sourceTree = "<group>"; };
 		644EC39D2E12AB41003AD6E9 /* ReqProjetos.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReqProjetos.swift; sourceTree = "<group>"; };
 		644EC39F2E12CEE3003AD6E9 /* CriarEAddProjetoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CriarEAddProjetoView.swift; sourceTree = "<group>"; };
@@ -148,6 +147,7 @@
 		A4773CA82E01B204002D27D7 /* oi.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = oi.swift; path = AppStatecraft/Core/Persistence/oi.swift; sourceTree = SOURCE_ROOT; };
 		A48ABE032E0C291F00483673 /* HistoricoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoricoView.swift; sourceTree = "<group>"; };
 		A48ABE052E0C293500483673 /* HistoricoViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoricoViewModel.swift; sourceTree = "<group>"; };
+		C371EB632E4B5BBD00DD61F4 /* Secrets.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Secrets.plist; sourceTree = "<group>"; };
 		E8DDC8742E0AEBEF00365D65 /* MeusProjetosView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeusProjetosView.swift; sourceTree = "<group>"; };
 		E8FF55462E12D64D001C5407 /* CardProjeto.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardProjeto.swift; sourceTree = "<group>"; };
 		E8FF55482E142DA9001C5407 /* SwiftUIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftUIView.swift; sourceTree = "<group>"; };
@@ -435,7 +435,7 @@
 		EDF265422DF9A9F800898EBA = {
 			isa = PBXGroup;
 			children = (
-				24BC38DE2E0D99360050023C /* Secrets.plist */,
+				C371EB632E4B5BBD00DD61F4 /* Secrets.plist */,
 				EDF2654D2DF9A9F800898EBA /* AppStatecraft */,
 				EDF2655E2DF9A9FC00898EBA /* AppStatecraftTests */,
 				EDF265682DF9A9FC00898EBA /* AppStatecraftUITests */,
@@ -601,7 +601,7 @@
 				EDF265562DF9A9FC00898EBA /* Preview Assets.xcassets in Resources */,
 				ED8481942E003F2D007E5709 /* viajante.jpg in Resources */,
 				ED8481962E003F3A007E5709 /* moca_arte.jpg in Resources */,
-				24BC38DF2E0D99360050023C /* Secrets.plist in Resources */,
+				C371EB642E4B5BC800DD61F4 /* Secrets.plist in Resources */,
 				ED81EB362E0C3AFC003062BA /* BancoFW.json in Resources */,
 				ED84819D2E0047CC007E5709 /* Assets.xcassets in Resources */,
 				ED8481982E003F6B007E5709 /* homem.jpg in Resources */,
@@ -859,6 +859,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"AppStatecraft/Resources/Preview Content\"";
+				DEVELOPMENT_TEAM = 2U7Y6S5549;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_NSPhotoLibraryUsageDescription = "Para que você possa anexar uma imagem à sua resposta do desafio.\n\nPara que você possa anexar uma imagem à sua resposta do desafio.\n\nPara que você possa anexar uma imagem à sua resposta do desafio.\n\nPara que você possa anexar uma imagem à sua resposta do desafio.\n\nPara que você possa anexar uma imagem à sua resposta do desafio.\nPara que você possa anexar uma imagem à sua resposta do desafio.\n\nPara que você possa anexar uma imagem à sua resposta do desafio.\n\nPara que você possa anexar uma imagem à sua resposta do desafio.\n\nPara que você possa anexar uma imagem à sua resposta do desafio.\n\nPara que você possa anexar uma imagem à sua resposta do desafio.\n";
@@ -888,6 +889,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "";
+				DEVELOPMENT_TEAM = 2U7Y6S5549;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_NSPhotoLibraryUsageDescription = "Para que você possa anexar uma imagem à sua resposta do desafio.\n\nPara que você possa anexar uma imagem à sua resposta do desafio.\n\nPara que você possa anexar uma imagem à sua resposta do desafio.\n\nPara que você possa anexar uma imagem à sua resposta do desafio.\n\nPara que você possa anexar uma imagem à sua resposta do desafio.\nPara que você possa anexar uma imagem à sua resposta do desafio.\n\nPara que você possa anexar uma imagem à sua resposta do desafio.\n\nPara que você possa anexar uma imagem à sua resposta do desafio.\n\nPara que você possa anexar uma imagem à sua resposta do desafio.\n\nPara que você possa anexar uma imagem à sua resposta do desafio.\n";

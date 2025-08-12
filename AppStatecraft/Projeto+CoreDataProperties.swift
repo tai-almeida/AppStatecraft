@@ -2,7 +2,7 @@
 //  Projeto+CoreDataProperties.swift
 //  AppStatecraft
 //
-//  Created by Sofia Villas Bôas on 27/06/25.
+//  Created by Sofia Villas Bôas on 12/08/25.
 //
 //
 
@@ -16,11 +16,11 @@ extension Projeto {
         return NSFetchRequest<Projeto>(entityName: "Projeto")
     }
 
+    @NSManaged public var data: Date?
     @NSManaged public var finalizado: Bool
     @NSManaged public var id: UUID?
     @NSManaged public var imagemCapa: Data?
     @NSManaged public var nome: String?
-    @NSManaged public var data: Date?
     @NSManaged public var registros: NSSet?
     @NSManaged public var sessoes: NSSet?
 
@@ -61,5 +61,5 @@ extension Projeto {
 }
 
 extension Projeto : Identifiable {
-    
+
 }

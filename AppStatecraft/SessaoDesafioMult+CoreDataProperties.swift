@@ -2,7 +2,7 @@
 //  SessaoDesafioMult+CoreDataProperties.swift
 //  AppStatecraft
 //
-//  Created by Sofia Villas Bôas on 27/06/25.
+//  Created by Sofia Villas Bôas on 12/08/25.
 //
 //
 
@@ -16,12 +16,12 @@ extension SessaoDesafioMult {
         return NSFetchRequest<SessaoDesafioMult>(entityName: "SessaoDesafioMult")
     }
 
+    @NSManaged public var desafioFeito: Bool
+    @NSManaged public var desafioID: Int64
     @NSManaged public var enunciado: String?
     @NSManaged public var mediaFoto: Data?
     @NSManaged public var mediaTexto: String?
     @NSManaged public var respostaFoto: Data?
     @NSManaged public var respostaTexto: String?
-    @NSManaged public var desafioFeito: Bool
-    @NSManaged public var desafioID: Int64
 
 }

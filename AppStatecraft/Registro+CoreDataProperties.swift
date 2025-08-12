@@ -2,7 +2,7 @@
 //  Registro+CoreDataProperties.swift
 //  AppStatecraft
 //
-//  Created by Sofia Villas Bôas on 27/06/25.
+//  Created by Sofia Villas Bôas on 12/08/25.
 //
 //
 
@@ -19,6 +19,7 @@ extension Registro {
     @NSManaged public var data: Date?
     @NSManaged public var id: UUID?
     @NSManaged public var titulo: String?
+    @NSManaged public var texto: String?
     @NSManaged public var projeto: Projeto?
 
 }

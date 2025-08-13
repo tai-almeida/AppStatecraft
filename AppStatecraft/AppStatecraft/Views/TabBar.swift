@@ -1,13 +1,16 @@
 import SwiftUI
+import CoreData
 
 struct TabBar: View {
+    @Environment(\.managedObjectContext) private var contexto
+    
     var body: some View {
         TabView {
             MetodologiasView()
                 .tabItem {
                     Label("Metodologias", systemImage: "book")
                 }
-            Registros()
+            Registros(contexto: contexto)
                 .tabItem {
                     Label("Registros", systemImage: "note.text")
                 }
